@@ -1,30 +1,31 @@
-// Mapping von Wörtern zu Emoji-URLs
+
 const wordToEmojiMap = {
-  "5Head": "https://cdn.7tv.app/emote/01F6NPFQXG000AAS5FM9Q6GVCC/1x.avif",
-  "Pog": "https://cdn.7tv.app/emote/01F6NPRJXG000AAS5FM9Q6GVCC/1x.avif",
-  "FeelsBadMan": "https://cdn.7tv.app/emote/01F6NPSQXG000AAS5FM9Q6GVCC/1x.avif"
-  // Füge hier weitere Wörter und ihre Emoji-URLs hinzu
+  "5Head": "https://cdn.7tv.app/emote/01F6NPFQXG000AAS5FM9Q6GVCC/2x.avif",
+  "Pog": "https://cdn.7tv.app/emote/01F6NPRJXG000AAS5FM9Q6GVCC/2x.avif",
+  "FeelsBadMan": "https://cdn.7tv.app/emote/01F6NPSQXG000AAS5FM9Q6GVCC/2x.avif",
+  "Kappa": "https://cdn.7tv.app/emote/01F6NPKQXG000AAS5FM9Q6GVCC/2x.avif",
+  "pepeSmoke": "https://cdn.7tv.app/emote/01GXSBRHEG0005KVP89EZ27DXH/2x.avif",
+
 };
 
-// Funktion, die den Text auf der Seite ersetzt
+
 function replaceWordsWithEmojis() {
-  // Alle Elemente auf der Seite durchsuchen
+
   const elements = document.querySelectorAll('p, h1, h2, h3, span, div');
 
   elements.forEach(element => {
     let text = element.innerHTML;
 
-    // Ersetze jedes Wort in der Map durch das entsprechende Emoji
     for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
       const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
-      text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag); // \\b stellt sicher, dass nur ganze Wörter ersetzt werden
+      text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag); 
     }
 
     element.innerHTML = text;
   });
 }
 
-// Stelle sicher, dass die Funktion nach dem Laden der Seite ausgeführt wird
+
 document.addEventListener("DOMContentLoaded", function() {
   replaceWordsWithEmojis();
 });
@@ -50,33 +51,33 @@ function prevSlide() {
   showSlide(i);
 }
 
-// Bildwechsel mit Fade für Rotator und Produktkarten
+
 function handleImageHover(event, isRotator = false) {
   const image = event.target;
   const originalSrc = image.src;
   
-  // Zweites Bild mit _2.png
-  image.dataset.originalSrc = originalSrc; // Speichern des Originalbilds
-  image.src = originalSrc.replace('.png', '_2.png'); // Bild wechseln
 
-  image.classList.add('fade-in'); // Fade-Effekt hinzufügen
+  image.dataset.originalSrc = originalSrc; 
+  image.src = originalSrc.replace('.png', '_2.png'); 
 
-  // Beim Verlassen der Maus das Bild zurück wechseln
+  image.classList.add('fade-in'); 
+
+ 
   if (isRotator) {
     image.addEventListener('mouseleave', () => {
-      image.src = image.dataset.originalSrc; // Originalbild zurückladen
-      image.classList.remove('fade-in'); // Fade-Effekt entfernen
+      image.src = image.dataset.originalSrc; 
+      image.classList.remove('fade-in'); 
     });
   } else {
     image.addEventListener('mouseleave', () => {
-      image.src = image.dataset.originalSrc; // Originalbild zurückladen
-      image.classList.remove('fade-in'); // Fade-Effekt entfernen
+      image.src = image.dataset.originalSrc; 
+      image.classList.remove('fade-in'); 
     });
   }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Rotator-Slides und Indikatoren
+
   slides = document.querySelectorAll(".rotator a");
   indicators = document.createElement("div");
   document.querySelector(".rotator-indicators").appendChild(indicators);
@@ -98,25 +99,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
   setInterval(nextSlide, 8000);
 
-  // Produktkarten
+
   const productCardImages = document.querySelectorAll('.product-card img');
   productCardImages.forEach(image => {
     image.addEventListener('mouseenter', (event) => handleImageHover(event));
   });
 
-  // Rotator
+
   const rotatorImages = document.querySelectorAll('.rotator img');
   rotatorImages.forEach(image => {
     image.addEventListener('mouseenter', (event) => handleImageHover(event, true)); // true für Rotator
   });
 
-  // Dropdown-Menü-Handling
+
   const dropdownToggle = document.querySelector(".dropdown-toggle");
   dropdownToggle.addEventListener("click", function(event) {
     event.preventDefault();
   });
 
-  // Markiere den aktiven Menü-Link
   const links = document.querySelectorAll(".header-center ul li a");
   const currentUrl = window.location.pathname;
 
