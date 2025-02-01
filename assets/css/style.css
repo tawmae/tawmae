@@ -107,7 +107,7 @@ header {
 }
 
 .header-right a .iconify:hover {
-  transform: scale(1.05); 
+  transform: scale(1.1); 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
 
