@@ -54,7 +54,7 @@ header {
   font-size: 1rem;
 }
 .header-center ul li a:hover {
-  color: #466090;
+  color: #466090 !important;
 }
 .header-center ul li a.active {
   color: white;
