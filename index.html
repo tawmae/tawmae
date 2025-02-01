@@ -30,9 +30,9 @@
     <nav class="header-center">
       <ul>
         <li><a href="#home">Start</a></li>
-        <li><a href="#about">Über</a></li>
-        <li><a href="#services">Leistungen</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="#callouts">Hinweise</a></li>
+        <li><a href="#import">Import</a></li>
+        <li><a href="#code-sample">Code</a></li>
       </ul>
     </nav>
     <div class="header-right">
@@ -44,25 +44,6 @@
   <main>
     <section id="home">
       <h1>Willkommen auf meiner Website</h1>
-      <p>Eine moderne, minimalistische Webseite mit Stil und nützlichen Gimmicks.</p>
-      <button onclick="zeigeNachricht()">Los geht’s!</button>
-      <p id="nachricht"></p>
-      <div id="gimmicks">
-        <h2>Nützliche Gimmicks</h2>
-        <p id="current-time">Aktuelle Zeit: </p>
-      </div>
-    </section>
-    <section id="about">
-      <h2>Über uns</h2>
-      <p>Wir erstellen moderne Websites mit HTML, CSS und JavaScript.</p>
-    </section>
-    <section id="services">
-      <h2>Unsere Leistungen</h2>
-      <div class="card-container">
-        <div class="card">Webdesign</div>
-        <div class="card">SEO-Optimierung</div>
-        <div class="card">Marketing</div>
-      </div>
     </section>
     <section id="callouts">
       <h2>Wichtige Hinweise</h2>
@@ -74,18 +55,21 @@
       <h2>Import</h2>
       <div class="import-container">
         <span class="import-string"></span>
-        <button onclick="copyImportString()"><span class="iconify" data-icon="material-symbols:content-copy-outline"></span> Kopieren</button>
+        <button onclick="copyImportString()">
+          <span class="iconify" data-icon="material-symbols:content-copy-outline"></span> Kopieren
+        </button>
       </div>
     </section>
     <section id="code-sample">
       <h2>Code Beispiel (C#)</h2>
       <div class="code-block">
-        <pre><code class="language-cs">public class HelloWorld {
+        <pre>
+  <span class="copy-code iconify" data-icon="material-symbols:content-copy-outline" onclick="copyCode(this)"></span><code class="language-cs">public class HelloWorld {
     public static void Main() {
         Console.WriteLine("Hallo, Welt!");
     }
-}</code></pre>
-        <span class="copy-code iconify" data-icon="material-symbols:content-copy-outline" onclick="copyCode(this)"></span>
+}</code>
+        </pre>
       </div>
     </section>
   </main>
