@@ -1,16 +1,5 @@
 const longString = "VGhpcyBpcyBhIHZlcnkgbG9uZyBiYXNlNjQgZW5jb2RlZCBzdHJpbmcgdGhhdCB3aWxsIGJlIGNvcGllZCB0byBjbGlwYm9hcmQ=";
 
-function copyImportString() {
-  navigator.clipboard.writeText(longString);
-  showNotification("Copied import to clipboard");
-}
-
-function copyCode(elem) {
-  const codeText = elem.parentElement.querySelector("code").innerText;
-  navigator.clipboard.writeText(codeText);
-  showNotification("Copied code to clipboard");
-}
-
 function showNotification(message) {
   const notif = document.createElement("div");
   notif.className = "copy-notification";
@@ -22,6 +11,17 @@ function showNotification(message) {
       notif.remove();
     }, 500);
   }, 1500);
+}
+
+function copyImportString() {
+  navigator.clipboard.writeText(longString);
+  showNotification("Copied import to clipboard");
+}
+
+function copyCode(elem) {
+  const codeText = elem.parentElement.querySelector("code").innerText;
+  navigator.clipboard.writeText(codeText);
+  showNotification("Copied code to clipboard");
 }
 
 const dynamicContents = [
@@ -99,6 +99,40 @@ window.addEventListener("scroll", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+  // Set the import preview text (CSS will limit the visible text)
   document.querySelector(".import-string").innerText = longString;
   renderDynamicContents();
+
+  // Rotator Setup
+  let currentIndex = 0;
+  const slides = document.querySelectorAll('.rotator a');
+  const indicatorsContainer = document.querySelector('.rotator-indicators');
+  const slideTitleEl = document.querySelector('.slide-title');
+  const slideTitles = ["Spotify", "Movie and TV Show Quiz", "All In One Moderation Tools", "Bluesky"];
+  
+  slides.forEach((_, index) => {
+    const indicator = document.createElement('div');
+    indicator.classList.add('indicator');
+    indicator.addEventListener('click', () => goToSlide(index));
+    indicatorsContainer.appendChild(indicator);
+  });
+  const indicators = document.querySelectorAll('.indicator');
+  
+  function updateSlide() {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === currentIndex);
+      indicators[index].classList.toggle('active', index === currentIndex);
+    });
+    slideTitleEl.classList.add('hidden');
+    setTimeout(() => {
+      slideTitleEl.textContent = slideTitles[currentIndex];
+      slideTitleEl.classList.remove('hidden');
+    }, 500);
+  }
+  window.nextSlide = function() { currentIndex = (currentIndex + 1) % slides.length; updateSlide(); }
+  window.prevSlide = function() { currentIndex = (currentIndex - 1 + slides.length) % slides.length; updateSlide(); }
+  window.goToSlide = function(index) { currentIndex = index; updateSlide(); }
+  
+  updateSlide();
+  setInterval(() => { nextSlide(); }, 8000);
 });
