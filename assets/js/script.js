@@ -25,7 +25,9 @@ function handleImageHover(event) {
   image.dataset.originalSrc = originalSrc;  // Speichern des Originalbildes
 
   // Wechsel zum zweiten Bild
-  image.src = originalSrc.replace('.png', '_2.png');
+  if (originalSrc.includes('.png')) {
+    image.src = originalSrc.replace('.png', '_2.png');
+  }
 }
 
 function handleImageMouseOut(event) {
