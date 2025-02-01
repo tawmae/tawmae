@@ -345,4 +345,7 @@ footer {
 
 .black-text-box p {
   font-size: 1rem;
+  max-width: 300px;
+  word-wrap: break-word;
+  white-space: normal;
 }
