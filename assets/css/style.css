@@ -306,5 +306,6 @@ footer {
 }
 
 .jump-to-top:hover {
+  color: #466090;
   text-decoration: underline;
 }
