@@ -55,7 +55,7 @@ function showSlide(i) {
   indicators[i].classList.add("active");
 
   const title = slides[i].getAttribute("data-title");
-  document.querySelector(".slide-title").textContent = replacePlaceholdersWithEmojis(title);  // Emojis auch im Titel anzeigen
+  document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(title);  // Emojis auch im Titel anzeigen
 
   currentIndex = i;
 }
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
   indicators[0].classList.add("active");
 
   const initialTitle = slides[0].getAttribute("data-title");
-  document.querySelector(".slide-title").textContent = replacePlaceholdersWithEmojis(initialTitle);  // Emojis auch im Titel anzeigen
+  document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(initialTitle);  // Emojis auch im Titel anzeigen
 
   setInterval(nextSlide, 8000);
 
