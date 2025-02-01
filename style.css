@@ -159,12 +159,8 @@ button:hover {
   background: #1e1d22;
   padding: 10px;
   border-radius: 5px;
-  max-width: 400px;
+  max-width: 800px;
   margin: 20px auto;
-}
-
-.import-container button {
-  margin-top: 0;
 }
 
 .import-string {
@@ -177,6 +173,26 @@ button:hover {
   border-radius: 5px;
 }
 
+.code-block {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.copy-code {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: white;
+  transition: color 0.3s;
+}
+
+.copy-code:hover {
+  color: #466090;
+}
+
 pre {
   background: #1e1d22;
   padding: 15px;
@@ -185,16 +201,17 @@ pre {
   text-align: left;
   margin: 20px auto;
   max-width: 800px;
+  position: relative;
 }
 
 footer {
-  width: calc(100% + 40px);
-  margin: 50px -20px 0 -20px;
-  padding: 20px 40px;
+  width: 100%;
+  margin-top: 50px;
+  padding: 20px;
   background: #1e1d22;
   font-size: 0.9rem;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
 }
 
@@ -232,4 +249,82 @@ footer {
   opacity: 1;
   transition: opacity 0.5s ease;
   z-index: 1001;
+}
+
+#gimmicks {
+  margin-top: 20px;
+}
+
+#gimmicks button {
+  background: #466090;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+
+#gimmicks button:hover {
+  background: white;
+  color: #466090;
+}
+
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1e1d22;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+#cookie-banner p {
+  margin: 0;
+}
+
+#cookie-banner button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+#cookie-banner button:hover {
+  background: white;
+  color: #1e1d22;
+}
+
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light-mode header,
+body.light-mode footer,
+body.light-mode .import-container,
+body.light-mode .card,
+body.light-mode pre {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+body.light-mode .header-center a,
+body.light-mode .header-right a,
+body.light-mode .jump-to-top {
+  color: #000;
+}
+
+body.light-mode #cookie-banner {
+  background: #f0f0f0;
+  color: #000;
 }
