@@ -47,7 +47,6 @@ header {
   gap: 20px;
 }
 
-/* Ensure dropdown parent is positioned relative */
 .header-center ul li {
   position: relative;
 }
@@ -58,13 +57,13 @@ header {
   font-weight: 600;
   transition: 0.3s;
   white-space: nowrap;
+  font-size: 1rem;
 }
 
 .header-center ul li a:hover {
   color: #466090;
 }
 
-/* Dropdown Menu for OBS Widgets */
 .header-center ul li .dropdown-menu {
   display: none;
   flex-direction: column;
@@ -105,7 +104,7 @@ header {
 
 .header-right a {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-left: 15px;
   transition: transform 0.3s;
   text-decoration: none;
@@ -117,7 +116,7 @@ header {
 }
 
 .header-right .need-help {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: normal;
   margin-right: 20px;
   display: inline-flex;
@@ -125,7 +124,7 @@ header {
 }
 
 .header-right .need-help .iconify {
-  font-size: 1.5rem;
+  font-size: 1rem;
   vertical-align: middle;
   margin-left: 5px;
 }
@@ -252,6 +251,12 @@ header {
   margin: 20px auto;
   padding: 0 20px;
   justify-items: center;
+}
+
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .product-card {
