@@ -21,21 +21,14 @@ function prevSlide() {
 function handleImageHover(event) {
   const image = event.target;
   const originalSrc = image.dataset.originalSrc || image.src;
-  const secondImage = image.nextElementSibling;
-
-  image.classList.add('hidden');
-  secondImage.classList.remove('hidden');
-  secondImage.src = originalSrc.replace('.png', '_2.png'); 
+  image.dataset.originalSrc = originalSrc;
+  image.src = originalSrc.replace('.png', '_2.png');
 }
 
 function handleImageMouseOut(event) {
   const image = event.target;
-  const originalSrc = image.dataset.originalSrc || image.src;
-  const secondImage = image.nextElementSibling;
-
-  secondImage.classList.add('hidden');
-  image.classList.remove('hidden');
-  secondImage.src = ''; 
+  const originalSrc = image.dataset.originalSrc;
+  image.src = originalSrc;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -62,22 +55,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const rotatorImages = document.querySelectorAll('.rotator img');
   rotatorImages.forEach(image => {
-    const secondImage = document.createElement('img');
-    secondImage.classList.add('hidden');
-    secondImage.src = image.src.replace('.png', '_2.png');
-    image.parentElement.appendChild(secondImage);
-
     image.addEventListener('mouseenter', handleImageHover);
     image.addEventListener('mouseleave', handleImageMouseOut);
   });
 
   const productCardImages = document.querySelectorAll('.product-card img');
   productCardImages.forEach(image => {
-    const secondImage = document.createElement('img');
-    secondImage.classList.add('hidden');
-    secondImage.src = image.src.replace('.png', '_2.png');
-    image.parentElement.appendChild(secondImage);
-
     image.addEventListener('mouseenter', handleImageHover);
     image.addEventListener('mouseleave', handleImageMouseOut);
   });
