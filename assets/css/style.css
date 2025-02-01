@@ -239,7 +239,6 @@ header {
 .product-grid-wrapper {
   display: flex;
   justify-content: center; 
-  gap: 20px;
   margin-top: 20px;
 }
 
@@ -247,6 +246,7 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
   max-width: 1200px;
+  gap: 20px;
 }
 .product-card-link {
   text-decoration: none;
