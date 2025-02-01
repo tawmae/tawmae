@@ -250,7 +250,7 @@ header {
   display: block;
 }
 .product-card {
-  background: #1e1d22;
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   padding: 10px;
   text-align: center;
