@@ -27,16 +27,16 @@
     </div>
     <nav class="header-center">
       <ul>
-        <li><a href="{{ site.baseurl }}/">START</a></li>
-        <li class="dropdown">
-          <a href="{{ site.baseurl }}/obs-widgets.html">OBS WIDGETS <span class="arrow">&#9662;</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{ site.baseurl }}/obs-widgets/ad-notification.html">AD NOTIFICATION</a></li>
-            <li><a href="{{ site.baseurl }}/obs-widgets/basic-alerts.html">BASIC ALERTS</a></li>
-            <li><a href="{{ site.baseurl }}/obs-widgets/dynamic-timers.html">DYNAMIC TIMERS</a></li>
-          </ul>
-        </li>
-        <li><a href="{{ site.baseurl }}/commissions.html">COMMISSIONS</a></li>
+        <li><a href="{{ site.baseurl }}/" class="{% if page.url == '/' %}active{% endif %}">START</a></li>
+<li class="dropdown">
+  <a href="{{ site.baseurl }}/obs-widgets.html" class="{% if page.url contains 'obs-widgets' %}active{% endif %}">OBS WIDGETS <span class="arrow">&#9662;</span></a>
+  <ul class="dropdown-menu">
+    <li><a href="{{ site.baseurl }}/obs-widgets/ad-notification.html" class="{% if page.url contains 'ad-notification' %}active{% endif %}">AD NOTIFICATION</a></li>
+    <li><a href="{{ site.baseurl }}/obs-widgets/basic-alerts.html" class="{% if page.url contains 'basic-alerts' %}active{% endif %}">BASIC ALERTS</a></li>
+    <li><a href="{{ site.baseurl }}/obs-widgets/dynamic-timers.html" class="{% if page.url contains 'dynamic-timers' %}active{% endif %}">DYNAMIC TIMERS</a></li>
+  </ul>
+</li>
+<li><a href="{{ site.baseurl }}/commissions.html" class="{% if page.url contains 'commissions' %}active{% endif %}">COMMISSIONS</a></li>
       </ul>
     </nav>
     <div class="header-right">
