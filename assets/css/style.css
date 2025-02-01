@@ -268,11 +268,10 @@ header {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 5px;
-  transition: transform 0.3s ease-in-out;
+   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .product-card:hover img, .rotator:hover img {
-  opacity: 0;  /* Optional: Bild unsichtbar machen während des Hover-Effekts */
-  transform: scale(1.05); /* Optional: zoomt das Bild leicht */
+  opacity: 0;
 }
 
 .product-card img.fade-in, .rotator img.fade-in {
