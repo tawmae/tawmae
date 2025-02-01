@@ -56,6 +56,18 @@ header {
 .header-center ul li a:hover {
   color: #466090;
 }
+.header-center ul li a.active {
+  color: white;
+}
+.header-center ul li a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: white; 
+}
 .header-center ul li .dropdown-menu {
   display: none;
   flex-direction: column;
