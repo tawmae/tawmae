@@ -300,6 +300,7 @@ footer {
 }
 
 .kofi-button{
+  white-space: nowrap;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
