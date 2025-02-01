@@ -1,0 +1,120 @@
+---
+layout: default
+title: "Ad Notifications"
+description: "Overlay for Twitch ads notifications"
+---
+
+<img src="assets/media/ad_title_1.png" alt="Ad Title">
+
+<p>Twitch</p>
+<p>OBS</p>
+<p>StreamerBot</p>
+
+<h1>Table of contents</h1>
+<div id="toc">
+  <!-- TOC will be generated here -->
+</div>
+
+<hr>
+
+<h2><span class="iconify" data-icon="material-symbols:description-outline-sharp" data-inline="false"></span> Description</h2>
+<p>An overlay for when Twitch ads are about to start or are currently in progess.</p>
+
+<img src="assets/media/ads_1.gif" alt="Ads preview 1">
+<img src="assets/media/ads_2.gif" alt="Ads preview 2">
+
+<hr>
+
+<h2><span class="iconify" data-icon="tabler:tool" data-inline="false"></span> Setup</h2>
+<ol>
+  <li>
+    <p>Go into Streamerbot and head to the tab <code>Servers/Clients -&gt; WebSocket Server</code> and start the websocket server. Leave the address at <code>127.0.0.1</code> and the port at <code>8080</code>. Check <code>Auto Start</code> as well. You can set a password, but you don't have to. If you do, make sure <code>Enforce for All Requests</code> stays unchecked.</p>
+    <a href="https://tawmae.github.io/assets/media/notif_sb.png" target="_blank">
+      <img src="assets/media/notif_sb.png" alt="Streamerbot WebSocket Server">
+    </a>
+  </li>
+  <li>
+    <p>Copy the URL:</p>
+    <pre><code>https://tawmae.github.io/overlays/Ads.html</code></pre>
+  </li>
+  <li>
+    <p>Go into your OBS, create a browser source and paste the URL in there. Preferably set the resolution to your canvas size.</p>
+    <a href="https://tawmae.github.io/assets/media/notif_obs_1.png" target="_blank">
+      <img src="assets/media/notif_obs_1.png" alt="OBS Browser Source Setup">
+    </a>
+    <a href="https://tawmae.github.io/assets/media/recent_events_new_obs_1.png" target="_blank">
+      <img src="assets/media/recent_events_new_obs_1.png" alt="OBS Recent Events Setup">
+    </a>
+  </li>
+  <li>
+    <p>Done 🥳</p>
+  </li>
+</ol>
+
+<div class="new">
+  <p>To have the events in multiple scenes, don't create an individual browser source in every scene, but instead create a new <strong>nested</strong> scene and put just a single browser source in there. Then place that scene into all your other scenes. This way you won't have to create 20 browser sources for 20 scenes.</p>
+</div>
+
+<hr>
+
+<h2><span class="iconify" data-icon="material-symbols:dataset-linked-sharp" data-inline="false"></span> URL Parameters</h2>
+<p>To customize the ad overlay, you can add URL parameters. The first parameter gets added with a <code>?</code>, every additional one with <code>&amp;</code>.</p>
+<p>Example:</p>
+<pre><code>https://tawmae.github.io/overlays/Ads.html?sound=true&amp;color=violet&amp;font=lato</code></pre>
+<img src="assets/media/ads_custom.png" alt="Ads Customization">
+
+<hr>
+
+<h3><span class="iconify" data-icon="ion:color-palette" data-inline="false"></span> Color</h3>
+<p>Changes the color of the title and progress bar. Supports hex codes too.</p>
+<p><code>color=blue</code></p>
+<p><code>color=B81A56</code></p>
+
+<hr>
+
+<h3><span class="iconify" data-icon="mdi:format-font" data-inline="false"></span> Font Family</h3>
+<p>Changes the font used for the text. Supports standard fonts. Use <code>%20</code> to replace spaces.</p>
+<p><code>font=Arial</code></p>
+<p><code>font=Poppins</code></p>
+<p><code>font=Comic%20Sans%20MS</code></p>
+
+<hr>
+
+<h3><span class="iconify" data-icon="material-symbols:volume-up-rounded" data-inline="false"></span> Sound</h3>
+<p>Toggles whether a sound is played when the overlay displays.</p>
+<p><code>sound=true</code></p>
+
+<hr>
+
+<div class="new">
+  <p>You can simulate events by creating a trigger (<code>Twitch -&gt; Ads</code>), then right-click it and hit <code>Simulate Event</code>.</p>
+</div>
+
+<hr>
+
+<p><span class="iconify" data-icon="twemoji:flag-germany" data-inline="false"></span> German version: <a href="https://tawmae.github.io/overlays/Ads_GER.html" target="_blank">https://tawmae.github.io/overlays/Ads_GER.html</a></p>
+
+<hr>
+
+<h2><span class="iconify" data-icon="material-symbols:published-with-changes" data-inline="false"></span> Changelog</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Changes</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>December 06, 2024</td>
+      <td>Added color and font URL parameters</td>
+      <td>1.0.1</td>
+    </tr>
+    <tr>
+      <td>December 03, 2024</td>
+      <td>Release</td>
+      <td>1.0.0</td>
+    </tr>
+  </tbody>
+</table>
