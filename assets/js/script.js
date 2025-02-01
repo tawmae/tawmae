@@ -13,10 +13,11 @@ const wordToEmojiMap = {
 function replacePlaceholdersWithEmojis(text) {
   for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
     const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
-    text = text.replace(new RegExp(`:${word}:`, 'g'), emojiTag);
+    text = text.replace(new RegExp(`:${word}:`, 'g'), emojiTag);  // Adjusted regex if you're using emojis like ":Pog:"
   }
   return text;
 }
+
 
 function replaceWordsWithEmojis() {
   const elements = document.querySelectorAll('p, h1, h2, h3, span, div, a');
@@ -24,20 +25,23 @@ function replaceWordsWithEmojis() {
   elements.forEach(element => {
     let text = element.innerHTML;
 
+    // Replace words in the element's inner content (e.g., h1, p)
     for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
       const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
       text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
     }
 
-    if (element.hasAttribute('slide-title')) {
-      let dataTitle = element.getAttribute('slide-title');
+    // Replace words in the 'data-title' attribute if present
+    if (element.hasAttribute('data-title')) {
+      let dataTitle = element.getAttribute('data-title');
       dataTitle = replacePlaceholdersWithEmojis(dataTitle);
-      element.setAttribute('slide-title', dataTitle);
+      element.setAttribute('data-title', dataTitle);
     }
 
     element.innerHTML = text;
   });
 }
+
 
 document.addEventListener("DOMContentLoaded", function() {
   replaceWordsWithEmojis();
