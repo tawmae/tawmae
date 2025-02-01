@@ -73,9 +73,17 @@ header {
 }
 
 .header-right .need-help {
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: normal;
   margin-right: 20px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-right .need-help .iconify {
+  font-size: 1rem;
+  vertical-align: middle;
+  margin-left: 5px;
 }
 
 .dropdown {
@@ -111,6 +119,10 @@ header {
 
 .dropdown-menu li a:hover {
   background: #f0f0f0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
 .arrow {
@@ -248,6 +260,12 @@ header {
   padding: 10px;
   text-align: center;
   width: 200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .product-card img {
@@ -269,8 +287,8 @@ header {
 }
 
 footer {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  margin-top: auto;
+  width: 100%;
   background: #1e1d22;
 }
 
