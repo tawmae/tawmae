@@ -153,7 +153,7 @@ header {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.5);
   padding: 5px 10px;
   border-radius: 5px;
   font-family: 'Poppins', sans-serif;
