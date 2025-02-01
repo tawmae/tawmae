@@ -1,27 +1,39 @@
 const longString = "VGhpcyBpcyBhIHZlcnkgbG9uZyBiYXNlNjQgZW5jb2RlZCBzdHJpbmcgdGhhdCB3aWxsIGJlIGNvcGllZCB0byBjbGlwYm9hcmQ=";
 
-function showNotification(message) {
-  const notif = document.createElement("div");
-  notif.className = "copy-notification";
-  notif.innerText = message;
-  document.body.appendChild(notif);
-  setTimeout(() => {
-    notif.style.opacity = 0;
-    setTimeout(() => {
-      notif.remove();
-    }, 500);
-  }, 1500);
-}
-
-function copyImportString() {
+function copyImportString(btn) {
   navigator.clipboard.writeText(longString);
-  showNotification("Copied import to clipboard");
+  let originalHTML = btn.innerHTML;
+  btn.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-20-filled"></span> Copied';
+  setTimeout(() => {
+    btn.innerHTML = originalHTML;
+  }, 2000);
 }
 
 function copyCode(elem) {
   const codeText = elem.parentElement.querySelector("code").innerText;
   navigator.clipboard.writeText(codeText);
-  showNotification("Copied code to clipboard");
+  let originalIcon = elem.getAttribute('data-icon');
+  elem.setAttribute('data-icon', 'fluent:checkmark-20-filled');
+  setTimeout(() => {
+    elem.setAttribute('data-icon', originalIcon);
+  }, 2000);
+}
+
+function copyDynamicContent(elem, content, message) {
+  navigator.clipboard.writeText(content);
+  if (elem.tagName.toLowerCase() === 'button') {
+    let orig = elem.innerHTML;
+    elem.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-20-filled"></span> Copied';
+    setTimeout(() => {
+      elem.innerHTML = orig;
+    }, 2000);
+  } else {
+    let orig = elem.getAttribute('data-icon');
+    elem.setAttribute('data-icon', 'fluent:checkmark-20-filled');
+    setTimeout(() => {
+      elem.setAttribute('data-icon', orig);
+    }, 2000);
+  }
 }
 
 const dynamicContents = [
@@ -64,7 +76,7 @@ function renderDynamicContents() {
       const copyIcon = document.createElement("span");
       copyIcon.className = "copy-code iconify";
       copyIcon.setAttribute("data-icon", "material-symbols:content-copy-outline");
-      copyIcon.onclick = function() { copyDynamicContent(item.content, "Copied code to clipboard"); };
+      copyIcon.onclick = function() { copyDynamicContent(this, item.content, "Copied code to clipboard"); };
       codeBlock.appendChild(copyIcon);
       section.appendChild(codeBlock);
     } else if (item.type === "import") {
@@ -75,7 +87,7 @@ function renderDynamicContents() {
       span.innerText = item.content;
       importBlock.appendChild(span);
       const button = document.createElement("button");
-      button.onclick = function() { copyDynamicContent(item.content, "Copied import to clipboard"); };
+      button.onclick = function() { copyDynamicContent(this, item.content, "Copied import to clipboard"); };
       const icon = document.createElement("span");
       icon.className = "iconify";
       icon.setAttribute("data-icon", "material-symbols:content-copy-outline");
@@ -86,11 +98,6 @@ function renderDynamicContents() {
     }
     container.appendChild(section);
   });
-}
-
-function copyDynamicContent(content, message) {
-  navigator.clipboard.writeText(content);
-  showNotification(message);
 }
 
 window.addEventListener("scroll", function() {
@@ -122,15 +129,4 @@ document.addEventListener("DOMContentLoaded", function() {
       indicators[index].classList.toggle('active', index === currentIndex);
     });
     slideTitleEl.classList.add('hidden');
-    setTimeout(() => {
-      slideTitleEl.textContent = slideTitles[currentIndex];
-      slideTitleEl.classList.remove('hidden');
-    }, 500);
-  }
-  window.nextSlide = function() { currentIndex = (currentIndex + 1) % slides.length; updateSlide(); }
-  window.prevSlide = function() { currentIndex = (currentIndex - 1 + slides.length) % slides.length; updateSlide(); }
-  window.goToSlide = function(index) { currentIndex = index; updateSlide(); }
-  
-  updateSlide();
-  setInterval(() => { nextSlide(); }, 8000);
-});
+    setTimeout
