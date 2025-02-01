@@ -18,33 +18,30 @@ function prevSlide() {
   showSlide(i);
 }
 
-// Bildwechsel mit Fade für Rotator und Produktkarten
+// Fade-in und Fade-out für Bilder
 function handleImageHover(event, isRotator = false) {
   const image = event.target;
   const originalSrc = image.src;
   
-  // Zweites Bild mit _2.png
-  image.dataset.originalSrc = originalSrc; // Speichern des Originalbilds
-  image.src = originalSrc.replace('.png', '_2.png'); // Bild wechseln
+  // Setzt das Originalbild in das Dataset für später
+  image.dataset.originalSrc = originalSrc; 
+  image.src = originalSrc.replace('.png', '_2.png'); 
 
-  image.classList.add('fade-in'); // Fade-Effekt hinzufügen
+  // Fade-out Bild und dann Fade-in für das neue Bild
+  image.classList.add('fade-out');
 
-  // Beim Verlassen der Maus das Bild zurück wechseln
-  if (isRotator) {
-    image.addEventListener('mouseleave', () => {
-      image.src = image.dataset.originalSrc; // Originalbild zurückladen
-      image.classList.remove('fade-in'); // Fade-Effekt entfernen
-    });
-  } else {
-    image.addEventListener('mouseleave', () => {
-      image.src = image.dataset.originalSrc; // Originalbild zurückladen
-      image.classList.remove('fade-in'); // Fade-Effekt entfernen
-    });
-  }
+  // Auf `mouseleave` zurück zum Originalbild und einblenden
+  image.addEventListener('transitionend', () => {
+    if (image.classList.contains('fade-out')) {
+      image.src = image.dataset.originalSrc;
+      image.classList.remove('fade-out');
+      image.classList.add('fade-in'); // Fade-in anwenden
+    }
+  });
 }
 
+// Warten Sie, bis die Seite vollständig geladen ist, bevor wir alles initialisieren
 document.addEventListener("DOMContentLoaded", function() {
-  // Rotator-Slides und Indikatoren
   slides = document.querySelectorAll(".rotator a");
   indicators = document.createElement("div");
   document.querySelector(".rotator-indicators").appendChild(indicators);
