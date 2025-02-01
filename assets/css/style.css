@@ -109,6 +109,7 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .rotator-wrapper {
   margin: 120px 20px 20px;
@@ -281,4 +282,8 @@ footer {
 .jump-to-top {
   color: white !important;
   text-decoration: none;
+}
+.header-right .need-help:hover {
+  transform: translateY(-5px);  
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
