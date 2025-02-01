@@ -1,6 +1,5 @@
 var slides, indicators, currentIndex = 0;
 
-
 function showSlide(i) {
   slides[currentIndex].classList.remove("active");
   indicators[currentIndex].classList.remove("active");
@@ -9,18 +8,15 @@ function showSlide(i) {
   currentIndex = i;
 }
 
-
 function nextSlide() {
   var i = (currentIndex + 1) % slides.length;
   showSlide(i);
 }
 
-
 function prevSlide() {
   var i = (currentIndex - 1 + slides.length) % slides.length;
   showSlide(i);
 }
-
 
 document.addEventListener("DOMContentLoaded", function() {
   slides = document.querySelectorAll(".rotator a");
@@ -43,4 +39,18 @@ document.addEventListener("DOMContentLoaded", function() {
   indicators[0].classList.add("active");
 
   setInterval(nextSlide, 8000);
+
+  const dropdownToggle = document.querySelector(".dropdown-toggle");
+  dropdownToggle.addEventListener("click", function(event) {
+    event.preventDefault();
+  });
+
+  const links = document.querySelectorAll(".header-center ul li a");
+  const currentUrl = window.location.pathname;
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === currentUrl) {
+      link.classList.add("active");
+    }
+  });
 });
