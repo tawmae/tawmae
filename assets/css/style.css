@@ -356,3 +356,12 @@ footer {
   word-wrap: break-word;
   white-space: normal;
 }
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+img {
+  transition: opacity 0.3s ease-in-out;
+}
