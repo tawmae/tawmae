@@ -328,3 +328,25 @@ footer {
   color: white !important;
   text-decoration: none;
 }
+
+.notice {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: orange;
+}
+
+.red {
+    background-color: red;
+}
+
