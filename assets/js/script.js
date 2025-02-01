@@ -7,7 +7,8 @@ const wordToEmojiMap = {
   "pepeSmoke": "https://cdn.7tv.app/emote/01GXSBRHEG0005KVP89EZ27DXH/2x.avif",
   "MrDestructoid": "https://cdn.7tv.app/emote/01FTEC7QC80001606GRRVVKAH7/1x.avif",
   "widetme": "https://cdn.7tv.app/emote/01HRTCQ67G0002CEEGWVSC44EJ/1x.avif",
-  "modCheck": "https://cdn.7tv.app/emote/01F6FTE8B80008E39HFFQJ7MWS/2x.avif"
+  "modCheck": "https://cdn.7tv.app/emote/01F6FTE8B80008E39HFFQJ7MWS/2x.avif",
+  "PauseChamp": "https://cdn.7tv.app/emote/01F6N2GFVR000F76KNAAVCSDGX/2x.avif"
 
 };
 
