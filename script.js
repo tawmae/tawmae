@@ -99,11 +99,9 @@ window.addEventListener("scroll", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Set the import preview text (CSS will limit the visible text)
   document.querySelector(".import-string").innerText = longString;
   renderDynamicContents();
 
-  // Rotator Setup
   let currentIndex = 0;
   const slides = document.querySelectorAll('.rotator a');
   const indicatorsContainer = document.querySelector('.rotator-indicators');
