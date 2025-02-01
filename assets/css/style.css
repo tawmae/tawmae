@@ -137,7 +137,6 @@ header {
   display: flex;
   justify-content: center;
   width: 100%;
-  flex: 1;
 }
 .rotator-container {
   position: relative;
@@ -244,7 +243,6 @@ header {
   margin: 20px auto;
   padding: 0 20px;
   justify-items: center;
-  flex: 1;
 }
 .product-card-link {
   text-decoration: none;
@@ -321,26 +319,4 @@ footer {
 
 .kofi-button:hover{
   transform: scale(1.05); 
-}
-
-.section-wrapper,
-.product-wrapper {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-  .section-wrapper,
-  .product-wrapper {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .section-textbox {
-    max-width: 100%;
-    text-align: center;
-  }
 }
