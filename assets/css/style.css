@@ -356,3 +356,22 @@ footer {
   word-wrap: break-word;
   white-space: normal;
 }
+
+.emote-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.seven-tv-emote {
+    width: 40px; /* oder eine andere Größe, die dir gefällt */
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.seven-tv-emote:hover {
+    transform: scale(1.2); /* Vergrößern beim Hover */
+}
