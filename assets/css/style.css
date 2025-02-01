@@ -136,7 +136,6 @@ header {
   margin: 20px 20px 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 20px;
   width: 100%;
 }
