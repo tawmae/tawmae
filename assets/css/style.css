@@ -1,11 +1,8 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Body */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #27262b;
@@ -13,8 +10,6 @@ body {
   text-align: center;
   padding: 20px;
 }
-
-/* Header */
 header {
   position: fixed;
   top: 0;
@@ -26,56 +21,46 @@ header {
   align-items: center;
   z-index: 1000;
 }
-
 .header-left,
 .header-center,
 .header-right {
   flex: 1;
 }
-
 .header-center ul {
   list-style: none;
   display: flex;
   justify-content: center;
   gap: 20px;
 }
-
 .header-center a {
   text-decoration: none;
   color: white;
   font-weight: 600;
   transition: 0.3s;
 }
-
 .header-center a:hover {
   color: #466090;
 }
-
 .header-right a {
   color: white;
   font-size: 1.5rem;
   margin-left: 15px;
   transition: transform 0.3s;
+  text-decoration: none;
 }
-
 .header-right a:hover {
   transform: scale(1.2);
   color: #466090;
 }
-
-/* Main */
 main {
   margin-top: 100px;
 }
-
-/* Rotator */
 .rotator-wrapper {
   margin: 120px 20px 20px;
   display: flex;
   justify-content: center;
   width: 100%;
 }
-
 .rotator-container {
   position: relative;
   width: 100%;
@@ -85,7 +70,6 @@ main {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
-
 .slide-title {
   position: absolute;
   top: 10px;
@@ -99,17 +83,14 @@ main {
   z-index: 2;
   transition: opacity 1s ease-in-out;
 }
-
 .slide-title.hidden {
   opacity: 0;
 }
-
 .rotator {
   position: relative;
   width: 100%;
   height: 100%;
 }
-
 .rotator a {
   position: absolute;
   top: 0;
@@ -120,19 +101,16 @@ main {
   transition: opacity 1s ease-in-out;
   pointer-events: none;
 }
-
 .rotator a.active {
   opacity: 1;
   pointer-events: auto;
 }
-
 .rotator img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-
 .rotator-indicators {
   position: absolute;
   bottom: 10px;
@@ -142,7 +120,6 @@ main {
   gap: 10px;
   z-index: 2;
 }
-
 .indicator {
   width: 12px;
   height: 12px;
@@ -151,11 +128,9 @@ main {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 .indicator.active {
   background: white;
 }
-
 .rotator-arrow {
   position: absolute;
   top: 50%;
@@ -170,20 +145,15 @@ main {
   z-index: 2;
   transition: background 0.3s;
 }
-
 .rotator-arrow:hover {
   background: rgba(0,0,0,0.8);
 }
-
 .rotator-arrow.left {
   left: 10px;
 }
-
 .rotator-arrow.right {
   right: 10px;
 }
-
-/* Callouts */
 .callout {
   border-left: 8px solid;
   padding: 10px;
@@ -191,26 +161,21 @@ main {
   max-width: 600px;
   text-align: left;
 }
-
 .callout.green {
   border-color: #4CAF50;
   background-color: #e8f5e9;
   color: #000;
 }
-
 .callout.yellow {
   border-color: #FFEB3B;
   background-color: #fffde7;
   color: #000;
 }
-
 .callout.red {
   border-color: #F44336;
   background-color: #ffebee;
   color: #000;
 }
-
-/* Import Section */
 .import-container {
   display: flex;
   align-items: center;
@@ -222,7 +187,6 @@ main {
   max-width: 800px;
   margin: 20px auto;
 }
-
 .import-string {
   flex: 1;
   padding: 5px 10px;
@@ -233,14 +197,11 @@ main {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-/* Code Block */
 .code-block {
   position: relative;
   max-width: 800px;
   margin: 20px auto;
 }
-
 pre {
   background: #1e1d22;
   padding: 15px;
@@ -248,13 +209,13 @@ pre {
   overflow-x: auto;
   text-align: left;
 }
-
 code {
   font-family: 'Fira Code', monospace;
   font-size: 1rem;
 }
-
-/* Copy Buttons */
+.code-block pre, .code-block code {
+  font-family: 'Fira Code', monospace;
+}
 .copy-import-button,
 .copy-code-button {
   background: #466090;
@@ -268,13 +229,32 @@ code {
   gap: 5px;
   transition: background 0.3s, color 0.3s;
 }
-
 .copy-import-button:hover,
 .copy-code-button:hover {
   background: white;
   color: #466090;
 }
-
 .copy-code-button {
   position: absolute;
- 
+  top: 10px;
+  right: 10px;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background: #1e1d22;
+}
+.footer-left {
+  flex: 1;
+  text-align: left;
+}
+.footer-center {
+  flex: 1;
+  text-align: center;
+}
+.footer-right {
+  flex: 1;
+  text-align: right;
+}
