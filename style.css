@@ -33,6 +33,12 @@ header {
   align-items: center;
 }
 
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
 .header-center {
   flex: 2;
 }
@@ -74,11 +80,6 @@ header {
   color: #466090;
 }
 
-.logo img {
-  height: 40px;
-  margin-right: 10px;
-}
-
 main {
   margin-top: 80px;
   padding: 50px 10%;
@@ -95,10 +96,10 @@ button {
   border: none;
   padding: 12px 20px;
   font-size: 1rem;
-  margin-top: 10px;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
 }
 
 button:hover {
@@ -128,21 +129,26 @@ button:hover {
   border-left: 5px solid;
   padding: 10px;
   margin: 20px auto;
-  background-color: #2a2a2a;
   max-width: 600px;
   text-align: left;
 }
 
 .callout.green {
-  border-color: green;
+  border-color: #a8d5ba;
+  background-color: #d4f8d4;
+  color: #000;
 }
 
 .callout.yellow {
-  border-color: yellow;
+  border-color: #fff2b2;
+  background-color: #fff9c4;
+  color: #000;
 }
 
 .callout.red {
-  border-color: red;
+  border-color: #f2a8a8;
+  background-color: #ffcdd2;
+  color: #000;
 }
 
 .import-container {
@@ -157,11 +163,18 @@ button:hover {
   margin: 20px auto;
 }
 
+.import-container button {
+  margin-top: 0;
+}
+
 .import-string {
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  background: #141316;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 pre {
@@ -175,29 +188,48 @@ pre {
 }
 
 footer {
-  margin-top: 50px;
-  padding: 20px;
+  width: calc(100% + 40px);
+  margin: 50px -20px 0 -20px;
+  padding: 20px 40px;
   background: #1e1d22;
   font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
 }
 
-footer p {
-  margin-bottom: 10px;
+.footer-left {
+  text-align: left;
 }
 
-.jump-to-top {
+.footer-center {
+  text-align: center;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-center .jump-to-top {
   text-decoration: none;
   color: white;
-  background: #466090;
-  padding: 8px 16px;
-  border-radius: 5px;
-  transition: 0.3s;
+  transition: color 0.3s;
+  padding: 0;
+  background: none;
 }
 
-.jump-to-top:hover {
-  background: white;
+.footer-center .jump-to-top:hover {
   color: #466090;
+}
+
+.copy-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #466090;
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  z-index: 1001;
 }
