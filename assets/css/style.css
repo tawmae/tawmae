@@ -283,7 +283,7 @@ footer {
   color: white !important;
   text-decoration: none;
 }
-.header-right .need-help:hover {
-  transform: translateY(-5px);  
+.header-right .need-help:hover .iconify {
+  transform: translateY(-3px);  
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
