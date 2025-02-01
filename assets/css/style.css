@@ -24,7 +24,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: #131315;
   padding: 15px 5%;
   display: flex;
   align-items: center;
@@ -281,7 +281,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.5);
+  background: #131315;
 }
 .footer-container {
   max-width: 1200px;
