@@ -375,3 +375,12 @@ footer {
 .seven-tv-emote:hover {
     transform: scale(1.2); /* Vergrößern beim Hover */
 }
+
+.emote-image {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
