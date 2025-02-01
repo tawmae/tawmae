@@ -326,25 +326,21 @@ footer {
 .section-wrapper,
 .product-wrapper {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-}
-
-.section-textbox {
-  background: rgba(0, 0, 0, 0.7); 
-  color: #ccc;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 300px;
-  text-align: left;
 }
 
 @media (max-width: 768px) {
   .section-wrapper,
   .product-wrapper {
     flex-direction: column;
+    text-align: center;
+  }
+
+  .section-textbox {
+    max-width: 100%;
     text-align: center;
   }
 }
