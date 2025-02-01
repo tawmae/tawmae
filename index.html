@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tawmae</title>
+  <meta name="description" content="Moderne minimalistische Webseite mit nützlichen Gimmicks, SEO und vielem mehr.">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Webdesign, SEO, GitHub Pages, Dark Mode, Cookie Consent">
+  <meta name="author" content="tawmae">
+  <meta property="og:title" content="tawmae">
+  <meta property="og:description" content="Moderne minimalistische Webseite mit nützlichen Gimmicks.">
+  <meta property="og:image" content="assets/page-design/logo-1.png">
+  <meta property="og:url" content="https://example.com">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
   <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
@@ -36,9 +44,14 @@
   <main>
     <section id="home">
       <h1>Willkommen auf meiner Website</h1>
-      <p>Eine moderne, minimalistische Webseite mit Stil.</p>
+      <p>Eine moderne, minimalistische Webseite mit Stil und nützlichen Gimmicks.</p>
       <button onclick="zeigeNachricht()">Los geht’s!</button>
       <p id="nachricht"></p>
+      <div id="gimmicks">
+        <h2>Nützliche Gimmicks</h2>
+        <button id="toggle-darkmode">Toggle Dark Mode</button>
+        <p id="current-time">Aktuelle Zeit: </p>
+      </div>
     </section>
     <section id="about">
       <h2>Über uns</h2>
@@ -54,24 +67,27 @@
     </section>
     <section id="callouts">
       <h2>Wichtige Hinweise</h2>
-      <div class="callout green">Dies ist ein grüner Hinweis.</div>
-      <div class="callout yellow">Dies ist ein gelber Hinweis.</div>
-      <div class="callout red">Dies ist ein roter Hinweis.</div>
+      <div class="callout green">Dies ist ein pastellgrüner Hinweis.</div>
+      <div class="callout yellow">Dies ist ein pastellgelber Hinweis.</div>
+      <div class="callout red">Dies ist ein pastellroter Hinweis.</div>
     </section>
     <section id="import">
       <h2>Import</h2>
       <div class="import-container">
         <span class="import-string"></span>
-        <button onclick="copyImportString()">Kopieren</button>
+        <button onclick="copyImportString()"><span class="iconify" data-icon="material-symbols:content-copy-outline"></span> Kopieren</button>
       </div>
     </section>
     <section id="code-sample">
       <h2>Code Beispiel (C#)</h2>
-      <pre><code class="language-cs">public class HelloWorld {
+      <div class="code-block">
+        <span class="copy-code iconify" data-icon="material-symbols:content-copy-outline" onclick="copyCode(this)"></span>
+        <pre><code class="language-cs">public class HelloWorld {
     public static void Main() {
         Console.WriteLine("Hallo, Welt!");
     }
 }</code></pre>
+      </div>
     </section>
   </main>
   <footer>
@@ -83,5 +99,9 @@
     </div>
     <div class="footer-right"></div>
   </footer>
+  <div id="cookie-banner">
+    <p>Diese Seite verwendet Cookies, um Ihre Erfahrung zu verbessern.</p>
+    <button id="accept-cookies">Akzeptieren</button>
+  </div>
 </body>
 </html>
