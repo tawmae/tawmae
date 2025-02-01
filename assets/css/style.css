@@ -5,7 +5,7 @@
 }
 
 html, body {
-  min-height: 100vh;
+  height: 100%;
 }
 
 body {
@@ -59,6 +59,45 @@ header {
   color: #466090;
 }
 
+/* Dropdown Menu for OBS Widgets */
+.header-center ul li .dropdown-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  color: #333;
+  min-width: 150px;
+  padding: 5px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+  text-align: left;
+}
+
+.header-center ul li .dropdown-menu li {
+  display: block;
+}
+
+.header-center ul li .dropdown-menu li a {
+  display: block;
+  padding: 5px 15px;
+  color: #000;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.3s, color 0.3s;
+}
+
+.header-center ul li .dropdown-menu li a:hover {
+  background: #e0e0e0;
+  color: #000;
+}
+
+.header-center ul li.dropdown:hover > .dropdown-menu {
+  display: flex;
+}
+
 .header-right a {
   color: white;
   font-size: 1.5rem;
@@ -76,53 +115,13 @@ header {
   font-size: 1rem;
   font-weight: normal;
   margin-right: 20px;
+  display: inline-flex;
+  align-items: center;
 }
 
-.header-right a .iconify {
+.header-right .need-help .iconify {
+  font-size: 1.5rem;
   vertical-align: middle;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  color: #333;
-  min-width: 150px;
-  padding: 5px 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  z-index: 1000;
-  text-align: left;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-menu li {
-  display: block;
-}
-
-.dropdown-menu li a {
-  display: block;
-  padding: 5px 15px;
-  color: #333;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.dropdown-menu li a:hover {
-  background: #f0f0f0;
-}
-
-.arrow {
-  font-size: 0.8rem;
   margin-left: 5px;
 }
 
@@ -261,7 +260,7 @@ header {
 
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .product-card img {
@@ -283,10 +282,11 @@ header {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100vw;
-  margin-left: calc(50% - 50vw);
   background: #1e1d22;
-  margin-top: auto;
 }
 
 .footer-container {
