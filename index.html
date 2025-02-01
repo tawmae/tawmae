@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Stylische Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+
+    <!-- Header-Bereich mit Navigation -->
+    <header>
+        <div class="logo">
+            <img src="assets/logo.png" alt="Logo">
+            <span>Meine Website</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Start</a></li>
+                <li><a href="#about">Über</a></li>
+                <li><a href="#services">Leistungen</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main>
+        <section id="home">
+            <h1>Willkommen auf meiner Website</h1>
+            <p>Eine moderne, minimalistische Webseite mit Stil.</p>
+            <button onclick="zeigeNachricht()">Los geht’s!</button>
+            <p id="nachricht"></p>
+        </section>
+
+        <section id="about">
+            <h2>Über uns</h2>
+            <p>Wir erstellen moderne Websites mit HTML, CSS und JavaScript.</p>
+        </section>
+
+        <section id="services">
+            <h2>Unsere Leistungen</h2>
+            <div class="card-container">
+                <div class="card">Webdesign</div>
+                <div class="card">SEO-Optimierung</div>
+                <div class="card">Marketing</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Meine Website | Erstellt mit ❤️ und GitHub Pages</p>
+    </footer>
+
+</body>
+</html>
