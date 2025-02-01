@@ -10,30 +10,35 @@ const wordToEmojiMap = {
   "PauseChamp": "https://cdn.7tv.app/emote/01F6N2GFVR000F76KNAAVCSDGX/2x.avif"
 };
 
+// Funktion, um Platzhalter zu Emoji-URLs zu ersetzen
+function replacePlaceholdersWithEmojis(text) {
+  for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
+    const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
+    text = text.replace(new RegExp(`:${word}:`, 'g'), emojiTag);
+  }
+  return text;
+}
+
 function replaceWordsWithEmojis() {
   const elements = document.querySelectorAll('p, h1, h2, h3, span, div, a');
 
   elements.forEach(element => {
-    // Ersetzen im innerHTML
     let text = element.innerHTML;
-
-    // Auch das data-title-Attribut ersetzen
-    if (element.hasAttribute('data-title')) {
-      let dataTitle = element.getAttribute('data-title');
-      for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
-        const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
-        dataTitle = dataTitle.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
-      }
-      element.setAttribute('data-title', dataTitle);  // Neues data-title setzen
-    }
 
     // Emojis im innerHTML ersetzen
     for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
       const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
-      text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag); 
+      text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
     }
 
-    element.innerHTML = text;  // Text nach der Ersetzung zurücksetzen
+    // Falls das Element ein `data-title` hat, Platzhalter durch Emojis ersetzen
+    if (element.hasAttribute('data-title')) {
+      let dataTitle = element.getAttribute('data-title');
+      dataTitle = replacePlaceholdersWithEmojis(dataTitle);  // Platzhalter durch Emojis ersetzen
+      element.setAttribute('data-title', dataTitle);  // Neues `data-title` setzen
+    }
+
+    element.innerHTML = text;
   });
 }
 
@@ -50,7 +55,7 @@ function showSlide(i) {
   indicators[i].classList.add("active");
 
   const title = slides[i].getAttribute("data-title");
-  document.querySelector(".slide-title").textContent = title;
+  document.querySelector(".slide-title").textContent = replacePlaceholdersWithEmojis(title);  // Emojis auch im Titel anzeigen
 
   currentIndex = i;
 }
@@ -108,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
   indicators[0].classList.add("active");
 
   const initialTitle = slides[0].getAttribute("data-title");
-  document.querySelector(".slide-title").textContent = initialTitle;
+  document.querySelector(".slide-title").textContent = replacePlaceholdersWithEmojis(initialTitle);  // Emojis auch im Titel anzeigen
 
   setInterval(nextSlide, 8000);
 
