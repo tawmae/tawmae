@@ -298,3 +298,13 @@ footer {
   color: #466090; 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
+
+.kofi-button{
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.kofi-button:hover{
+  transform: translateY(-3px);  
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
