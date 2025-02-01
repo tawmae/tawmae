@@ -95,7 +95,6 @@ header {
   text-decoration: none;
 }
 .header-right a:hover {
-  transform: scale(1.2);
   color: #466090;
 }
 .header-right a .iconify {
