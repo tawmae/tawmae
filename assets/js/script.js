@@ -22,36 +22,18 @@ function prevSlide() {
 function handleImageHover(event) {
   const image = event.target;
   const originalSrc = image.dataset.originalSrc || image.src;
-  image.dataset.originalSrc = originalSrc;
+  image.dataset.originalSrc = originalSrc;  // Speichern des Originalbildes
 
-  // Wechsel das Bild zum zweiten (Hover) Bild
+  // Wechsel zum zweiten Bild
   image.src = originalSrc.replace('.png', '_2.png');
-  image.classList.add('fade-out');
-  image.classList.remove('fade-in');  // Sicherstellen, dass es nicht noch fade-in gibt
-
-  image.addEventListener('transitionend', () => {
-    if (image.classList.contains('fade-out')) {
-      image.classList.remove('fade-out');
-      image.classList.add('fade-in');
-    }
-  });
 }
 
 function handleImageMouseOut(event) {
   const image = event.target;
   const originalSrc = image.dataset.originalSrc;
 
-  // Wenn das Bild wieder zurückgesetzt wird, verwende die Übergangsanimation
-  image.classList.remove('fade-in');
+  // Zurück zum Originalbild beim Verlassen des Hover-Effekts
   image.src = originalSrc;
-  image.classList.add('fade-out');
-
-  image.addEventListener('transitionend', () => {
-    if (image.classList.contains('fade-out')) {
-      image.classList.remove('fade-out');
-      image.classList.add('fade-in');
-    }
-  });
 }
 
 document.addEventListener("DOMContentLoaded", function() {
