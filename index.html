@@ -1,58 +1,82 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tawmae</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-    <link rel="icon" type="image/x-icon" href="assets/page-design/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tawmae</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="assets/page-design/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
 </head>
 <body>
-
-    <!-- Header-Bereich mit Navigation -->
-    <header>
-        <div class="logo">
-            <img src="assets/page-design/logo-1.png" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Start</a></li>
-                <li><a href="#about">Über</a></li>
-                <li><a href="#services">Leistungen</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hauptinhalt -->
-    <main>
-        <section id="home">
-            <h1>Willkommen auf meiner Website</h1>
-            <p>Eine moderne, minimalistische Webseite mit Stil.</p>
-            <button onclick="zeigeNachricht()">Los geht’s!</button>
-            <p id="nachricht"></p>
-        </section>
-
-        <section id="about">
-            <h2>Über uns</h2>
-            <p>Wir erstellen moderne Websites mit HTML, CSS und JavaScript.</p>
-        </section>
-
-        <section id="services">
-            <h2>Unsere Leistungen</h2>
-            <div class="card-container">
-                <div class="card">Webdesign</div>
-                <div class="card">SEO-Optimierung</div>
-                <div class="card">Marketing</div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Meine Website | Erstellt mit ❤️ und GitHub Pages</p>
-    </footer>
-
+  <header>
+    <div class="header-left">
+      <div class="logo">
+        <img src="assets/page-design/logo-1.png" alt="Logo">
+      </div>
+    </div>
+    <nav class="header-center">
+      <ul>
+        <li><a href="#home">Start</a></li>
+        <li><a href="#about">Über</a></li>
+        <li><a href="#services">Leistungen</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <a href="https://placeholder.com" target="_blank"><span class="iconify" data-icon="logos:spotify-icon"></span></a>
+      <a href="https://placeholder.com" target="_blank"><span class="iconify" data-icon="logos:facebook"></span></a>
+      <a href="https://placeholder.com" target="_blank"><span class="iconify" data-icon="logos:twitter"></span></a>
+    </div>
+  </header>
+  <main>
+    <section id="home">
+      <h1>Willkommen auf meiner Website</h1>
+      <p>Eine moderne, minimalistische Webseite mit Stil.</p>
+      <button onclick="zeigeNachricht()">Los geht’s!</button>
+      <p id="nachricht"></p>
+    </section>
+    <section id="about">
+      <h2>Über uns</h2>
+      <p>Wir erstellen moderne Websites mit HTML, CSS und JavaScript.</p>
+    </section>
+    <section id="services">
+      <h2>Unsere Leistungen</h2>
+      <div class="card-container">
+        <div class="card">Webdesign</div>
+        <div class="card">SEO-Optimierung</div>
+        <div class="card">Marketing</div>
+      </div>
+    </section>
+    <section id="callouts">
+      <h2>Wichtige Hinweise</h2>
+      <div class="callout green">Dies ist ein grüner Hinweis.</div>
+      <div class="callout yellow">Dies ist ein gelber Hinweis.</div>
+      <div class="callout red">Dies ist ein roter Hinweis.</div>
+    </section>
+    <section id="import">
+      <h2>Import</h2>
+      <div class="import-container">
+        <span class="import-string"></span>
+        <button onclick="copyImportString()">Kopieren</button>
+      </div>
+    </section>
+    <section id="code-sample">
+      <h2>Code Beispiel (C#)</h2>
+      <pre><code class="language-cs">public class HelloWorld {
+    public static void Main() {
+        Console.WriteLine("Hallo, Welt!");
+    }
+}</code></pre>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; tawmae 2025</p>
+    <a href="#home" class="jump-to-top">Jump To Top</a>
+  </footer>
 </body>
 </html>
