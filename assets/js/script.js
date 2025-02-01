@@ -5,6 +5,9 @@ const wordToEmojiMap = {
   "FeelsBadMan": "https://cdn.7tv.app/emote/01F6NPSQXG000AAS5FM9Q6GVCC/2x.avif",
   "Kappa": "https://cdn.7tv.app/emote/01F6NPKQXG000AAS5FM9Q6GVCC/2x.avif",
   "pepeSmoke": "https://cdn.7tv.app/emote/01GXSBRHEG0005KVP89EZ27DXH/2x.avif",
+  "MrDestructoid": "https://cdn.7tv.app/emote/01FTEC7QC80001606GRRVVKAH7/1x.avif",
+  "widetme": "https://cdn.7tv.app/emote/01HRTCQ67G0002CEEGWVSC44EJ/1x.avif",
+  "modCheck": "https://cdn.7tv.app/emote/01F6FTE8B80008E39HFFQJ7MWS/2x.avif"
 
 };
 
@@ -39,7 +42,6 @@ function showSlide(i) {
   slides[i].classList.add("active");
   indicators[i].classList.add("active");
   const title = slides[i].getAttribute("data-title");
-  console.log("Aktueller Titel: ", title);
   document.querySelector(".slide-title").textContent = title;
   currentIndex = i;
 }
