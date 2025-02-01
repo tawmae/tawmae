@@ -102,6 +102,12 @@ header {
   font-size: 1.4rem;
   vertical-align: middle;
 }
+
+.header-right a .iconify:hover {
+  transform: translateY(-3px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
 .header-right .need-help {
   font-size: 1rem;
   font-weight: normal;
@@ -283,7 +289,7 @@ footer {
   color: white !important;
   text-decoration: none;
 }
-.header-right .need-help:hover .iconify {
+.header-right .need-help:hover {
   transform: translateY(-3px);  
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
