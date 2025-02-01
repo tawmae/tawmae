@@ -238,18 +238,15 @@ header {
 }
 .product-grid-wrapper {
   display: flex;
-  justify-content: center; /* Zentrieren der Elemente im Wrapper */
+  justify-content: center; 
   gap: 20px;
   margin-top: 20px;
-  margin-left: 10px;  /* Hinein verschieben des gesamten Containers */
 }
 
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-  gap: 20px;
   max-width: 1200px;
-  flex: 1;
 }
 .product-card-link {
   text-decoration: none;
