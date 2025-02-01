@@ -18,29 +18,21 @@ function prevSlide() {
   showSlide(i);
 }
 
-// Fade-in und Fade-out für Bilder
-function handleImageHover(event, isRotator = false) {
+function handleImageHover(event) {
   const image = event.target;
-  const originalSrc = image.src;
-  
-  // Setzt das Originalbild in das Dataset für später
-  image.dataset.originalSrc = originalSrc; 
-  image.src = originalSrc.replace('.png', '_2.png'); 
-
-  // Fade-out Bild und dann Fade-in für das neue Bild
+  const originalSrc = image.dataset.originalSrc || image.src;
+  image.dataset.originalSrc = originalSrc;
+  image.src = originalSrc.replace('.png', '_2.png');
   image.classList.add('fade-out');
-
-  // Auf `mouseleave` zurück zum Originalbild und einblenden
   image.addEventListener('transitionend', () => {
     if (image.classList.contains('fade-out')) {
       image.src = image.dataset.originalSrc;
       image.classList.remove('fade-out');
-      image.classList.add('fade-in'); // Fade-in anwenden
+      image.classList.add('fade-in');
     }
   });
 }
 
-// Warten Sie, bis die Seite vollständig geladen ist, bevor wir alles initialisieren
 document.addEventListener("DOMContentLoaded", function() {
   slides = document.querySelectorAll(".rotator a");
   indicators = document.createElement("div");
@@ -63,25 +55,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
   setInterval(nextSlide, 8000);
 
-  // Produktkarten
   const productCardImages = document.querySelectorAll('.product-card img');
   productCardImages.forEach(image => {
-    image.addEventListener('mouseenter', (event) => handleImageHover(event));
+    image.addEventListener('mouseenter', handleImageHover);
   });
 
-  // Rotator
   const rotatorImages = document.querySelectorAll('.rotator img');
   rotatorImages.forEach(image => {
-    image.addEventListener('mouseenter', (event) => handleImageHover(event, true)); // true für Rotator
+    image.addEventListener('mouseenter', handleImageHover);
   });
 
-  // Dropdown-Menü-Handling
   const dropdownToggle = document.querySelector(".dropdown-toggle");
   dropdownToggle.addEventListener("click", function(event) {
     event.preventDefault();
   });
 
-  // Markiere den aktiven Menü-Link
   const links = document.querySelectorAll(".header-center ul li a");
   const currentUrl = window.location.pathname;
 
