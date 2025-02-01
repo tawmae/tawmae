@@ -1,3 +1,32 @@
+// Neue Funktion, um 7TV Emotes dynamisch zu laden
+async function load7TVEmotes() {
+    const channel = "tawmae"; // Ersetze dies mit dem gewünschten Channelnamen
+    const url = `https://api.7tv.app/v2/users/twitch/${channel}/emotes`; // API-Endpunkt von 7TV für Channel Emotes
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // Füge die Emotes in den HTML-Code ein (z.B. in einen bestimmten Bereich)
+        const emoteContainer = document.getElementById("emote-container"); // Container für die Emotes
+        emoteContainer.innerHTML = ""; // Clear previous emotes if any
+        data.forEach(emote => {
+            const img = document.createElement("img");
+            img.src = `https://cdn.7tv.app/emote/${emote.id}/3x`; // URL für das Emote in 3x Größe
+            img.alt = emote.name;
+            img.classList.add("seven-tv-emote");
+            emoteContainer.appendChild(img);
+        });
+    } catch (error) {
+        console.error("Fehler beim Laden der 7TV Emotes:", error);
+    }
+}
+
+// Lade die Emotes beim Laden der Seite
+document.addEventListener("DOMContentLoaded", function() {
+    load7TVEmotes();
+});
+
+
 var slides, indicators, currentIndex = 0;
 
 function showSlide(i) {
