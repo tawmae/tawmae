@@ -238,6 +238,7 @@ header {
 }
 .product-grid-wrapper {
   display: flex; /* Flexbox aktiviert */
+  justify-content: center;
   gap: 20px; /* Abstand zwischen den beiden Boxen */
   margin-top: 20px; /* Optional: Abstand oben */
 }
