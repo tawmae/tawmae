@@ -1,3 +1,24 @@
+document.addEventListener("DOMContentLoaded", function() {
+    // Den Text mit der Emote-ID ersetzen
+    const featuredTextElement = document.getElementById("featured-text");
+
+    if (featuredTextElement) {
+        // Emote-URLs und deren IDs
+        const emoteMapping = {
+            "5Head": "https://7tv.app/emotes/01F6NPFQXG000AAS5FM9Q6GVCC"
+        };
+
+        // Textinhalt holen und Emote-ID durch die URL ersetzen
+        let text = featuredTextElement.innerHTML;
+
+        // Ersetze "5Head" mit der Emote-URL
+        text = text.replace(/\b5Head\b/g, `<img src="${emoteMapping["5Head"]}" alt="5Head" class="emote-image">`);
+
+        // Setze den neuen Text mit dem Emote zurück
+        featuredTextElement.innerHTML = text;
+    }
+});
+
 // Neue Funktion, um 7TV Emotes dynamisch zu laden
 async function load7TVEmotes() {
     const channel = "tawmae"; // Ersetze dies mit dem gewünschten Channelnamen
@@ -25,6 +46,8 @@ async function load7TVEmotes() {
 document.addEventListener("DOMContentLoaded", function() {
     load7TVEmotes();
 });
+
+
 
 
 var slides, indicators, currentIndex = 0;
