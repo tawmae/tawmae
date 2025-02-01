@@ -321,40 +321,4 @@ footer {
   transform: scale(1.05); 
 }
 
-.textbox-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.textbox {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.textbox h3 {
-  margin-bottom: 10px;
-}
-
-.left {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.right {
-  flex: 1;
-  margin-left: 20px;
-}
-
-.product-grid {
-  margin-top: 20px;
-}
-
 
