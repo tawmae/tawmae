@@ -21,14 +21,23 @@ function prevSlide() {
 // Bildwechsel mit Fade für Rotator und Produktkarten
 function handleImageHover(event, isRotator = false) {
   const image = event.target;
-  const src = image.src;
-  image.dataset.originalSrc = src; // Originalbild speichern
-  image.src = src.replace('.png', '_2.png'); // Zweites Bild laden
-  image.classList.add('fade-in'); // Fade-In-Effekt hinzufügen
+  const originalSrc = image.src;
   
-  if (!isRotator) {
+  // Zweites Bild mit _2.png
+  image.dataset.originalSrc = originalSrc; // Speichern des Originalbilds
+  image.src = originalSrc.replace('.png', '_2.png'); // Bild wechseln
+
+  image.classList.add('fade-in'); // Fade-Effekt hinzufügen
+
+  // Beim Verlassen der Maus das Bild zurück wechseln
+  if (isRotator) {
     image.addEventListener('mouseleave', () => {
-      image.src = image.dataset.originalSrc; // Originalbild wiederherstellen
+      image.src = image.dataset.originalSrc; // Originalbild zurückladen
+      image.classList.remove('fade-in'); // Fade-Effekt entfernen
+    });
+  } else {
+    image.addEventListener('mouseleave', () => {
+      image.src = image.dataset.originalSrc; // Originalbild zurückladen
       image.classList.remove('fade-in'); // Fade-Effekt entfernen
     });
   }
