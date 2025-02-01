@@ -24,7 +24,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, #131315 0%, #2a262d 50%, #131315 100%);
+  background: linear-gradient(135deg, #131315 0%, #1f1c20 100%);
   padding: 15px 5%;
   display: flex;
   align-items: center;
@@ -281,7 +281,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100vw;
-  background: linear-gradient(135deg, #131315 0%, #2a262d 50%, #131315 100%);
+  background: linear-gradient(135deg, #131315 0%, #1f1c20 100%);
 }
 .footer-container {
   max-width: 1200px;
