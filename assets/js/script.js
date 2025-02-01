@@ -18,22 +18,24 @@ function prevSlide() {
   showSlide(i);
 }
 
-// Rotator Hover Logic
 function handleImageHover(event) {
   const image = event.target;
   const originalSrc = image.dataset.originalSrc || image.src;
-  image.dataset.originalSrc = originalSrc;  // Speichern des Originalbildes
+  const secondImage = image.nextElementSibling;
 
-  // Wechsel zum zweiten Bild
-  image.src = originalSrc.replace('.png', '_2.png'); 
+  image.classList.add('hidden');
+  secondImage.classList.remove('hidden');
+  secondImage.src = originalSrc.replace('.png', '_2.png'); 
 }
 
 function handleImageMouseOut(event) {
   const image = event.target;
-  const originalSrc = image.dataset.originalSrc;
+  const originalSrc = image.dataset.originalSrc || image.src;
+  const secondImage = image.nextElementSibling;
 
-  // Zurück zum Originalbild beim Verlassen des Hover-Effekts
-  image.src = originalSrc;
+  secondImage.classList.add('hidden');
+  image.classList.remove('hidden');
+  secondImage.src = ''; 
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -58,16 +60,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
   setInterval(nextSlide, 8000);
 
-  // Rotator Hover-Effekt
   const rotatorImages = document.querySelectorAll('.rotator img');
   rotatorImages.forEach(image => {
+    const secondImage = document.createElement('img');
+    secondImage.classList.add('hidden');
+    secondImage.src = image.src.replace('.png', '_2.png');
+    image.parentElement.appendChild(secondImage);
+
     image.addEventListener('mouseenter', handleImageHover);
     image.addEventListener('mouseleave', handleImageMouseOut);
   });
 
-  // Produktkarten Hover-Effekt
   const productCardImages = document.querySelectorAll('.product-card img');
   productCardImages.forEach(image => {
+    const secondImage = document.createElement('img');
+    secondImage.classList.add('hidden');
+    secondImage.src = image.src.replace('.png', '_2.png');
+    image.parentElement.appendChild(secondImage);
+
     image.addEventListener('mouseenter', handleImageHover);
     image.addEventListener('mouseleave', handleImageMouseOut);
   });
