@@ -86,7 +86,7 @@ header {
 
 .header-center ul li .dropdown-menu li a {
   display: block;
-  padding: 5px 15px;
+  padding: 3px 15px;
   color: #000;
   text-decoration: none;
   white-space: nowrap;
@@ -115,18 +115,17 @@ header {
   color: #466090;
 }
 
+.header-right a .iconify {
+  font-size: 1.8rem;
+  vertical-align: middle;
+}
+
 .header-right .need-help {
   font-size: 1rem;
   font-weight: normal;
   margin-right: 20px;
   display: inline-flex;
   align-items: center;
-}
-
-.header-right .need-help .iconify {
-  font-size: 1rem;
-  vertical-align: middle;
-  margin-left: 5px;
 }
 
 .rotator-wrapper {
@@ -191,6 +190,11 @@ header {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotator:hover img {
+  transform: scale(1.05);
 }
 
 .rotator-indicators {
