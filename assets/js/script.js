@@ -10,7 +10,6 @@ const wordToEmojiMap = {
   "PauseChamp": "https://cdn.7tv.app/emote/01F6N2GFVR000F76KNAAVCSDGX/2x.avif"
 };
 
-// Funktion, um Platzhalter zu Emoji-URLs zu ersetzen
 function replacePlaceholdersWithEmojis(text) {
   for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
     const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
@@ -25,17 +24,15 @@ function replaceWordsWithEmojis() {
   elements.forEach(element => {
     let text = element.innerHTML;
 
-    // Emojis im innerHTML ersetzen
     for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
       const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
       text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
     }
 
-    // Falls das Element ein `data-title` hat, Platzhalter durch Emojis ersetzen
     if (element.hasAttribute('data-title')) {
       let dataTitle = element.getAttribute('data-title');
-      dataTitle = replacePlaceholdersWithEmojis(dataTitle);  // Platzhalter durch Emojis ersetzen
-      element.setAttribute('data-title', dataTitle);  // Neues `data-title` setzen
+      dataTitle = replacePlaceholdersWithEmojis(dataTitle);
+      element.setAttribute('data-title', dataTitle);
     }
 
     element.innerHTML = text;
@@ -55,7 +52,7 @@ function showSlide(i) {
   indicators[i].classList.add("active");
 
   const title = slides[i].getAttribute("data-title");
-  document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(title);  // Emojis auch im Titel anzeigen
+  document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(title);
 
   currentIndex = i;
 }
@@ -113,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
   indicators[0].classList.add("active");
 
   const initialTitle = slides[0].getAttribute("data-title");
-  document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(initialTitle);  // Emojis auch im Titel anzeigen
+  document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(initialTitle);
 
   setInterval(nextSlide, 8000);
 
@@ -124,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const rotatorImages = document.querySelectorAll('.rotator img');
   rotatorImages.forEach(image => {
-    image.addEventListener('mouseenter', (event) => handleImageHover(event, true)); // true für Rotator
+    image.addEventListener('mouseenter', (event) => handleImageHover(event, true));
   });
 
   const dropdownToggle = document.querySelector(".dropdown-toggle");
