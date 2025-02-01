@@ -29,10 +29,10 @@ function replaceWordsWithEmojis() {
       text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
     }
 
-    if (element.hasAttribute('data-title')) {
-      let dataTitle = element.getAttribute('data-title');
+    if (element.hasAttribute('slide-title')) {
+      let dataTitle = element.getAttribute('slide-title');
       dataTitle = replacePlaceholdersWithEmojis(dataTitle);
-      element.setAttribute('data-title', dataTitle);
+      element.setAttribute('slide-title', dataTitle);
     }
 
     element.innerHTML = text;
