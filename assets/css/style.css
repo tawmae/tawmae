@@ -285,7 +285,7 @@ footer {
   text-align: right;
 }
 .jump-to-top {
-  color: white !important;
+  color: white;
   text-decoration: none;
 }
 .header-right .need-help:hover {
