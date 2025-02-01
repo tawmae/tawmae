@@ -240,6 +240,7 @@ header {
   display: flex;
   justify-content: center; 
   margin-top: 20px;
+  gap: 20px;
 }
 
 .product-grid {
@@ -256,7 +257,6 @@ header {
 .product-card {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  padding: 10px;
   text-align: center;
   width: 200px;
   transition: transform 0.3s, box-shadow 0.3s;
