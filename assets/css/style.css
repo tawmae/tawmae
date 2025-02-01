@@ -238,7 +238,6 @@ header {
 }
 .product-grid-wrapper {
   display: flex;
-  gap: 20px;
   justify-content: center; 
   margin-top: 50px;
   
@@ -247,7 +246,6 @@ header {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-  gap: 20px;
   max-width: 1200px;
   
   flex: 1;
