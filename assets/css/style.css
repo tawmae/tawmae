@@ -246,7 +246,8 @@ header {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-  max-width: 1200px;  
+  max-width: 1200px;
+  gap: -20px;
   flex: 1;
 }
 .product-card-link {
