@@ -322,7 +322,7 @@ footer {
   transform: scale(1.05); 
 }
 
-.feature-box {
+.black-text-box {
   background: rgba(0, 0, 0, 0.5); 
   color: white;
   padding: 20px;
@@ -333,12 +333,12 @@ footer {
   box-sizing: border-box; 
 }
 
-.feature-box h3 {
+.black-text-box h3 {
   margin-bottom: 10px;
   font-size: 1.5rem;
 }
 
-.feature-box p {
+.black-text-box p {
   font-size: 1rem;
 }
 
