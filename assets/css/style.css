@@ -107,7 +107,7 @@ header {
 }
 
 .header-right a .iconify:hover {
-  transform: translateY(-3px); 
+  transform: scale(1.05); 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
 
@@ -293,7 +293,7 @@ footer {
   text-decoration: none;
 }
 .header-right .need-help:hover {
-  transform: scale(1.2);  
+  transform: scale(1.05);   
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
 
@@ -308,7 +308,7 @@ footer {
 }
 
 .kofi-button:hover{
-  transform: scale(1.2); 
+  transform: scale(1.05); 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
