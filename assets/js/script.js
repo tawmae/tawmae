@@ -18,20 +18,33 @@ function prevSlide() {
   showSlide(i);
 }
 
-function handleImageHover(event) {
+// Bildwechsel mit Fade für Rotator und Produktkarten
+function handleImageHover(event, isRotator = false) {
   const image = event.target;
-  const originalSrc = image.dataset.originalSrc || image.src;
-  image.dataset.originalSrc = originalSrc;
-  image.src = originalSrc.replace('.png', '_2.png');
-}
+  const originalSrc = image.src;
+  
+  // Zweites Bild mit _2.png
+  image.dataset.originalSrc = originalSrc; // Speichern des Originalbilds
+  image.src = originalSrc.replace('.png', '_2.png'); // Bild wechseln
 
-function handleImageMouseOut(event) {
-  const image = event.target;
-  const originalSrc = image.dataset.originalSrc;
-  image.src = originalSrc;
+  image.classList.add('fade-in'); // Fade-Effekt hinzufügen
+
+  // Beim Verlassen der Maus das Bild zurück wechseln
+  if (isRotator) {
+    image.addEventListener('mouseleave', () => {
+      image.src = image.dataset.originalSrc; // Originalbild zurückladen
+      image.classList.remove('fade-in'); // Fade-Effekt entfernen
+    });
+  } else {
+    image.addEventListener('mouseleave', () => {
+      image.src = image.dataset.originalSrc; // Originalbild zurückladen
+      image.classList.remove('fade-in'); // Fade-Effekt entfernen
+    });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+  // Rotator-Slides und Indikatoren
   slides = document.querySelectorAll(".rotator a");
   indicators = document.createElement("div");
   document.querySelector(".rotator-indicators").appendChild(indicators);
@@ -53,23 +66,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
   setInterval(nextSlide, 8000);
 
-  const rotatorImages = document.querySelectorAll('.rotator img');
-  rotatorImages.forEach(image => {
-    image.addEventListener('mouseenter', handleImageHover);
-    image.addEventListener('mouseleave', handleImageMouseOut);
-  });
-
+  // Produktkarten
   const productCardImages = document.querySelectorAll('.product-card img');
   productCardImages.forEach(image => {
-    image.addEventListener('mouseenter', handleImageHover);
-    image.addEventListener('mouseleave', handleImageMouseOut);
+    image.addEventListener('mouseenter', (event) => handleImageHover(event));
   });
 
+  // Rotator
+  const rotatorImages = document.querySelectorAll('.rotator img');
+  rotatorImages.forEach(image => {
+    image.addEventListener('mouseenter', (event) => handleImageHover(event, true)); // true für Rotator
+  });
+
+  // Dropdown-Menü-Handling
   const dropdownToggle = document.querySelector(".dropdown-toggle");
   dropdownToggle.addEventListener("click", function(event) {
     event.preventDefault();
   });
 
+  // Markiere den aktiven Menü-Link
   const links = document.querySelectorAll(".header-center ul li a");
   const currentUrl = window.location.pathname;
 
