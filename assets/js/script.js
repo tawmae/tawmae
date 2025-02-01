@@ -22,11 +22,30 @@ function handleImageHover(event) {
   const image = event.target;
   const originalSrc = image.dataset.originalSrc || image.src;
   image.dataset.originalSrc = originalSrc;
+
+  // Wechsel das Bild zum zweiten (Hover) Bild
   image.src = originalSrc.replace('.png', '_2.png');
   image.classList.add('fade-out');
+
   image.addEventListener('transitionend', () => {
     if (image.classList.contains('fade-out')) {
-      image.src = image.dataset.originalSrc;
+      image.classList.remove('fade-out');
+      image.classList.add('fade-in');
+    }
+  });
+}
+
+function handleImageMouseOut(event) {
+  const image = event.target;
+  const originalSrc = image.dataset.originalSrc;
+
+  // Wenn das Bild wieder zurückgesetzt wird, verwende die Übergangsanimation
+  image.classList.remove('fade-in');
+  image.src = originalSrc;
+  image.classList.add('fade-out');
+
+  image.addEventListener('transitionend', () => {
+    if (image.classList.contains('fade-out')) {
       image.classList.remove('fade-out');
       image.classList.add('fade-in');
     }
@@ -55,14 +74,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   setInterval(nextSlide, 8000);
 
+  // Produktkarten Hover-Effekt
   const productCardImages = document.querySelectorAll('.product-card img');
   productCardImages.forEach(image => {
     image.addEventListener('mouseenter', handleImageHover);
+    image.addEventListener('mouseleave', handleImageMouseOut);
   });
 
+  // Rotator Hover-Effekt
   const rotatorImages = document.querySelectorAll('.rotator img');
   rotatorImages.forEach(image => {
     image.addEventListener('mouseenter', handleImageHover);
+    image.addEventListener('mouseleave', handleImageMouseOut);
   });
 
   const dropdownToggle = document.querySelector(".dropdown-toggle");
