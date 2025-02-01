@@ -137,6 +137,7 @@ button:hover {
   background: #141316;
   border-radius: 5px;
   text-align: left;
+  white-space: normal;
 }
 
 .code-block {
@@ -171,7 +172,7 @@ pre {
 }
 
 .callout {
-  border-left: 5px solid;
+  border-left: 8px solid;
   padding: 10px;
   margin: 20px auto;
   max-width: 600px;
@@ -179,20 +180,20 @@ pre {
 }
 
 .callout.green {
-  border-color: #a8d5ba;
-  background-color: #d4f8d4;
+  border-color: #4CAF50;
+  background-color: #e8f5e9;
   color: #000;
 }
 
 .callout.yellow {
-  border-color: #fff2b2;
-  background-color: #fff9c4;
+  border-color: #FFEB3B;
+  background-color: #fffde7;
   color: #000;
 }
 
 .callout.red {
-  border-color: #f2a8a8;
-  background-color: #ffcdd2;
+  border-color: #F44336;
+  background-color: #ffebee;
   color: #000;
 }
 
