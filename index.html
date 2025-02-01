@@ -5,20 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tawmae</title>
   <meta name="description" content="Moderne minimalistische Webseite mit nützlichen Gimmicks, SEO und vielem mehr.">
-  <meta name="keywords" content="HTML, CSS, JavaScript, Webdesign, SEO, GitHub Pages, Dark Mode">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Webdesign, SEO, GitHub Pages">
   <meta name="author" content="tawmae">
-  <meta property="og:title" content="tawmae">
-  <meta property="og:description" content="Moderne minimalistische Webseite mit nützlichen Gimmicks.">
-  <meta property="og:image" content="assets/page-design/logo-1.png">
-  <meta property="og:url" content="https://example.com">
-  <meta name="twitter:card" content="summary_large_image">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
-  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-  <link rel="icon" type="image/x-icon" href="assets/page-design/favicon.ico">
+  <link rel="icon" href="assets/page-design/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+  <script defer src="script.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
 </head>
@@ -51,21 +46,22 @@
     </div>
   </header>
 
+  <!-- Rotator -->
   <div class="rotator-wrapper">
     <div class="rotator-container">
       <div class="slide-title">Spotify</div>
       <div class="rotator">
         <a href="https://tawmae.github.io/spotify.html" target="_blank">
-          <img src="https://tawmae.github.io/assets/media/spotify_title_1.png" alt="Image 1">
+          <img src="https://tawmae.github.io/assets/media/spotify_title_1.png" alt="Spotify">
         </a>
         <a href="https://tawmae.github.io/movie_and_tv_show_quiz.html" target="_blank">
-          <img src="https://tawmae.github.io/assets/media/mtq_title_1.png" alt="Image 2">
+          <img src="https://tawmae.github.io/assets/media/mtq_title_1.png" alt="Movie and TV Show Quiz">
         </a>
         <a href="https://tawmae.github.io/all_in_one_moderation_tools.html" target="_blank">
-          <img src="https://tawmae.github.io/assets/general/title_aiomod.png" alt="Image 3">
+          <img src="https://tawmae.github.io/assets/general/title_aiomod.png" alt="All In One Moderation Tools">
         </a>
         <a href="https://tawmae.github.io/bsky.html" target="_blank">
-          <img src="https://tawmae.github.io/assets/general/title_bsky.png" alt="Image 4">
+          <img src="https://tawmae.github.io/assets/general/title_bsky.png" alt="Bluesky">
         </a>
       </div>
       <div class="rotator-indicators"></div>
@@ -88,8 +84,9 @@
       <h2>Import</h2>
       <div class="import-container">
         <span class="import-string"></span>
-        <button onclick="copyImportString(this)">
-          <span class="iconify" data-icon="material-symbols:content-copy-outline"></span> Kopieren
+        <button class="copy-import-button" onclick="copyImportString(this)">
+          <span class="iconify" data-icon="material-symbols:content-copy-outline"></span>
+          Kopieren
         </button>
       </div>
     </section>
@@ -101,7 +98,9 @@
         Console.WriteLine("Hallo, Welt!");
     }
 }</code></pre>
-        <span class="copy-code iconify" data-icon="material-symbols:content-copy-outline" onclick="copyCode(this)"></span>
+        <button class="copy-code-button" onclick="copyCode(this)">
+          <span class="iconify" data-icon="material-symbols:content-copy-outline"></span>
+        </button>
       </div>
     </section>
     <section id="dynamic-content">
@@ -109,6 +108,7 @@
       <!-- Dynamische Inhalte werden hier eingefügt -->
     </section>
   </main>
+
   <footer>
     <div class="footer-left">
       <p>&copy; tawmae 2025</p>
