@@ -236,14 +236,17 @@ header {
 .rotator-arrow.right {
   right: 10px;
 }
+.product-grid-wrapper {
+  display: flex; /* Flexbox aktiviert */
+  gap: 20px; /* Abstand zwischen den beiden Boxen */
+  margin-top: 20px; /* Optional: Abstand oben */
+}
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grid für die Product Cards */
   gap: 20px;
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
-  justify-items: center;
+  max-width: 1200px;  /* Maximalbreite für Product Cards */
+  flex: 1;  /* Nimmt den restlichen Platz ein */
 }
 .product-card-link {
   text-decoration: none;
