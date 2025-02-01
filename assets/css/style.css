@@ -15,11 +15,11 @@ body {
   background-color: #27262b;
   color: white;
   text-align: center;
-  padding: 20px;
 }
 
 main {
   flex: 1;
+  padding: 20px;
 }
 
 header {
@@ -47,6 +47,10 @@ header {
   gap: 20px;
 }
 
+.header-center ul li {
+  position: relative;
+}
+
 .header-center ul li a {
   text-decoration: none;
   color: white;
@@ -57,45 +61,6 @@ header {
 
 .header-center ul li a:hover {
   color: #466090;
-}
-
-/* Dropdown Menu for OBS Widgets */
-.header-center ul li .dropdown-menu {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  color: #333;
-  min-width: 150px;
-  padding: 5px 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  z-index: 1000;
-  text-align: left;
-}
-
-.header-center ul li .dropdown-menu li {
-  display: block;
-}
-
-.header-center ul li .dropdown-menu li a {
-  display: block;
-  padding: 5px 15px;
-  color: #000;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.3s, color 0.3s;
-}
-
-.header-center ul li .dropdown-menu li a:hover {
-  background: #e0e0e0;
-  color: #000;
-}
-
-.header-center ul li.dropdown:hover > .dropdown-menu {
-  display: flex;
 }
 
 .header-right a {
@@ -115,13 +80,54 @@ header {
   font-size: 1rem;
   font-weight: normal;
   margin-right: 20px;
-  display: inline-flex;
-  align-items: center;
 }
 
-.header-right .need-help .iconify {
-  font-size: 1.5rem;
+.header-right a .iconify {
   vertical-align: middle;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  color: #333;
+  min-width: 150px;
+  padding: 5px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+  text-align: left;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 5px 15px;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-menu li a:hover {
+  background: #f0f0f0;
+}
+
+.arrow {
+  font-size: 0.8rem;
   margin-left: 5px;
 }
 
@@ -260,7 +266,7 @@ header {
 
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 .product-card img {
@@ -282,11 +288,9 @@ header {
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
+  width: 100%;
   background: #1e1d22;
+  margin-top: auto;
 }
 
 .footer-container {
