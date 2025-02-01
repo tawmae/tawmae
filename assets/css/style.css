@@ -135,9 +135,10 @@ header {
 .rotator-wrapper {
   margin: 20px 20px 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
   width: 100%;
+  height: auto;
 }
 .rotator-container {
   position: relative;
