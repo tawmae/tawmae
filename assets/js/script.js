@@ -1,13 +1,13 @@
 const wordToEmojiMap = {
-  "5Head": "https://cdn.7tv.app/emote/01F6NPFQXG000AAS5FM9Q6GVCC/2x.avif",
-  "Pog": "https://cdn.7tv.app/emote/01F6NPRJXG000AAS5FM9Q6GVCC/2x.avif",
-  "FeelsBadMan": "https://cdn.7tv.app/emote/01F6NPSQXG000AAS5FM9Q6GVCC/2x.avif",
-  "Kappa": "https://cdn.7tv.app/emote/01F6NPKQXG000AAS5FM9Q6GVCC/2x.avif",
-  "pepeSmoke": "https://cdn.7tv.app/emote/01GXSBRHEG0005KVP89EZ27DXH/2x.avif",
-  "MrDestructoid": "https://cdn.7tv.app/emote/01FTEC7QC80001606GRRVVKAH7/1x.avif",
-  "widetime": "https://cdn.7tv.app/emote/01HRTCQ67G0002CEEGWVSC44EJ/1x.avif",
-  "modCheck": "https://cdn.7tv.app/emote/01F6FTE8B80008E39HFFQJ7MWS/2x.avif",
-  "PauseChamp": "https://cdn.7tv.app/emote/01F6N2GFVR000F76KNAAVCSDGX/2x.avif"
+  "5Head": "/assets/emotes/5head.webp",
+  "Pog": "/assets/emotes/pog.webp",
+  "FeelsBadMan": "/assets/emotes/feelsbadman.webp",
+  "Kapp": "/assets/emotes/kapp.webp",
+  "pepeSmoke": "/assets/emotes/pepemmoke.webp",
+  "MrDestructoid": "/assets/emotes/mrdestructoid.webp",
+  "widetime": "/assets/emotes/widetime.webp",
+  "modCheck": "/assets/emotes/modcheck.webp",
+  "PauseChamp": "/assets/emotes/pausechamp.webp"
 };
 
 function replacePlaceholdersWithEmojis(text) {
