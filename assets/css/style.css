@@ -271,7 +271,8 @@ header {
   transition: transform 0.3s ease-in-out;
 }
 .product-card:hover img, .rotator:hover img {
-  opacity: 0;  
+  opacity: 0;  /* Optional: Bild unsichtbar machen während des Hover-Effekts */
+  transform: scale(1.05); /* Optional: zoomt das Bild leicht */
 }
 
 .product-card img.fade-in, .rotator img.fade-in {
