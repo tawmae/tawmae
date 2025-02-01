@@ -259,7 +259,7 @@ header {
   border-radius: 5px;
   text-align: center;
   width: 200px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: opacity 0.5s ease-in-out, transform 0.3s, box-shadow 0.3s;
 }
 .product-card:hover {
   transform: translateY(-5px);
@@ -271,6 +271,13 @@ header {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 5px;
+}
+.product-card:hover img, .rotator:hover img {
+  opacity: 0;  
+}
+
+.product-card img.fade-in, .rotator img.fade-in {
+  opacity: 1;
 }
 .product-card h3 {
   margin-top: 10px;
