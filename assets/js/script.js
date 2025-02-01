@@ -4,6 +4,17 @@ document.addEventListener("DOMContentLoaded", function() {
   if (importStringElem) {
     importStringElem.innerText = longString;
   }
+  const copyButton = document.querySelector(".copy-button");
+  if (copyButton && importStringElem) {
+    copyButton.addEventListener("click", function() {
+      navigator.clipboard.writeText(importStringElem.innerText).then(() => {
+        copyButton.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-24-filled"></span> Copied';
+        setTimeout(() => {
+          copyButton.innerHTML = '<span class="iconify" data-icon="material-symbols:content-copy-outline"></span> Copy';
+        }, 2500);
+      });
+    });
+  }
   let currentIndex = 0;
   const slides = document.querySelectorAll('.rotator a');
   const indicatorsContainer = document.querySelector('.rotator-indicators');
@@ -50,5 +61,19 @@ document.addEventListener("DOMContentLoaded", function() {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  }
+  function renderDynamicContents() {
+    const tocContainer = document.querySelector('.toc-container');
+    if (!tocContainer) return;
+    const headings = document.querySelectorAll('h2, h3');
+    let tocHTML = '<ul>';
+    headings.forEach(heading => {
+      if (!heading.id) {
+        heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+      }
+      tocHTML += `<li class="${heading.tagName.toLowerCase()}"><a href="#${heading.id}">${heading.textContent}</a></li>`;
+    });
+    tocHTML += '</ul>';
+    tocContainer.innerHTML = tocHTML;
   }
 });
