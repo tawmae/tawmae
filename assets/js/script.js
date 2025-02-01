@@ -1,3 +1,34 @@
+// Mapping von Wörtern zu Emoji-URLs
+const wordToEmojiMap = {
+  "5Head": "https://cdn.7tv.app/emote/01F6NPFQXG000AAS5FM9Q6GVCC/1x.avif",
+  "Pog": "https://cdn.7tv.app/emote/01F6NPRJXG000AAS5FM9Q6GVCC/1x.avif",
+  "FeelsBadMan": "https://cdn.7tv.app/emote/01F6NPSQXG000AAS5FM9Q6GVCC/1x.avif"
+  // Füge hier weitere Wörter und ihre Emoji-URLs hinzu
+};
+
+// Funktion, die den Text auf der Seite ersetzt
+function replaceWordsWithEmojis() {
+  // Alle Elemente auf der Seite durchsuchen
+  const elements = document.querySelectorAll('p, h1, h2, h3, span, div');
+
+  elements.forEach(element => {
+    let text = element.innerHTML;
+
+    // Ersetze jedes Wort in der Map durch das entsprechende Emoji
+    for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
+      const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
+      text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag); // \\b stellt sicher, dass nur ganze Wörter ersetzt werden
+    }
+
+    element.innerHTML = text;
+  });
+}
+
+// Stelle sicher, dass die Funktion nach dem Laden der Seite ausgeführt wird
+document.addEventListener("DOMContentLoaded", function() {
+  replaceWordsWithEmojis();
+});
+
 
 var slides, indicators, currentIndex = 0;
 
