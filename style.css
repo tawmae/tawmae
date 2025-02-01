@@ -80,6 +80,121 @@ header {
   color: #466090;
 }
 
+.rotator-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 100px 20px 20px 20px;
+  width: 100%;
+}
+
+.rotator-container {
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 6 / 1;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.slide-title {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.8);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  font-size: 1rem;
+  z-index: 2;
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
+}
+
+.slide-title.hidden { opacity: 0; }
+
+.rotator {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.rotator a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+.rotator a.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rotator img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.rotator a.active:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.3);
+}
+
+.rotator-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.indicator.active { background-color: white; }
+
+.rotator-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  z-index: 2;
+}
+
+.rotator-arrow:hover { background: rgba(0,0,0,0.8); }
+
+.rotator-arrow.left { left: 10px; }
+
+.rotator-arrow.right { right: 10px; }
+
+@media (max-width: 768px) {
+  .slide-title { font-size: 0.9rem; padding: 4px 8px; }
+  .rotator-arrow { font-size: 1.2rem; padding: 8px 12px; }
+}
+
 main {
   margin-top: 80px;
   padding: 50px 10%;
@@ -253,118 +368,4 @@ footer {
   opacity: 1;
   transition: opacity 0.5s ease;
   z-index: 1001;
-}
-
-/* Rotator Styles */
-.rotator-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-  width: 100%;
-}
-
-.rotator-container {
-  width: 100%;
-  max-width: 1200px;
-  aspect-ratio: 6 / 1;
-  overflow: hidden;
-  position: relative;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.slide-title {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(0,0,0,0.8);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-family: 'Poppins', sans-serif;
-  color: white;
-  font-size: 1rem;
-  z-index: 2;
-  transition: opacity 1s ease-in-out;
-  opacity: 1;
-}
-
-.slide-title.hidden { opacity: 0; }
-
-.rotator {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.rotator a {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  pointer-events: none;
-}
-
-.rotator a.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.rotator img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-.rotator a.active:hover img {
-  transform: scale(1.05);
-  filter: brightness(1.3);
-}
-
-.rotator-indicators {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 2;
-}
-
-.indicator {
-  width: 12px;
-  height: 12px;
-  background-color: rgba(255,255,255,0.5);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.indicator.active { background-color: white; }
-
-.rotator-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 10px 15px;
-  font-size: 1.5rem;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-  z-index: 2;
-}
-
-.rotator-arrow:hover { background: rgba(0,0,0,0.8); }
-
-.rotator-arrow.left { left: 10px; }
-
-.rotator-arrow.right { right: 10px; }
-
-@media (max-width: 768px) {
-  .slide-title { font-size: 0.9rem; padding: 4px 8px; }
-  .rotator-arrow { font-size: 1.2rem; padding: 8px 12px; }
 }
