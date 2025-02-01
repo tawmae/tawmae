@@ -8,11 +8,11 @@
   <meta name="keywords" content="{{ page.keywords | default: 'HTML, CSS, JavaScript, Webdesign, SEO, GitHub Pages' }}">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="icon" href="/assets/page-design/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <link rel="icon" href="{{ site.baseurl }}/assets/page-design/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
   <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-  <script defer src="/assets/js/script.js"></script>
+  <script defer src="{{ site.baseurl }}/assets/js/script.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
 </head>
@@ -20,17 +20,17 @@
   <header>
     <div class="header-left">
       <div class="logo">
-        <img src="/assets/page-design/logo-1.png" alt="Logo">
+        <img src="{{ site.baseurl }}/assets/page-design/logo-1.png" alt="Logo">
       </div>
     </div>
     <nav class="header-center">
       <ul>
-        <li><a href="/">Start</a></li>
-        <li><a href="/obs-widgets.html">OBS Widgets</a></li>
-        <li><a href="/callouts.html">Hinweise</a></li>
-        <li><a href="/import.html">Import</a></li>
-        <li><a href="/code.html">Code</a></li>
-        <li><a href="/dynamic.html">Dynamisch</a></li>
+        <li><a href="{{ site.baseurl }}/">Start</a></li>
+        <li><a href="{{ site.baseurl }}/obs-widgets.html">OBS Widgets</a></li>
+        <li><a href="{{ site.baseurl }}/callouts.html">Hinweise</a></li>
+        <li><a href="{{ site.baseurl }}/import.html">Import</a></li>
+        <li><a href="{{ site.baseurl }}/code.html">Code</a></li>
+        <li><a href="{{ site.baseurl }}/dynamic.html">Dynamisch</a></li>
       </ul>
     </nav>
     <div class="header-right">
