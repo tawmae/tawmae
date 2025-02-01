@@ -15,7 +15,7 @@ body {
   background-color: #27262b;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
 }
 
 main {
@@ -61,7 +61,7 @@ header {
 
 .header-right a {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-left: 15px;
   transition: transform 0.3s;
   text-decoration: none;
@@ -73,7 +73,7 @@ header {
 }
 
 .header-right .need-help {
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: normal;
   margin-right: 20px;
 }
@@ -84,13 +84,13 @@ header {
 
 .dropdown-menu {
   display: none;
+  flex-direction: column;
   position: absolute;
   top: 100%;
   left: 0;
   background: #fff;
   color: #333;
   min-width: 150px;
-  padding: 5px 0;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   z-index: 1000;
@@ -111,6 +111,10 @@ header {
 
 .dropdown-menu li a:hover {
   background: #f0f0f0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
 }
 
 .arrow {
@@ -296,6 +300,11 @@ footer {
 }
 
 .jump-to-top {
-  color: white !important;
+  color: white;
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+.jump-to-top:hover {
+  text-decoration: underline;
 }
