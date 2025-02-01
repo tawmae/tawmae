@@ -245,7 +245,6 @@ header {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grid für die Product Cards */
-  gap: 20px;
   max-width: 1200px;  /* Maximalbreite für Product Cards */
   flex: 1;  /* Nimmt den restlichen Platz ein */
 }
