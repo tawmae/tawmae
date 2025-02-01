@@ -15,5 +15,14 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 function copyImportString() {
   navigator.clipboard.writeText(longString);
-  alert("String kopiert!");
+  const notif = document.createElement("div");
+  notif.className = "copy-notification";
+  notif.innerText = "Copied to clipboard";
+  document.body.appendChild(notif);
+  setTimeout(() => {
+    notif.style.opacity = 0;
+    setTimeout(() => {
+      notif.remove();
+    }, 500);
+  }, 1500);
 }
