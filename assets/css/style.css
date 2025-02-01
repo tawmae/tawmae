@@ -136,6 +136,8 @@ header {
   margin: 20px 20px 20px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
   width: 100%;
 }
 .rotator-container {
@@ -322,14 +324,14 @@ footer {
 }
 
 .feature-box {
-  background: rgba(0, 0, 0, 0.5); /* Schwarz mit 50% Opazität */
+  background: rgba(0, 0, 0, 0.5); /* Hintergrund schwarz mit 50% Opazität */
   color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 300px; /* Passe die Breite nach Bedarf an */
+  width: 300px; /* Breite der Textbox */
   text-align: left;
-  position: relative;
-  top: 0; /* Auf gleicher Höhe wie der Rotator */
+  height: 100%; /* Macht die Box genauso hoch wie der Rotator */
+  box-sizing: border-box; /* Damit Padding nicht die Höhe beeinflusst */
 }
 
 .feature-box h3 {
