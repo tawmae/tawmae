@@ -3,7 +3,7 @@ const wordToEmojiMap = {
   "Pog": "/assets/emotes/pog.webp",
   "FeelsBadMan": "/assets/emotes/feelsbadman.webp",
   "Kapp": "/assets/emotes/kapp.webp",
-  "pepeSmoke": "/assets/emotes/pepemmoke.webp",
+  "pepeSmoke": "/assets/emotes/pepesmoke.webp",
   "MrDestructoid": "/assets/emotes/mrdestructoid.webp",
   "widetime": "/assets/emotes/widetime.webp",
   "modCheck": "/assets/emotes/modcheck.webp",
