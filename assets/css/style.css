@@ -74,7 +74,7 @@ header {
 }
 .header-center ul li .dropdown-menu li a {
   display: block;
-  padding: 3px 15px;
+  padding: 3px 5px;
   color: #000;
   text-decoration: none;
   white-space: nowrap;
