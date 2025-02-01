@@ -1,101 +1,138 @@
 ---
-title: Ad Notification
+title: Ad Notification kek
 description: A notification widget for OBS to display upcoming and ongoing Twitch ads.
 layout: default
 parent: OBS Widgets
 ---
 
-<div class="content">
-  <img src="assets/media/ad_title_1.png" alt="Ad Notification" style="max-width:100%; border-radius:8px; margin-bottom:20px;">
-  <div>
-    <span class="label label-green">Twitch</span>
-    <span class="label label-yellow">OBS</span>
-    <span class="label" style="background-color:#2196F3;">StreamerBot</span>
-  </div>
-  <div class="toc-container" style="margin:20px 0;"></div>
-  <hr>
-  <h2><span class="iconify" data-icon="material-symbols:description-outline-sharp" data-inline="false"></span> Description</h2>
-  <p>An overlay for when Twitch ads are about to start or are currently in progress.</p>
-  <img src="assets/media/ads_1.gif" alt="Ads 1" style="max-width:100%; border-radius:8px; margin:10px 0;">
-  <img src="assets/media/ads_2.gif" alt="Ads 2" style="max-width:100%; border-radius:8px; margin:10px 0;">
-  <hr>
-  <h2><span class="iconify" data-icon="tabler:tool" data-inline="false"></span> Setup</h2>
-  <ol>
-    <li>
-      Go into Streamerbot and head to the tab <code>Servers/Clients -> WebSocket Server</code> and start the websocket server. Leave the address at <code>127.0.0.1</code> and the port at <code>8080</code>. Check <code>Auto Start</code> as well. You can set a password, but you don't have to. If you do, make sure <code>Enforce for All Requests</code> stays unchecked.
-      <br>
-      <a href="https://tawmae.github.io/assets/media/notif_sb.png" target="_blank">
-        <img src="assets/media/notif_sb.png" alt="Streamerbot Setup" style="max-width:100%; border-radius:8px; margin:10px 0;">
-      </a>
-    </li>
-    <li>
-      Copy the URL:
-      <pre style="background:#1e1d22; padding:10px; border-radius:5px; overflow-x:auto;">https://tawmae.github.io/overlays/Ads.html</pre>
-    </li>
-    <li>
-      Go into your OBS, create a browser source and paste the URL in there. Preferably set the resolution to your canvas size.
-      <br>
-      <a href="https://tawmae.github.io/assets/media/notif_obs_1.png" target="_blank">
-        <img src="assets/media/notif_obs_1.png" alt="OBS Setup 1" style="max-width:100%; border-radius:8px; margin:10px 0;">
-      </a>
-      <br>
-      <a href="https://tawmae.github.io/assets/media/recent_events_new_obs_1.png" target="_blank">
-        <img src="assets/media/recent_events_new_obs_1.png" alt="OBS Setup 2" style="max-width:100%; border-radius:8px; margin:10px 0;">
-      </a>
-    </li>
-    <li>
-      Done 🥳
-    </li>
-  </ol>
-  <p>To have the events in multiple scenes, don't create an individual browser source in every scene, but instead create a new <strong>nested</strong> scene and put just a single browser source in there. Then place that scene into all your other scenes. This way you won't have to create 20 browser sources for 20 scenes.</p>
-  <hr>
-  <h2><span class="iconify" data-icon="material-symbols:dataset-linked-sharp" data-inline="false"></span> URL Parameters</h2>
-  <p>To customize the ad overlay, you can add URL parameters. The first parameter gets added with a <code>?</code>, every additional one with <code>&amp;</code>.</p>
-  <p>Example:</p>
-  <pre style="background:#1e1d22; padding:10px; border-radius:5px; overflow-x:auto;">https://tawmae.github.io/overlays/Ads.html?sound=true&amp;color=violet&amp;font=lato</pre>
-  <a href="assets/media/ads_custom.png" target="_blank">
-    <img src="assets/media/ads_custom.png" alt="Custom Ads" style="max-width:100%; border-radius:8px; margin:10px 0;">
-  </a>
-  <hr>
-  <h3><span class="iconify" data-icon="ion:color-palette" data-inline="false"></span> Color</h3>
-  <p>Changes the color of the title and progress bar. Supports hex codes too.</p>
-  <p><code>color=blue</code></p>
-  <p><code>color=B81A56</code></p>
-  <hr>
-  <h3><span class="iconify" data-icon="mdi:format-font" data-inline="false"></span> Font Family</h3>
-  <p>Changes the font used for the text. Supports standard fonts. Use <code>%20</code> to replace spaces.</p>
-  <p><code>font=Arial</code></p>
-  <p><code>font=Poppins</code></p>
-  <p><code>font=Comic%20Sans%20MS</code></p>
-  <hr>
-  <h3><span class="iconify" data-icon="material-symbols:volume-up-rounded" data-inline="false"></span> Sound</h3>
-  <p>Toggles whether a sound is played when the overlay displays.</p>
-  <p><code>sound=true</code></p>
-  <hr>
-  <p>You can simulate events by creating a trigger (<strong>Twitch -&gt; Ads</strong>), then right-click it and hit <strong>Simulate Event</strong>.</p>
-  <hr>
-  <p><span class="iconify" data-icon="twemoji:flag-germany" data-inline="false"></span> German version: <a href="https://tawmae.github.io/overlays/Ads_GER.html">https://tawmae.github.io/overlays/Ads_GER.html</a></p>
-  <hr>
-  <h2><span class="iconify" data-icon="material-symbols:published-with-changes" data-inline="false"></span> Changelog</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Changes</th>
-        <th>Version</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>December 06, 2024</td>
-        <td>Added color and font URL parameters</td>
-        <td>1.0.1</td>
-      </tr>
-      <tr>
-        <td>December 03, 2024</td>
-        <td>Release</td>
-        <td>1.0.0</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="ad-notification-container" style="max-width: 900px; margin: 100px auto; padding: 20px; background: #1e1d22; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); font-family: 'Poppins', sans-serif; color: #fff;">
+  <header class="ad-header" style="text-align: center; margin-bottom: 30px;">
+    <img src="assets/media/ad_title_1.png" alt="Ad Notification" style="max-width: 100%; border-radius: 8px; margin-bottom: 20px;">
+    <div class="ad-tags" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+      <span class="label label-green" style="background-color: #4CAF50; padding: 5px 10px; border-radius: 5px; font-size: 0.9rem;">Twitch</span>
+      <span class="label label-yellow" style="background-color: #FF9800; padding: 5px 10px; border-radius: 5px; font-size: 0.9rem;">OBS</span>
+      <span class="label label-blue" style="background-color: #2196F3; padding: 5px 10px; border-radius: 5px; font-size: 0.9rem;">StreamerBot</span>
+    </div>
+  </header>
+  <nav class="ad-toc" style="margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 10px;">
+    <ul style="list-style: none; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 0; margin: 0;">
+      <li><a href="#description" style="color: #fff; text-decoration: none; font-weight: 500;">Description</a></li>
+      <li><a href="#setup" style="color: #fff; text-decoration: none; font-weight: 500;">Setup</a></li>
+      <li><a href="#url-parameters" style="color: #fff; text-decoration: none; font-weight: 500;">URL Parameters</a></li>
+      <li><a href="#changelog" style="color: #fff; text-decoration: none; font-weight: 500;">Changelog</a></li>
+    </ul>
+  </nav>
+  <main class="ad-main" style="line-height: 1.6; font-size: 1rem;">
+    <section id="description" class="ad-section" style="margin-bottom: 40px;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 15px;">
+        <span class="iconify" data-icon="material-symbols:description-outline-sharp" data-inline="false"></span> Description
+      </h2>
+      <p style="margin-bottom: 20px;">An overlay for when Twitch ads are about to start or are currently in progress. Experience a modern, clean design that integrates seamlessly into your OBS setup.</p>
+      <div class="ad-media" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+        <img src="assets/media/ads_1.gif" alt="Ads 1" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+        <img src="assets/media/ads_2.gif" alt="Ads 2" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+      </div>
+    </section>
+    <section id="setup" class="ad-section" style="margin-bottom: 40px;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 15px;">
+        <span class="iconify" data-icon="tabler:tool" data-inline="false"></span> Setup
+      </h2>
+      <ol style="padding-left: 20px;">
+        <li style="margin-bottom: 15px;">
+          Open Streamerbot and navigate to <strong>Servers/Clients → WebSocket Server</strong>. Start the WebSocket server with address <code>127.0.0.1</code> and port <code>8080</code>. Enable <strong>Auto Start</strong>.
+          <div class="ad-image" style="margin-top: 10px; text-align: center;">
+            <a href="assets/media/notif_sb.png" target="_blank">
+              <img src="assets/media/notif_sb.png" alt="Streamerbot Setup" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+            </a>
+          </div>
+        </li>
+        <li style="margin-bottom: 15px;">
+          Copy the URL below:
+          <div class="ad-code" style="background: #27262b; padding: 10px; border-radius: 5px; margin-top: 10px; font-family: 'Fira Code', monospace;">
+            <code>https://tawmae.github.io/overlays/Ads.html</code>
+          </div>
+        </li>
+        <li style="margin-bottom: 15px;">
+          In OBS, create a new browser source and paste the URL. Set the resolution to match your canvas size.
+          <div class="ad-image" style="margin-top: 10px; text-align: center;">
+            <a href="assets/media/notif_obs_1.png" target="_blank">
+              <img src="assets/media/notif_obs_1.png" alt="OBS Setup" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); margin-bottom: 10px;">
+            </a>
+            <a href="assets/media/recent_events_new_obs_1.png" target="_blank">
+              <img src="assets/media/recent_events_new_obs_1.png" alt="OBS Setup Details" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+            </a>
+          </div>
+        </li>
+        <li>
+          Enjoy your new ad overlay experience!
+        </li>
+      </ol>
+      <p class="ad-note" style="font-style: italic; margin-top: 15px; color: #bbb;">Tip: Use a nested scene for multiple OBS scenes to avoid creating multiple browser sources.</p>
+    </section>
+    <section id="url-parameters" class="ad-section" style="margin-bottom: 40px;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 15px;">
+        <span class="iconify" data-icon="material-symbols:dataset-linked-sharp" data-inline="false"></span> URL Parameters
+      </h2>
+      <p style="margin-bottom: 20px;">Customize your overlay by appending URL parameters. Start with a <code>?</code> for the first parameter and use <code>&amp;</code> for additional ones.</p>
+      <div class="ad-code" style="background: #27262b; padding: 10px; border-radius: 5px; margin-bottom: 20px; font-family: 'Fira Code', monospace;">
+        <code>https://tawmae.github.io/overlays/Ads.html?sound=true&amp;color=violet&amp;font=lato</code>
+      </div>
+      <div class="ad-parameters" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around;">
+        <article style="flex: 1; min-width: 250px; background: #2c2b30; padding: 15px; border-radius: 8px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 10px;">
+            <span class="iconify" data-icon="ion:color-palette" data-inline="false"></span> Color
+          </h3>
+          <p style="margin-bottom: 10px;">Change the color of the title and progress bar. Supports color names and hex codes.</p>
+          <p style="background: #27262b; padding: 5px 8px; border-radius: 5px; font-family: 'Fira Code', monospace;"><code>color=blue</code> or <code>color=B81A56</code></p>
+        </article>
+        <article style="flex: 1; min-width: 250px; background: #2c2b30; padding: 15px; border-radius: 8px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 10px;">
+            <span class="iconify" data-icon="mdi:format-font" data-inline="false"></span> Font Family
+          </h3>
+          <p style="margin-bottom: 10px;">Set your preferred font. Use <code>%20</code> for spaces.</p>
+          <p style="background: #27262b; padding: 5px 8px; border-radius: 5px; font-family: 'Fira Code', monospace;"><code>font=Arial</code>, <code>font=Poppins</code>, or <code>font=Comic%20Sans%20MS</code></p>
+        </article>
+        <article style="flex: 1; min-width: 250px; background: #2c2b30; padding: 15px; border-radius: 8px;">
+          <h3 style="font-size: 1.2rem; margin-bottom: 10px;">
+            <span class="iconify" data-icon="material-symbols:volume-up-rounded" data-inline="false"></span> Sound
+          </h3>
+          <p style="margin-bottom: 10px;">Enable sound when the overlay displays.</p>
+          <p style="background: #27262b; padding: 5px 8px; border-radius: 5px; font-family: 'Fira Code', monospace;"><code>sound=true</code></p>
+        </article>
+      </div>
+      <p class="ad-note" style="font-style: italic; margin-top: 15px; color: #bbb;">You can simulate events in Streamerbot by creating a trigger (<strong>Twitch → Ads</strong>), right-clicking, and selecting <strong>Simulate Event</strong>.</p>
+    </section>
+    <section id="changelog" class="ad-section" style="margin-bottom: 20px;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 15px;">
+        <span class="iconify" data-icon="material-symbols:published-with-changes" data-inline="false"></span> Changelog
+      </h2>
+      <table class="ad-table" style="width: 100%; border-collapse: collapse; background: #27262b; border-radius: 5px; overflow: hidden;">
+        <thead style="background: #1e1d22;">
+          <tr>
+            <th style="padding: 12px 15px; border: 1px solid #333; text-align: left;">Date</th>
+            <th style="padding: 12px 15px; border: 1px solid #333; text-align: left;">Changes</th>
+            <th style="padding: 12px 15px; border: 1px solid #333; text-align: left;">Version</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: #2c2b30;">
+            <td style="padding: 12px 15px; border: 1px solid #333;">December 06, 2024</td>
+            <td style="padding: 12px 15px; border: 1px solid #333;">Added color and font URL parameters</td>
+            <td style="padding: 12px 15px; border: 1px solid #333;">1.0.1</td>
+          </tr>
+          <tr style="background: #1e1d22;">
+            <td style="padding: 12px 15px; border: 1px solid #333;">December 03, 2024</td>
+            <td style="padding: 12px 15px; border: 1px solid #333;">Release</td>
+            <td style="padding: 12px 15px; border: 1px solid #333;">1.0.0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer class="ad-footer" style="text-align: center; padding-top: 20px; border-top: 1px solid #333; margin-top: 20px; font-size: 0.9rem;">
+    <p>
+      <span class="iconify" data-icon="twemoji:flag-germany" data-inline="false"></span> German version:
+      <a href="https://tawmae.github.io/overlays/Ads_GER.html" style="color: #fff; text-decoration: underline;">https://tawmae.github.io/overlays/Ads_GER.html</a>
+    </p>
+  </footer>
 </div>
