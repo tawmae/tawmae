@@ -237,16 +237,19 @@ header {
   right: 10px;
 }
 .product-grid-wrapper {
-  display: flex; /* Flexbox aktiviert */
-  justify-content: center;
-  gap: 20px; /* Abstand zwischen den beiden Boxen */
-  margin-top: 20px; /* Optional: Abstand oben */
+  display: flex;
+  justify-content: center; /* Zentrieren der Elemente im Wrapper */
+  gap: 20px;
+  margin-top: 20px;
+  margin-left: 10px;  /* Hinein verschieben des gesamten Containers */
 }
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grid für die Product Cards */
-  max-width: 1200px;  /* Maximalbreite für Product Cards */
-  flex: 1;  /* Nimmt den restlichen Platz ein */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 20px;
+  max-width: 1200px;
+  flex: 1;
 }
 .product-card-link {
   text-decoration: none;
