@@ -1,4 +1,3 @@
-
 const wordToEmojiMap = {
   "5Head": "https://cdn.7tv.app/emote/01F6NPFQXG000AAS5FM9Q6GVCC/2x.avif",
   "Pog": "https://cdn.7tv.app/emote/01F6NPRJXG000AAS5FM9Q6GVCC/2x.avif",
@@ -6,34 +5,41 @@ const wordToEmojiMap = {
   "Kappa": "https://cdn.7tv.app/emote/01F6NPKQXG000AAS5FM9Q6GVCC/2x.avif",
   "pepeSmoke": "https://cdn.7tv.app/emote/01GXSBRHEG0005KVP89EZ27DXH/2x.avif",
   "MrDestructoid": "https://cdn.7tv.app/emote/01FTEC7QC80001606GRRVVKAH7/1x.avif",
-  "widetme": "https://cdn.7tv.app/emote/01HRTCQ67G0002CEEGWVSC44EJ/1x.avif",
+  "widetime": "https://cdn.7tv.app/emote/01HRTCQ67G0002CEEGWVSC44EJ/1x.avif",
   "modCheck": "https://cdn.7tv.app/emote/01F6FTE8B80008E39HFFQJ7MWS/2x.avif",
   "PauseChamp": "https://cdn.7tv.app/emote/01F6N2GFVR000F76KNAAVCSDGX/2x.avif"
-
 };
 
-
 function replaceWordsWithEmojis() {
-
-  const elements = document.querySelectorAll('p, h1, h2, h3, span, div');
+  const elements = document.querySelectorAll('p, h1, h2, h3, span, div, a');
 
   elements.forEach(element => {
+    // Ersetzen im innerHTML
     let text = element.innerHTML;
 
+    // Auch das data-title-Attribut ersetzen
+    if (element.hasAttribute('data-title')) {
+      let dataTitle = element.getAttribute('data-title');
+      for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
+        const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
+        dataTitle = dataTitle.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
+      }
+      element.setAttribute('data-title', dataTitle);  // Neues data-title setzen
+    }
+
+    // Emojis im innerHTML ersetzen
     for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
       const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
       text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag); 
     }
 
-    element.innerHTML = text;
+    element.innerHTML = text;  // Text nach der Ersetzung zurücksetzen
   });
 }
-
 
 document.addEventListener("DOMContentLoaded", function() {
   replaceWordsWithEmojis();
 });
-
 
 var slides, indicators, currentIndex = 0;
 
@@ -42,8 +48,10 @@ function showSlide(i) {
   indicators[currentIndex].classList.remove("active");
   slides[i].classList.add("active");
   indicators[i].classList.add("active");
+
   const title = slides[i].getAttribute("data-title");
   document.querySelector(".slide-title").textContent = title;
+
   currentIndex = i;
 }
 
@@ -57,18 +65,15 @@ function prevSlide() {
   showSlide(i);
 }
 
-
 function handleImageHover(event, isRotator = false) {
   const image = event.target;
   const originalSrc = image.src;
-  
 
-  image.dataset.originalSrc = originalSrc; 
+  image.dataset.originalSrc = originalSrc;
   image.src = originalSrc.replace('.png', '_2.png'); 
 
   image.classList.add('fade-in'); 
 
- 
   if (isRotator) {
     image.addEventListener('mouseleave', () => {
       image.src = image.dataset.originalSrc; 
@@ -83,7 +88,6 @@ function handleImageHover(event, isRotator = false) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-
   slides = document.querySelectorAll(".rotator a");
   indicators = document.createElement("div");
   document.querySelector(".rotator-indicators").appendChild(indicators);
@@ -108,18 +112,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
   setInterval(nextSlide, 8000);
 
-
   const productCardImages = document.querySelectorAll('.product-card img');
   productCardImages.forEach(image => {
     image.addEventListener('mouseenter', (event) => handleImageHover(event));
   });
 
-
   const rotatorImages = document.querySelectorAll('.rotator img');
   rotatorImages.forEach(image => {
     image.addEventListener('mouseenter', (event) => handleImageHover(event, true)); // true für Rotator
   });
-
 
   const dropdownToggle = document.querySelector(".dropdown-toggle");
   dropdownToggle.addEventListener("click", function(event) {
