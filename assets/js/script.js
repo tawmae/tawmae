@@ -78,4 +78,16 @@ document.addEventListener("DOMContentLoaded", function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+const container = document.getElementById("notice-container");
+    if (container) {
+        const text = container.getAttribute("data-text");
+        const color = container.getAttribute("data-color");
+        
+        const notice = document.createElement("div");
+        notice.className = `notice ${color}`;
+        notice.textContent = text;
+        container.appendChild(notice);
+    }
+
+  
 });
