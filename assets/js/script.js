@@ -38,6 +38,8 @@ function showSlide(i) {
   indicators[currentIndex].classList.remove("active");
   slides[i].classList.add("active");
   indicators[i].classList.add("active");
+  const title = slides[i].getAttribute("data-title");
+  document.querySelector(".slide-title").textContent = title;
   currentIndex = i;
 }
 
@@ -96,6 +98,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   slides[0].classList.add("active");
   indicators[0].classList.add("active");
+
+  document.querySelector(".slide-title").textContent = slides[0].getAttribute("data-title");
 
   setInterval(nextSlide, 8000);
 
