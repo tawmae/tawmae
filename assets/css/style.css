@@ -298,17 +298,15 @@ footer {
 }
 
 .jump-to-top:hover {
+  transform: scale(1.02);
   color: #466090; 
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
 }
 
 .kofi-button{
   white-space: nowrap;
-  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .kofi-button:hover{
   transform: scale(1.05); 
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
