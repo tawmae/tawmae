@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
   updateSlide();
   setInterval(nextSlide, 8000);
 
-  // Dynamische Inhalte rendern
+  // Render dynamische Inhalte
   renderDynamicContents();
 });
 
