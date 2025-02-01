@@ -16,7 +16,6 @@ body {
   color: white;
   text-align: center;
   padding: 20px;
-  margin: 0;
 }
 
 main {
@@ -48,14 +47,15 @@ header {
   gap: 20px;
 }
 
-.header-center a {
+.header-center ul li a {
   text-decoration: none;
   color: white;
   font-weight: 600;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
-.header-center a:hover {
+.header-center ul li a:hover {
   color: #466090;
 }
 
@@ -72,13 +72,13 @@ header {
   color: #466090;
 }
 
-.need-help {
-  font-size: 0.8rem;
+.header-right .need-help {
+  font-size: 0.7rem;
   font-weight: normal;
   margin-right: 20px;
 }
 
-.header-center ul li {
+.dropdown {
   position: relative;
 }
 
@@ -90,25 +90,23 @@ header {
   background: #fff;
   color: #333;
   min-width: 150px;
-  padding: 10px 0;
+  padding: 5px 0;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   z-index: 1000;
   text-align: left;
 }
 
-.header-center ul li:hover .dropdown-menu {
+.dropdown-menu li {
   display: block;
 }
 
-.dropdown-menu li {
-  padding: 5px 20px;
-  white-space: nowrap;
-}
-
 .dropdown-menu li a {
+  display: block;
+  padding: 5px 15px;
   color: #333;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .dropdown-menu li a:hover {
@@ -118,10 +116,6 @@ header {
 .arrow {
   font-size: 0.8rem;
   margin-left: 5px;
-}
-
-main {
-  margin-top: 100px;
 }
 
 .rotator-wrapper {
@@ -238,106 +232,45 @@ main {
   right: 10px;
 }
 
-.callout {
-  border-left: 8px solid;
-  padding: 10px;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
   margin: 20px auto;
-  max-width: 600px;
-  text-align: left;
+  padding: 0 20px;
+  justify-items: center;
 }
 
-.callout.green {
-  border-color: #4CAF50;
-  background-color: #e8f5e9;
-  color: #000;
-}
-
-.callout.yellow {
-  border-color: #FFEB3B;
-  background-color: #fffde7;
-  color: #000;
-}
-
-.callout.red {
-  border-color: #F44336;
-  background-color: #ffebee;
-  color: #000;
-}
-
-.import-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.product-card {
   background: #1e1d22;
+  border-radius: 5px;
   padding: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
   border-radius: 5px;
-  max-width: 800px;
-  margin: 20px auto;
 }
 
-.import-string {
-  flex: 1;
-  padding: 5px 10px;
-  background: #141316;
-  border-radius: 5px;
-  text-align: left;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.product-card h3 {
+  margin-top: 10px;
+  font-size: 1.1rem;
 }
 
-.code-block {
-  position: relative;
-  max-width: 800px;
-  margin: 20px auto;
-}
-
-pre {
-  background: #1e1d22;
-  padding: 15px;
-  border-radius: 5px;
-  overflow-x: auto;
-  text-align: left;
-}
-
-code {
-  font-family: 'Fira Code', monospace;
-  font-size: 1rem;
-}
-
-.code-block pre, .code-block code {
-  font-family: 'Fira Code', monospace;
-}
-
-.copy-import-button,
-.copy-code-button {
-  background: #466090;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  transition: background 0.3s, color 0.3s;
-}
-
-.copy-import-button:hover,
-.copy-code-button:hover {
-  background: white;
-  color: #466090;
-}
-
-.copy-code-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+.product-card p {
+  font-size: 0.9rem;
+  color: #ccc;
 }
 
 footer {
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   background: #1e1d22;
 }
 
@@ -362,39 +295,7 @@ footer {
   text-align: right;
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
-  justify-content: center;
-  justify-items: center;
-}
-
-.product-card {
-  background: #1e1d22;
-  border-radius: 5px;
-  padding: 10px;
-  text-align: center;
-  width: 100%;
-}
-
-.product-card img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.product-card h3 {
-  margin-top: 10px;
-  font-size: 1.1rem;
-}
-
-.product-card p {
-  font-size: 0.9rem;
-  color: #ccc;
+.jump-to-top {
+  color: white !important;
+  text-decoration: none;
 }
