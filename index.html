@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tawmae</title>
   <meta name="description" content="Moderne minimalistische Webseite mit nützlichen Gimmicks, SEO und vielem mehr.">
-  <meta name="keywords" content="HTML, CSS, JavaScript, Webdesign, SEO, GitHub Pages, Dark Mode, Cookie Consent">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Webdesign, SEO, GitHub Pages, Dark Mode">
   <meta name="author" content="tawmae">
   <meta property="og:title" content="tawmae">
   <meta property="og:description" content="Moderne minimalistische Webseite mit nützlichen Gimmicks.">
@@ -49,7 +49,6 @@
       <p id="nachricht"></p>
       <div id="gimmicks">
         <h2>Nützliche Gimmicks</h2>
-        <button id="toggle-darkmode">Toggle Dark Mode</button>
         <p id="current-time">Aktuelle Zeit: </p>
       </div>
     </section>
@@ -81,12 +80,12 @@
     <section id="code-sample">
       <h2>Code Beispiel (C#)</h2>
       <div class="code-block">
-        <span class="copy-code iconify" data-icon="material-symbols:content-copy-outline" onclick="copyCode(this)"></span>
         <pre><code class="language-cs">public class HelloWorld {
     public static void Main() {
         Console.WriteLine("Hallo, Welt!");
     }
 }</code></pre>
+        <span class="copy-code iconify" data-icon="material-symbols:content-copy-outline" onclick="copyCode(this)"></span>
       </div>
     </section>
   </main>
@@ -99,9 +98,5 @@
     </div>
     <div class="footer-right"></div>
   </footer>
-  <div id="cookie-banner">
-    <p>Diese Seite verwendet Cookies, um Ihre Erfahrung zu verbessern.</p>
-    <button id="accept-cookies">Akzeptieren</button>
-  </div>
 </body>
 </html>
