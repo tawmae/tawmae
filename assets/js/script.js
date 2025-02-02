@@ -40,11 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-
-document.addEventListener("DOMContentLoaded", function() {
-  replaceWordsWithEmojis();
-});
-
 var slides, indicators, currentIndex = 0;
 
 function showSlide(i) {
