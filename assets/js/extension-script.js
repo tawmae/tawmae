@@ -60,5 +60,6 @@ function loadImportString(file) {
 
 document.addEventListener("DOMContentLoaded", function () {
     loadImportString("/action-imports/dynamic-timers.txt");
+    loadImportString("/action-imports/rotator.txt");
 });
 // ====================================================================================================================
