@@ -231,5 +231,7 @@ p {
   padding: 20px;
   border-radius: 8px;
   align-text: center;
+  align-items: center;
+  justify-content: center;
   height: 150px;
 }
