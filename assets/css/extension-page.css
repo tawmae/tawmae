@@ -59,6 +59,7 @@
   font-weight: bold;
   padding: 10px 0;
   position: relative;
+  transition: transform 0.3s ease-in-out;
 }
 
 .accordion-header .iconify {
@@ -69,7 +70,7 @@
 }
 
 .accordion-header:hover{
-  transform: scale(1.2);
+  color: #455f8c;
 }
 
 .accordion-content {
