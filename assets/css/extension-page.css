@@ -22,15 +22,16 @@
 .extension-image {
   width: 1000px;
   height: 400px;
-  background-size: cover;
+  background-size: contain;
+  /*background-size: cover;*/
   background-position: center;
   border: 1px solid black;
   transition: transform 0.4s ease-in-out;
-  transform-origin: center center;
 }
 
 .extension-image:hover {
-  transform: scale(1.05);
+  background-size: 110%;
+  /*transform: scale(1.05);*/
 }
 
 .accordion {
