@@ -28,12 +28,13 @@
 }
 
 .accordion {
-  margin-top: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
 }
 
 .accordion-item {
@@ -51,6 +52,7 @@
   font-size: 1.4rem;
   font-weight: bold;
   padding: 10px 0;
+  position: relative;
 }
 
 .accordion-header .iconify {
@@ -60,8 +62,8 @@
   margin-left: 10px;
 }
 
-.accordion-header .iconify:hover {
-  transform: scale(1.1);
+.accordion-header:hover .iconify {
+  transform: scale(1.2);
 }
 
 .accordion-content {
