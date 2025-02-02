@@ -14,9 +14,8 @@ function toggleAccordion(id) {
 
 // ====================================================================================================================
 function copyToClipboard(copyText) {
-  const button = copyText.nextElementSibling;
-
-  navigator.clipboard.writeText(copyText.getAttribute("data-copy-text")).then(() => {
+  navigator.clipboard.writeText(copyText).then(() => {
+    const button = event.target;
     button.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-20-filled"></span> Copied';
     button.classList.add('copied');
     
@@ -24,8 +23,9 @@ function copyToClipboard(copyText) {
       button.innerHTML = '<span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy';
       button.classList.remove('copied');
     }, 2500);
+  }).catch(err => {
+    console.error('Fehler beim Kopieren: ', err);
   });
-}
 
 
 // ====================================================================================================================
