@@ -51,7 +51,7 @@
 
 .accordion-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: start;
   align-items: center;
   cursor: pointer;
   color: white;
@@ -62,17 +62,11 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.accordion-header .iconify {
+.accordion-icon {
   font-size: 1.5rem;
   color: white;
   transition: transform 0.3s;
   margin-left: 10px;
-}
-
-.accordion-header:hover,
-.accordion-icon:hover,
-.title-icon:hover{
-  color: #455f8c;
 }
 
 .accordion-content {
