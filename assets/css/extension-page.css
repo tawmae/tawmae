@@ -63,21 +63,21 @@
 }
 
 .accordion-header:hover {
-  transform: scale(1.01); /* Vergrößerung des gesamten Headers */
+  transform: scale(1.01); 
 }
 
 .accordion-header:hover span {
-  color: #455f8c; /* Blau für den Text im Header */
+  color: #455f8c; 
 }
 
 .accordion-header:hover .accordion-icon, 
 .accordion-header:hover .title-icon {
-  color: #455f8c; /* Blau für die Icons */
-  transform: scale(1.1); /* Optionales Skalieren der Icons */
+  color: #455f8c; 
+  transform: scale(1.1); 
 }
 
 .accordion-icon, .title-icon {
-  transition: transform 0.3s ease, color 0.3s ease; /* Animation der Icons */
+  transition: transform 0.3s ease, color 0.3s ease; 
 }
 
 .accordion-icon {
@@ -233,7 +233,7 @@ p {
   color: white;
   padding: 20px;
   border-radius: 8px;
-  height: 160px;
+  height: 165px;
 }
 
 .black-text-box-5,{
