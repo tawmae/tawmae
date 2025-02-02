@@ -13,10 +13,9 @@ function toggleAccordion(id) {
 }
 
 // ====================================================================================================================
-function copyToClipboard(id) {
-  const copyText = document.getElementById(id);
+function copyToClipboard(copyText) {
   const button = copyText.nextElementSibling;
-  
+
   navigator.clipboard.writeText(copyText.getAttribute("data-copy-text")).then(() => {
     button.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-20-filled"></span> Copied';
     button.classList.add('copied');
@@ -27,6 +26,7 @@ function copyToClipboard(id) {
     }, 2500);
   });
 }
+
 
 // ====================================================================================================================
 function loadImportString(file) {
