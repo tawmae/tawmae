@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DYNAMIC TIMERS - v.1.0.0 – tawmae.xyz</title>
+  <script type="text/javascript" src="https://unpkg.com/@streamerbot/client/dist/streamerbot-client.js"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    .timers-wrapper {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      z-index: 1000;
+    }
+
+    .timer-container {
+      width: calc(var(--timer-font-size) * 8);
+      border-radius: 10px;
+      padding: 10px;
+      opacity: 1;
+      transition: opacity 1s ease-out, transform 0.5s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .timer-container.fading {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    .timer-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+
+    .timer-id {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      border: 2px solid #1fbeda;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      border-radius: 5px;
+      color: #1fbeda;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .timer-name {
+      text-align: center;
+      text-shadow: 1.3px 1.3px 1.3px black;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .timer-description {
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 8px;
+      text-shadow: 1.3px 1.3px 1.3px black;
+    }
+
+    .countdown-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 8px;
+      gap: 6px;
+    }
+
+    .countdown {
+      font-weight: bold;
+      text-shadow: 1.3px 1.3px 1.3px black;
+    }
+
+    .icon-pause {
+      display: none;
+    }
+
+    .timer-paused .icon-pause {
+      display: inline-block;
+    }
+
+    .progress-container {
+      width: 100%;
+      border-radius: 3px;
+      overflow: hidden;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 6px;
+      background-color: #444;
+    }
+
+    .progress-fill {
+      width: 100%;
+      height: 100%;
+      transition: width 1s linear;
+      background-color: #00E676;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="timers-wrapper" id="timers-wrapper"></div>
+  <script type="text/javascript">
+    function parseQueryParam(searchParams, name, defaultValue) {
+      const lowerMap = {};
+      for (const [key, val] of searchParams.entries()) {
+        lowerMap[key.toLowerCase()] = val;
+      }
+      return lowerMap[name.toLowerCase()] || defaultValue;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const port = parseQueryParam(params, "port", "8080");
+    const address = parseQueryParam(params, "adress", "127.0.0.1");
+    const password = parseQueryParam(params, "password", "");
+    const maxTimers = parseInt(parseQueryParam(params, "maxTimers", "7"), 10);
+    const fontParam = parseQueryParam(params, "font", "Poppins, sans-serif");
+    const fontSizeParam = parseInt(parseQueryParam(params, "fontSize", "40"), 10);
+    const hideBackground = parseQueryParam(params, "hideBackground", "false") === "true";
+    let backgroundColor = parseQueryParam(params, "backgroundColor", "black");
+    const backgroundOpacity = parseInt(parseQueryParam(params, "backgroundOpacity", "80"), 10);
+    const fontColorParam = parseQueryParam(params, "fontColor", "#FFFFFF");
+    const idColor = parseQueryParam(params, "idColor", "#1fbeda");
+
+    document.body.style.fontFamily = fontParam;
+    const rootStyle = document.documentElement.style;
+    rootStyle.setProperty("--timer-font-size", fontSizeParam + "px");
+
+    function convertColorToRGBA(color, alpha) {
+      const ctx = document.createElement("canvas").getContext("2d");
+      ctx.fillStyle = color;
+      const computed = ctx.fillStyle;
+      if (computed.startsWith("rgba(")) {
+        const parts = computed.match(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)/);
+        if (parts) {
+          return "rgba(" + parts[1] + "," + parts[2] + "," + parts[3] + "," + alpha + ")";
+        }
+      } else if (computed.startsWith("rgb(")) {
+        const rgbValues = computed.replace(/[^\d.,]/g, "").split(",");
+        return "rgba(" + rgbValues[0] + "," + rgbValues[1] + "," + rgbValues[2] + "," + alpha + ")";
+      } else if (computed.startsWith("#")) {
+        let hex = computed.substring(1);
+        if (hex.length === 3) {
+          hex = hex.split('').map(c => c + c).join('');
+        }
+        if (hex.length === 6) {
+          const r = parseInt(hex.substring(0, 2), 16);
+          const g = parseInt(hex.substring(2, 4), 16);
+          const b = parseInt(hex.substring(4, 6), 16);
+          return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+        }
+      }
+      return color;
+    }
+
+    let finalBgColor = backgroundColor;
+    if (hideBackground) {
+      finalBgColor = "transparent";
+    } else {
+      if (backgroundOpacity < 100) {
+        const alpha = backgroundOpacity / 100;
+        finalBgColor = convertColorToRGBA(backgroundColor, alpha);
+      }
+    }
+
+    const css =
+      ".timer-container {" +
+      "  background-color: " + finalBgColor + " !important;" +
+      "}" +
+      ".timer-id {" +
+      "  font-size: calc(var(--timer-font-size) * 0.5);" +
+      "  border: 2px solid " + idColor + " !important;" +
+      "  color: " + idColor + " !important;" +
+      "}" +
+      ".timer-name {" +
+      "  font-size: calc(var(--timer-font-size) * 0.65);" +
+      "  color: " + fontColorParam + ";" +
+      "}" +
+      ".timer-description {" +
+      "  font-size: calc(var(--timer-font-size) * 0.45);" +
+      "  color: " + fontColorParam + ";" +
+      "}" +
+      ".countdown {" +
+      "  font-size: var(--timer-font-size);" +
+      "  color: " + fontColorParam + ";" +
+      "}" +
+      ".icon-pause {" +
+      "  color: " + fontColorParam + " !important;" +
+      "  font-size: calc(var(--timer-font-size) * 1.2) !important;" +
+      "}";
+
+    const styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = css;
+    document.head.appendChild(styleSheet);
+
+    if (hideBackground) {
+      const hideBarCSS =
+        ".progress-container {" +
+        "  display: none !important;" +
+        "}";
+      styleSheet.innerText += hideBarCSS;
+    }
+
+    const client = new StreamerbotClient({
+      host: address,
+      port: parseInt(port),
+      endpoint: "/",
+      password: password,
+      subscribe: 'General.Custom',
+      onConnect: () => {
+        const storedTimers = JSON.parse(localStorage.getItem('timers') || '{}');
+        Object.values(storedTimers).forEach(timerData => {
+          if (timerData.status === 'running') {
+            const diffMs = new Date(timerData.endTime).getTime() - now();
+            if (diffMs > 0) {
+              const remaining = Math.ceil(diffMs / 1000);
+              createOrUpdateTimer({
+                timerId: timerData.timerId,
+                timerName: timerData.timerName,
+                timerDescription: timerData.timerDescription || '',
+                timerValue: remaining,
+                totalValue: timerData.totalValue,
+                status: timerData.status,
+                startedAt: timerData.startedAt
+              });
+            } else {
+              fadeOutTimer(timerData.timerId);
+            }
+          } else if (timerData.status === 'paused') {
+            createOrUpdateTimer({
+              timerId: timerData.timerId,
+              timerName: timerData.timerName,
+              timerDescription: timerData.timerDescription || '',
+              timerValue: timerData.remainingSeconds,
+              totalValue: timerData.totalValue,
+              status: timerData.status,
+              startedAt: timerData.startedAt
+            });
+          }
+        });
+      },
+      onDisconnect: () => { },
+      onError: () => { }
+    });
+
+    const timers = {};
+
+    function now() {
+      return new Date().getTime();
+    }
+
+    function getNextTimerId() {
+      if (!Object.keys(timers).length) return 1;
+      const activeIds = Object.keys(timers).map(Number).sort((a, b) => a - b);
+      const minId = activeIds[0];
+      let candidate = minId + 1;
+      while (activeIds.includes(candidate)) candidate++;
+      return candidate;
+    }
+
+    function getLocalDateTimeString() {
+      return new Date().toLocaleString();
+    }
+
+    function getTimerActiveListString() {
+      const activeTimerKeys = Object.keys(timers);
+      if (!activeTimerKeys.length) return "";
+      return activeTimerKeys
+        .map(id => {
+          const tName = timers[id].container.querySelector('.timer-name').textContent;
+          return `[${id}] ${tName}`;
+        })
+        .join(", ");
+    }
+
+    function secondsToHms(d) {
+      d = Number(d);
+      const h = Math.floor(d / 3600);
+      const m = Math.floor(d % 3600 / 60);
+      const s = Math.floor(d % 60);
+      const hDisplay = String(h).padStart(2, '0') + ':';
+      const mDisplay = String(m).padStart(2, '0') + ':';
+      const sDisplay = String(s).padStart(2, '0');
+      return hDisplay + mDisplay + sDisplay;
+    }
+
+    function findTimerByName(timerName) {
+      const lowerName = timerName.toLowerCase();
+      return Object.values(timers).find(timer => timer.container.querySelector('.timer-name').textContent.toLowerCase() === lowerName);
+    }
+
+    function createOrUpdateTimer(timerData) {
+      const { timerId, timerName, timerDescription, timerValue, totalValue, status, startedAt } = timerData;
+      const existingCount = Object.keys(timers).length;
+      if (existingCount >= maxTimers && !timers[timerId]) {
+        client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+          timerAction: "limit reached",
+          timerMaxLimit: maxTimers,
+          timerActiveList: getTimerActiveListString()
+        });
+        return;
+      }
+      let finalTimerId = timerId;
+      if (!timers[finalTimerId]) {
+        const existingTimer = findTimerByName(timerName);
+        if (existingTimer) {
+          finalTimerId = parseInt(existingTimer.container.id.replace('timer-', ''));
+          clearInterval(timers[finalTimerId].interval);
+          clearTimeout(timers[finalTimerId].fadeTimeout);
+          timers[finalTimerId].remainingSeconds = timerValue;
+          timers[finalTimerId].totalValue = totalValue || timerValue;
+          timers[finalTimerId].countdownElem.textContent = secondsToHms(timerValue);
+          timers[finalTimerId].container.classList.remove('fading');
+          timers[finalTimerId].status = status || 'running';
+          timers[finalTimerId].descElem.textContent = timerDescription || '';
+          timers[finalTimerId].startedAt = startedAt || getLocalDateTimeString();
+        } else {
+          const nextId = getNextTimerId();
+          finalTimerId = timerId || nextId;
+          const timersWrapper = document.getElementById('timers-wrapper');
+          const timerContainer = document.createElement('div');
+          timerContainer.className = 'timer-container';
+          timerContainer.id = "timer-" + finalTimerId;
+
+          const timerIdElem = document.createElement('div');
+          timerIdElem.className = 'timer-id';
+          timerIdElem.textContent = finalTimerId;
+          timerContainer.appendChild(timerIdElem);
+
+          const timerHeader = document.createElement('div');
+          timerHeader.className = 'timer-header';
+          const timerNameElem = document.createElement('div');
+          timerNameElem.className = 'timer-name';
+          timerNameElem.textContent = timerName;
+          timerHeader.appendChild(timerNameElem);
+
+          const descElem = document.createElement('div');
+          descElem.className = 'timer-description';
+          descElem.textContent = timerDescription || '';
+
+          const countdownWrap = document.createElement('div');
+          countdownWrap.className = 'countdown-wrap';
+          const countdownElem = document.createElement('div');
+          countdownElem.className = 'countdown';
+          countdownElem.textContent = secondsToHms(timerValue);
+          const pausedIcon = document.createElement('span');
+          pausedIcon.className = 'icon-pause iconify';
+          pausedIcon.setAttribute('data-icon', 'line-md:pause');
+          countdownWrap.appendChild(countdownElem);
+          countdownWrap.appendChild(pausedIcon);
+
+          const progressContainer = document.createElement('div');
+          progressContainer.className = 'progress-container';
+          const progressFill = document.createElement('div');
+          progressFill.className = 'progress-fill';
+          progressContainer.appendChild(progressFill);
+
+          timerContainer.appendChild(timerHeader);
+          timerContainer.appendChild(descElem);
+          timerContainer.appendChild(countdownWrap);
+          timerContainer.appendChild(progressContainer);
+          timersWrapper.appendChild(timerContainer);
+
+          timers[finalTimerId] = {
+            container: timerContainer,
+            countdownElem: countdownElem,
+            descElem: descElem,
+            progressFill: progressFill,
+            pausedIcon: pausedIcon,
+            remainingSeconds: timerValue,
+            totalValue: totalValue || timerValue,
+            interval: null,
+            fadeTimeout: null,
+            status: status || 'running',
+            startedAt: startedAt || getLocalDateTimeString(),
+            endTime: null
+          };
+        }
+      } else {
+        clearInterval(timers[finalTimerId].interval);
+        clearTimeout(timers[finalTimerId].fadeTimeout);
+        timers[finalTimerId].remainingSeconds = timerValue;
+        timers[finalTimerId].totalValue = totalValue || timerValue;
+        timers[finalTimerId].countdownElem.textContent = secondsToHms(timerValue);
+        timers[finalTimerId].container.classList.remove('fading');
+        timers[finalTimerId].status = status || 'running';
+        timers[finalTimerId].descElem.textContent = timerDescription || '';
+        timers[finalTimerId].startedAt = startedAt || getLocalDateTimeString();
+      }
+      if (timers[finalTimerId].status === 'paused') {
+        timers[finalTimerId].container.classList.add('timer-paused');
+        timers[finalTimerId].progressFill.style.backgroundColor = "#ccc";
+        updateCountdownAppearance(timers[finalTimerId]);
+        updateProgressFill(timers[finalTimerId], timers[finalTimerId].remainingSeconds * 1000);
+      } else if (timers[finalTimerId].status === 'running') {
+        startTimer(finalTimerId);
+      }
+      updateLocalStorage();
+    }
+
+    function startTimer(timerId) {
+      const timer = timers[timerId];
+      if (!timer) return;
+      if (timer.interval) clearInterval(timer.interval);
+      timer.container.classList.remove('timer-paused');
+      const currentTime = now();
+      timer.endTime = currentTime + timer.remainingSeconds * 1000;
+      timer.status = 'running';
+      timer.interval = setInterval(() => {
+        if (timer.status !== 'running') return;
+        const remainingMs = timer.endTime - now();
+        if (remainingMs <= 0) {
+          timer.remainingSeconds = 0;
+          finishTimer(timerId);
+          return;
+        }
+        const newSeconds = Math.ceil(remainingMs / 1000);
+        if (newSeconds !== timer.remainingSeconds) {
+          timer.remainingSeconds = newSeconds;
+          updateCountdownAppearance(timer);
+          updateLocalStorage();
+        }
+        updateProgressFill(timer, remainingMs);
+      }, 100);
+    }
+
+    function finishTimer(timerId) {
+      const timer = timers[timerId];
+      if (!timer) return;
+      clearInterval(timer.interval);
+      timer.countdownElem.textContent = "Time's up!";
+      timer.countdownElem.style.color = "#FF0000";
+      timer.progressFill.style.backgroundColor = "#FF0000";
+      timer.progressFill.style.width = "0%";
+      timer.fadeTimeout = setTimeout(() => {
+        fadeOutTimer(timerId);
+      }, 10000);
+      timer.status = 'finished';
+      sendTimerFinishAction(timerId);
+    }
+
+    function sendTimerFinishAction(timerId) {
+      const timer = timers[timerId];
+      if (!timer) return;
+      client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+        timerAction: "finished",
+        timerId: parseInt(timerId),
+        timerName: timer.container.querySelector('.timer-name').textContent,
+        timerInitialDuration: secondsToHms(timer.totalValue),
+        timerStartedAt: timer.startedAt,
+
+      });
+    }
+
+    function pauseTimer(timerId) {
+      const timer = timers[timerId];
+      if (timer && timer.status === 'running') {
+        clearInterval(timer.interval);
+        const leftoverMs = timer.endTime - now();
+        timer.remainingSeconds = leftoverMs > 0 ? Math.ceil(leftoverMs / 1000) : 0;
+        updateCountdownAppearance(timer);
+        updateProgressFill(timer, leftoverMs);
+        timer.status = 'paused';
+        timer.container.classList.add('timer-paused');
+        timer.progressFill.style.backgroundColor = "#ccc";
+        updateLocalStorage();
+        sendTimerUpdateAction(timerId, 'paused');
+      }
+    }
+
+    function continueTimer(timerId) {
+      const timer = timers[timerId];
+      if (timer && timer.status === 'paused') {
+        timer.progressFill.style.backgroundColor = "#00E676";
+        startTimer(timerId);
+        sendTimerUpdateAction(timerId, 'continued');
+      }
+    }
+
+    function sendTimerUpdateAction(timerId, timerAction) {
+      const timer = timers[timerId];
+      if (!timer) return;
+      client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+        timerAction: timerAction,
+        timerId: parseInt(timerId),
+        timerName: timer.container.querySelector('.timer-name').textContent,
+        timerInitialDuration: secondsToHms(timer.totalValue),
+        timerStartedAt: timer.startedAt,
+
+      });
+    }
+
+    function deleteTimer(timerId) {
+      const timer = timers[timerId];
+      if (timer) {
+        const { container, totalValue, startedAt } = timer;
+        const timerName = container.querySelector('.timer-name').textContent;
+        client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+          timerAction: "deleted",
+          timerId: parseInt(timerId),
+          timerName: timerName,
+          timerInitialDuration: secondsToHms(totalValue),
+          timerStartedAt: startedAt,
+
+        });
+        clearInterval(timer.interval);
+        clearTimeout(timer.fadeTimeout);
+        const timersWrapper = document.getElementById('timers-wrapper');
+        timersWrapper.removeChild(timer.container);
+        delete timers[timerId];
+        updateLocalStorage();
+      }
+    }
+
+    function fadeOutTimer(timerId) {
+      const timer = timers[timerId];
+      if (!timer) return;
+      timer.container.classList.add('fading');
+      setTimeout(() => {
+        const timersWrapper = document.getElementById('timers-wrapper');
+        if (timersWrapper.contains(timer.container)) {
+          timersWrapper.removeChild(timer.container);
+        }
+        delete timers[timerId];
+        updateLocalStorage();
+      }, 1000);
+    }
+
+    function updateCountdownAppearance(timer) {
+      if (timer.remainingSeconds <= 0) {
+        timer.countdownElem.textContent = "Time's up!";
+        timer.countdownElem.style.color = "#FF0000";
+        return;
+      }
+      timer.countdownElem.textContent = secondsToHms(timer.remainingSeconds);
+      if (timer.remainingSeconds <= 15) {
+        timer.countdownElem.style.color = "#FF9800";
+        timer.progressFill.style.backgroundColor = "#FF9800";
+      } else {
+        timer.countdownElem.style.color = fontColorParam;
+        if (timer.status === 'paused') {
+          timer.progressFill.style.backgroundColor = "#ccc";
+        } else {
+          timer.progressFill.style.backgroundColor = "#00E676";
+        }
+      }
+    }
+
+    function updateProgressFill(timer, remainingMs) {
+      if (remainingMs <= 0) {
+        timer.progressFill.style.width = "0%";
+        timer.progressFill.style.backgroundColor = "#FF0000";
+        return;
+      }
+      const ratio = remainingMs / (timer.totalValue * 1000);
+      const widthPercent = Math.max(0, ratio * 100);
+      timer.progressFill.style.width = widthPercent + "%";
+    }
+
+    function updateLocalStorage() {
+      const storedTimers = {};
+      Object.keys(timers).forEach(timerId => {
+        storedTimers[timerId] = {
+          timerId: timerId,
+          timerName: timers[timerId].container.querySelector('.timer-name').textContent,
+          timerDescription: timers[timerId].descElem.textContent,
+          remainingSeconds: timers[timerId].remainingSeconds,
+          totalValue: timers[timerId].totalValue,
+          status: timers[timerId].status,
+          startedAt: timers[timerId].startedAt,
+          endTime: timers[timerId].endTime
+        };
+      });
+      localStorage.setItem('timers', JSON.stringify(storedTimers));
+    }
+
+    function clearAllTimers() {
+      client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+        timerAction: "clear",
+        timerActiveList: getTimerActiveListString()
+      });
+      Object.keys(timers).forEach(timerId => {
+        deleteTimer(timerId);
+      });
+      localStorage.removeItem('timers');
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'x') {
+        clearAllTimers();
+      }
+    });
+
+    client.on('General.Custom', (payload) => {
+      try {
+        if (payload && payload.data) {
+          const { timerRequest, timerDetails } = payload.data;
+          if (timerRequest) {
+            let targetTimerId = timerDetails?.timerId || 0;
+            let targetTimerName = timerDetails?.timerName || "";
+            if (targetTimerId === 0) {
+              const foundTimer = findTimerByName(targetTimerName);
+              if (
+                !foundTimer &&
+                timerRequest.toLowerCase() !== 'create' &&
+                timerRequest.toLowerCase() !== 'clear' &&
+                timerRequest.toLowerCase() !== 'pauseall' &&
+                timerRequest.toLowerCase() !== 'continueall'
+              ) {
+                let errorAction = "error" + timerRequest.charAt(0).toUpperCase() + timerRequest.slice(1);
+                if (timerRequest.toLowerCase() === 'addtime') errorAction = "errorAddtime";
+                if (timerRequest.toLowerCase() === 'removetime') errorAction = "errorRemovetime";
+                client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                  timerAction: errorAction,
+                  timerId: parseInt(targetTimerId),
+                  timerName: targetTimerName,
+
+                  timerActiveList: getTimerActiveListString()
+                });
+                return;
+              }
+              if (foundTimer) {
+                targetTimerId = foundTimer.container.id.replace('timer-', '');
+              }
+            }
+            switch (timerRequest.toLowerCase()) {
+              case 'create': {
+                if (!timerDetails || !timerDetails.timerValue) {
+                  return;
+                }
+                if (!timerDetails.timerName) {
+                  timerDetails.timerName = "Timer " + getNextTimerId();
+                }
+                let newOrExistingTimerId;
+                const existingTimer = findTimerByName(timerDetails.timerName);
+                let newActionName;
+                if (existingTimer) {
+                  newOrExistingTimerId = parseInt(existingTimer.container.id.replace('timer-', ''));
+                  createOrUpdateTimer({
+                    timerId: newOrExistingTimerId,
+                    timerName: timerDetails.timerName,
+                    timerDescription: timerDetails.timerDescription || '',
+                    timerValue: timerDetails.timerValue,
+                    totalValue: timerDetails.timerValue,
+                    status: 'running'
+                  });
+                  newActionName = 'updated';
+                } else {
+                  let nextId = getNextTimerId();
+                  newOrExistingTimerId = nextId;
+                  createOrUpdateTimer({
+                    timerId: nextId,
+                    timerName: timerDetails.timerName,
+                    timerDescription: timerDetails.timerDescription || '',
+                    timerValue: timerDetails.timerValue,
+                    totalValue: timerDetails.timerValue,
+                    status: 'running'
+                  });
+                  newActionName = 'created';
+                }
+                client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                  timerAction: newActionName,
+                  timerId: parseInt(newOrExistingTimerId),
+                  timerName: timerDetails.timerName,
+                  timerInitialDuration: secondsToHms(timerDetails.timerValue),
+                  timerStartedAt: timers[newOrExistingTimerId].startedAt,
+
+                });
+                break;
+              }
+              case 'pause': {
+                if (targetTimerId !== 0) {
+                  if (!timers[targetTimerId]) {
+                    let errorAction = "errorPause";
+                    client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                      timerAction: errorAction,
+                      timerId: parseInt(targetTimerId),
+                      timerName: targetTimerName,
+
+                      timerActiveList: getTimerActiveListString()
+                    });
+                    return;
+                  }
+                  pauseTimer(targetTimerId);
+                }
+                break;
+              }
+              case 'continue': {
+                if (targetTimerId !== 0) {
+                  if (!timers[targetTimerId]) {
+                    let errorAction = "errorContinue";
+                    client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                      timerAction: errorAction,
+                      timerId: parseInt(targetTimerId),
+                      timerName: targetTimerName,
+
+                      timerActiveList: getTimerActiveListString()
+                    });
+                    return;
+                  }
+                  continueTimer(targetTimerId);
+                }
+                break;
+              }
+              case 'delete': {
+                if (targetTimerId !== 0) {
+                  if (!timers[targetTimerId]) {
+                    let errorAction = "errorDelete";
+                    client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                      timerAction: errorAction,
+                      timerId: parseInt(targetTimerId),
+                      timerName: targetTimerName,
+
+                      timerActiveList: getTimerActiveListString()
+                    });
+                    return;
+                  }
+                  deleteTimer(targetTimerId);
+                }
+                break;
+              }
+              case 'clear': {
+                clearAllTimers();
+                break;
+              }
+              case 'addtime': {
+                if (!timers[targetTimerId]) {
+                  let errorAction = "errorAddtime";
+                  client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                    timerAction: errorAction,
+                    timerId: parseInt(targetTimerId),
+                    timerName: targetTimerName,
+
+                    timerActiveList: getTimerActiveListString()
+                  });
+                  return;
+                }
+                const t = timers[targetTimerId];
+                if (t.status !== 'finished') {
+                  t.totalValue += timerDetails.timerValue;
+                  if (t.status === 'running') {
+                    t.remainingSeconds += timerDetails.timerValue;
+                    t.endTime += timerDetails.timerValue * 1000;
+                    if (t.endTime < now()) t.endTime = now();
+                  } else {
+                    t.remainingSeconds += timerDetails.timerValue;
+                  }
+                  if (t.remainingSeconds < 0) t.remainingSeconds = 0;
+                  if (t.totalValue < 0) t.totalValue = 0;
+                  updateCountdownAppearance(t);
+                  if (t.status === 'running') {
+                    updateProgressFill(t, t.endTime - now());
+                  } else {
+                    updateProgressFill(t, t.remainingSeconds * 1000);
+                  }
+                  updateLocalStorage();
+                  sendTimerUpdateAction(targetTimerId, 'timeAdded');
+                }
+                break;
+              }
+              case 'removetime': {
+                if (!timers[targetTimerId]) {
+                  let errorAction = "errorRemovetime";
+                  client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                    timerAction: errorAction,
+                    timerId: parseInt(targetTimerId),
+                    timerName: targetTimerName,
+                    timerActiveList: getTimerActiveListString()
+                  });
+                  return;
+                }
+                const t = timers[targetTimerId];
+                if (t.status !== 'finished') {
+                  t.totalValue -= timerDetails.timerValue;
+                  if (t.status === 'running') {
+                    t.remainingSeconds -= timerDetails.timerValue;
+                    t.endTime -= timerDetails.timerValue * 1000;
+                    if (t.remainingSeconds < 0) {
+                      t.remainingSeconds = 0;
+                      finishTimer(targetTimerId);
+                    }
+                  } else {
+                    t.remainingSeconds -= timerDetails.timerValue;
+                    if (t.remainingSeconds < 0) t.remainingSeconds = 0;
+                  }
+                  if (t.totalValue < 0) t.totalValue = 0;
+                  updateCountdownAppearance(t);
+                  if (t.status === 'running') {
+                    updateProgressFill(t, t.endTime - now());
+                  } else {
+                    updateProgressFill(t, t.remainingSeconds * 1000);
+                  }
+                  updateLocalStorage();
+                  sendTimerUpdateAction(targetTimerId, 'timeRemoved');
+                }
+                break;
+              }
+              case 'pauseall': {
+                if (!Object.keys(timers).length) {
+                  client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                    timerAction: "errorPauseAll",
+
+                  });
+                  return;
+                }
+                let pausedAny = false;
+                Object.keys(timers).forEach(id => {
+                  const tm = timers[id];
+                  if (tm.status === 'running') {
+                    pauseTimer(id);
+                    pausedAny = true;
+                  }
+                });
+                if (pausedAny) {
+                  client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                    timerAction: "all paused",
+
+                  });
+                } else {
+                  client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                    timerAction: "errorPauseAll",
+
+                  });
+                }
+                break;
+              }
+              case 'continueall': {
+                if (!Object.keys(timers).length) {
+                  client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                    timerAction: "errorContinueAll",
+
+                  });
+                  return;
+                }
+                let continuedAny = false;
+                Object.keys(timers).forEach(id => {
+                  const tm = timers[id];
+                  if (tm.status === 'paused') {
+                    continueTimer(id);
+                    continuedAny = true;
+                  }
+                });
+                if (continuedAny) {
+                  client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                    timerAction: "all continued",
+
+                  });
+                } else {
+                  client.doAction("abbc8ea5-ca3c-4d9d-91ed-692c585f4df3", {
+                    timerAction: "errorContinueAll",
+
+                  });
+                }
+                break;
+              }
+              default:
+                break;
+            }
+          }
+        }
+      } catch (error) { }
+    });
+  </script>
+</body>
+
+</html>
