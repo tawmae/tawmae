@@ -171,9 +171,9 @@ description: "An OBS widget to display as many timers as you want. Fully control
             <!---------------------------------------------->
             <div class="customization-text-container">
                 <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!createTimer <span style="color: #455f8c;">Time
-                                Value</span> | <span style="color: #455f8c;">Timer Title</span> | <span
-                                style="color: #455f8c;">Timer Description</span></span></p>
+                    <p><span style="font-weight: bold; color: #fff;">!createTimer <span style="color: #455f8c;">[Time
+                                Value]</span> | <span style="color: #455f8c;">[Timer Title]</span> | <span
+                                style="color: #455f8c;">[Timer Description]</span></span></p>
                 </div>
                 <div class="black-text-box-6">
                     <p>Create the timer. Title and description are optional. Elements are separated by a pipe symbol
@@ -393,6 +393,28 @@ description: "An OBS widget to display as many timers as you want. Fully control
             <!---------------------------------------------->
             <div class="customization-text-container">
                 <div class="black-text-box-3">
+                    <p><span class="iconify title-icon" data-icon="material-symbols:background-grid-small-sharp"></span><span
+                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Hide Background</span></p>
+                    <p>Hide the background. This also removes the progress bar.</p>
+                </div>
+                <div class="black-text-box-4">
+                    <p><span style="color: #d4af37; font-weight: bold;">hideBackground=true</span></p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+            <div class="customization-text-container">
+                <div class="black-text-box-3">
+                    <p><span class="iconify title-icon" data-icon="mdi:circle-opacity"></span><span
+                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Background Opacity</span></p>
+                    <p>Changes the opacity of the background. The default opacity is set to <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">80</span></p>
+                </div>
+                <div class="black-text-box-4">
+                    <p><span style="color: #d4af37; font-weight: bold;">backgroundOpacity=69</span></p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+            <div class="customization-text-container">
+                <div class="black-text-box-3">
                     <p><span class="iconify title-icon" data-icon="mdi:format-font"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font</span></p>
                     <p>Changes the font used for the text. Supports standard fonts. Use a <span
@@ -408,14 +430,52 @@ description: "An OBS widget to display as many timers as you want. Fully control
             <!---------------------------------------------->
             <div class="customization-text-container">
                 <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="material-symbols:volume-up-rounded"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Sound</span></p>
-                    <p>Toggles whether a tiny sound effect is played when the overlay displays.</p>
+                    <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
+                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font Color</span></p>
+                    <p>Changes the font color. Supports hex colors, but then you need to replace the <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">#</span> with <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span></p>
                 </div>
                 <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">sound=true</span></p>
+                    <p><span style="color: #d4af37; font-weight: bold;">fontColor=pink</span></p>
+                    <p><br></p>
+                    <p><span style="color: #d4af37; font-weight: bold;">fontColor=%23ffc0cb</span></p>
                 </div>
             </div>
+            <!---------------------------------------------->
+            <div class="customization-text-container">
+                <div class="black-text-box-3">
+                    <p><span class="iconify title-icon" data-icon="material-symbols:format-size"></span><span
+                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font Size</span></p>
+                    <p>Changes the font size and also scales all other elements according to it. The default size is set to <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">40</span></p>
+                </div>
+                <div class="black-text-box-4">
+                    <p><span style="color: #d4af37; font-weight: bold;">fontSize=30</span></p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+            <div class="customization-text-container">
+                <div class="black-text-box-3">
+                    <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
+                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">ID Color</span></p>
+                    <p>Changes the ID color. Supports hex colors, but then you need to replace the <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">#</span> with <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span></p>
+                </div>
+                <div class="black-text-box-4">
+                    <p><span style="color: #d4af37; font-weight: bold;">idColor=pink</span></p>
+                    <p><br></p>
+                    <p><span style="color: #d4af37; font-weight: bold;">idColor=%23ffc0cb</span></p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+            <div class="customization-text-container">
+                <div class="black-text-box-3">
+                    <p><span class="iconify title-icon" data-icon="mdi:alarm-multiple"></span><span
+                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Max. Timers</span></p>
+                    <p>Changes the max. limit of timers you can have at the same time. Default is set to <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">7</span></p>
+                </div>
+                <div class="black-text-box-4">
+                    <p><span style="color: #d4af37; font-weight: bold;">maxTimers=5</span></p>
+                </div>
+            </div>
+            <!---------------------------------------------->
         </div>
     </div>
 
