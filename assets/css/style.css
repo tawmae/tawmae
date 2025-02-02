@@ -343,5 +343,16 @@ header {
 }
 
 
-
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  font-size: 14px;
+  z-index: 1000; 
+}
 
