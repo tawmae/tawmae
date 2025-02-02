@@ -289,10 +289,12 @@ header {
 }  
 footer {
   position: absolute;
+  right: 0;
   bottom: 0;
-  width: 100%;
-  height: 50px;
-  background: linear-gradient(135deg, #131315 0%, #1f1c20 100%);
+  left: 0;
+  padding: 1rem;
+  background-color: linear-gradient(135deg, #131315 0%, #1f1c20 100%);
+  text-align: center;
 }
 .jump-to-top {
   color: white;
