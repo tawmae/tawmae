@@ -164,16 +164,6 @@ p {
   padding-bottom: 20px;
 }
 
-
-.text-left {
-  flex-direction: row; 
-}
-
-
-.text-right {
-  flex-direction: row-reverse; 
-}
-
 .black-text-box-2 {
   flex: 1; 
   background-color: #111;
