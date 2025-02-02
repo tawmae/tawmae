@@ -8,41 +8,51 @@ description: "A notification system for advertisements."
   <div class="notification-box">
     <h1>Ad Notification</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
-  </div>
 
-  <!-- Collapsible Categories -->
-  <div class="collapse-category">
-    <button class="collapse-header" onclick="toggleCollapse('synopsis')">Synopsis</button>
-    <div class="collapse-content" id="synopsis">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum.</p>
+    <!-- Collapsible Categories -->
+    <div class="collapse-category">
+      <button class="collapse-header" onclick="toggleCollapse('synopsis')">
+        Synopsis <span class="arrow">↓</span>
+      </button>
+      <div class="collapse-content" id="synopsis">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="collapse-category">
-    <button class="collapse-header" onclick="toggleCollapse('import')">Import</button>
-    <div class="collapse-content" id="import">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum.</p>
+    <div class="collapse-category">
+      <button class="collapse-header" onclick="toggleCollapse('import')">
+        Import <span class="arrow">↓</span>
+      </button>
+      <div class="collapse-content" id="import">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="collapse-category">
-    <button class="collapse-header" onclick="toggleCollapse('setup')">Setup</button>
-    <div class="collapse-content" id="setup">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum.</p>
+    <div class="collapse-category">
+      <button class="collapse-header" onclick="toggleCollapse('setup')">
+        Setup <span class="arrow">↓</span>
+      </button>
+      <div class="collapse-content" id="setup">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="collapse-category">
-    <button class="collapse-header" onclick="toggleCollapse('customization')">Customization</button>
-    <div class="collapse-content" id="customization">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum.</p>
+    <div class="collapse-category">
+      <button class="collapse-header" onclick="toggleCollapse('customization')">
+        Customization <span class="arrow">↓</span>
+      </button>
+      <div class="collapse-content" id="customization">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="collapse-category">
-    <button class="collapse-header" onclick="toggleCollapse('changelog')">Changelog</button>
-    <div class="collapse-content" id="changelog">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum.</p>
+    <div class="collapse-category">
+      <button class="collapse-header" onclick="toggleCollapse('changelog')">
+        Changelog <span class="arrow">↓</span>
+      </button>
+      <div class="collapse-content" id="changelog">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -50,11 +60,13 @@ description: "A notification system for advertisements."
 <script>
   function toggleCollapse(id) {
     var content = document.getElementById(id);
-    if (content.style.display === "none") {
+    var arrow = content.previousElementSibling.querySelector('.arrow');
+    if (content.style.display === "none" || content.style.display === "") {
       content.style.display = "block";
+      arrow.textContent = "↑";
     } else {
       content.style.display = "none";
+      arrow.textContent = "↓";
     }
   }
 </script>
-
