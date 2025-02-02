@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEAM WELCOME - v.1.0.0 - tawmae.xyz</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1b2838;
+            color: white;
+        }
+
+        .notification-container {
+            position: fixed;
+            bottom: -100px;
+            right: 20px;
+            width: 240px;
+            background: linear-gradient(to bottom, #2a2a2a, #1d1d1d);
+            color: #dcdcdc;
+            border: 1px solid #3b3b3b;
+            border-radius: 5px;
+            overflow: hidden;
+            display: none;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .notification-icon {
+            width: 48px;
+            height: 48px;
+            margin: 12px;
+            border-radius: 6px;
+            background: url('https://via.placeholder.com/48') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .notification-icon::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 52px;
+            height: 52px;
+            border: 3.5px solid #5fa8ff;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .notification-content {
+            flex-grow: 1;
+            padding-right: 10px;
+        }
+
+        .notification-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #5fa8ff;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .notification-text {
+            font-size: 13px;
+            color: #b8b8b8;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        @keyframes slideIn {
+            from {
+                bottom: -100px;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 20px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                bottom: 20px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: -100px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="notification" class="notification-container">
+        <div class="notification-icon" id="notification-icon"></div>
+        <div class="notification-content">
+            <p class="notification-title" id="notification-title"></p>
+            <p class="notification-text" id="notification-text"></p>
+        </div>
+    </div>
+
+    <script>
+      const avatars = new Map();
+      const notificationQueue = [];
+      let isProcessing = false;
+      const audioCache = new Map();
+  
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const excludeAccountsParam = urlParams.get("excludedaccounts")?.toLowerCase() || "";
+      const excludeAccounts = new Set(
+          excludeAccountsParam.split(/\s+/).map(account => account.trim())
+      );
+      const wsHost = urlParams.get("ws_host") || "localhost"; 
+      const wsPort = urlParams.get("ws_port") || "8080";
+
+  
+      function connectws() {
+          if ("WebSocket" in window) {
+              const wsUrl = `ws://${wsHost}:${wsPort}/`;
+              const ws = new WebSocket(wsUrl);
+              bindEvents(ws);
+          }
+      }
+  
+      function bindEvents(ws) {
+          ws.onopen = function () {
+              ws.send(JSON.stringify({
+                  request: "Subscribe",
+                  events: { Twitch: ["FirstWord"] },
+                  id: "firstWordSubscription"
+              }));
+          };
+  
+          ws.onmessage = function (event) {
+              try {
+                  const data = JSON.parse(event.data);
+                  if (data.data && data.data.message && data.data.message.username) {
+                      const username = data.data.message.username.toLowerCase();
+                      if (!excludeAccounts.has(username)) { 
+                          enqueueNotification(data.data.message.displayName);
+                      }
+                  }
+              } catch (e) {
+                  console.error("Error parsing message:", e);
+              }
+          };
+  
+          ws.onclose = function () {
+              setTimeout(connectws, 10000);
+          };
+  
+          ws.onerror = function () { };
+      }
+  
+      function enqueueNotification(username) {
+          notificationQueue.push(username);
+          if (!isProcessing) {
+              processQueue();
+          }
+      }
+  
+      async function processQueue() {
+          isProcessing = true;
+          while (notificationQueue.length > 0) {
+              const username = notificationQueue.shift();
+              const avatarUrl = await fetchAvatar(username);
+              await showNotification(username, avatarUrl);
+          }
+          isProcessing = false;
+      }
+  
+      async function fetchAvatar(username) {
+          if (avatars.has(username)) {
+              return avatars.get(username);
+          }
+          const response = await fetch(`https://decapi.me/twitch/avatar/${username}`);
+          const avatarUrl = await response.text();
+          avatars.set(username, avatarUrl);
+          return avatarUrl;
+      }
+  
+      function getAudio() {
+          if (!audioCache.has('achievement-sound')) { 
+              const audio = new Audio('https://tawmae.github.io/FirstWords/Steam_Achievement_Sound.mp3');
+              audioCache.set('achievement-sound', audio);
+          }
+          return audioCache.get('achievement-sound');
+      }
+  
+      function showNotification(username, avatarUrl) {
+          return new Promise((resolve) => {
+              const notification = document.getElementById('notification');
+              const icon = document.getElementById('notification-icon');
+              const title = document.getElementById('notification-title');
+              const text = document.getElementById('notification-text');
+  
+              title.innerText = username;
+              text.innerText = `is now online`;
+              icon.style.backgroundImage = `url(${avatarUrl})`;
+  
+              const audio = getAudio(); 
+              audio.play();
+  
+              notification.style.display = 'flex';
+              notification.style.animation = 'slideIn 0.8s ease-out forwards, slideOut 0.8s ease-in 5.8s forwards';
+  
+              setTimeout(() => {
+                  notification.style.display = 'none';
+                  resolve();
+              }, 7000);
+          });
+      }
+  
+      window.addEventListener("load", () => {
+          connectws();
+      });
+  </script>
+  
+</body>
+
+</html>
