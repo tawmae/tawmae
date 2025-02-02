@@ -230,9 +230,8 @@ p {
   width: 100%;
   border-collapse: collapse;
   background-color: #111;
-  border-radius: 6px;
   color: white;
-  border-radius: 8px;
+  border-radius: 10px !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
