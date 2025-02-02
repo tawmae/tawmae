@@ -214,14 +214,14 @@ p {
   padding: 20px;
   border-radius: 8px;
   min-height: 50px;
-  min-width: 0; 
+  width: 400px; 
 }
-.black-text-box-2 {
+.black-text-box-4 {
   flex: 1; 
   background-color: #111;
   color: white;
   padding: 20px;
   border-radius: 8px;
   min-height: 50px;
-  min-width: 0; 
+  width: 400px; 
 }
