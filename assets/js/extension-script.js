@@ -49,17 +49,21 @@ function loadImportString(file) {
     fetch(file)
         .then(response => response.text())
         .then(data => {
-
             importText.textContent = data.substring(0, 100) + '...';
             importText.setAttribute("data-copy-text", data);
         })
-        .catch(err => {
-        });
+        .catch(err => console.error("Error loading file:", err));
 }
 
-
-document.addEventListener("DOMContentLoaded", function () {
-    loadImportString("/action-imports/dynamic-timers.txt");
-    loadImportString("/action-imports/rotator.txt");
-});
 // ====================================================================================================================
+// Function to determine which import string to load based on the current page
+document.addEventListener("DOMContentLoaded", function () {
+    const currentPage = window.location.pathname; // Get the current page URL
+
+    if (currentPage.includes("dynamic-timers")) {
+        loadImportString("/action-imports/dynamic-timers.txt");  // Only load dynamic-timers.txt for this page
+    } else if (currentPage.includes("rotator")) {
+        loadImportString("/action-imports/rotator.txt");  // Load rotator.txt for the rotator page
+    } 
+    // Add more checks for other pages as needed
+});
