@@ -15,7 +15,7 @@ function toggleAccordion(id) {
 // ====================================================================================================================
 function copyToClipboard(id) {
   const copyText = document.getElementById(id);
-  const button = copyText.nextElementSibling;
+  const button = copyText.closest('.copy-box').querySelector('.copy-btn');
   
   navigator.clipboard.writeText(copyText.getAttribute("data-copy-text")).then(() => {
     button.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-20-filled"></span> Copied';
@@ -28,6 +28,7 @@ function copyToClipboard(id) {
   });
 }
 
+
 // ====================================================================================================================
 function loadImportString(file) {
   const importText = document.getElementById("import-string");
@@ -39,7 +40,7 @@ function loadImportString(file) {
       importText.setAttribute("data-copy-text", data);
     })
     .catch(err => {
-      console.error("Fehler beim Laden des Import-Strings: ", err);
+      console.error("Error fetchting the import string, you fucking donkey: ", err);
     });
 }
 
