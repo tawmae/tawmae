@@ -5,16 +5,14 @@ description: "An OBS widget to display upcoming ads and the current ad run time.
 ---
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
 
-
 <div class="extension-title">
   <div class="black-text-box">
     <h1>Ad Notification</h1>
     <p>An OBS widget for Twitch that notifies both you and your viewers about an upcoming ad, while also displaying the current duration of the running ad. Sucks to be a non-sub, huh? <br><span style="font-size: 1.5rem">pepeSmoke</span></p>
   </div>
   <a href="{{ site.baseurl }}/assets/covers/ad-notification.gif" target="_blank">
-  <div class="extension-image" style="background-image: url('{{ site.baseurl }}/assets/covers/ad-notification.gif');"></div>
-</a>
-
+    <div class="extension-image" style="background-image: url('{{ site.baseurl }}/assets/covers/ad-notification.gif');"></div>
+  </a>
 </div>
 
 <div class="accordion">
@@ -25,59 +23,53 @@ description: "An OBS widget to display upcoming ads and the current ad run time.
     </div>
     <div class="accordion-content" id="import">
       <div class="copy-box">
-  <span class="copy-text" id="base64-string" data-copy-text="https://tawmae.github.io/overlays/Ads.html">https://tawmae.github.io/overlays/Ads.html</span>
-  <button class="copy-btn" onclick="copyToClipboard()">
-    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span>
-    Copy
-  </button>
-</div>
-
+        <span class="copy-text" id="base64-string" data-copy-text="https://tawmae.github.io/overlays/Ads.html">https://tawmae.github.io/overlays/Ads.html</span>
+        <button class="copy-btn" onclick="copyToClipboard()">
+          <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span>
+          Copy
+        </button>
+      </div>
     </div>
   </div>
   <div class="accordion-divider"></div>
-<div class="accordion-item">
-  <div class="accordion-header" onclick="toggleAccordion('setup')">
-    <span class="iconify title-icon" data-icon="material-symbols:settings-b-roll"></span> <span>Setup</span>
-    <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion('setup')">
+      <span class="iconify title-icon" data-icon="material-symbols:settings-b-roll"></span> <span>Setup</span>
+      <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+    </div>
+    <div class="accordion-content" id="setup">
+      <!-- Text + Bild (Text links, Bild rechts) -->
+      <div class="description-container">
+        <div class="black-text-box-2">
+          <p><span style="font-weight: bold; color: #fff;">1.</span> In </span> Copy the <span style="font-weight: bold; color: #d4af37;">Streamer.bot</span>, go into <span style="font-weight: bold; color: #d4af37;">Servers/Clients</span> -> <span style="font-weight: bold; color: #d4af37;">WebSocket Server</span> tab. Check <span style="font-weight: bold; color: #d4af37;">Auto Start WebSocket Server</span>, leave <span style="font-weight: bold; color: #d4af37;">Address</span> at <span style="font-weight: bold; color: #d4af37;">127.0.0.1</span> and the <span style="font-weight: bold; color: #d4af37;">Port</span> at <span style="font-weight: bold; color: #d4af37;">8080</span>. You can set a password if you want, just make sure to leave <span style="font-weight: bold; color: #d4af37;">Enforce All Requests</span> unchecked. Start the server.</p>
+        </div>
+        <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
+          <div class="extension-image-2" style="background-image: url('{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png');"></div>
+        </a>
+      </div>
+
+      <!-- Bild + Text (Bild links, Text rechts) -->
+      <div class="description-container">
+        <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
+          <div class="extension-image-2" style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
+        </a>
+        <div class="black-text-box-2">
+          <p><span style="font-weight: bold; color: #fff;">2.</span> Copy the <span style="font-weight: bold; color: #d4af37;">Browser Source URL</span> from above into your clipboard.</p>
+        </div>
+      </div>
+
+      <!-- Text + Bild (Text links, Bild rechts) -->
+      <div class="description-container">
+        <div class="black-text-box-2">
+          <p><span style="font-weight: bold; color: #fff;">3.</span> In <span style="font-weight: bold; color: #d4af37;">OBS</span>, create a new <span style="font-weight: bold; color: #d4af37;">Browser Source</span>, name it whatever you want. Then paste the copied URL into <span style="font-weight: bold; color: #d4af37;">URL</span> and preferably set the <span style="font-weight: bold; color: #d4af37;">Width</span> and <span style="font-weight: bold; color: #d4af37;">Height</span> to your OBS canvas size. <br><br> <span style="font-weight: bold; color: #fff;">And then you're done</span> <span style="font-size: 1.8rem">Pog Clap</span> <br> <span style="font-size: 0.9rem;"> If you want to test it, you can create an <span style="font-weight: bold; color: #d4af37;">Ad Run</span> trigger in an empty action in Streamer.bot, rightclick that trigger and hit <span style="font-weight: bold; color: #d4af37;">Simulate Event</span></span></p>
+        </div>
+        <a href="{{ site.baseurl }}/assets/setup/obs-browser-source.png" target="_blank">
+          <div class="extension-image-2" style="background-image: url('{{ site.baseurl }}/assets/setup/obs-browser-source.png');"></div>
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="accordion-content" id="setup">
-    
-    <!-- Text + Bild (Text links, Bild rechts) -->
-    <div class="description-container">
-      <div class="black-text-box-2">
-        <p><span style="font-weight: bold; color: #fff;">1.</span> In </span> Copy the <span style="font-weight: bold; color: #d4af37;">Streamer.bot</span>, go into <span style="font-weight: bold; color: #d4af37;">Servers/Clients</span> -> <span style="font-weight: bold; color: #d4af37;">WebSocket Server</span> tab. Check <span style="font-weight: bold; color: #d4af37;">Auto Start WebSocket Server</span>, leave <span style="font-weight: bold; color: #d4af37;">Address</span> at <span style="font-weight: bold; color: #d4af37;">127.0.0.1</span> and the <span style="font-weight: bold; color: #d4af37;">Port</span> at <span style="font-weight: bold; color: #d4af37;">8080</span>. You can set a password if you want, just make sure to leave <span style="font-weight: bold; color: #d4af37;">Enforce All Requests</span> unchecked. Start the server.</p>
-      </div>
-      <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
-      <div class="extension-image-2" style="background-image: url('{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png');"></div>
-      </a>
-    </div>
-
-    <!-- Bild + Text (Bild links, Text rechts) -->
-    <div class="description-container">
-      <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
-      <div class="extension-image-2" style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
-         </a>
-      <div class="black-text-box-2">
-        <p><span style="font-weight: bold; color: #fff;">2.</span> Copy the <span style="font-weight: bold; color: #d4af37;">Browser Source URL</span> from above into your clipboard.</p>
-      </div>
-    </div>
-
-  <!-- Text + Bild (Text links, Bild rechts) -->
-    <div class="description-container">
-      <div class="black-text-box-2">
-        <p><span style="font-weight: bold; color: #fff;">3.</span> In <span style="font-weight: bold; color: #d4af37;">OBS</span>, create a new <span style="font-weight: bold; color: #d4af37;">Browser Source</span>, name it whatever you want. Then paste the copied URL into <span style="font-weight: bold; color: #d4af37;">URL</span> and preferably set the <span style="font-weight: bold; color: #d4af37;">Width</span> and <span style="font-weight: bold; color: #d4af37;">Height</span> to your OBS canvas size. <br><br> <span style="font-weight: bold; color: #fff;">And then you're done</span> <span style="font-size: 1.8rem">Pog Clap</span> <br> <span style="font-size: 0.9rem;"> If you want to test it, you can create an <span style="font-weight: bold; color: #d4af37;">Ad Run</span> trigger in an empty action in Streamer.bot, rightclick that trigger and hit <span style="font-weight: bold; color: #d4af37;">Simulate Event</span></span></p>
-      </div>
-      <a href="{{ site.baseurl }}/assets/setup/obs-browser-source.png" target="_blank">
-      <div class="extension-image-2" style="background-image: url('{{ site.baseurl }}/assets/setup/obs-browser-source.png');"></div>
-      </a>
-    </div>
-
-    
-  </div>
-</div>
-
-    
-
 
   <div class="accordion-divider"></div>
   <div class="accordion-item">
@@ -92,71 +84,66 @@ description: "An OBS widget to display upcoming ads and the current ad run time.
       <p><br><br></p>
 
       <!---------------------------------------------->
-    <div class="customization-text-container">
-      <div class="black-text-box-3">
-        <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Color</span></p>
-        <p>Changes the color of the title and progress bar. Supports hex codes too.</p>
+      <div class="customization-text-container">
+        <div class="black-text-box-3">
+          <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Color</span></p>
+          <p>Changes the color of the title and progress bar. Supports hex codes too.</p>
+        </div>
+        <div class="black-text-box-4">
+          <p><span style="color: #d4af37; font-weight: bold;">color=blue</span></p>
+          <p><br></p>
+          <p><span style="color: #d4af37; font-weight: bold;">color=b81a56</span></p>
+        </div>
       </div>
-      <div class="black-text-box-4">
-        <p><span style="color: #d4af37; font-weight: bold;">color=blue</span></p>
-        <p><br></p>
-        <p><span style="color: #d4af37; font-weight: bold;">color=b81a56</span></p>
-      </div>
-      </a>
-    </div>
       <!---------------------------------------------->
       <div class="customization-text-container">
-      <div class="black-text-box-3">
-        <p><span class="iconify title-icon" data-icon="mdi:format-font"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font</span></p>
-        <p>Changes the font used for the text. Supports standard fonts. Use a <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">+</span> character to replace spaces.</p>
+        <div class="black-text-box-3">
+          <p><span class="iconify title-icon" data-icon="mdi:format-font"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font</span></p>
+          <p>Changes the font used for the text. Supports standard fonts. Use a <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">+</span> character to replace spaces.</p>
+        </div>
+        <div class="black-text-box-4">
+          <p><span style="color: #d4af37; font-weight: bold;">font=Arial</span></p>
+          <p><br></p>
+          <p><span style="color: #d4af37; font-weight: bold;">font=Comic+Sans+MS</span></p>
+        </div>
       </div>
-      <div class="black-text-box-4">
-        <p><span style="color: #d4af37; font-weight: bold;">font=Arial</span></p>
-        <p><br></p>
-        <p><span style="color: #d4af37; font-weight: bold;">font=Comic+Sans+MS</span></p>
-      </div>
-      </a>
-    </div>
       <!---------------------------------------------->
-     <div class="customization-text-container">
-      <div class="black-text-box-3">
-        <p><span class="iconify title-icon" data-icon="material-symbols:volume-up-rounded"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Sound</span></p>
-        <p>Toggles whether a tiny sound effect is played when the overlay displays.</p>
+      <div class="customization-text-container">
+        <div class="black-text-box-3">
+          <p><span class="iconify title-icon" data-icon="material-symbols:volume-up-rounded"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Sound</span></p>
+          <p>Toggles whether a tiny sound effect is played when the overlay displays.</p>
+        </div>
+        <div class="black-text-box-4">
+          <p><span style="color: #d4af37; font-weight: bold;">sound=true</span></p>
+        </div>
       </div>
-      <div class="black-text-box-4">
-        <p><span style="color: #d4af37; font-weight: bold;">sound=true</span></p>
-      </div>
-      </a>
-    </div>
-      <!---------------------------------------------->
-      
     </div>
   </div>
+
   <div class="accordion-divider"></div>
   <div class="accordion-item">
-  <div class="accordion-header" onclick="toggleAccordion('changelog')">
-    <span class="iconify title-icon" data-icon="material-symbols:published-with-changes"></span> <span>Changelog</span>
-    <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+    <div class="accordion-header" onclick="toggleAccordion('changelog')">
+      <span class="iconify title-icon" data-icon="material-symbols:published-with-changes"></span> <span>Changelog</span>
+      <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+    </div>
+    <div class="accordion-content" id="changelog">
+      <table class="changelog-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Changes</th>
+            <th>Version</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>February 02, 2025</td>
+            <td>Release</td>
+            <td>1.0.0</td>
+          </tr>
+          <!-- Weitere Einträge hier hinzufügen -->
+        </tbody>
+      </table>
+    </div>
   </div>
-  <div class="accordion-content" id="changelog">
-    <table class="changelog-table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Changes</th>
-          <th>Version</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>February 02, 2025</td>
-          <td>Release</td>
-          <td>1.0.0</td>
-        </tr>
-        <!-- Weitere Einträge hier hinzufügen -->
-      </tbody>
-    </table>
-  </div>
-</div>
-
 </div>
