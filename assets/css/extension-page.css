@@ -165,7 +165,7 @@ p {
 }
 
 .copied {
-  background-color: #4CAF50;
+  background-color: #4CAF50 !important;
   font-weight: bold;
 }
 
