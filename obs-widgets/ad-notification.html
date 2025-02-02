@@ -4,7 +4,7 @@ title: "Ad Notification"
 description: "Manage your ad notifications."
 ---
 
-<div class="black-text-box" style="max-width: 400px; opacity: 0.95; background-color: #111; border-radius: 12px; padding: 30px 40px; margin-top: 60px; margin-left: auto; margin-right: auto;">
+<div class="black-text-box" style="max-width: 400px; opacity: 0.95; background-color: #111; border-radius: 12px; padding: 30px 40px; margin-top: 60px; margin-left: 0; margin-right: auto;">
   <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: white; text-align: left;">Ad Notification Settings</h1>
   <p style="font-size: 1.1rem; color: #ccc; text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis libero magna, et iaculis purus viverra at.</p>
 </div>
@@ -89,7 +89,7 @@ description: "Manage your ad notifications."
     font-family: 'Poppins', sans-serif;
     color: white;
     text-align: center;
-    padding-bottom: 100px; /* Prevent content from being hidden under the footer */
+    padding-bottom: 50px; /* To avoid footer overlap */
   }
 
   .black-text-box {
@@ -100,8 +100,9 @@ description: "Manage your ad notifications."
     border-radius: 12px;
     padding: 30px 40px;
     margin-top: 60px;
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
+    text-align: left;
   }
 
   .accordion {
@@ -172,5 +173,14 @@ description: "Manage your ad notifications."
   .accordion-divider {
     border-bottom: 1px solid #444;
     margin: 10px 0;
+  }
+
+  footer {
+    position: relative;
+    width: 100%;
+    background: #111;
+    padding: 10px 20px;
+    text-align: center;
+    color: #fff;
   }
 </style>
