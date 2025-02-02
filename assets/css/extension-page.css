@@ -281,14 +281,11 @@ p {
   padding: 20px;
   border-radius: 8px;
   width: 300px; /* Feste Breite für die Textbox */
-  align-self: flex-start; /* Textbox oben ausrichten */
 }
 
 .settings-ui-image {
   width: 600px; 
   height: auto; /* Höhe wird automatisch basierend auf dem Bild beibehalten */
-  background-size: contain; /* Das Bild wird skaliert, aber das Seitenverhältnis bleibt erhalten */
-  background-position: center;
   border: 1px solid black;
   flex-shrink: 0;
   transition: transform 0.4s ease-in-out;
@@ -298,4 +295,5 @@ p {
 .settings-ui-image:hover {
   transform: scale(1.05);
 }
+
 
