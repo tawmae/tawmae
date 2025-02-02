@@ -343,13 +343,13 @@ header {
 }
 
 
-footer {
+.footer {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
-  background-color: #333;
+  background-color: linear-gradient(135deg, #131315 0%, #1f1c20 100%);
   color: #fff;
   padding: 10px 0;
   font-size: 14px;
