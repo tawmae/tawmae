@@ -116,6 +116,7 @@ p {
   border-radius: 8px;
   padding: 10px;
   background-color: #111;
+  justify-content: flex-start;  
 }
 
 .copy-text {
@@ -138,6 +139,7 @@ p {
   align-items: center;
   border-radius: 5px;
   transition: background-color 0.3s;
+  font-family: 'Poppins', sans-serif;  
 }
 
 .copy-btn:hover {
@@ -152,4 +154,5 @@ p {
   color: #4CAF50;
   font-weight: bold;
 }
+
 
