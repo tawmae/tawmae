@@ -213,6 +213,7 @@ p {
   align-items: stretch;
   width: 100%;
   gap: 20px;
+  margin-bottom: 20px;
 }
 
 .black-text-box-3,
