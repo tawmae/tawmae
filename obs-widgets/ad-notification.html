@@ -4,9 +4,9 @@ title: "Ad Notification"
 description: "Manage your ad notifications."
 ---
 
-<div class="black-text-box" style="width: 100%; opacity: 0.5; background-color: black; border-radius: 10px; padding: 20px; margin-top: 60px;">
-  <h1 style="font-size: 2rem; display: inline;">Ad Notification Settings</h1>
-  <p style="display: inline;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis libero magna, et iaculis purus viverra at.</p>
+<div class="black-text-box" style="width: 100%; opacity: 0.8; background-color: #111; border-radius: 12px; padding: 30px 40px; margin-top: 60px;">
+  <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ffcc00;">Ad Notification Settings</h1>
+  <p style="font-size: 1.1rem; color: #ccc;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis libero magna, et iaculis purus viverra at.</p>
 </div>
 
 <div class="accordion">
@@ -76,6 +76,21 @@ description: "Manage your ad notifications."
 </script>
 
 <style>
+  body {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    font-family: 'Poppins', sans-serif;
+    color: #ecf0f1;
+  }
+
+  .black-text-box {
+    width: 100%;
+    opacity: 0.95;
+    background-color: #111;
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin-top: 60px;
+  }
+
   .accordion {
     margin-top: 20px;
     display: flex;
@@ -84,10 +99,15 @@ description: "Manage your ad notifications."
   }
 
   .accordion-item {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 15px;
     width: 100%;
+    transition: background-color 0.3s;
+  }
+
+  .accordion-item:hover {
+    background-color: rgba(0, 0, 0, 0.9);
   }
 
   .accordion-header {
@@ -95,24 +115,46 @@ description: "Manage your ad notifications."
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    color: white;
-    font-size: 1.2rem;
+    color: #f39c12;
+    font-size: 1.4rem;
     font-weight: bold;
-  }
-
-  .accordion-content {
-    padding-top: 10px;
-    color: white;
-    font-size: 1rem;
-    display: none;
+    padding: 10px 0;
   }
 
   .accordion-header .iconify {
     font-size: 1.5rem;
+    color: #f39c12;
     transition: transform 0.3s;
   }
 
   .accordion-header .iconify:hover {
     transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    padding-top: 10px;
+    color: white;
+    font-size: 1.1rem;
+    display: none;
+    margin-top: 10px;
+    padding: 15px;
+    background: #1a242f;
+    border-radius: 8px;
+  }
+
+  .accordion-content p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #ffcc00;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #ccc;
   }
 </style>
