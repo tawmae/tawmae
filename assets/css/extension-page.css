@@ -157,36 +157,36 @@ p {
 
 .description-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between; 
   align-items: flex-start;
   width: 100%;
-  gap: 20px; /* Abstand zwischen Text und Bild */
+  gap: 20px; 
 }
 
-/* Text + Bild (Text links, Bild rechts) */
+
 .text-left {
-  flex-direction: row; /* Text links, Bild rechts */
+  flex-direction: row; 
 }
 
-/* Bild + Text (Bild links, Text rechts) */
+
 .text-right {
-  flex-direction: row-reverse; /* Bild links, Text rechts */
+  flex-direction: row-reverse; 
 }
 
-.black-text-box-2 {
-  flex: 1; /* Textbox soll den verbleibenden Platz einnehmen */
+.black-text-box {
+  flex: 1; 
   background-color: #111;
   color: white;
   padding: 20px;
   border-radius: 8px;
-  min-width: 0; /* Verhindert Überlauf, wenn Text zu lang ist */
+  min-width: 0; 
 }
 
 .extension-image-2 {
-  width: 400px; /* Größe des Bildes */
-  height: 200px;
+  width: 600px; 
+  height: 300px;
   background-size: cover;
   background-position: center;
   border: 1px solid #444;
-  flex-shrink: 0; /* Verhindert, dass das Bild schrumpft */
+  flex-shrink: 0; 
 }
