@@ -269,8 +269,8 @@ p {
 
 .settings-ui-container {
   display: flex;
-  justify-content: flex-start; /* Text und Bild nebeneinander, nicht zentriert */
-  align-items: flex-start; /* Textbox oben an das Bild anstöpseln */
+  justify-content: flex-start;
+  align-items: flex-start; 
   gap: 20px;
   padding-bottom: 20px;
 }
@@ -280,12 +280,12 @@ p {
   color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 300px; /* Feste Breite für die Textbox */
+  width: 300px; 
 }
 
 .settings-ui-image {
   width: 600px; 
-  height: auto; /* Höhe wird automatisch basierend auf dem Bild beibehalten */
+  height: auto; 
   border: 1px solid black;
   flex-shrink: 0;
   transition: transform 0.4s ease-in-out;
