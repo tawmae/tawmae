@@ -1,6 +1,68 @@
 ---
 layout: default
 title: "Ad Notification"
-description: "Display when Twitch ads are running or about to run"
+description: "Ad notification setup and customization"
 ---
 
+<div class="rotator-wrapper">
+  <div class="black-text-box" style="position: relative;">
+    <h3>AD NOTIFICATION</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod justo vel dolor tincidunt, non tincidunt purus egestas.</p>
+  </div>
+  
+  <div class="black-text-box collapsible-container">
+    <h4 class="collapsible-header">
+      <span class="arrow">&#9654;</span> Synopsis
+    </h4>
+    <div class="collapsible-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod justo vel dolor tincidunt.</p>
+    </div>
+  </div>
+
+  <div class="black-text-box collapsible-container">
+    <h4 class="collapsible-header">
+      <span class="arrow">&#9654;</span> Import
+    </h4>
+    <div class="collapsible-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod justo vel dolor tincidunt.</p>
+    </div>
+  </div>
+
+  <div class="black-text-box collapsible-container">
+    <h4 class="collapsible-header">
+      <span class="arrow">&#9654;</span> Setup
+    </h4>
+    <div class="collapsible-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod justo vel dolor tincidunt.</p>
+    </div>
+  </div>
+
+  <div class="black-text-box collapsible-container">
+    <h4 class="collapsible-header">
+      <span class="arrow">&#9654;</span> Customization
+    </h4>
+    <div class="collapsible-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod justo vel dolor tincidunt.</p>
+    </div>
+  </div>
+
+  <div class="black-text-box collapsible-container">
+    <h4 class="collapsible-header">
+      <span class="arrow">&#9654;</span> Changelog
+    </h4>
+    <div class="collapsible-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod justo vel dolor tincidunt.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.collapsible-header').forEach(header => {
+    header.addEventListener('click', function() {
+      const content = header.nextElementSibling;
+      const arrow = header.querySelector('.arrow');
+      content.style.display = content.style.display === 'none' ? 'block' : 'none';
+      arrow.innerHTML = arrow.innerHTML === '►' ? '▼' : '►';
+    });
+  });
+</script>
