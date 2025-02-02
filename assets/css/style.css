@@ -286,30 +286,13 @@ header {
   font-size: 0.9rem;
   color: #ccc;
   padding-bottom: 5px;
-}
+}  
 footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100vw;
+  width: 100%;
+  height: 50px;
   background: linear-gradient(135deg, #131315 0%, #1f1c20 100%);
-}
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-left {
-  text-align: left;
-}
-.footer-center {
-  text-align: center;
-}
-.footer-right {
-  text-align: right;
 }
 .jump-to-top {
   color: white;
