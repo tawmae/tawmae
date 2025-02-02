@@ -116,7 +116,8 @@ description: "An OBS widget to display as many timers as you want. Fully control
                             timers in multiple scenes, <span style="font-weight: bold; color: #d4af37;">don’t</span>
                             create a second browser source. Instead, use <span
                                 style="font-weight: bold; color: #d4af37;">nested scenes</span> or <span
-                                style="font-weight: bold; color: #d4af37;">source clones</span>.</span></p>
+                                style="font-weight: bold; color: #d4af37;">source clones</span>.</span>
+                    </p>
                 </div>
                 <a href="{{ site.baseurl }}/assets/setup/obs-browser-source.png" target="_blank">
                     <div class="extension-image-2"
@@ -125,7 +126,7 @@ description: "An OBS widget to display as many timers as you want. Fully control
             </div>
         </div>
     </div>
-    
+
     <!---------------------------------------------------------------------------------------------------------------------------------->
 
     <div class="accordion-divider"></div>
@@ -133,26 +134,181 @@ description: "An OBS widget to display as many timers as you want. Fully control
     <!----    COMMANDS    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion('commands')">
-            <span class="iconify title-icon" data-icon="rivet-icons:exclamation-mark-circle-solid"></span> <span>Commands</span>
+            <span class="iconify title-icon" data-icon="rivet-icons:exclamation-mark-circle-solid"></span>
+            <span>Commands</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
         <div class="accordion-content" id="commands">
-            <p>If you want to use any other trigger than a <span style="font-weight: bold; color: #d4af37;">Command</span> or <span style="font-weight: bold; color: #d4af37;">Channel Point Reward</span>, you can use the variables that you see in the respective actions, like <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerId</span>, <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerName</span> or <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerValue</span>. If both, the variables as well as <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">rawInput</span> are available, <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">rawInput</span> will always take priority. <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerId</span> will always take priority over <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerName</span> if both are available.</p>
+            <p>If you want to use any other trigger than a <span
+                    style="font-weight: bold; color: #d4af37;">Command</span> or <span
+                    style="font-weight: bold; color: #d4af37;">Channel Point Reward</span>, you can use the variables
+                that you see in the respective actions, like <span
+                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerId</span>, <span
+                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerName</span> or
+                <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerValue</span>. If
+                both, the variables as well as <span
+                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">rawInput</span> are
+                available, <span
+                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">rawInput</span> will
+                always take priority. <span
+                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerId</span> will
+                always take priority over <span
+                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerName</span> if
+                both are available.
+            </p>
             <p><br></p>
-            <p>In case of a <span style="font-weight: bold; color: #d4af37;">Channel Point Reward without user input</span>, you can just use a <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">rawInput</span> <span style="font-weight: bold; color: #d4af37;">Set Argument</span> subaction and follow the same pattern as for commands.</p>
+            <p>In case of a <span style="font-weight: bold; color: #d4af37;">Channel Point Reward without user
+                    input</span>, you can just use a <span
+                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">rawInput</span> <span
+                    style="font-weight: bold; color: #d4af37;">Set Argument</span> subaction and follow the same pattern
+                as for commands.</p>
             <p><br><br></p>
 
             <!---------------------------------------------->
             <div class="customization-text-container">
                 <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!createTimer <span style="color: #455f8c;">Time Value</span> | <span style="color: #455f8c;">Timer Title</span> | <span style="color: #455f8c;">Timer Description</span></span></p>
+                    <p><span style="font-weight: bold; color: #fff;">!createTimer <span style="color: #455f8c;">Time
+                                Value</span> | <span style="color: #455f8c;">Timer Title</span> | <span
+                                style="color: #455f8c;">Timer Description</span></span></p>
                 </div>
                 <div class="black-text-box-6">
-                    <p>Create the timer. Title and description are optional. Elements are seperated by a pipe symbol <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">|</span>. The Time Value can be a number <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">300</span> (in seconds), a timestamp <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">hh:mm:ss</span> or <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">mm:ss</span> or a timecode like <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10s</span>, <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10min</span>, <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10h</span>.</p>
+                    <p>Create the timer. Title and description are optional. Elements are separated by a pipe symbol
+                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">|</span>. The
+                        Time Value can be a number <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">300</span> (in
+                        seconds), a timestamp <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">hh:mm:ss</span>
+                        or <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">mm:ss</span> or
+                        a timecode like <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10s</span>,
+                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10min</span>,
+                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10h</span>.
+                    </p>
                 </div>
             </div>
 
-            
+            <!-- Separator -->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!pauseTimer <span style="color: #455f8c;">[Timer
+                                ID]</span> or <span style="color: #455f8c;">[Timer Title]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Pause the timer. You can specify the timer ID or its title.</p>
+                </div>
+            </div>
+
+            <!-- Separator -->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!continueTimer <span style="color: #455f8c;">[Timer
+                                ID]</span> or <span style="color: #455f8c;">[Timer Title]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Continue the timer. You can specify the timer ID or its title.</p>
+                </div>
+            </div>
+
+            <!-- Separator -->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!addTime <span style="color: #455f8c;">[Time
+                                Value]</span> | <span style="color: #455f8c;">[Timer ID]</span> or <span
+                                style="color: #455f8c;">[Timer Title]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Add time to the timer. You can specify the timer ID or its title. Elements are separated by a
+                        pipe symbol <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">|</span>. The
+                        Time Value can be a number <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">300</span> (in
+                        seconds), a timestamp <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">hh:mm:ss</span>
+                        or <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">mm:ss</span> or
+                        a timecode like <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10s</span>,
+                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10min</span>,
+                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10h</span>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Separator -->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!removeTime <span style="color: #455f8c;">[Time
+                                Value]</span> | <span style="color: #455f8c;">[Timer ID]</span> or <span
+                                style="color: #455f8c;">[Timer Title]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Remove time from the timer. You can specify the timer ID or its title. Elements are separated by
+                        a pipe symbol <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">|</span>. The
+                        Time Value can be a number <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">300</span> (in
+                        seconds), a timestamp <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">hh:mm:ss</span>
+                        or <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">mm:ss</span> or
+                        a timecode like <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10s</span>,
+                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10min</span>,
+                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">10h</span>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Separator -->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!deleteTimer <span style="color: #455f8c;">[Timer
+                                ID]</span> or <span style="color: #455f8c;">[Timer Title]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Delete the timer. You can specify the timer ID or its title.</p>
+                </div>
+            </div>
+
+            <!-- Separator -->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!pauseAllTimers</span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Pauses all timers.</p>
+                </div>
+            </div>
+
+            <!-- Separator -->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!continueAllTimers</span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Continues all timers.</p>
+                </div>
+            </div>
+
+            <!-- Separator -->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!clearAllTimers</span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Clears all timers.</p>
+                </div>
+            </div>
+
             <!---------------------------------------------->
         </div>
     </div>
