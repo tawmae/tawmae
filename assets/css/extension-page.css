@@ -30,7 +30,7 @@
 }
 
 .extension-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .accordion {
@@ -178,4 +178,8 @@ p {
   background-position: center;
   border: 1px solid #444;
   flex-shrink: 0; 
+}
+
+.extension-image-2:hover {
+  transform: scale(1.05);
 }
