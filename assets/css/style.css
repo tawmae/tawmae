@@ -289,16 +289,6 @@ header {
   color: #ccc;
   padding-bottom: 5px;
 }  
-footer {
-  position: fixed; 
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1rem;
-  background: linear-gradient(135deg, #131315 0%, #1f1c20 100%);
-  text-align: center;
-  z-index: 1000; 
-}
 .jump-to-top {
   color: white;
   text-decoration: none;
