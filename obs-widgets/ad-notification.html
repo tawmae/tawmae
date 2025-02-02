@@ -4,9 +4,12 @@ title: "Ad Notification"
 description: "Manage your ad notifications."
 ---
 
-<div class="black-text-box" style="max-width: 400px; opacity: 0.95; background-color: #111; border-radius: 12px; padding: 30px 40px; margin-top: 60px; margin-left: 0; margin-right: auto;">
-  <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: white; text-align: left;">Ad Notification Settings</h1>
-  <p style="font-size: 1.1rem; color: #ccc; text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis libero magna, et iaculis purus viverra at.</p>
+<div class="extension-title" style="max-width: 1200px; margin-left: auto; margin-right: auto; display: flex; align-items: center; gap: 20px;">
+  <div class="black-text-box">
+    <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: white;">Ad Notification Settings</h1>
+    <p style="font-size: 1.1rem; color: #ccc;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis libero magna, et iaculis purus viverra at.</p>
+  </div>
+  <div class="extension-image" style="width: 1000px; height: 400px; background-image: url('https://via.placeholder.com/1000x400'); background-size: cover; background-position: center;"></div>
 </div>
 
 <div class="accordion" style="max-width: 1200px; margin-left: auto; margin-right: auto;">
@@ -85,7 +88,20 @@ description: "Manage your ad notifications."
 
 <style>
   body {
-    padding-bottom: 50px; 
+    background: linear-gradient(135deg, #27262b 0%, #3a353f 100%);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    padding-bottom: 50px; /* Prevent footer overlap */
+  }
+
+  .extension-title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .black-text-box {
@@ -96,9 +112,14 @@ description: "Manage your ad notifications."
     border-radius: 12px;
     padding: 30px 40px;
     margin-top: 60px;
-    margin-left: 0;
-    margin-right: auto;
     text-align: left;
+  }
+
+  .extension-image {
+    width: 1000px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
   }
 
   .accordion {
@@ -172,6 +193,11 @@ description: "Manage your ad notifications."
   }
 
   footer {
-    padding-top: 20px;
+    position: relative;
+    width: 100%;
+    background: #111;
+    padding: 10px 20px;
+    text-align: center;
+    color: #fff;
   }
 </style>
