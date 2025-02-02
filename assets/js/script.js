@@ -12,7 +12,8 @@ const wordToEmojiMap = {
   "Clap": "/assets/emotes/clap.webp",
   "itsTimeToStop": "/assets/emotes/joji-clock.webp",
   "rupertRotate": "/assets/emotes/rupert.webp",
-  "kingGABEN": "/assets/emotes/kingGABEN.webp"
+  "kingGABEN": "/assets/emotes/kingGABEN.webp",
+  "thisIsFine": "/assets/emotes/this-is-fine.webp"
 };
 
 function replacePlaceholdersWithEmojis(text) {
