@@ -68,7 +68,6 @@
   margin-left: 10px;
 }
 
-.accordion-header:hover .iconify,
 .accordion-header:hover{
   transform: scale(1.2);
 }
