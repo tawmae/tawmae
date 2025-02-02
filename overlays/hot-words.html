@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOT WORDS - v.1.0.0 - tawmae.xyz</title>
+    <style>
+        :root {
+            --fontSize: 24px;
+            --fontFamily: Poppins;
+        }
+
+        h1 {
+            position: relative;
+            z-index: 69;
+            font-weight: 600;
+            margin-bottom: -23px;
+            margin-left: -587px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #ffffff;
+            font-size: 1.3em;
+        }
+
+        body {
+            background: #141414;
+            color: #f5f5f5;
+            font-family: var(--fontFamily), sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: var(--fontSize);
+        }
+
+        .leaderboard {
+            position: relative;
+            width: 900px;
+            border-radius: 8px;
+            background: #1f1f1f;
+            padding: 40px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .connection-status {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.5em;
+            z-index: 100;
+        }
+
+        .disconnected {
+            color: #ff4d4d;
+        }
+
+        .disconnected .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #ff4d4d;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        .connected {
+            color: #00ff00;
+            display: none;
+        }
+
+        .connected .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50%,
+            100% {
+                opacity: 1;
+            }
+
+            25%,
+            75% {
+                opacity: 0.5;
+            }
+        }
+
+        .word-entry {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            font-size: 1em;
+            text-transform: uppercase;
+            position: relative;
+            transition: opacity 0.3s ease;
+        }
+
+        .word-label {
+            font-size: 1em;
+            flex-shrink: 0;
+            width: 220px;
+            font-weight: 800;
+            color: #f5f5f5;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+
+        .progress-bar-container {
+            flex: 1;
+            background: #2a2a2a;
+            position: relative;
+            height: 30px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #0066ff, #00c0ff);
+            width: 0;
+            transition: width 0.4s ease;
+        }
+
+        .count-percentage {
+            font-size: 0.8em;
+            flex-shrink: 0;
+            font-weight: 600;
+            color: #d0d0d0;
+            text-align: right;
+            width: 60px;
+        }
+
+        .top1 .progress-bar {
+            background: linear-gradient(90deg, #ff0088, #ffcc00);
+        }
+
+        .image-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .top1 .image-icon {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HOT WORDS</h1>
+    <div class="leaderboard" id="leaderboard">
+
+        <div class="connection-status disconnected" id="connectionStatus">
+            <span class="dot"></span>
+            Disconnected
+        </div>
+
+        <div class="connection-status connected" id="connectedStatus">
+            <span class="dot"></span>
+            Connected
+        </div>
+    </div>
+    <script>
+        const excludeAccountsParam = (urlParams.get("excludedaccounts") || "").toLowerCase();
+        const excludedUsersParam = (urlParams.get("excludedusers") || "").toLowerCase();
+        const singleUserVote = urlParams.get("singleuservote") === "true";
+        const chosenFont = (urlParams.get('font') || 'Poppins').toLowerCase();
+        const chosenFontSize = parseInt(urlParams.get('fontsize')) || 24;
+        const topCount = parseInt(urlParams.get('top')) || 5;
+        const wsHost = urlParams.get("ws_host") || "localhost"; 
+        const wsPort = urlParams.get("ws_port") || "8080";
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(chosenFont)}:wght@300;400;600&display=swap`;
+        document.head.appendChild(link);
+
+        document.documentElement.style.setProperty('--fontSize', chosenFontSize + 'px');
+        document.documentElement.style.setProperty('--fontFamily', chosenFont);
+        const excludedUsersSet = new Set([
+            ...excludeAccountsParam.split(/[,+\s]+/),
+            ...excludedUsersParam.split(/[,+\s]+/)
+        ].map(a => a.toLowerCase().trim()).filter(a => a !== ""));
+        const wordCounts = new Map();
+        const leaderboardEl = document.getElementById('leaderboard');
+        const connectionStatusEl = document.getElementById('connectionStatus');
+        const connectedStatusEl = document.getElementById('connectedStatus');
+        const usersVoted = singleUserVote ? new Set() : null;
+
+        for (let i = 1; i <= topCount; i++) {
+            const entryEl = document.createElement('div');
+            entryEl.className = 'word-entry';
+            entryEl.dataset.rank = i.toString();
+
+            const labelEl = document.createElement('div');
+            labelEl.className = 'word-label';
+            labelEl.textContent = '-';
+
+            const imgEl = document.createElement('img');
+            imgEl.className = 'image-icon';
+            imgEl.src = 'https://github.com/tawmae/tawmae.github.io/blob/main/overlays/LogosFirebase.png?raw=true';
+            imgEl.decoding = 'async';
+            imgEl.loading = 'lazy';
+            labelEl.appendChild(imgEl);
+            entryEl.appendChild(labelEl);
+
+            const barContainer = document.createElement('div');
+            barContainer.className = 'progress-bar-container';
+            const barEl = document.createElement('div');
+            barEl.className = 'progress-bar';
+            barContainer.appendChild(barEl);
+            entryEl.appendChild(barContainer);
+
+            const countEl = document.createElement('div');
+            countEl.className = 'count-percentage';
+            countEl.textContent = '0x';
+            entryEl.appendChild(countEl);
+
+            leaderboardEl.appendChild(entryEl);
+        }
+
+        function connectws() {
+            if ("WebSocket" in window) {
+                const wsUrl = `ws://${wsHost}:${wsPort}/`;
+                const ws = new WebSocket(wsUrl);
+                bindEvents(ws);
+            }
+        }
+
+        function bindEvents(ws) {
+            ws.onopen = function () {
+                ws.send(JSON.stringify({
+                    request: "Subscribe",
+                    events: { Twitch: ["ChatMessage"] },
+                    id: "TwitchHotWords"
+                }));
+                if (connectionStatusEl) {
+                    connectionStatusEl.style.display = 'none';
+                }
+                if (connectedStatusEl) {
+                    connectedStatusEl.style.display = 'flex';
+                    setTimeout(() => {
+                        connectedStatusEl.style.display = 'none';
+                    }, 1000);
+                }
+            };
+            ws.onmessage = function (evt) {
+                const data = JSON.parse(evt.data);
+                if (data.event && data.event.type === "ChatMessage") {
+                    handleChatMessage(data.data);
+                }
+            };
+            ws.onclose = function () {
+                if (connectionStatusEl) {
+                    connectionStatusEl.style.display = 'flex';
+                }
+                setTimeout(connectws, 5000);
+            };
+            ws.onerror = function () {
+                if (connectionStatusEl) {
+                    connectionStatusEl.style.display = 'flex';
+                }
+                ws.close();
+            };
+        }
+
+        function handleChatMessage(messageData) {
+            const userName = messageData.message.username.toLowerCase();
+            if (excludedUsersSet.has(userName)) return;
+            if (singleUserVote && usersVoted.has(userName)) return;
+            if (singleUserVote) usersVoted.add(userName);
+            const text = messageData.message.message || "";
+            const words = text
+                .toLowerCase()
+                .replace(/[^\p{L}0-9]/gu, ' ')
+                .split(/\s+/)
+                .filter(w => w.length > 0);
+
+            const uniqueWords = new Set(words);
+            for (const w of uniqueWords) {
+                wordCounts.set(w, (wordCounts.get(w) || 0) + 1);
+            }
+            updateLeaderboard();
+        }
+
+        function updateLeaderboard() {
+            const sorted = Array.from(wordCounts.entries()).sort((a, b) => b[1] - a[1]);
+            const topWords = sorted.slice(0, topCount);
+            renderLeaderboard(topWords);
+        }
+
+        function renderLeaderboard(topWords) {
+            const total = topWords.reduce((sum, [_, count]) => sum + count, 0);
+            const entries = Array.from(leaderboardEl.querySelectorAll('.word-entry')).slice(0, topCount);
+
+            let allEqual = false;
+            if (topWords.length > 1 && topWords[0]) {
+                const firstCount = topWords[0][1];
+                allEqual = topWords.every(([_, c]) => c === firstCount);
+            }
+
+            let tieForFirst = false;
+            if (topWords.length > 1 && topWords[0] && topWords[1] && topWords[0][1] === topWords[1][1]) {
+                tieForFirst = true;
+            }
+
+            for (let i = 0; i < topCount; i++) {
+                const entryEl = entries[i];
+                const wordData = topWords[i];
+                const labelEl = entryEl.querySelector('.word-label');
+                const barEl = entryEl.querySelector('.progress-bar');
+                const countEl = entryEl.querySelector('.count-percentage');
+                let word = '-';
+                let count = 0;
+                let percentage = 0;
+                if (wordData) {
+                    word = wordData[0].toUpperCase();
+                    count = wordData[1];
+                    percentage = total > 0 ? Math.round((count / total) * 100) : 0;
+                }
+                labelEl.childNodes[0].nodeValue = word;
+                countEl.textContent = `${count}x`;
+                barEl.style.width = percentage + '%';
+                entryEl.classList.remove('top1');
+
+                if (i === 0 && wordData && !allEqual && !tieForFirst) {
+                    entryEl.classList.add('top1');
+                }
+            }
+
+            const totalHeight = 80 + (topCount * 50) + ((topCount - 1) * 10);
+            leaderboardEl.style.height = totalHeight + 'px';
+        }
+
+        connectws();
+    </script>
+</body>
+
+</html>
