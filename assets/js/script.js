@@ -61,8 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
-
 var slides, indicators, currentIndex = 0;
 
 function showSlide(i) {
@@ -110,39 +108,41 @@ function handleImageHover(event, isRotator = false) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  slides = document.querySelectorAll(".rotator a");
-  indicators = document.createElement("div");
-  document.querySelector(".rotator-indicators").appendChild(indicators);
-  indicators.remove();
-  indicators = [];
+  if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
+    slides = document.querySelectorAll(".rotator a");
+    indicators = document.createElement("div");
+    document.querySelector(".rotator-indicators").appendChild(indicators);
+    indicators.remove();
+    indicators = [];
 
-  slides.forEach(function(_, i) {
-    var d = document.createElement("div");
-    d.className = "indicator";
-    d.addEventListener("click", function() {
-      showSlide(i);
+    slides.forEach(function(_, i) {
+      var d = document.createElement("div");
+      d.className = "indicator";
+      d.addEventListener("click", function() {
+        showSlide(i);
+      });
+      document.querySelector(".rotator-indicators").appendChild(d);
+      indicators.push(d);
     });
-    document.querySelector(".rotator-indicators").appendChild(d);
-    indicators.push(d);
-  });
 
-  slides[0].classList.add("active");
-  indicators[0].classList.add("active");
+    slides[0].classList.add("active");
+    indicators[0].classList.add("active");
 
-  const initialTitle = slides[0].getAttribute("data-title");
-  document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(initialTitle);
+    const initialTitle = slides[0].getAttribute("data-title");
+    document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(initialTitle);
 
-  setInterval(nextSlide, 8000);
+    setInterval(nextSlide, 8000);
 
-  const productCardImages = document.querySelectorAll('.product-card img');
-  productCardImages.forEach(image => {
-    image.addEventListener('mouseenter', (event) => handleImageHover(event));
-  });
+    const productCardImages = document.querySelectorAll('.product-card img');
+    productCardImages.forEach(image => {
+      image.addEventListener('mouseenter', (event) => handleImageHover(event));
+    });
 
-  const rotatorImages = document.querySelectorAll('.rotator img');
-  rotatorImages.forEach(image => {
-    image.addEventListener('mouseenter', (event) => handleImageHover(event, true));
-  });
+    const rotatorImages = document.querySelectorAll('.rotator img');
+    rotatorImages.forEach(image => {
+      image.addEventListener('mouseenter', (event) => handleImageHover(event, true));
+    });
+  }
 
   const dropdownToggle = document.querySelector(".dropdown-toggle");
   dropdownToggle.addEventListener("click", function(event) {
