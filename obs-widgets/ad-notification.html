@@ -4,16 +4,16 @@ title: "Ad Notification"
 description: "Manage your ad notifications."
 ---
 
-<div class="black-text-box" style="width: 100%; opacity: 0.8; background-color: #111; border-radius: 12px; padding: 30px 40px; margin-top: 60px;">
+<div class="black-text-box" style="max-width: 1200px; opacity: 0.8; background-color: #111; border-radius: 12px; padding: 30px 40px; margin-top: 60px;">
   <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ffcc00;">Ad Notification Settings</h1>
   <p style="font-size: 1.1rem; color: #ccc;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis libero magna, et iaculis purus viverra at.</p>
 </div>
 
-<div class="accordion">
+<div class="accordion" style="max-width: 1200px;">
   <div class="accordion-item">
     <div class="accordion-header" onclick="toggleAccordion('synopsis')">
       <span>Synopsis</span>
-      <span class="iconify" data-icon="iconoir:chevron-down"></span>
+      <span class="iconify" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
     <div class="accordion-content" id="synopsis" style="display: block;">
       <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
@@ -23,7 +23,7 @@ description: "Manage your ad notifications."
   <div class="accordion-item">
     <div class="accordion-header" onclick="toggleAccordion('import')">
       <span>Import</span>
-      <span class="iconify" data-icon="iconoir:chevron-down"></span>
+      <span class="iconify" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
     <div class="accordion-content" id="import">
       <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
@@ -33,7 +33,7 @@ description: "Manage your ad notifications."
   <div class="accordion-item">
     <div class="accordion-header" onclick="toggleAccordion('setup')">
       <span>Setup</span>
-      <span class="iconify" data-icon="iconoir:chevron-down"></span>
+      <span class="iconify" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
     <div class="accordion-content" id="setup">
       <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
@@ -43,7 +43,7 @@ description: "Manage your ad notifications."
   <div class="accordion-item">
     <div class="accordion-header" onclick="toggleAccordion('customization')">
       <span>Customization</span>
-      <span class="iconify" data-icon="iconoir:chevron-down"></span>
+      <span class="iconify" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
     <div class="accordion-content" id="customization">
       <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
@@ -53,7 +53,7 @@ description: "Manage your ad notifications."
   <div class="accordion-item">
     <div class="accordion-header" onclick="toggleAccordion('changelog')">
       <span>Changelog</span>
-      <span class="iconify" data-icon="iconoir:chevron-down"></span>
+      <span class="iconify" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
     <div class="accordion-content" id="changelog">
       <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
@@ -67,30 +67,15 @@ description: "Manage your ad notifications."
     const icon = content.previousElementSibling.querySelector('.iconify');
     if (content.style.display === 'block') {
       content.style.display = 'none';
-      icon.style.transform = 'rotate(0deg)';
+      icon.setAttribute("data-icon", "ic:baseline-keyboard-arrow-right");
     } else {
       content.style.display = 'block';
-      icon.style.transform = 'rotate(180deg)';
+      icon.setAttribute("data-icon", "ic:baseline-keyboard-arrow-down");
     }
   }
 </script>
 
 <style>
-  body {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    font-family: 'Poppins', sans-serif;
-    color: #ecf0f1;
-  }
-
-  .black-text-box {
-    width: 100%;
-    opacity: 0.95;
-    background-color: #111;
-    border-radius: 12px;
-    padding: 30px 40px;
-    margin-top: 60px;
-  }
-
   .accordion {
     margin-top: 20px;
     display: flex;
@@ -145,16 +130,5 @@ description: "Manage your ad notifications."
   .accordion-content p {
     margin: 0;
     line-height: 1.6;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #ffcc00;
-  }
-
-  p {
-    font-size: 1.1rem;
-    color: #ccc;
   }
 </style>
