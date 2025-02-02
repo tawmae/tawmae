@@ -80,9 +80,8 @@
   font-size: 1.1rem;
   display: none;
   margin-top: 10px;
-  padding: 15px;
   background: transparent;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 .accordion-content p {
