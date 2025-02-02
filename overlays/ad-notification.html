@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD NOTIFICATION - v.1.0.0 - tawmae.xyz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #1b2838;
+            color: white;
+        }
+
+        .notification-container {
+            position: fixed;
+            top: 20px;
+            right: -420px;
+            width: auto;
+            background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            display: none;
+            align-items: center;
+            padding: 15px 20px;
+            gap: 15px;
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out forwards;
+        }
+
+        .notification-title {
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--title-color, #ffd700);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 5px 0;
+        }
+
+        .subtitle-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .notification-description {
+            font-size: 14px;
+            font-weight: 600;
+            color: #bbb;
+            margin: 0;
+        }
+
+        .notification-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+
+        .circle-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-circle {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(var(--loading-bar-color, #ffd700) var(--progress), #333 var(--progress) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-circle span {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--loading-bar-color, #ffd700);
+            background-color: #222;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        @keyframes slideIn {
+            from {
+                right: -420px;
+                opacity: 0;
+            }
+
+            to {
+                right: 20px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                right: 20px;
+                opacity: 1;
+            }
+
+            to {
+                right: -420px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="notification" class="notification-container">
+        <div class="circle-container">
+            <div class="countdown-circle" id="countdown-circle" style="--progress: 100%;">
+                <span id="countdown-value">10</span>
+            </div>
+        </div>
+        <div>
+            <p class="notification-title" id="notification-title"></p>
+            <div class="subtitle-container">
+                <p class="notification-description" id="notification-description"></p>
+                <img id="notification-icon" class="notification-icon" alt="Icon">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const soundEnabled = urlParams.get("sound") === "true";
+        const rawColor = urlParams.get("color") || "ffd700";
+        const font = urlParams.get("font") || "Inter";
+        const audioCache = new Map();
+        const notificationQueue = [];
+        let isNotificationActive = false;
+
+        function normalizeColor(color) {
+            const hexPattern = /^[0-9a-f]{6}$/i;
+            return hexPattern.test(color) ? `#${color}` : color;
+        }
+
+        const color = normalizeColor(rawColor);
+
+        document.documentElement.style.setProperty("--title-color", color);
+        document.documentElement.style.setProperty("--loading-bar-color", color);
+        document.body.style.fontFamily = font;
+
+        function connectWebSocket() {
+            const ws = new WebSocket("ws://localhost:8080/");
+            ws.onopen = () => {
+                ws.send(JSON.stringify({
+                    request: "Subscribe",
+                    events: { Twitch: ["AdMidRoll", "AdRun"] },
+                    id: "adSubscription"
+                }));
+            };
+
+            ws.onmessage = (event) => {
+                const message = JSON.parse(event.data);
+                if (message.event?.type === "AdMidRoll") {
+                    enqueueNotification(
+                        "Ads Starting Soon",
+                        "Prepare for upcoming ads",
+                        message.data.warmupTime / 1000,
+                        "https://tawmae.github.io/overlays/ads_1.mp3",
+                        "https://raw.githubusercontent.com/tawmae/tawmae.github.io/refs/heads/main/overlays/ads_1.webp"
+                    );
+                } else if (message.event?.type === "AdRun") {
+                    enqueueNotification(
+                        "Ads Running",
+                        "Ads are currently in progress",
+                        message.data.length_seconds,
+                        "https://tawmae.github.io/overlays/ads_1.mp3",
+                        "https://raw.githubusercontent.com/tawmae/tawmae.github.io/refs/heads/main/overlays/ads_2.webp"
+                    );
+                }
+            };
+
+            ws.onclose = () => setTimeout(connectWebSocket, 10000);
+        }
+
+        function enqueueNotification(title, description, duration, soundUrl, iconUrl) {
+            notificationQueue.push({ title, description, duration, soundUrl, iconUrl });
+            if (!isNotificationActive) {
+                processQueue();
+            }
+        }
+
+        function processQueue() {
+            if (notificationQueue.length === 0) {
+                isNotificationActive = false;
+                return;
+            }
+
+            isNotificationActive = true;
+            const { title, description, duration, soundUrl, iconUrl } = notificationQueue.shift();
+            showNotification(title, description, duration, soundUrl, iconUrl).then(() => {
+                processQueue();
+            });
+        }
+
+        function getAudio(url) {
+            if (!audioCache.has(url)) {
+                const audio = new Audio(url);
+                audioCache.set(url, audio);
+            }
+            return audioCache.get(url);
+        }
+
+        function showNotification(title, description, duration, soundUrl, iconUrl) {
+            return new Promise((resolve) => {
+                const notification = document.getElementById("notification");
+                const titleElem = document.getElementById("notification-title");
+                const descriptionElem = document.getElementById("notification-description");
+                const iconElem = document.getElementById("notification-icon");
+                const countdownCircle = document.getElementById("countdown-circle");
+                const countdownValue = document.getElementById("countdown-value");
+
+                titleElem.textContent = title;
+                descriptionElem.textContent = description;
+                countdownValue.textContent = duration;
+                iconElem.src = iconUrl;
+                countdownCircle.style.setProperty("--progress", "100%");
+
+                notification.style.display = "flex";
+                notification.style.animation = "slideIn 0.6s ease-out forwards";
+
+                if (soundEnabled) {
+                    const audio = getAudio(soundUrl);
+                    audio.play();
+                }
+
+                const startTime = Date.now();
+                const endTime = startTime + duration * 1000;
+
+                function updateProgress() {
+                    const currentTime = Date.now();
+                    const elapsed = currentTime - startTime;
+                    const remainingTime = Math.max(0, Math.ceil((endTime - currentTime) / 1000));
+                    const progress = Math.max(0, 1 - elapsed / (duration * 1000));
+
+                    countdownValue.textContent = remainingTime;
+                    countdownCircle.style.setProperty("--progress", `${progress * 100}%`);
+
+                    if (remainingTime > 0) {
+                        requestAnimationFrame(updateProgress);
+                    } else {
+                        countdownValue.textContent = 0;
+                        countdownCircle.style.setProperty("--progress", `0%`);
+                        setTimeout(() => {
+                            notification.style.animation = "slideOut 0.6s ease-in forwards";
+                            setTimeout(() => {
+                                notification.style.display = "none";
+                                resolve();
+                            }, 600);
+                        }, 1000);
+                    }
+                }
+
+                requestAnimationFrame(updateProgress);
+            });
+        }
+
+        window.addEventListener("load", connectWebSocket);
+    </script>
+</body>
+
+</html>
