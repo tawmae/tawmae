@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROTATOR - v.1.0.0 - tawmae.xyz</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<script type="text/javascript" src="https://unpkg.com/@streamerbot/client/dist/streamerbot-client.js"></script>
+<style>
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1e1e1e;
+  font-family: 'Poppins', sans-serif;
+}
+.lava-container {
+  position: relative;
+  width: 500px;
+  height: 125px;
+}
+.header {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000000;
+  color: white;
+  padding: 3px 12px;
+  border-radius: 25px;
+  border: 1px solid black;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  white-space: nowrap;
+  min-width: 200px;
+  max-width: 300px;
+  text-align: center;
+}
+.header-text {
+  color: white;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.header-text.visible {
+  opacity: 1;
+}
+.lava-box {
+  width: 500px;
+  height: 100px;
+  border-radius: 50px;
+  border: 1px solid black;
+  background: linear-gradient(270deg, #4B6BA2, #4B6BA2, #4B6BA2, #4B6BA2, #4B6BA2);
+  background-size: 600% 600%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  overflow: visible;
+}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 1s ease;
+  width: 100%;
+}
+.content.visible {
+  opacity: 1;
+}
+.icon {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 1));
+}
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.text-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  position: relative;
+}
+.text {
+  color: white;
+  font-weight: 600;
+  font-size: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  white-space: nowrap;
+}
+.amount-box {
+  display: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50px;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  align-self: center;
+  margin-left: 5px;
+  transition: opacity 1s ease;
+}
+.amount-box.visible {
+  display: block;
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<div class="lava-container">
+<div class="header" id="header">
+<span class="header-text" id="header-text">LATEST EVENT</span>
+</div>
+<div class="lava-box" id="lava-box">
+<div class="content" id="content">
+<div class="icon" id="icon">
+<img src="" alt="Icon">
+</div>
+<div class="text-container">
+<div class="text" id="text">Loading...</div>
+<div class="amount-box" id="amount-box"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+function resolveIconPath(path) {
+  if (!path) return "";
+  const isRemote = /^(https?:\/\/|data:)/i.test(path.trim());
+  return isRemote ? path : "file:///" + path.replace(/\\/g, "/");
+}
+const params = new URLSearchParams(window.location.search);
+const address = params.get('adress') || '127.0.0.1';
+const port = params.get('port') || '8080';
+const wsUrl = "ws://" + address + ":" + port + "/";
+const ws = new WebSocket(wsUrl);
+let rotationSettings = {};
+let cachedIcons = {};
+let eventsMap = {
+  follow: { displayName: "Unknown User", icon: "", amount: null, title: "LATEST EVENT", show: false },
+  sub: { displayName: "Unknown User", icon: "", amount: null, title: "LATEST EVENT", show: false },
+  cheer: { displayName: "Unknown User", icon: "", amount: null, title: "LATEST EVENT", show: false },
+  kofi: { displayName: "Unknown User", icon: "", amount: null, title: "LATEST EVENT", show: false },
+  gift: { displayName: "Unknown User", icon: "", amount: null, title: "LATEST EVENT", show: false },
+  custom1: { displayName: "Unknown User", icon: "", title: "LATEST EVENT", show: false },
+  custom2: { displayName: "Unknown User", icon: "", title: "LATEST EVENT", show: false },
+  custom3: { displayName: "Unknown User", icon: "", title: "LATEST EVENT", show: false },
+  custom4: { displayName: "Unknown User", icon: "", title: "LATEST EVENT", show: false },
+  custom5: { displayName: "Unknown User", icon: "", title: "LATEST EVENT", show: false },
+  custom6: { displayName: "Unknown User", icon: "", title: "LATEST EVENT", show: false }
+};
+const eventOrder = [
+  "follow",
+  "sub",
+  "cheer",
+  "kofi",
+  "gift",
+  "custom1",
+  "custom2",
+  "custom3",
+  "custom4",
+  "custom5",
+  "custom6"
+];
+let activeEvents = [];
+let currentIndex = 0;
+function loadSavedEvents() {
+  const savedData = JSON.parse(sessionStorage.getItem("eventsMap")) || {};
+  ["follow","sub","cheer","kofi","gift"].forEach(eventType => {
+    if (savedData[eventType] && eventsMap[eventType]) {
+      eventsMap[eventType].displayName = savedData[eventType].displayName;
+      eventsMap[eventType].amount = savedData[eventType].amount;
+    }
+  });
+  updateActiveEvents();
+}
+function saveEvents() {
+  const dataToSave = {};
+  ["follow","sub","cheer","kofi","gift"].forEach(eventType => {
+    dataToSave[eventType] = {
+      displayName: eventsMap[eventType].displayName,
+      amount: eventsMap[eventType].amount
+    };
+  });
+  sessionStorage.setItem("eventsMap", JSON.stringify(dataToSave));
+}
+function updateActiveEvents() {
+  activeEvents = eventOrder.filter(
+    key => eventsMap[key].show && eventsMap[key].displayName !== "Unknown User"
+  );
+  if (currentIndex >= activeEvents.length) {
+    currentIndex = 0;
+  }
+}
+const client = new StreamerbotClient({
+  host: address,
+  port: parseInt(port),
+  endpoint: "/",
+  password: "",
+  onConnect
+});
+function onConnect() {
+  client.getGlobal("tawmae_Settings_Event_Rotator").then(settings => {
+    if (!settings?.variable?.value || settings.variable.value.trim() === "") {
+      document.getElementById("text").textContent = "Please run the Event Rotator Settings UI first";
+      document.getElementById("icon").querySelector("img").src = "https://blog.cdn.own3d.tv/resize=fit:crop,height:400,width:600/sRCQA0GiQWC5lhIFNwZw";
+      document.getElementById("header-text").textContent = "OH NO!";
+      document.getElementById("header-text").classList.add("visible");
+      document.getElementById("content").classList.add("visible");
+      return;
+    }
+    const parsedSettings = JSON.parse(settings.variable.value);
+    rotationSettings = configureSettings(parsedSettings);
+    initializeActiveEvents(parsedSettings);
+    loadSavedEvents();
+    startRotator();
+  }).catch(err => {
+    document.getElementById("text").textContent = "Please run the Event Rotator Settings UI first";
+    document.getElementById("header-text").textContent = "OH NO!";
+    document.getElementById("icon").querySelector("img").src = "https://blog.cdn.own3d.tv/resize=fit:crop,height:400,width:600/sRCQA0GiQWC5lhIFNwZw";
+    document.getElementById("header-text").classList.add("visible");
+    document.getElementById("content").classList.add("visible");
+  });
+}
+function configureSettings(settings) {
+  const font = settings.tab1.rotationFont || "Poppins";
+  const fontSize = settings.tab1.rotationFontSize || 20;
+  const fontColor = settings.tab1.rotationFontColor || "#ffffff";
+  const fontColorHeader = settings.tab1.rotationFontColorHeader || "#ffffff";
+  const roundedCornersBubbleRaw = parseInt(settings.tab1.rotationRoundedCornersBubble, 10);
+  const roundedCornersBubble = !isNaN(roundedCornersBubbleRaw) ? Math.max(0, Math.min(roundedCornersBubbleRaw, 100)) : 50;
+  const roundedCornersHeaderRaw = parseInt(settings.tab1.rotationRoundedCornersHeader, 10);
+  const roundedCornersHeader = !isNaN(roundedCornersHeaderRaw) ? Math.max(0, Math.min(roundedCornersHeaderRaw, 100)) : 25;
+  const rotationHeaderBackgroundColor = settings.tab1.rotationHeaderBackgroundColor || "#000000";
+  const gradientColors = [
+    settings.tab1.rotationColor1,
+    settings.tab1.rotationColor2,
+    settings.tab1.rotationColor3,
+    settings.tab1.rotationColor4,
+    settings.tab1.rotationColor5
+  ];
+  const duration = settings.tab1.rotationDuration || 8000;
+  document.body.style.fontFamily = font;
+  document.getElementById("text").style.fontSize = fontSize + "px";
+  document.getElementById("text").style.color = fontColor;
+  const lavaBox = document.getElementById("lava-box");
+  lavaBox.style.background = "linear-gradient(270deg, " + gradientColors.join(", ") + ")";
+  lavaBox.style.animationDuration = duration + "s";
+  lavaBox.style.borderRadius = roundedCornersBubble + "px";
+  const header = document.getElementById("header");
+  header.style.backgroundColor = rotationHeaderBackgroundColor;
+  header.style.borderRadius = roundedCornersHeader + "px";
+  document.getElementById("header-text").style.color = fontColorHeader;
+  function preloadIcon(key, url) {
+    if (url) {
+      const img = new Image();
+      const resolved = resolveIconPath(url);
+      img.src = resolved;
+      cachedIcons[key] = resolved;
+    }
+  }
+  preloadIcon("follow", settings.tab2.followsIcon);
+  preloadIcon("sub", settings.tab2.subsIcon);
+  preloadIcon("cheer", settings.tab2.cheersIcon);
+  preloadIcon("kofi", settings.tab2.kofiIcon);
+  preloadIcon("gift", settings.tab2.giftIcon);
+  for (let i = 1; i <= 6; i++) {
+    const key = "custom" + i;
+    preloadIcon(key, settings.tab3[key + "Icon"]);
+  }
+  eventsMap.follow.title = settings.tab2.followsTitle || "LATEST EVENT";
+  eventsMap.follow.show = settings.tab2.followsShow || false;
+  eventsMap.sub.title = settings.tab2.subsTitle || "LATEST EVENT";
+  eventsMap.sub.show = settings.tab2.subsShow || false;
+  eventsMap.cheer.title = settings.tab2.cheersTitle || "LATEST EVENT";
+  eventsMap.cheer.show = settings.tab2.cheersShow || false;
+  eventsMap.kofi.title = settings.tab2.kofiTitle || "LATEST EVENT";
+  eventsMap.kofi.show = settings.tab2.kofiShow || false;
+  eventsMap.gift.title = settings.tab2.giftTitle || "LATEST EVENT";
+  eventsMap.gift.show = settings.tab2.giftShow || false;
+  for (let i = 1; i <= 6; i++) {
+    const key = "custom" + i;
+    eventsMap[key].title = settings.tab3[key + "Title"] || "LATEST EVENT";
+    eventsMap[key].show = settings.tab3[key + "Show"] || false;
+    eventsMap[key].displayName = settings.tab3[key + "Handle"] || "Unknown User";
+  }
+  return { duration };
+}
+function initializeActiveEvents(settings) {
+  eventsMap.follow.show = settings.tab2.followsShow || false;
+  eventsMap.sub.show = settings.tab2.subsShow || false;
+  eventsMap.cheer.show = settings.tab2.cheersShow || false;
+  eventsMap.kofi.show = settings.tab2.kofiShow || false;
+  eventsMap.gift.show = settings.tab2.giftShow || false;
+  for (let i = 1; i <= 6; i++) {
+    const key = "custom" + i;
+    eventsMap[key].show = settings.tab3[key + "Show"] || false;
+    eventsMap[key].title = settings.tab3[key + "Title"] || "LATEST EVENT";
+    eventsMap[key].displayName = settings.tab3[key + "Handle"] || "Unknown User";
+    cachedIcons[key] = resolveIconPath(settings.tab3[key + "Icon"] || "");
+  }
+  updateActiveEvents();
+}
+ws.onopen = () => {
+  ws.send(JSON.stringify({
+    request: "Subscribe",
+    events: {
+      Twitch: ["Follow", "Cheer", "Sub", "ReSub", "GiftSub"],
+      Kofi: ["Donation"]
+    },
+    id: "Event Rotator Event Subscriptions"
+  }));
+};
+ws.onmessage = message => {
+  const payload = JSON.parse(message.data);
+  if (payload.event?.type === "Follow") {
+    updateEvent("follow", payload.data.user_name);
+  } else if (payload.event?.type === "ReSub") {
+    updateEvent("sub", payload.data.user?.name, payload.data.cumulativeMonths);
+  } else if (payload.event?.type === "Sub") {
+    updateEvent("sub", payload.data.user?.name);
+  } else if (payload.event?.type === "GiftSub") {
+    updateEvent("gift", payload.data.user?.name);
+  } else if (payload.event?.type === "Cheer") {
+    updateEvent("cheer", payload.data.message.displayName, payload.data.bits);
+  } else if (payload.event?.type === "Donation") {
+    updateEvent("kofi", payload.data.from, payload.data.amount + " " + payload.data.currency);
+  }
+};
+function updateEvent(eventType, displayName, amount = null) {
+  if (eventsMap[eventType] && eventsMap[eventType].show) {
+    eventsMap[eventType].displayName = displayName || "Unknown User";
+    eventsMap[eventType].amount = amount;
+    saveEvents();
+    updateActiveEvents();
+  }
+}
+function startRotator() {
+  setInterval(updateContent, rotationSettings.duration);
+  updateContent();
+}
+function updateContent() {
+  if (activeEvents.length === 0) return;
+  document.getElementById("header-text").classList.remove("visible");
+  document.getElementById("content").classList.remove("visible");
+  setTimeout(() => {
+    const eventKey = activeEvents[currentIndex];
+    const event = eventsMap[eventKey];
+    currentIndex = (currentIndex + 1) % activeEvents.length;
+    document.getElementById("icon").querySelector("img").src = cachedIcons[eventKey];
+    document.getElementById("text").textContent = event.displayName;
+    document.getElementById("header-text").textContent = event.title;
+    const amountBox = document.getElementById("amount-box");
+    if (eventKey === "cheer" && event.amount) {
+      amountBox.textContent = event.amount + " Bits";
+      amountBox.classList.add("visible");
+    } else if (eventKey === "sub" && event.amount) {
+      amountBox.textContent = event.amount + " Months";
+      amountBox.classList.add("visible");
+    } else if (eventKey === "kofi" && event.amount) {
+      amountBox.textContent = event.amount;
+      amountBox.classList.add("visible");
+    } else {
+      amountBox.classList.remove("visible");
+    }
+    document.getElementById("header-text").classList.add("visible");
+    document.getElementById("content").classList.add("visible");
+  }, 1000);
+}
+window.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    sessionStorage.clear();
+    ["follow","sub","cheer","kofi","gift"].forEach(eventType => {
+      eventsMap[eventType].displayName = "Unknown User";
+      eventsMap[eventType].amount = null;
+    });
+    updateActiveEvents();
+    currentIndex = 0;
+    document.getElementById("header-text").classList.remove("visible");
+    document.getElementById("content").classList.remove("visible");
+    setTimeout(() => {
+      document.getElementById("icon").querySelector("img").src = "";
+      document.getElementById("text").textContent = "Loading...";
+      document.getElementById("header-text").textContent = "LATEST EVENT";
+      document.getElementById("amount-box").classList.remove("visible");
+      document.getElementById("header-text").classList.add("visible");
+      document.getElementById("content").classList.add("visible");
+    }, 500);
+  }
+});
+</script>
+</body>
+</html>
