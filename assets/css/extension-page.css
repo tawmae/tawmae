@@ -236,6 +236,10 @@ p {
   height: 120px;
 }
 
+.black-text-box-5,{
+  text-wrap: nowrap;
+}
+
 .extension-table {
   width: 100%;
   border-collapse: collapse;
