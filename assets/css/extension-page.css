@@ -154,3 +154,25 @@ p {
   font-weight: bold;
 }
 
+.description-container {
+  display: flex;
+  gap: 20px; /* Abstand zwischen Text und Bild */
+  justify-content: flex-start;
+  align-items: center;
+}
+
+text-left {
+  flex-direction: row; /* Text links, Bild rechts */
+}
+
+.text-right {
+  flex-direction: row-reverse; /* Bild links, Text rechts */
+}
+
+.extension-image-2 {
+  width: 400px;  /* Größe des Bildes */
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #444;
+}
