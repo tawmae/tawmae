@@ -372,47 +372,56 @@ footer {
 }
 
 .notification-box {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 15px;
-  padding: 20px;
+  padding: 30px;
   max-width: 900px;
   width: 100%;
   text-align: left;
+  color: white;
 }
 
 .notification-box h1 {
   font-size: 2rem;
-  color: white;
+  margin-bottom: 20px;
 }
 
 .collapse-category {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .collapse-header {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 10px;
+  padding: 12px;
   width: 100%;
   border: none;
   text-align: left;
   font-size: 1.25rem;
   cursor: pointer;
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .collapse-header:hover {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 1);
 }
 
 .collapse-content {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 15px;
   border-radius: 8px;
   display: none;
   margin-top: 10px;
 }
+
+.arrow {
+  font-size: 1.5rem;
+}
+
 
 
 
