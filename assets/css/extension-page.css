@@ -269,27 +269,26 @@ p {
 
 .settings-ui-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  gap: 20px; 
+  flex-direction: column; /* Bilder untereinander anordnen */
+  gap: 20px;
   padding-bottom: 20px;
 }
 
-.black-text-box-7{
-  flex: 1; 
+.black-text-box-7 {
   background-color: #111;
   color: white;
   padding: 20px;
   border-radius: 8px;
+  align-self: flex-start; /* Textbox oben links */
 }
 
 .settings-ui-image {
   width: 600px; 
-  background-size: cover;
+  height: auto; /* Höhe automatisch an die Bildauflösung anpassen */
+  background-size: contain; /* Bild wird skaliert, aber das Seitenverhältnis bleibt erhalten */
   background-position: center;
   border: 1px solid black;
-  flex-shrink: 0; 
+  flex-shrink: 0;
   transition: transform 0.4s ease-in-out;
   transform-origin: center center;
 }
