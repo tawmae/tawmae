@@ -8,7 +8,7 @@ const wordToEmojiMap = {
   "widetime": "/assets/emotes/widetime.webp",
   "modCheck": "/assets/emotes/modcheck.webp",
   "PauseChamp": "/assets/emotes/pausechamp.webp",
-  "Clap": "/assets/emotes/clap.avif"
+  "Clap": "/assets/emotes/clap.webp"
 };
 
 function replacePlaceholdersWithEmojis(text) {
