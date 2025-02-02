@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BASIC ALERTS - v.1.0.0 - tawmae.xyz</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      background: #1b2838;
+      color: white;
+    }
+
+    .notification-wrapper {
+      position: fixed;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      opacity: 0;
+      transition: all 1.5s ease-in;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 15px;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+
+    .notification-container {
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: var(--box-color, linear-gradient(to bottom, #2a2a2a, #1d1d1d));
+      color: var(--box-text-color, #dcdcdc);
+      font-size: 1.2em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 80px;
+      min-width: 300px;
+      border: 1px solid #3b3b3b;
+    }
+
+    .username {
+      font-weight: bolder;
+      font-size: 1.5em;
+      color: var(--username-color, #5fa8ff);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .username span {
+      display: inline-block;
+      animation: wiggle 0.8s infinite ease-in-out;
+    }
+
+    @keyframes wiggle {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(-5deg);
+      }
+
+      50% {
+        transform: rotate(5deg);
+      }
+    }
+
+    .event-text {
+      font-size: 1em;
+      font-weight: bold;
+      color: var(--event-text-color, #b8b8b8);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .icon-container {
+      font-size: 3em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: linger-wiggle 2s infinite;
+      margin-left: 1px;
+      color: var(--username-color, #5fa8ff);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes linger-wiggle {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(-10deg);
+      }
+
+      50% {
+        transform: rotate(10deg);
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@2.1.2/dist/iconify.min.js"></script>
+</head>
+
+<body>
+  <div class="notification-wrapper" id="notification">
+    <div class="profile-pic" id="profile-pic"></div>
+    <div class="notification-container">
+      <div id="username" class="username"></div>
+      <div id="event-text" class="event-text"></div>
+    </div>
+    <div class="icon-container">
+      <span id="event-icon" class="iconify"></span>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const font = params.get('font') || 'Poppins';
+    const soundEnabled = params.get('sound') === 'true';
+    const boxColor = params.get('color');
+    const normalizeColor = (color) => {
+      if (color && /^[0-9A-Fa-f]{6}$/.test(color)) {
+        return `#${color}`;
+      }
+      return color;
+    };
+
+    const usernameColor = normalizeColor(params.get('usernamecolor'));
+    const eventTextColor = normalizeColor(params.get('eventcolor'));
+
+    if (usernameColor) document.documentElement.style.setProperty('--username-color', usernameColor);
+    if (eventTextColor) document.documentElement.style.setProperty('--event-text-color', eventTextColor);
+
+    const duration = parseInt(params.get('duration')) || 7000;
+    const anonymousFollows = params.get('anonymousfollows') === 'true';
+
+
+    let watchStreaksParam = params.get('watchstreaks');
+    const watchStreaksEnabled = (watchStreaksParam === null || watchStreaksParam === '') ? true : (watchStreaksParam.toLowerCase() !== 'false');
+
+    document.body.style.fontFamily = font;
+    if (boxColor) document.documentElement.style.setProperty('--box-color', boxColor);
+    if (usernameColor) document.documentElement.style.setProperty('--username-color', usernameColor);
+    if (eventTextColor) document.documentElement.style.setProperty('--event-text-color', eventTextColor);
+
+    const sound = new Audio('https://tawmae.github.io/overlays/basic_alerts.mp3');
+    sound.volume = 0.1;
+    if (soundEnabled) sound.load();
+
+    const ws = new WebSocket('ws://localhost:8080/');
+    const queue = [];
+    let isAnimating = false;
+
+    ws.onopen = () => {
+      ws.send(JSON.stringify({
+        request: 'Subscribe',
+        events: {
+          Twitch: ['Follow', 'Cheer', 'Sub', 'ReSub', 'GiftSub', 'GiftBomb', 'Raid', 'WatchStreak'],
+          Kofi: ['Donation']
+        },
+        id: 'BasicTwitchAlerts',
+      }));
+    };
+
+    ws.onmessage = async (event) => {
+      const data = JSON.parse(event.data);
+      if (data.event?.type && data.request !== 'Hello') {
+        queue.push(data);
+        if (!isAnimating) processQueue();
+      }
+    };
+
+    async function processQueue() {
+      if (queue.length === 0) {
+        isAnimating = false;
+        return;
+      }
+
+      isAnimating = true;
+      const event = queue.shift();
+      const { type } = event.event;
+
+
+      if (type === 'WatchStreak' && !watchStreaksEnabled) {
+
+        isAnimating = false;
+        processQueue();
+        return;
+      }
+
+      const usernameVal = extractUsername(event, type);
+      const eventText = formatEventText(event);
+      const profilePicUrl = await fetchAvatarOrPlaceholder(usernameVal || 'default', type);
+      const eventIcon = determineIcon(type);
+
+      const usernameElement = document.getElementById('username');
+      usernameElement.innerHTML = Array.from(usernameVal || 'Unknown User')
+        .map(char => `<span>${char}</span>`).join('');
+      document.getElementById('event-text').textContent = eventText;
+      document.getElementById('profile-pic').style.backgroundImage = `url(${profilePicUrl})`;
+      document.getElementById('event-icon').setAttribute('data-icon', eventIcon);
+
+      const notificationWrapper = document.getElementById('notification');
+
+      if (soundEnabled) {
+        setTimeout(() => sound.play(), 750);
+      }
+
+      notificationWrapper.style.top = '20px';
+      notificationWrapper.style.opacity = 1;
+
+      setTimeout(() => {
+        notificationWrapper.style.top = '-150px';
+        notificationWrapper.style.opacity = 0;
+
+        setTimeout(() => processQueue(), 1500);
+      }, duration);
+    }
+
+    function determineIcon(eventType) {
+      if (eventType.includes('Follow')) return 'material-symbols-light:favorite';
+      if (eventType.includes('Cheer')) return 'mingcute:diamond-square-fill';
+      if (eventType.includes('Sub')) return 'material-symbols:star';
+      if (eventType.includes('GiftSub')) return 'material-symbols:star';
+      if (eventType.includes('GiftBomb')) return 'material-symbols:star';
+      if (eventType.includes('Raid')) return 'ion:people-sharp';
+      if (eventType.includes('Donation')) return 'material-symbols-light:money-bag-rounded';
+      if (eventType.includes('WatchStreak')) return 'icon-park-outline:fire';
+      return '';
+    }
+
+    function extractUsername(event, type) {
+      const data = event.data || {};
+
+      if (type === 'Follow' && anonymousFollows) {
+        return 'SOMEONE';
+      }
+
+      switch (type) {
+        case 'Follow': return data.user_name;
+        case 'Cheer': return data.message.username;
+        case 'Sub': return data.user?.name;
+        case 'ReSub': return data.user?.name;
+        case 'GiftSub': return data.user?.name;
+        case 'GiftBomb': return data.user?.name;
+        case 'Raid': return data.from_broadcaster_user_name;
+        case 'Donation': return data.from;
+        case 'WatchStreak': return data.displayName;
+        default: return 'SOMEONE';
+      }
+    }
+
+    async function fetchAvatarOrPlaceholder(username, type) {
+      if (type === 'Follow' && anonymousFollows) {
+        return 'https://raw.githubusercontent.com/tawmae/tawmae.github.io/refs/heads/main/assets/media/heart-png.png';
+      }
+      if (type === 'Donation') {
+        return 'https://raw.githubusercontent.com/tawmae/tawmae.github.io/refs/heads/main/assets/media/kofi%20placeholder.webp';
+      }
+      try {
+        const response = await fetch(`https://decapi.me/twitch/avatar/${username}`);
+        if (response.ok) return await response.text();
+        return 'https://static-cdn.jtvnw.net/user-default-pictures-uv/13e5fa74-defa-11e9-809c-784f43822e80-profile_image-300x300.png';
+      } catch {
+        return 'https://static-cdn.jtvnw.net/user-default-pictures-uv/13e5fa74-defa-11e9-809c-784f43822e80-profile_image-300x300.png';
+      }
+    }
+
+    function formatEventText(event) {
+      const { type } = event.event;
+      const {
+        sub_tier,
+        subTier,
+        is_prime,
+        isPrime,
+        cumulativeMonths,
+        recipient,
+        amount,
+        currency,
+        viewers,
+        total,
+        bits,
+        watchStreak
+      } = event.data;
+
+      let tier;
+      if (type === 'Sub' || type === 'ReSub') {
+        tier = is_prime || isPrime ? 'Prime' : `T${sub_tier?.charAt(0) || subTier?.charAt(0)}`;
+      } else if (type === 'GiftSub') {
+        tier = `T${subTier?.charAt(0)}`;
+      } else if (type === 'GiftBomb') {
+        tier = `T${sub_tier?.charAt(0)}`;
+      }
+
+      switch (type) {
+        case 'Follow':
+          return 'just followed the channel!';
+        case 'Cheer':
+          return `cheered with ${bits} bits!`;
+        case 'Sub':
+          return `subscribed with a ${tier} sub!`;
+        case 'ReSub':
+          return `resubbed with a ${tier} sub for the ${cumulativeMonths}. month!`;
+        case 'GiftSub':
+          return `gifted a ${tier} sub to ${recipient.name}!`;
+        case 'GiftBomb':
+          return `gifted ${total} ${tier} subs!`;
+        case 'Raid':
+          return `raided with ${viewers} viewers!`;
+        case 'Donation':
+          return `donated ${amount} ${currency}!`;
+        case 'WatchStreak':
+          return `is on a ${watchStreak}x watchstreak!`;
+        default:
+          return 'did something truly amazing!';
+      }
+    }
+  </script>
+</body>
+
+</html>
