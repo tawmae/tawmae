@@ -15,18 +15,29 @@ function toggleAccordion(id) {
 // ====================================================================================================================
 function copyToClipboard(id) {
   const copyText = document.getElementById(id);
-  const button = copyText.closest('.copy-box').querySelector('.copy-btn');
   
-  navigator.clipboard.writeText(copyText.getAttribute("data-copy-text")).then(() => {
-    button.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-20-filled"></span> Copied';
-    button.classList.add('copied');
-    
-    setTimeout(() => {
-      button.innerHTML = '<span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy';
-      button.classList.remove('copied');
-    }, 2500);
-  });
+  // Überprüfe, ob copyText existiert
+  if (copyText) {
+    const button = copyText.closest('.copy-box') ? copyText.closest('.copy-box').querySelector('.copy-btn') : null;
+
+    if (button) {
+      navigator.clipboard.writeText(copyText.getAttribute("data-copy-text")).then(() => {
+        button.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-20-filled"></span> Copied';
+        button.classList.add('copied');
+        
+        setTimeout(() => {
+          button.innerHTML = '<span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy';
+          button.classList.remove('copied');
+        }, 2500);
+      });
+    } else {
+      console.error("Button nicht gefunden.");
+    }
+  } else {
+    console.error("Element mit ID " + id + " nicht gefunden.");
+  }
 }
+
 
 
 // ====================================================================================================================
