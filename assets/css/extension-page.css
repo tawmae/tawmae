@@ -269,7 +269,8 @@ p {
 
 .settings-ui-container {
   display: flex;
-  flex-direction: column; /* Bilder untereinander anordnen */
+  justify-content: flex-start; /* Text und Bild nebeneinander, nicht zentriert */
+  align-items: flex-start; /* Textbox oben an das Bild anstöpseln */
   gap: 20px;
   padding-bottom: 20px;
 }
@@ -279,13 +280,14 @@ p {
   color: white;
   padding: 20px;
   border-radius: 8px;
-  align-self: flex-start; /* Textbox oben links */
+  width: 300px; /* Feste Breite für die Textbox */
+  align-self: flex-start; /* Textbox oben ausrichten */
 }
 
 .settings-ui-image {
   width: 600px; 
-  height: auto; /* Höhe automatisch an die Bildauflösung anpassen */
-  background-size: contain; /* Bild wird skaliert, aber das Seitenverhältnis bleibt erhalten */
+  height: auto; /* Höhe wird automatisch basierend auf dem Bild beibehalten */
+  background-size: contain; /* Das Bild wird skaliert, aber das Seitenverhältnis bleibt erhalten */
   background-position: center;
   border: 1px solid black;
   flex-shrink: 0;
