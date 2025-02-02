@@ -12,11 +12,15 @@ const wordToEmojiMap = {
 
 function replacePlaceholdersWithEmojis(text) {
   for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
-    const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
-    text = text.replace(new RegExp(`:${word}:`, 'g'), emojiTag);  // Adjusted regex if you're using emojis like ":Pog:"
+    const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1.5em; vertical-align: middle;">`;  // Adjusted height for better display
+
+    // Handle both the plain word and the emoji syntax :word:
+    text = text.replace(new RegExp(`:\\b${word}\\b:`, 'g'), emojiTag);  // Replaces :word: format
+    text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);     // Replaces word like 'Pog'
   }
   return text;
 }
+
 
 
 function replaceWordsWithEmojis() {
@@ -27,7 +31,7 @@ function replaceWordsWithEmojis() {
 
     // Replace words in the element's inner content (e.g., h1, p)
     for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
-      const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
+      const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1.5em; vertical-align: middle;">`;  // Adjusted height for better display
       text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
     }
 
@@ -41,6 +45,7 @@ function replaceWordsWithEmojis() {
     element.innerHTML = text;
   });
 }
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
