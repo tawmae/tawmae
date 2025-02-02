@@ -154,13 +154,7 @@ p {
   font-weight: bold;
 }
 
-.accordion-content {
-  display: flex;
-  flex-direction: column; /* Damit die Container untereinander sind */
-  gap: 30px; /* Abstand zwischen den Containern */
-}
 
-/* Gemeinsame Einstellungen für beide Layouts */
 .description-container {
   display: flex;
   justify-content: space-between; /* Text und Bild gleichmäßig verteilt */
