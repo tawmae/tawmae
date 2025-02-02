@@ -10,7 +10,8 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #27262b 0%, #3a353f 100%);
+  background: #27262b;
+  /*background: linear-gradient(135deg, #27262b 0%, #3a353f 100%);*/
   color: white;
   text-align: center;
   padding: 20px;
