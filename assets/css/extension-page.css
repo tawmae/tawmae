@@ -68,7 +68,8 @@
   margin-left: 10px;
 }
 
-.accordion-header:hover .iconify {
+.accordion-header:hover .iconify,
+.accordion-header:hover{
   transform: scale(1.2);
 }
 
@@ -184,4 +185,8 @@ p {
 
 .extension-image-2:hover {
   transform: scale(1.05);
+}
+
+.title-icon {
+  margin-right: 10px;
 }
