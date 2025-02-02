@@ -364,64 +364,6 @@ footer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.ad-notification-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-top: 80px;
-}
-
-.notification-box {
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 15px;
-  padding: 30px;
-  max-width: 900px;
-  width: 100%;
-  text-align: left;
-  color: white;
-}
-
-.notification-box h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.collapse-category {
-  margin-top: 20px;
-}
-
-.collapse-header {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 12px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  font-size: 1.25rem;
-  cursor: pointer;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.collapse-header:hover {
-  background-color: rgba(0, 0, 0, 1);
-}
-
-.collapse-content {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  display: none;
-  margin-top: 10px;
-}
-
-.arrow {
-  font-size: 1.5rem;
-}
-
 
 
 
