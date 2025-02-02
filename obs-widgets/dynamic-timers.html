@@ -30,10 +30,10 @@ description: "An OBS widget to display as many timers as you want. Fully control
         <div class="accordion-content" id="action-import">
             <div class="copy-box">
                 <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
-                <button class="copy-btn" onclick="copyToClipboard(document.getElementById('import-string'))">
-    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span>
-    Copy
-</button>
+                <button class="copy-btn" onclick="copyToClipboard('import-string')">
+                    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span>
+                    Copy
+                </button>
             </div>
         </div>
     </div>
@@ -51,11 +51,10 @@ description: "An OBS widget to display as many timers as you want. Fully control
             <div class="copy-box">
                 <span class="copy-text" id="base64-string"
                     data-copy-text="https://tawmae.xyz/overlays/dynamic-timers.html">https://tawmae.xyz/overlays/dynamic-timers.html</span>
-                <button class="copy-btn" onclick="copyToClipboard('https://tawmae.xyz/overlays/dynamic-timers.html')">
-    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span>
-    Copy
-</button>
-
+                <button class="copy-btn" onclick="copyToClipboard()">
+                    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span>
+                    Copy
+                </button>
             </div>
         </div>
     </div>
