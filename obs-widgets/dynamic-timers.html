@@ -133,27 +133,27 @@ description: "An OBS widget to display as many timers as you want. Fully control
     <!----    COMMANDS    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion('commands')">
-            <span class="iconify title-icon" data-icon="rivet-icons:exclamation-mark-circle-solid"></span>
-            <span>Commands</span>
+            <span class="iconify title-icon" data-icon="rivet-icons:exclamation-mark-circle-solid"></span> <span>Commands</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
         <div class="accordion-content" id="commands">
-            <table class="extension-table">
-                <thead>
-                    <tr>
-                        <th>Command</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!---------------------------------------------->
-                    <tr>
-                        <td><span style="font-weight: bold; color: #d4af37;">!createTimer</span> <span style="font-weight: bold; color: #d4af37;">[Time Value]</span> | <span style="font-weight: bold; color: #d4af37;">[Timer Title]</span> | <span style="font-weight: bold; color: #d4af37;">[Timer Description]</span></td>
-                        <td>Create the timer. Title and description are optional. Elements are seperated by a pipe symbol <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">|</span>. The Time Value can be a number <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">300</span> (in seconds), a timestamp <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">hh:mm:ss</span> or <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">mm:ss</span> or a timecode like <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">10s</span>, <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">10min</span>, <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">10h</span>.</td>
-                    </tr>
-                    <!---------------------------------------------->
-                </tbody>
-            </table>
+            <p>If you want to use any other trigger than a <span style="font-weight: bold; color: #d4af37;">Command</span> or <span style="font-weight: bold; color: #d4af37;">Channel Point Reward</span>, you can use the variables that you see in the respective actions, like <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerId</span>, <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerName</span> or <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerValue</span>. If both, the variables as well as <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">rawInput</span> are available, <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">rawInput</span> will always take priority. <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerId</span> will always take priority over <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">timerName</span> if both are available.</p>
+            <p><br></p>
+            <p>In case of a <span style="font-weight: bold; color: #d4af37;">Channel Point Reward without user input</span>, you can just use a <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">rawInput</span> <span style="font-weight: bold; color: #d4af37;">Set Argument</span> subaction and follow the same pattern as for commands.</p>
+            <p><br><br></p>
+
+            <!---------------------------------------------->
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #d4af37;">!createTimer <span style="color: #455f8c;">Time Value</span> | <span style="color: #455f8c;">Timer Title</span> | <span style="color: #455f8c;">Timer Description</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p><span style="color: #d4af37; font-weight: bold;">Create the timer. Title and description are optional. Elements are seperated by a pipe symbol <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">|</span>. The Time Value can be a number <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">300</span> (in seconds), a timestamp <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">hh:mm:ss</span> or <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">mm:ss</span> or a timecode like <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">10s</span>, <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">10min</span>, <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">10h</span>.</span></p>
+                </div>
+            </div>
+
+            
+            <!---------------------------------------------->
         </div>
     </div>
     <!---------------------------------------------------------------------------------------------------------------------------------->
