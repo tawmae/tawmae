@@ -225,3 +225,35 @@ p {
   border-radius: 8px;
   height: 150px;
 }
+
+.changelog-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #111;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.changelog-table th, .changelog-table td {
+  padding: 12px;
+  text-align: left;
+}
+
+.changelog-table th {
+  background-color: #333;
+  font-weight: bold;
+}
+
+.changelog-table tr:nth-child(even) {
+  background-color: #222;
+}
+
+.changelog-table tr:nth-child(odd) {
+  background-color: #111;
+}
+
+.changelog-table tr:hover {
+  background-color: #444;
+}
+
