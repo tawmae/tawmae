@@ -69,7 +69,9 @@
   margin-left: 10px;
 }
 
-.accordion-header:hover{
+.accordion-header:hover,
+.accordion-icon:hover,
+.title-icon:hover{
   color: #455f8c;
 }
 
