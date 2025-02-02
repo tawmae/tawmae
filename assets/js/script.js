@@ -12,39 +12,35 @@ const wordToEmojiMap = {
 
 function replacePlaceholdersWithEmojis(text) {
   for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
-    const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1.5em; vertical-align: middle;">`;  // Adjusted height for better display
+    const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1.5em; vertical-align: middle;">`; 
 
-    // Handle both the plain word and the emoji syntax :word:
-    text = text.replace(new RegExp(`:\\b${word}\\b:`, 'g'), emojiTag);  // Replaces :word: format
-    text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);     // Replaces word like 'Pog'
+
+    text = text.replace(new RegExp(`:\\b${word}\\b:`, 'g'), emojiTag);  
+    text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);     
   }
   return text;
 }
 
-
-
 function replaceWordsWithEmojis() {
-  const elements = document.querySelectorAll('p, h1, h2, h3, span, div, a');
+  const elements = document.querySelectorAll('p, h1, h2, h3, span, div');  
 
   elements.forEach(element => {
     let text = element.innerHTML;
 
-    // Replace words in the element's inner content (e.g., h1, p)
+    
     for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
-      const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1.5em; vertical-align: middle;">`;  // Adjusted height for better display
+      const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1.5em; vertical-align: middle;">`;  
       text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
-    }
-
-    // Replace words in the 'data-title' attribute if present
-    if (element.hasAttribute('data-title')) {
-      let dataTitle = element.getAttribute('data-title');
-      dataTitle = replacePlaceholdersWithEmojis(dataTitle);
-      element.setAttribute('data-title', dataTitle);
     }
 
     element.innerHTML = text;
   });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  replaceWordsWithEmojis();
+});
+
 
 
 
