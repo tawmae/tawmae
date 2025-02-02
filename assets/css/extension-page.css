@@ -178,6 +178,8 @@ p {
   background-position: center;
   border: 1px solid #444;
   flex-shrink: 0; 
+  transition: transform 0.4s ease-in-out;
+  transform-origin: center center;
 }
 
 .extension-image-2:hover {
