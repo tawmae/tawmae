@@ -1,99 +1,115 @@
 ---
 layout: default
 title: "Ad Notification"
-description: "Manage ad notifications in OBS."
+description: "Manage your ad notifications."
 ---
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: "Ad Notification" }}</title>
-  <meta name="description" content="{{ page.description | default: 'Manage ad notifications in OBS.' }}">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
-  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-  <script defer src="{{ site.baseurl }}/assets/js/script.js"></script>
-</head>
-<body>
-  <header>
-    <!-- Header wie in der index.html -->
-  </header>
 
-  <main>
-    <!-- Schwarzer Container -->
-    <div class="black-text-box" style="background: rgba(0, 0, 0, 0.5); width: 90%; margin: auto; padding: 30px; border-radius: 10px;">
-      <h2 style="font-size: 2rem; text-align: center;">AD NOTIFICATION</h2>
-      <div class="collapse-container">
-        <!-- Synopsis -->
-        <div class="collapse-item">
-          <h3 class="collapse-header" onclick="toggleCollapse('synopsis')">
-            Synopsis <span class="iconify" data-icon="mdi:chevron-down"></span>
-          </h3>
-          <div id="synopsis" class="collapse-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et purus vel purus vulputate varius.</p>
-          </div>
-        </div>
-        
-        <!-- Import -->
-        <div class="collapse-item">
-          <h3 class="collapse-header" onclick="toggleCollapse('import')">
-            Import <span class="iconify" data-icon="mdi:chevron-down"></span>
-          </h3>
-          <div id="import" class="collapse-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vehicula orci eu libero malesuada placerat.</p>
-          </div>
-        </div>
-        
-        <!-- Setup -->
-        <div class="collapse-item">
-          <h3 class="collapse-header" onclick="toggleCollapse('setup')">
-            Setup <span class="iconify" data-icon="mdi:chevron-down"></span>
-          </h3>
-          <div id="setup" class="collapse-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Cras id tempor libero.</p>
-          </div>
-        </div>
-        
-        <!-- Customization -->
-        <div class="collapse-item">
-          <h3 class="collapse-header" onclick="toggleCollapse('customization')">
-            Customization <span class="iconify" data-icon="mdi:chevron-down"></span>
-          </h3>
-          <div id="customization" class="collapse-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel enim eu felis iaculis placerat.</p>
-          </div>
-        </div>
-        
-        <!-- Changelog -->
-        <div class="collapse-item">
-          <h3 class="collapse-header" onclick="toggleCollapse('changelog')">
-            Changelog <span class="iconify" data-icon="mdi:chevron-down"></span>
-          </h3>
-          <div id="changelog" class="collapse-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum nulla non urna lobortis, eget auctor sapien.</p>
-          </div>
-        </div>
-      </div>
+<div class="black-text-box" style="width: 100%; opacity: 0.5; background-color: black; border-radius: 10px; padding: 20px; margin-top: 60px;">
+  <h1 style="font-size: 2rem;">Ad Notification Settings</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis libero magna, et iaculis purus viverra at.</p>
+</div>
+
+<div class="accordion">
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span>Synopsis</span>
+      <span class="iconify" data-icon="iconoir:chevron-down" onclick="toggleAccordion('synopsis')"></span>
     </div>
-  </main>
+    <div class="accordion-content" id="synopsis" style="display: block;">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
+    </div>
+  </div>
 
-  <footer>
-    <!-- Footer wie in der index.html -->
-  </footer>
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span>Import</span>
+      <span class="iconify" data-icon="iconoir:chevron-down" onclick="toggleAccordion('import')"></span>
+    </div>
+    <div class="accordion-content" id="import">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
+    </div>
+  </div>
 
-  <script>
-    // Funktion zum Toggle für die Akkordeons
-    function toggleCollapse(id) {
-      const content = document.getElementById(id);
-      const icon = content.previousElementSibling.querySelector('.iconify');
-      content.classList.toggle('hidden');
-      if (content.classList.contains('hidden')) {
-        icon.setAttribute('data-icon', 'mdi:chevron-down');
-      } else {
-        icon.setAttribute('data-icon', 'mdi:chevron-up');
-      }
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span>Setup</span>
+      <span class="iconify" data-icon="iconoir:chevron-down" onclick="toggleAccordion('setup')"></span>
+    </div>
+    <div class="accordion-content" id="setup">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span>Customization</span>
+      <span class="iconify" data-icon="iconoir:chevron-down" onclick="toggleAccordion('customization')"></span>
+    </div>
+    <div class="accordion-content" id="customization">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <span>Changelog</span>
+      <span class="iconify" data-icon="iconoir:chevron-down" onclick="toggleAccordion('changelog')"></span>
+    </div>
+    <div class="accordion-content" id="changelog">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleAccordion(id) {
+    const content = document.getElementById(id);
+    if (content.style.display === 'block') {
+      content.style.display = 'none';
+    } else {
+      content.style.display = 'block';
     }
-  </script>
-</body>
-</html>
+  }
+</script>
+
+<style>
+  .accordion {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .accordion-item {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .accordion-content {
+    padding-top: 10px;
+    color: white;
+    font-size: 1rem;
+    display: none;
+  }
+
+  .accordion-header .iconify {
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+  }
+
+  .accordion-header .iconify:hover {
+    transform: rotate(180deg);
+  }
+</style>
