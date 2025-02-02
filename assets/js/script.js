@@ -12,7 +12,7 @@ const wordToEmojiMap = {
 
 function replacePlaceholdersWithEmojis(text) {
   for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
-    const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;
+    const emojiTag = `<img src="${emojiURL}" alt="${word}" class="emoji" data-fullsize="${emojiURL}" style="height: 1em; vertical-align: middle;">`;
 
     text = text.replace(new RegExp(`:\\b${word}\\b:`, 'g'), emojiTag);  
     text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);     
@@ -27,7 +27,7 @@ function replaceWordsWithEmojis() {
     let text = element.innerHTML;
 
     for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
-      const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1em; vertical-align: middle;">`;  
+      const emojiTag = `<img src="${emojiURL}" alt="${word}" class="emoji" data-fullsize="${emojiURL}" style="height: 1em; vertical-align: middle;">`;  
       text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
     }
 
@@ -38,6 +38,29 @@ function replaceWordsWithEmojis() {
 document.addEventListener("DOMContentLoaded", function() {
   replaceWordsWithEmojis();
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const emojis = document.querySelectorAll('.emoji');
+
+  emojis.forEach(emoji => {
+    emoji.addEventListener('mouseenter', function() {
+      const fullsizePreview = document.createElement('div');
+      fullsizePreview.classList.add('emoji-preview');
+      fullsizePreview.style.position = 'absolute';
+      fullsizePreview.style.zIndex = '1000';
+      fullsizePreview.style.top = `${emoji.getBoundingClientRect().top + window.scrollY}px`;
+      fullsizePreview.style.left = `${emoji.getBoundingClientRect().right + 10}px`;
+      fullsizePreview.innerHTML = `<img src="${emoji.getAttribute('data-fullsize')}" style="max-width: 200px; max-height: 200px;">`;
+
+      document.body.appendChild(fullsizePreview);
+
+      emoji.addEventListener('mouseleave', function() {
+        fullsizePreview.remove();
+      });
+    });
+  });
+});
+
 
 
 var slides, indicators, currentIndex = 0;
