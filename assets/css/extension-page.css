@@ -231,7 +231,6 @@ p {
   border-collapse: collapse;
   background-color: #111;
   color: white;
-  border-radius: 10px !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -247,7 +246,7 @@ p {
 }
 
 .changelog-table tr:nth-child(even) {
-  background-color: #222;
+  background-color: #171616;
 }
 
 .changelog-table tr:nth-child(odd) {
