@@ -139,7 +139,7 @@ p {
   text-overflow: ellipsis;
   color: #ccc;
   padding-right: 10px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'Poppins', sans-serif;  /*'Fira Code', monospace;*/
 }
 
 .copy-btn {
