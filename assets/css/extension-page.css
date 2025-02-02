@@ -47,6 +47,7 @@
   padding: 15px;
   width: 100%;
   transition: background-color 0.3s;
+  align-items: start;
 }
 
 .accordion-header {
