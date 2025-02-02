@@ -207,6 +207,15 @@ p {
   margin-right: 10px;
 }
 
+.customization-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px; 
+  padding-bottom: 20px;
+}
+
 .black-text-box-3 {
   flex: 1; 
   background-color: #111;
@@ -223,5 +232,5 @@ p {
   padding: 20px;
   border-radius: 8px;
   min-height: 50px;
-  width: 400px; 
+  width: 200px; 
 }
