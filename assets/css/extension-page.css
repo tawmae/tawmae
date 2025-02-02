@@ -82,6 +82,7 @@
   margin-top: 10px;
   background: transparent;
   border-radius: 5px;
+  gap: 20px;
 }
 
 .accordion-content p {
