@@ -267,3 +267,34 @@ p {
   background-color: #1f1d1d;
 }
 
+.settings-ui-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px; 
+  padding-bottom: 20px;
+}
+
+.black-text-box-7{
+  flex: 1; 
+  background-color: #111;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.settings-ui-image {
+  width: 600px; 
+  background-size: cover;
+  background-position: center;
+  border: 1px solid black;
+  flex-shrink: 0; 
+  transition: transform 0.4s ease-in-out;
+  transform-origin: center center;
+}
+
+.settings-ui-image:hover {
+  transform: scale(1.05);
+}
+
