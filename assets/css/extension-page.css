@@ -222,7 +222,7 @@ p {
   color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 300px; 
+  width: 100px; 
 }
 .black-text-box-4 {
   flex: 1; 
@@ -230,5 +230,5 @@ p {
   color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 200px; 
+  width: 50px; 
 }
