@@ -206,3 +206,22 @@ p {
 .title-icon {
   margin-right: 10px;
 }
+
+.black-text-box-3 {
+  flex: 1; 
+  background-color: #111;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 50px;
+  min-width: 0; 
+}
+.black-text-box-2 {
+  flex: 1; 
+  background-color: #111;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 50px;
+  min-width: 0; 
+}
