@@ -7,7 +7,8 @@ const wordToEmojiMap = {
   "MrDestructoid": "/assets/emotes/mrdestructoid.webp",
   "widetime": "/assets/emotes/widetime.webp",
   "modCheck": "/assets/emotes/modcheck.webp",
-  "PauseChamp": "/assets/emotes/pausechamp.webp"
+  "PauseChamp": "/assets/emotes/pausechamp.webp",
+  "Clap": "/assets/emotes/clap.avif"
 };
 
 function replacePlaceholdersWithEmojis(text) {
