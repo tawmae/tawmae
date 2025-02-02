@@ -226,6 +226,16 @@ p {
   height: 170px;
 }
 
+.black-text-box-5,
+.black-text-box-6{
+  flex: 1; 
+  background-color: #111;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  height: 120px;
+}
+
 .extension-table {
   width: 100%;
   border-collapse: collapse;
