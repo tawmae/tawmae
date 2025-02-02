@@ -226,7 +226,7 @@ p {
   height: 170px;
 }
 
-.changelog-table {
+.extension-table {
   width: 100%;
   border-collapse: collapse;
   background-color: #111;
@@ -234,22 +234,22 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.changelog-table th, .changelog-table td {
+.extension-table th, .extension-table td {
   padding: 12px;
   text-align: left;
 }
 
-.changelog-table th {
+.extension-table th {
   background-color: #455f8c;
   opacity: 0.9;
   font-weight: bold;
 }
 
-.changelog-table tr:nth-child(even) {
+.extension-table tr:nth-child(even) {
   background-color: #171616;
 }
 
-.changelog-table tr:nth-child(odd) {
+.extension-table tr:nth-child(odd) {
   background-color: #1f1d1d;
 }
 
