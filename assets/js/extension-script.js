@@ -15,8 +15,8 @@ function toggleAccordion(id) {
 // ====================================================================================================================
 function copyToClipboard(id) {
   const copyText = document.getElementById(id);
-  const button = copyText.closest('.copy-box').querySelector('.copy-btn');
-
+  const button = copyText.nextElementSibling;
+  
   navigator.clipboard.writeText(copyText.getAttribute("data-copy-text")).then(() => {
     button.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-20-filled"></span> Copied';
     button.classList.add('copied');
@@ -28,6 +28,21 @@ function copyToClipboard(id) {
   });
 }
 
+// ====================================================================================================================
+
+function copyURLToClipboard(url) {
+
+  const button = document.querySelector('#import .copy-btn');
+  navigator.clipboard.writeText(url).then(() => {
+    button.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-20-filled"></span> Copied';
+    button.classList.add('copied');
+    setTimeout(() => {
+      button.innerHTML = '<span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy';
+      button.classList.remove('copied');
+    }, 2500);
+  }).catch(err => {
+  });
+}
 
 // ====================================================================================================================
 function loadImportString(file) {
