@@ -189,6 +189,7 @@
         </div>
     </div>
     <script>
+        const urlParams = new URLSearchParams(window.location.search);
         const excludeAccountsParam = (urlParams.get("excludedaccounts") || "").toLowerCase();
         const excludedUsersParam = (urlParams.get("excludedusers") || "").toLowerCase();
         const singleUserVote = urlParams.get("singleuservote") === "true";
