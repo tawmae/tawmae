@@ -29,7 +29,7 @@ function replaceWordsWithEmojis() {
 
     
     for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
-      const emojiTag = `<img src="${emojiURL}" alt="${word}" style="height: 1.5em; vertical-align: middle;">`;  
+      const emojiTag = `<img src="${emojiURL}" alt="${word}"`;  
       text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
     }
 
