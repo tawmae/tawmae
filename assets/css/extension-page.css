@@ -127,7 +127,8 @@ p {
   border: 1px solid #444;
   border-radius: 8px;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.8); 
+  background-color: #111:
+  opacity: 0.95;
   justify-content: flex-start;  
 }
 
