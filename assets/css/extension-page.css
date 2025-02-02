@@ -157,7 +157,7 @@ p {
 
 .description-container {
   display: flex;
-  justify-content: space-between; /* Text und Bild gleichmäßig verteilt */
+  justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
   gap: 20px; /* Abstand zwischen Text und Bild */
