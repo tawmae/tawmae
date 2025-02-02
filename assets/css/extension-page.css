@@ -137,7 +137,7 @@ p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #ccc;
+  color: #111;
   padding-right: 10px;
   font-family: 'Poppins', sans-serif;  /*'Fira Code', monospace;*/
 }
