@@ -30,10 +30,10 @@ description: "An OBS widget to display as many timers as you want. Fully control
         <div class="accordion-content" id="action-import">
             <div class="copy-box">
                 <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
-                <button class="copy-btn" onclick="copyToClipboard('import-string')">
-                    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span>
-                    Copy
-                </button>
+                <button class="copy-btn" onclick="copyToClipboard(document.getElementById('import-string'))">
+    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span>
+    Copy
+</button>
             </div>
         </div>
     </div>
