@@ -25,6 +25,12 @@
   background-size: cover;
   background-position: center;
   border: 1px solid black;
+  transition: transform 0.4s ease-in-out;
+  transform-origin: center center;
+}
+
+.extension-image:hover {
+  transform: scale(1.05);
 }
 
 .accordion {
