@@ -23,7 +23,6 @@
   width: 800px;
   height: 400px;
   background-size: contain;
-  /*background-size: cover;*/
   background-position: center;
   border: 1px solid black;
   transition: transform 0.4s ease-in-out;
@@ -31,8 +30,7 @@
 }
 
 .extension-image:hover {
-  background-size: 120%;
-  /*transform: scale(1.05);*/
+  /*transform: scale(1.04);
 }
 
 .accordion {
