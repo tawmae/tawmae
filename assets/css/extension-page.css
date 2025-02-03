@@ -311,7 +311,6 @@ p {
 }
 
 .extension-example-image {
-  flex: 1;
   width: 866px !important; 
   height: 228px !important;
   display: flex;
