@@ -309,6 +309,9 @@ p {
   flex: 1;
   width: 866px !important; 
   height: 228px !important;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
   margin-bottom: 20px;
   background-size: cover;
   background-position: center;
