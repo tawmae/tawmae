@@ -8,7 +8,9 @@ description: "Request songs and fully control your Spotify player via Twitch cha
 <div class="extension-title">
     <div class="black-text-box">
         <h1>SPOTIFY & SB</h1>
-        <p>A full Spotify integration in Streamer.bot! <br><br> Your viewers can finally request the dumbest songs possible Pog But at least your mods can also skip songs or lower the volume in case you forgot your audio engineering degree at work... <br><span style="font-size: 2rem">catJAM</span></p>
+        <p>A full Spotify integration in Streamer.bot! <br><br> Your viewers can finally request the dumbest songs
+            possible Pog But at least your mods can also skip songs or lower the volume in case you forgot your audio
+            engineering degree at work... <br><span style="font-size: 2rem">catJAM</span></p>
     </div>
     <a href="{{ site.baseurl }}/assets/covers/spotify-and-sb.gif" target="_blank">
         <div class="extension-image"
@@ -28,40 +30,18 @@ description: "Request songs and fully control your Spotify player via Twitch cha
         </div>
         <div class="accordion-content" id="action-import">
             <div class="copy-box">
-    <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
-    <button class="copy-btn" onclick="copyToClipboard('import-string')">
-        <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
-    </button>
-</div>
-        </div>
-    </div>
-    <!---------------------------------------------->
-
-    <div class="accordion-divider"></div>
-
-    <!----    BROWSER SOURCE URL    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('import')">
-            <span class="iconify title-icon" data-icon="jam:unlink"></span> <span>Browser Source URL</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
-        </div>
-        <div class="accordion-content" id="import">
-            <div class="copy-box">
-                <span class="copy-text" id="base64-string"
-                    data-copy-text="https://tawmae.xyz/overlays/dynamic-timers.html">
-                    https://tawmae.xyz/overlays/dynamic-timers.html
-                </span>
-                <button class="copy-btn"
-                    onclick="copyURLToClipboard('https://tawmae.xyz/overlays/dynamic-timers.html')">
+                <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
+                <button class="copy-btn" onclick="copyToClipboard('import-string')">
                     <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
                 </button>
             </div>
         </div>
     </div>
-
     <!---------------------------------------------->
 
     <div class="accordion-divider"></div>
+
+
 
     <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
@@ -80,16 +60,17 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                     <p><span style="font-weight: bold; color: #fff;">1.</span> Copy the <span
                             style="font-weight: bold; color: #d4af37;">Action Import</span> text from above into your
                         clipboard.</p>
-                </div>      
+                </div>
             </div>
             <!---------------------------------------------->
             <div class="description-container">
                 <div class="black-text-box-2">
                     <p><span style="font-weight: bold; color: #fff;">2.</span> In <span
                             style="font-weight: bold; color: #d4af37;">Streamer.bot</span>, click the <span
-                            style="font-weight: bold; color: #d4af37;">Import</span> button at the top of the window. Paste the text into the <span
-                            style="font-weight: bold; color: #d4af37;">Import String</span> section and press <span
-                            style="font-weight: bold; color: #d4af37;">Import</span> at the bottom.</p>
+                            style="font-weight: bold; color: #d4af37;">Import</span> button at the top of the window.
+                        Paste the text into the <span style="font-weight: bold; color: #d4af37;">Import String</span>
+                        section and press <span style="font-weight: bold; color: #d4af37;">Import</span> at the bottom.
+                    </p>
                 </div>
                 <a href="{{ site.baseurl }}/assets/setup/import-actions.png" target="_blank">
                     <div class="extension-image-2"
@@ -106,15 +87,20 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                 </a>
                 <div class="black-text-box-2">
                     <p><span style="font-weight: bold; color: #fff;">3.</span> Now head to the <span
-                            style="font-weight: bold; color: #d4af37;">Commands</span> tab and look for the imported commands. Then <span
-                            style="font-weight: bold; color: #d4af37;">rightclick</span> the group and select <span
-                            style="font-weight: bold; color: #d4af37;">Group -> Enable All</span>.</p>
-                </div>               
+                            style="font-weight: bold; color: #d4af37;">Commands</span> tab and look for the imported
+                        commands. Then <span style="font-weight: bold; color: #d4af37;">rightclick</span> the group and
+                        select <span style="font-weight: bold; color: #d4af37;">Group -> Enable All</span>.</p>
+                </div>
             </div>
             <!---------------------------------------------->
             <div class="description-container">
                 <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">4.</span> Go to <span style="font-weight: bold; color: #455f8c;"><a href="https://developer.spotify.com/" class="link-preview" target="_blank">https://developer.spotify.com/</a></span> and login with your Spotify account. Then enter your <span style="font-weight: bold; color: #d4af37;">Dashboard</span> and hit <span style="font-weight: bold; color: #d4af37;">Create app</span>.</p>
+                    <p><span style="font-weight: bold; color: #fff;">4.</span> Go to <span
+                            style="font-weight: bold; color: #455f8c;"><a href="https://developer.spotify.com/"
+                                class="link-preview" target="_blank">https://developer.spotify.com/</a></span> and login
+                        with your Spotify account. Then enter your <span
+                            style="font-weight: bold; color: #d4af37;">Dashboard</span> and hit <span
+                            style="font-weight: bold; color: #d4af37;">Create app</span>.</p>
                 </div>
                 <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
                     <div class="extension-image-2"
@@ -130,21 +116,34 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                     </div>
                 </a>
                 <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">5.</span> Enter <span style="font-weight: bold; color: #d4af37;">App name</span> and <span style="font-weight: bold; color: #d4af37;">App description</span> (those can be whatever). Then copy this URL:<br><br> <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">http://127.0.0.1:1312/tawmaeSpotify/</span> <br><br> Paste it into the <span style="font-weight: bold; color: #d4af37;">Redirect URIs</span>. It's important that this link is this exact one.
-                    <br><br> Accept the <span style="font-weight: bold; color: #d4af37;">ToS</span> and hit <span style="font-weight: bold; color: #d4af37;">Save</span>.</p>
+                    <p><span style="font-weight: bold; color: #fff;">5.</span> Enter <span
+                            style="font-weight: bold; color: #d4af37;">App name</span> and <span
+                            style="font-weight: bold; color: #d4af37;">App description</span> (those can be whatever).
+                        Then copy this URL:<br><br> <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">http://127.0.0.1:1312/tawmaeSpotify/</span>
+                        <br><br> Paste it into the <span style="font-weight: bold; color: #d4af37;">Redirect
+                            URIs</span>. It's important that this link is this exact one.
+                        <br><br> Accept the <span style="font-weight: bold; color: #d4af37;">ToS</span> and hit <span
+                            style="font-weight: bold; color: #d4af37;">Save</span>.
+                    </p>
                 </div>
-                
+
             </div>
             <!---------------------------------------------->
             <div class="description-container">
                 <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">6.</span> Now that your app has been created, click on <span style="font-weight: bold; color: #d4af37;">Settings</span> in the top right corner. Click <span style="font-weight: bold; color: #d4af37;">View client secret</span> below <span style="font-weight: bold; color: #d4af37;">Client ID</span> to reveal your <span style="font-weight: bold; color: #d4af37;">Client secret</span>. We will need both of them in a second.</p>
+                    <p><span style="font-weight: bold; color: #fff;">6.</span> Now that your app has been created, click
+                        on <span style="font-weight: bold; color: #d4af37;">Settings</span> in the top right corner.
+                        Click <span style="font-weight: bold; color: #d4af37;">View client secret</span> below <span
+                            style="font-weight: bold; color: #d4af37;">Client ID</span> to reveal your <span
+                            style="font-weight: bold; color: #d4af37;">Client secret</span>. We will need both of them
+                        in a second.</p>
                 </div>
                 <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
                     <div class="extension-image-2"
                         style="background-image: url('{{ site.baseurl }}/assets/setup/spotify-and-sb/spotify-and-sb-3.png');">
                     </div>
-                </a> 
+                </a>
             </div>
             <!---------------------------------------------->
             <div class="description-container">
@@ -154,8 +153,20 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                     </div>
                 </a>
                 <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">7. In <span style="font-weight: bold; color: #d4af37;">Streamer.bot</span>, head into the <span style="font-weight: bold; color: #d4af37;">[SPOTIFY & SB]  # 0 - Settings</span> action, rightclick the <span style="font-weight: bold; color: #d4af37;">Test</span> trigger and hit <span style="font-weight: bold; color: #d4af37;">Test Trigger</span> to open the Settings UI. Paste your <span style="font-weight: bold; color: #d4af37;">Client ID</span> and <span style="font-weight: bold; color: #d4af37;">Client secret</span> in there and hit <span style="font-weight: bold; color: #d4af37;">Connect</span>. A browser page will open up and you'll need to click <span style="font-weight: bold; color: #d4af37;">Accept</span>. <br><br>If the connection button turned <span style="font-weight: bold; color: green;">green</span>, you are good to go. Happy spotifying... or whatever!<br><br><span style="font-size: 2rem">catJAM Clap</span></span> </p>
-                </div>    
+                    <p><span style="font-weight: bold; color: #fff;">7. In <span
+                                style="font-weight: bold; color: #d4af37;">Streamer.bot</span>, head into the <span
+                                style="font-weight: bold; color: #d4af37;">[SPOTIFY & SB] # 0 - Settings</span> action,
+                            rightclick the <span style="font-weight: bold; color: #d4af37;">Test</span> trigger and hit
+                            <span style="font-weight: bold; color: #d4af37;">Test Trigger</span> to open the Settings
+                            UI. Paste your <span style="font-weight: bold; color: #d4af37;">Client ID</span> and <span
+                                style="font-weight: bold; color: #d4af37;">Client secret</span> in there and hit <span
+                                style="font-weight: bold; color: #d4af37;">Connect</span>. A browser page will open up
+                            and you'll need to click <span style="font-weight: bold; color: #d4af37;">Accept</span>.
+                            <br><br>If the connection button turned <span
+                                style="font-weight: bold; color: green;">green</span>, you are good to go. Happy
+                            spotifying... or whatever!<br><br><span style="font-size: 2rem">catJAM Clap</span></span>
+                    </p>
+                </div>
             </div>
 
             <!---------------------------------------------->
@@ -397,13 +408,32 @@ description: "Request songs and fully control your Spotify player via Twitch cha
 
     <div class="accordion-divider"></div>
 
-    <!----    CUSTOMIZATION    ------------------------------------------------------------------------------------------------------------------------------>
+    <!----    OBS WIDGET    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('customization')">
-            <span class="iconify title-icon" data-icon="gridicons:customize"></span> <span>Customization</span>
+        <div class="accordion-header" onclick="toggleAccordion('obs-widget')">
+            <span class="iconify title-icon" data-icon="gridicons:customize"></span> <span>OBS Widget</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="customization">
+        <div class="accordion-content" id="obs-widget">
+            <div class="accordion-header" onclick="toggleAccordion('import')">
+                <span class="iconify title-icon" data-icon="jam:unlink"></span> <span>Browser Source URL</span>
+                <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+            </div>
+            <div class="accordion-content" id="import">
+                <div class="copy-box">
+                    <span class="copy-text" id="base64-string"
+                        data-copy-text="https://tawmae.xyz/overlays/dynamic-timers.html">
+                        https://tawmae.xyz/overlays/spotify-and-sb.html
+                    </span>
+                    <button class="copy-btn"
+                        onclick="copyURLToClipboard('https://tawmae.xyz/overlays/dynamic-timers.html')">
+                        <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
+                    </button>
+                </div>
+            </div>
+
+
+
             <p>You can add <span style="font-weight: bold; color: #d4af37;">URL Parameters</span> at the end of the URL
                 to customize certain things. The first parameter is getting added with a <span
                     style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">?</span>, every
@@ -477,7 +507,8 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font Color</span></p>
                     <p>Changes the font color. Supports hex colors, but then you need to replace the <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">#</span> with
-                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span></p>
+                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span>
+                    </p>
                 </div>
                 <div class="black-text-box-4">
                     <p><span style="color: #d4af37; font-weight: bold;">fontColor=pink</span></p>
@@ -505,7 +536,8 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">ID Color</span></p>
                     <p>Changes the ID color. Supports hex colors, but then you need to replace the <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">#</span> with
-                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span></p>
+                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span>
+                    </p>
                 </div>
                 <div class="black-text-box-4">
                     <p><span style="color: #d4af37; font-weight: bold;">idColor=pink</span></p>
