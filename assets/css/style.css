@@ -343,5 +343,29 @@ header {
   color: black;
 }
 
+.preview-link {
+  position: relative;
+  text-decoration: none;
+  color: blue;
+}
 
+.preview-link::after {
+  content: attr(href); 
+  position: absolute;
+  left: 0;
+  bottom: -25px;
+  background: #333;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; 
+}
+
+.preview-link:hover::after {
+  opacity: 1;
+}
 
