@@ -313,16 +313,15 @@ p {
 .extension-example-image {
   width: 866px !important; 
   height: 228px !important;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  margin-bottom: 20px;
-  background-size: cover;
-  background-position: center;
+
+  display: block !important;
+  margin: 0 auto !important;
+
+
   border: 1px solid black;
-  flex-shrink: 0; 
+
   transition: transform 0.4s ease-in-out;
-  transform-origin: center center;
+
 }
 
 .extension-example-image:hover {
