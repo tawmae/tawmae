@@ -169,6 +169,7 @@
 	const font = params.get("font");
         if (font) {
             document.documentElement.style.setProperty("--font-family", font);
+	}
         
 
         const ws = new WebSocket(`ws://${address}:${port}/`);
