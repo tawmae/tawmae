@@ -304,3 +304,16 @@ p {
   border-radius: 8px;
   height: 90px;
 }
+
+.extension-example-image {
+  width: 600px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid black;
+  transition: transform 0.4s ease-in-out;
+  transform-origin: center center;
+}
+
+.extension-example-image:hover {
+  transform: scale(1.03);
+}
