@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: "tawmae" }}</title>
-    <!--------------------->
-    <meta name="description"
-        content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
-    <meta name="keywords"
-        content="{{ page.keywords | default: 'Streamerbot, Streaming, Twitch, OBS, Widgets, Streamer.bot' }}">
-    <meta name="description"
-        content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
-    <meta name="keywords"
-        content="{{ page.keywords | default: 'Streamerbot, Streaming, Twitch, OBS, Widgets, Streamer.bot' }}">
-    <!--------------------->
+    <meta name="description" content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
+    <meta name="keywords" content="{{ page.keywords | default: 'Streamerbot, Streaming, Twitch, OBS, Widgets, Streamer.bot' }}">
     <meta property="og:title" content="{{ page.title | default: " tawmae" }}">
-    <meta property="og:description"
-        content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
+    <meta property="og:description" content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
     <meta property="og:image" content="{{ site.url }}/assets/page-design/website-card.png">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:type" content="website">
-    <!--------------------->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ page.title | default: " tawmae" }}">
-    <meta name="twitter:description"
-        content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
+    <meta name="twitter:description" content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
     <meta name="twitter:image" content="{{ site.url }}/assets/page-design/website-card.png">
-    <!--------------------->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
@@ -39,7 +26,6 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
     <script defer src="{{ site.baseurl }}/assets/js/extension-script.js"></script>
 </head>
-
 <body>
     <header>
         <div class="header-left">
@@ -49,80 +35,44 @@
                 </a>
             </div>
         </div>
+        <div class="mobile-menu-toggle">&#9776;</div>
         <nav class="header-center">
             <ul>
-                <li><a href="{{ site.baseurl }}/"><span class="iconify nav-icon" data-icon="mdi:home"></span> START</a>
-
-                </li>
-                <!--------------------->
+                <li><a href="{{ site.baseurl }}/"><span class="iconify nav-icon" data-icon="mdi:home"></span> START</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon"
-                            data-icon="simple-icons:obsstudio"></span> OBS WIDGETS<span class="arrow">&#9662;</span></a>
+                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon" data-icon="simple-icons:obsstudio"></span> OBS WIDGETS<span class="arrow">&#9662;</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ site.baseurl }}/obs-widgets/ad-notification.html"><span
-                                    class="iconify nav-icon-child" data-icon="ri:advertisement-fill"></span> AD
-                                NOTIFICATION</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/basic-alerts.html"><span
-                                    class="iconify nav-icon-child" data-icon="ic:baseline-notifications-active"></span>
-                                BASIC ALERTS</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/dynamic-timers.html"><span
-                                    class="iconify nav-icon-child" data-icon="solar:stopwatch-bold"></span> DYNAMIC
-                                TIMERS</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/event-list.html"><span
-                                    class="iconify nav-icon-child" data-icon="material-symbols:event-list"></span> EVENT
-                                LIST</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/hot-words.html"><span class="iconify nav-icon-child"
-                                    data-icon="solar:flame-bold"></span> HOT WORDS</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/rotator.html"><span class="iconify nav-icon-child"
-                                    data-icon="material-symbols-light:rotate-90-degrees-ccw"></span> ROTATOR</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/steam-welcome.html"><span
-                                    class="iconify nav-icon-child" data-icon="mdi:steam-box"></span> STEAM WELCOME</a>
-                        </li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/stream-receipt.html"><span
-                                    class="iconify nav-icon-child"
-                                    data-icon="material-symbols:receipt-long-outline"></span>STREAM RECEIPT</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/vertical-chat.html"><span
-                                    class="iconify nav-icon-child"
-                                    data-icon="ic:baseline-mark-unread-chat-alt"></span>VERTICAL CHAT</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/ad-notification.html"><span class="iconify nav-icon-child" data-icon="ri:advertisement-fill"></span> AD NOTIFICATION</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/basic-alerts.html"><span class="iconify nav-icon-child" data-icon="ic:baseline-notifications-active"></span> BASIC ALERTS</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/dynamic-timers.html"><span class="iconify nav-icon-child" data-icon="solar:stopwatch-bold"></span> DYNAMIC TIMERS</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/event-list.html"><span class="iconify nav-icon-child" data-icon="material-symbols:event-list"></span> EVENT LIST</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/hot-words.html"><span class="iconify nav-icon-child" data-icon="solar:flame-bold"></span> HOT WORDS</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/rotator.html"><span class="iconify nav-icon-child" data-icon="material-symbols-light:rotate-90-degrees-ccw"></span> ROTATOR</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/steam-welcome.html"><span class="iconify nav-icon-child" data-icon="mdi:steam-box"></span> STEAM WELCOME</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/stream-receipt.html"><span class="iconify nav-icon-child" data-icon="material-symbols:receipt-long-outline"></span>STREAM RECEIPT</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/vertical-chat.html"><span class="iconify nav-icon-child" data-icon="ic:baseline-mark-unread-chat-alt"></span>VERTICAL CHAT</a></li>
                     </ul>
                 </li>
-                <!--------------------->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon"
-                            data-icon="material-symbols:instant-mix"></span> UTILITY<span
-                            class="arrow">&#9662;</span></a>
+                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon" data-icon="material-symbols:instant-mix"></span> UTILITY<span class="arrow">&#9662;</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ site.baseurl }}/utility/spotify-and-sb.html"><span
-                                    class="iconify nav-icon-child" data-icon="teenyicons:spotify-outline"></span>
-                                SPOTIFY & SB</a></li>
-                        <li><a href="{{ site.baseurl }}/utility/bluesky-and-sb.html"><span
-                                    class="iconify nav-icon-child" data-icon="tabler:brand-bluesky"></span>
-                                BLUESKY & SB</a></li>
+                        <li><a href="{{ site.baseurl }}/utility/spotify-and-sb.html"><span class="iconify nav-icon-child" data-icon="teenyicons:spotify-outline"></span> SPOTIFY & SB</a></li>
+                        <li><a href="{{ site.baseurl }}/utility/bluesky-and-sb.html"><span class="iconify nav-icon-child" data-icon="tabler:brand-bluesky"></span> BLUESKY & SB</a></li>
                     </ul>
                 </li>
-                <!--------------------->
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon"
-                            data-icon="bi:dice-6-fill"></span> CHAT GAMES<span
-                            class="arrow">&#9662;</span></a>
+                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon" data-icon="bi:dice-6-fill"></span> CHAT GAMES<span class="arrow">&#9662;</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ site.baseurl }}/utility/movie-and-tv-show-quiz.html"><span
-                                    class="iconify nav-icon-child" data-icon="fluent:movies-and-tv-16-regular"></span>
-                                MOVIE & TV SHOW QUIZ</a></li>
+                        <li><a href="{{ site.baseurl }}/utility/movie-and-tv-show-quiz.html"><span class="iconify nav-icon-child" data-icon="fluent:movies-and-tv-16-regular"></span> MOVIE & TV SHOW QUIZ</a></li>
                     </ul>
                 </li>
-                <!--------------------->
-                <li><a href="{{ site.baseurl }}/commissions.html"><span class="iconify nav-icon"
-                            data-icon="mynaui:euro-circle-solid"></span> COMMISSIONS</a></li>
+                <li><a href="{{ site.baseurl }}/commissions.html"><span class="iconify nav-icon" data-icon="mynaui:euro-circle-solid"></span> COMMISSIONS</a></li>
             </ul>
         </nav>
         <div class="header-right">
             <a href="https://discord.com/invite/gEm5UMSvYs" target="_blank" class="need-help">
                 Need help? <span class="iconify" data-icon="simple-icons:discord"></span>
             </a>
-            </a>
-
-
             <a href="https://bsky.app/profile/tawmae.xyz" target="_blank">
                 <span class="iconify" data-icon="simple-icons:bluesky"></span>
             </a>
@@ -134,8 +84,7 @@
             </a>
             <a href="https://ko-fi.com/tawmae" target="_blank">
                 <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-                <script
-                    type='text/javascript'>kofiwidget2.init('Tip', '#455f8c', 'P5P7RA8SG'); kofiwidget2.draw();</script>
+                <script type='text/javascript'>kofiwidget2.init('Tip', '#455f8c', 'P5P7RA8SG');kofiwidget2.draw();</script>
             </a>
         </div>
     </header>
