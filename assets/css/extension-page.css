@@ -313,17 +313,12 @@ p {
 .extension-example-image {
   width: 866px !important; 
   height: 228px !important;
-
   display: block !important;
   margin: 0 auto !important;
-  margin-bottom: 30px;
-
   border: 1px solid black;
-
   transition: transform 0.4s ease-in-out;
-
 }
 
 .extension-example-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
