@@ -288,7 +288,12 @@ header {
   font-size: 0.9rem;
   color: #ccc;
   padding: 5px;
-}  
+}
+.product-card img.emoji {
+  width: auto !important;
+  height: 1em !important;
+  object-fit: initial;
+}
 
 .header-right .need-help:hover {
   transform: scale(1.05);   
