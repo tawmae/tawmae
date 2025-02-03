@@ -416,19 +416,28 @@ description: "Request songs and fully control your Spotify player via Twitch cha
         </div>
         <div class="accordion-content" id="obs-widget">
 
+            <!---------------------------------------------->
+            <p>You can copy the <span style="font-weight: bold; color: #d4af37;">Browser Source URL</span> below and use it in <span style="font-weight: bold; color: #d4af37;">OBS</span> to display the current song. <br><br>
 
-                <div class="copy-box">
-                    <span class="copy-text" id="base64-string"
-                        data-copy-text="https://tawmae.xyz/overlays/dynamic-timers.html">
-                        https://tawmae.xyz/overlays/spotify-and-sb.html
-                    </span>
-                    <button class="copy-btn"
-                        onclick="copyURLToClipboard('https://tawmae.xyz/overlays/dynamic-timers.html')">
-                        <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
-                    </button>
-                </div>
-  
+<span style="font-size: 0.7rem;">Make sure your <span style="font-weight: bold; color: #d4af37;">Websocket Server</span> in the <span style="font-weight: bold; color: #d4af37;">Servers/Clients -> WebSocket Server</span> tab is enabled and set to <span style="font-weight: bold; color: #d4af37;">127.0.0.1</span> and <span style="font-weight: bold; color: #d4af37;">8080</span></span>.<br><br></p>
+            <!---------------------------------------------->
+            <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
+                <div class="extension-exmaple-image"
+                    style="background-image: url('{{ site.baseurl }}/assets/setup/spotify-and-sb/spotify-and-sb-obs-widget.png');"></div>
+            </a>
+            <!---------------------------------------------->
+            <div class="copy-box">
+                <span class="copy-text" id="base64-string"
+                    data-copy-text="https://tawmae.xyz/overlays/spotify-and-sb.html">
+                    https://tawmae.xyz/overlays/spotify-and-sb.html
+                </span>
+                <button class="copy-btn"
+                    onclick="copyURLToClipboard('https://tawmae.xyz/overlays/spotify-and-sb.html')">
+                    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
+                </button>
+            </div>
 
+            <!---------------------------------------------->
 
 
             <p>You can add <span style="font-weight: bold; color: #d4af37;">URL Parameters</span> at the end of the URL
