@@ -306,8 +306,10 @@ p {
 }
 
 .extension-example-image {
+  flex: 1;
   width: 866px !important; 
   height: 228px !important;
+  margin-bottom: 20px;
   background-size: cover;
   background-position: center;
   border: 1px solid black;
