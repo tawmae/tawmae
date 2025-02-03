@@ -296,4 +296,11 @@ p {
   transform: scale(1.05);
 }
 
-
+.black-text-box-long{
+  flex: 1; 
+  background-color: #111;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  height: 170px;
+}
