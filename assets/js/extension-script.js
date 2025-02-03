@@ -64,4 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (currentPage.includes("rotator")) {
         loadImportString("/action-imports/rotator.txt");  
     } 
+    else if (currentPage.includes("stream-receipt")) {
+        loadImportString("/action-imports/stream-receipt.txt");  
+    } 
 });
