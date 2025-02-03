@@ -307,6 +307,7 @@ p {
 
 .extension-example-image {
   width: 600px;
+  height: auto;
   background-size: cover;
   background-position: center;
   border: 1px solid black;
