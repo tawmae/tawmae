@@ -351,77 +351,33 @@ header {
   vertical-align: middle;
   color: black;
 }
-.dynamic-code pre {
-      background-color: #2d2d2d;
-      border-radius: 5px;
-      padding: 15px;
-      overflow: auto;
-      font-family: 'Fira Code', monospace;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #f8f8f2;
-      margin: 1em 0;
-}
-.hamburger {
-  display: none;
-}
 @media (max-width: 768px) {
-  .header-left {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  .header-center ul {
+    gap: 10px;
   }
-  .header-center, .header-right {
-    display: none;
+  .header-center ul li a {
+    font-size: 0.9rem;
   }
-  .hamburger {
-    display: block;
-    position: absolute;
-    right: 5%;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.8rem;
-    cursor: pointer;
+  .rotator-container {
+    max-width: 100%;
   }
-  .mobile-menu {
-    display: none;
-    flex-direction: column;
-    background: linear-gradient(135deg, #131315 0%, #1f1c20 100%);
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    z-index: 999;
-  }
-  .mobile-menu.active {
-    display: flex;
-  }
-  .mobile-menu nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
-    text-align: center;
-    padding: 0;
   }
-  .mobile-menu nav ul li a {
-    color: white;
-    font-size: 1.2rem;
-    text-decoration: none;
+  .product-card {
+    width: 100%;
+    padding: 10px;
   }
-  .mobile-menu .mobile-social {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-    align-items: center;
+  .product-card img {
+    aspect-ratio: 4 / 5;
+    max-width: 100%;
   }
-  .mobile-menu .mobile-social a {
-    color: white;
-    font-size: 1.5rem;
-    text-decoration: none;
+  .product-card h3 {
+    font-size: 1rem;
+  }
+  .product-card p {
+    font-size: 0.8rem;
   }
 }
 @media (max-width: 480px) {
@@ -445,3 +401,15 @@ header {
     font-size: 0.75rem;
   }
 }
+
+.dynamic-code pre {
+      background-color: #2d2d2d;
+      border-radius: 5px;
+      padding: 15px;
+      overflow: auto;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #f8f8f2;
+      margin: 1em 0;
+    }
