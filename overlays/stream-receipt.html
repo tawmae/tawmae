@@ -165,7 +165,11 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const address = params.get("address") || "localhost";
-        const port = params.get("port") || "8080"; 
+        const port = params.get("port") || "8080";
+	const font = params.get("font");
+        if (font) {
+            document.documentElement.style.setProperty("--font-family", font);
+        
 
         const ws = new WebSocket(`ws://${address}:${port}/`);
 
@@ -241,12 +245,6 @@
             document.getElementById("cardholder-name").innerText = broadcaster || "unknown";
         }
 
-
-        const params = new URLSearchParams(window.location.search);
-        const font = params.get("font");
-        if (font) {
-            document.documentElement.style.setProperty("--font-family", font);
-        }
     </script>
 </body>
 
