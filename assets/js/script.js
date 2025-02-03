@@ -172,3 +172,54 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // ====================================================================================================================
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("a").forEach(link => {
+        let url = link.href;
+        if (url.startsWith("http") && !url.includes("tawmae.github.io") && !url.includes("tawmae.xyz")) {
+            fetch(`/link-preview?url=${encodeURIComponent(url)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.image || data.title) {
+                    let preview = document.createElement("div");
+                    preview.classList.add("link-preview");
+
+                    if (data.image) {
+                        let img = document.createElement("img");
+                        img.src = data.image;
+                        img.classList.add("link-preview-img");
+                        preview.appendChild(img);
+                    }
+
+                    let textContainer = document.createElement("div");
+                    textContainer.classList.add("link-preview-text");
+
+                    if (data.title) {
+                        let title = document.createElement("div");
+                        title.classList.add("link-preview-title");
+                        title.textContent = data.title;
+                        textContainer.appendChild(title);
+                    }
+
+                    if (data.description) {
+                        let desc = document.createElement("div");
+                        desc.classList.add("link-preview-desc");
+                        desc.textContent = data.description;
+                        textContainer.appendChild(desc);
+                    }
+
+                    preview.appendChild(textContainer);
+                    link.appendChild(preview);
+
+                    link.addEventListener("mouseover", () => preview.style.display = "block");
+                    link.addEventListener("mouseout", () => preview.style.display = "none");
+                }
+            })
+            .catch(error => console.error("Preview Error:", error));
+        }
+    });
+});
+
+
+// ====================================================================================================================
+
