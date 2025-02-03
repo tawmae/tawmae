@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT LIST - v.1.0.0 - tawmae.xyz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #1b2838;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .event-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .event {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #2a2a2a 0%, #3b3b3b 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: transform 0.8s ease, opacity 0.8s ease;
+            animation: slideIn 0.8s forwards;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .event .avatar {
+            width: calc(var(--event-size) * 3);
+            height: calc(var(--event-size) * 3);
+            border-radius: 12px;
+            margin-right: 15px;
+            background-size: cover;
+            background-position: center;
+            border: calc(var(--event-size) * 0.2) solid rgba(255, 255, 255, 0.5);
+        }
+        .event .content {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .event .content .username {
+            font-weight: 700;
+            font-size: 26px;
+            color: #5fa8ff;
+            margin: 0;
+        }
+        .event .content .event-info {
+            font-size: 22px;
+            font-weight: 600;
+            color: #b8b8b8;
+            text-align: right;
+            text-transform: uppercase;
+        }
+        .event-info .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            vertical-align: middle;
+            display: inline-block;
+            transform: translateY(-3px);
+        }
+        .event-info .icon svg {
+            fill: currentColor;
+            width: 100%;
+            height: 100%;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideOut {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="eventContainer" class="event-container"></div>
+    <script>
+        const eventContainer = document.getElementById('eventContainer');
+        const maxVisibleEvents = 4;
+        const eventQueue = [];
+        let isProcessingQueue = false;
+        function getURLParams() {
+            const params = new URLSearchParams(window.location.search);
+            const normalizedParams = {};
+            for (const [key, value] of params.entries()) {
+                normalizedParams[key.toLowerCase()] = value;
+            }
+            return {
+                font: normalizedParams['font'] || 'Poppins',
+                color: normalizedParams['color'] || 'linear-gradient(135deg, #2a2a2a 0%, #3b3b3b 100%)',
+                usernameColor: normalizedParams['usernamecolor'] || '#5fa8ff',
+                eventColor: normalizedParams['eventcolor'] || '#b8b8b8',
+                usernameSize: normalizedParams['usernamesize'] || '32px',
+                eventSize: normalizedParams['eventsize'] || '26px',
+                width: normalizedParams['width'] || '700px',
+                anonymousFollows: normalizedParams['anonymousfollows'] === 'true',
+                watchstreaks: normalizedParams['watchstreaks'],
+                address: normalizedParams['address'] || 'localhost',
+                port: normalizedParams['port'] || '8080'
+            };
+        }
+        const urlParams = getURLParams();
+        function applyDynamicStyles() {
+            const dynamicStyle = document.createElement('style');
+            dynamicStyle.textContent = `
+                :root {
+                    --event-size: ${urlParams.eventSize};
+                }
+                body {
+                    font-family: ${urlParams.font}, Arial, sans-serif;
+                }
+                .event-container {
+                    width: ${urlParams.width};
+                }
+                .event {
+                    background: ${urlParams.color};
+                }
+                .event .content .username {
+                    color: ${urlParams.usernameColor};
+                    font-size: ${urlParams.usernameSize};
+                }
+                .event .content .event-info {
+                    color: ${urlParams.eventColor};
+                    font-size: ${urlParams.eventSize};
+                }
+                .event-info .icon {
+                    width: calc(${urlParams.eventSize} * 0.9);
+                    height: calc(${urlParams.eventSize} * 0.9);
+                    transform: translateY(calc(-0.2 * ${urlParams.eventSize}));
+                }
+            `;
+            document.head.appendChild(dynamicStyle);
+        }
+        function getStoredEvents() {
+            const storedEvents = localStorage.getItem('storedEvents');
+            return storedEvents ? JSON.parse(storedEvents) : [];
+        }
+        function saveEventToStorage(username, eventInfo, avatarUrl) {
+            const storedEvents = getStoredEvents();
+            storedEvents.push({ username, eventInfo, avatarUrl });
+            if (storedEvents.length > maxVisibleEvents) storedEvents.shift();
+            localStorage.setItem('storedEvents', JSON.stringify(storedEvents));
+        }
+        function clearEvents() {
+            localStorage.removeItem('storedEvents');
+            eventContainer.innerHTML = '';
+        }
+        function loadStoredEvents() {
+            const storedEvents = getStoredEvents();
+            storedEvents.forEach(event => {
+                addEventNotification(event.username, event.eventInfo, event.avatarUrl, false);
+            });
+        }
+        async function fetchIcon(iconName) {
+            try {
+                const response = await fetch(`https://api.iconify.design/${iconName}.svg`);
+                if (response.ok) {
+                    return await response.text();
+                }
+                return '';
+            } catch {
+                return '';
+            }
+        }
+        async function addEventNotification(username, eventInfo, avatarUrl, saveToStorage = true) {
+            return new Promise(async (resolve) => {
+                const eventElement = document.createElement('div');
+                eventElement.className = 'event';
+                let iconName = 'typcn:arrow-unsorted';
+                if (eventInfo.includes('FOLLOW')) iconName = 'material-symbols-light:favorite';
+                if (eventInfo.includes('CHEER')) iconName = 'mingcute:diamond-square-fill';
+                if (eventInfo.includes('SUB')) iconName = 'material-symbols:star';
+                if (eventInfo.includes('GIFTSUB')) iconName = 'material-symbols:star';
+                if (eventInfo.includes('GIFTBOMB')) iconName = 'material-symbols:star';
+                if (eventInfo.includes('RAID')) iconName = 'ion:people-sharp';
+                if (eventInfo.includes('KOFI')) iconName = 'material-symbols-light:money-bag-rounded';
+                if (eventInfo.includes('WATCHSTREAK')) iconName = 'icon-park-outline:fire';
+                const iconSvg = await fetchIcon(iconName);
+                eventElement.innerHTML = `
+                    <div class="avatar" style="background-image: url('${avatarUrl}');"></div>
+                    <div class="content">
+                        <p class="username">${username}</p>
+                        <p class="event-info">
+                            ${iconSvg ? `<span class="icon">${iconSvg}</span>` : ''}<span>${eventInfo}</span>
+                        </p>
+                    </div>
+                `;
+                eventContainer.appendChild(eventElement);
+                if (saveToStorage) saveEventToStorage(username, eventInfo, avatarUrl);
+                if (eventContainer.childNodes.length > maxVisibleEvents) {
+                    const firstEvent = eventContainer.firstChild;
+                    firstEvent.style.animation = 'slideOut 0.8s forwards';
+                    setTimeout(() => {
+                        firstEvent.remove();
+                        resolve();
+                    }, 800);
+                } else {
+                    setTimeout(resolve, 800);
+                }
+            });
+        }
+        async function fetchAvatar(username) {
+            try {
+                const response = await fetch(`https://decapi.me/twitch/avatar/${username}`);
+                if (response.ok) return await response.text();
+                return 'https://static-cdn.jtvnw.net/user-default-pictures-uv/13e5fa74-defa-11e9-809c-784f43822e80-profile_image-300x300.png';
+            } catch {
+                return 'https://static-cdn.jtvnw.net/user-default-pictures-uv/13e5fa74-defa-11e9-809c-784f43822e80-profile_image-300x300.png';
+            }
+        }
+        async function handleEvent(data) {
+            if (!data.event || !data.data) return;
+            let avatarUrl = '';
+            let username = '';
+            let eventInfo = '';
+            switch (data.event.type) {
+                case 'Follow':
+                    if (urlParams.anonymousFollows) {
+                        username = 'SOMEONE';
+                        avatarUrl = 'https://raw.githubusercontent.com/tawmae/tawmae.github.io/refs/heads/main/assets/media/heart-png.png';
+                    } else {
+                        username = `${data.data.user_name}`;
+                        avatarUrl = await fetchAvatar(data.data.user_login);
+                    }
+                    eventInfo = 'FOLLOW';
+                    break;
+                case 'Cheer':
+                    username = `${data.data.message.displayName}`;
+                    avatarUrl = await fetchAvatar(data.data.message.username);
+                    eventInfo = `CHEER (${data.data.bits})`;
+                    break;
+                case 'Sub':
+                    username = `${data.data.user.name}`;
+                    avatarUrl = await fetchAvatar(data.data.user.login);
+                    eventInfo = data.data.is_prime ? 'SUB (PRIME)' : `SUB (T${data.data.sub_tier / 1000})`;
+                    break;
+                case 'ReSub':
+                    username = `${data.data.user.name}`;
+                    avatarUrl = await fetchAvatar(data.data.user.login);
+                    eventInfo = data.data.isPrime
+                        ? `RESUB X${data.data.cumulativeMonths} (PRIME)`
+                        : `RESUB X${data.data.cumulativeMonths} (T${parseInt(data.data.subTier) / 1000})`;
+                    break;
+                case 'GiftSub':
+                    username = `${data.data.user.name}`;
+                    avatarUrl = await fetchAvatar(data.data.user.login);
+                    const tier = parseInt(data.data.subTier, 10) / 1000;
+                    eventInfo = `GIFTSUB (T${tier})`;
+                    break;
+                case 'GiftBomb':
+                    username = `${data.data.user.name}`;
+                    avatarUrl = await fetchAvatar(data.data.user.login);
+                    const _tier = parseInt(data.data.sub_tier, 10) / 1000;
+                    eventInfo = `GIFTBOMB (${data.data.total} T${_tier})`;
+                    break;
+                case 'Raid':
+                    username = `${data.data.from_broadcaster_user_name}`;
+                    avatarUrl = await fetchAvatar(data.data.from_broadcaster_user_login);
+                    eventInfo = `RAID (${data.data.viewers})`;
+                    break;
+                case 'Donation':
+                    if (data.event.source === 'Kofi') {
+                        username = `${data.data.from}`;
+                        avatarUrl = 'https://raw.githubusercontent.com/tawmae/tawmae.github.io/refs/heads/main/assets/media/kofi%20placeholder.webp';
+                        const currencySymbols = { USD: '$', EUR: '€', GBP: '£' };
+                        const symbol = currencySymbols[data.data.currency] || data.data.currency;
+                        eventInfo = `KOFI ${symbol}${data.data.amount}`;
+                    }
+                    break;
+                case 'WatchStreak':
+                    if (urlParams.watchstreaks === 'false') return;
+                    username = data.data.displayName || data.data.userName;
+                    avatarUrl = await fetchAvatar(data.data.userName);
+                    eventInfo = `X${data.data.watchStreak} WATCHSTREAK`;
+                    break;
+                default:
+                    return;
+            }
+            await addEventNotification(username, eventInfo, avatarUrl);
+        }
+        async function processQueue() {
+            isProcessingQueue = true;
+            while (eventQueue.length > 0) {
+                const data = eventQueue.shift();
+                await handleEvent(data);
+            }
+            isProcessingQueue = false;
+        }
+        function queueEvent(data) {
+            eventQueue.push(data);
+            if (!isProcessingQueue) processQueue();
+        }
+        function connectWebSocket() {
+            const wsUrl = `ws://${urlParams.address}:${urlParams.port}/`;
+            const ws = new WebSocket(wsUrl);
+            ws.onopen = () => {
+                ws.send(
+                    JSON.stringify({
+                        request: 'Subscribe',
+                        events: {
+                            Twitch: ['Follow', 'Cheer', 'Sub', 'ReSub', 'GiftSub', 'GiftBomb', 'Raid', 'WatchStreak'],
+                            Kofi: ['Donation'],
+                        },
+                        id: 'eventSubscriptions',
+                    })
+                );
+            };
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                queueEvent(data);
+            };
+            ws.onclose = () => {
+                setTimeout(connectWebSocket, 10000);
+            };
+        }
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') clearEvents();
+        });
+        applyDynamicStyles();
+        loadStoredEvents();
+        connectWebSocket();
+    </script>
+</body>
+</html>
