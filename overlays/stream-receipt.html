@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STREAM RECEIPT - v.1.0.0 - tawmae.xyz</title>
+    <style>
+        body {
+            font-family: var(--font-family, 'Courier New'), Courier, monospace;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #receipt {
+            position: absolute;
+            top: -150%;
+            width: 90%;
+            max-width: 350px;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: left;
+            visibility: hidden;
+        }
+
+        @keyframes slide-in {
+            from {
+                top: -150%;
+            }
+
+            to {
+                top: 20px;
+            }
+        }
+
+        .show {
+            visibility: visible;
+            animation: slide-in 1s forwards;
+        }
+
+        h1,
+        h2,
+        hr {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .data-row,
+        .sub-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+
+        .data-row span:last-child,
+        .sub-row span:last-child {
+            font-weight: bold;
+            text-align: right;
+            flex-grow: 1;
+        }
+
+        .sub-row {
+            padding-left: 20px;
+        }
+
+        .highlight {
+            font-weight: bold;
+        }
+
+        .emote-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .emote-container img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .muted {
+            color: gray;
+            font-size: 0.9em;
+        }
+
+        .no-link {
+            text-decoration: none;
+            color: gray;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="receipt">
+        <h1>TWITCH RECEIPT</h1>
+        <p class="muted center" id="current-date"></p>
+        <p class="muted center" id="order-number"></p>
+        <p class="bold center">CUSTOMER: <span id="customer-name"></span></p>
+        <p class="center"><a class="no-link" href="#" id="customer-link" target="_blank"></a></p>
+        <hr>
+        <h2>STREAM STATS</h2>
+        <div class="data-row"><span>UPTIME:</span> <span id="uptime">N/A</span></div>
+        <div style="height: 5px;"></div>
+        <div class="data-row"><span>FOLLOWS:</span> <span id="follows">0</span></div>
+        <div class="data-row"><span>SUBSCRIPTIONS:</span> <span id="subCount">0</span></div>
+        <div class="data-row"><span>BITS CHEERED:</span> <span id="bits">0</span></div>
+        <div style="height: 5px;"></div>
+		<div class="data-row"><span>RAIDS:</span> <span id="raidCount">0</span></div>
+        <div class="sub-row"><span>RAIDED VIEWERS:</span> <span id="raidViewers">0</span></div>
+		<div style="height: 5px;"></div>
+        <div class="data-row"><span>HYPE TRAINS:</span> <span id="hypetrainCount">0</span></div>
+        <div class="sub-row"><span>CONTRIBUTORS:</span> <span id="hypetrainContributors">0</span></div>
+        <div style="height: 5px;"></div>
+        <div class="data-row"><span>WON PREDICTION POINTS:</span> <span id="predictionWonPoints">0</span></div>
+        <div style="height: 5px;"></div>
+        <div class="data-row"><span>TOTAL AD TIME:</span> <span><span id="adDuration">00:00:00</span></span></div>
+        <hr>
+        <h2>CHAT STATS</h2>
+        <div class="data-row"><span>CHAT MESSAGES SENT:</span> <span id="messageCount">0</span></div>
+        <div class="data-row">
+            <span>MOST USED EMOTE:</span>
+            <span class="emote-container">
+                <span id="emote-name">N/A</span>
+                <img id="emote-image" src="" alt="Emote">
+            </span>
+        </div>
+        <div class="sub-row"><span>COUNT:</span> <span id="emote-count">0</span></div>
+        <div style="height: 5px;"></div>
+        <div class="data-row"><span>TOP CHATTER:</span> <span id="topChatter">N/A</span></div>
+        <div class="sub-row"><span>COUNT:</span> <span id="topChatterCount">0</span></div>
+        <hr>
+        <h2>MODERATION</h2>
+        <div class="data-row"><span>MESSAGES DELETED:</span> <span id="deletedMessages">0</span></div>
+        <div class="data-row"><span>TIMED OUT USERS:</span> <span id="timedoutCount">0</span></div>
+        <div class="sub-row"><span>TOTAL DURATION:</span> <span id="timedoutDuration">0</span></div>
+        <div class="data-row"><span>BANNED USERS:</span> <span id="bannedUsers">0</span></div>
+        <hr>
+        <p class="muted center">Served by: <span>tawmae</span></p>
+        <p class="muted center"><a class="no-link" href="https://tawmae.github.io" target="_blank">tawmae.github.io</a>
+        </p>
+        <p class="muted center" id="current-time"></p>
+        <hr>
+        <p class="center">CARD #: **** **** **** 6969</p>
+        <p class="center">AUTH CODE: <span id="auth-code"></span></p>
+        <p class="center">CARDHOLDER: <span id="cardholder-name"></span></p>
+        <p class="center bold">THANK YOU FOR WATCHING!</p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const address = params.get("address") || "localhost";
+        const port = params.get("port") || "8080"; 
+
+        const ws = new WebSocket(`ws://${address}:${port}/`);
+
+
+        ws.onopen = function () {
+            ws.send(JSON.stringify({
+                request: "Subscribe",
+                events: { general: ["Custom"] },
+                id: "Poggers"
+            }));
+        };
+
+        ws.onmessage = (event) => {
+            const message = JSON.parse(event.data);
+            if (message.data?.eventName === "PrintTwitchReceipt" && message.data.payload) {
+                generateReceipt(
+                    message.data.payload,
+                    message.data.broadcaster,
+                    message.data.broadcasterLogin,
+                    message.data.topChatter,
+                    message.data.topChatterCount
+                );
+            }
+        };
+
+        function generateReceipt(data, broadcaster, broadcasterLogin, topChatter, topChatterCount) {
+            const receipt = document.getElementById("receipt");
+            receipt.style.visibility = "visible";
+            receipt.classList.add("show");
+
+            const now = new Date();
+            document.getElementById("current-date").innerText = now.toDateString();
+            document.getElementById("order-number").innerText = `ORDER #${Math.floor(Math.random() * 100000)}`;
+            document.getElementById("customer-name").innerText = broadcaster || "unknown";
+            document.getElementById("customer-link").innerText = `www.twitch.tv/${broadcasterLogin || "unknown"}`;
+            document.getElementById("customer-link").href = `https://www.twitch.tv/${broadcasterLogin || "unknown"}`;
+
+            const streamStart = new Date(data.streamStartedAt || now);
+            const uptime = new Date(now - streamStart).toISOString().substr(11, 8);
+            document.getElementById("uptime").innerText = uptime;
+
+            document.getElementById("follows").innerText = data.follows || 0;
+            document.getElementById("subCount").innerText = data.subCount || 0;
+            document.getElementById("bits").innerText = data.bits || 0;
+			      document.getElementById("raidCount").innerText = data.raids?.raidCount || 0;
+            document.getElementById("raidViewers").innerText = data.raids?.raidViewers || 0;
+            document.getElementById("hypetrainCount").innerText = data.hypetrains?.hypetrainCount || 0;
+            document.getElementById("hypetrainContributors").innerText = data.hypetrains?.hypetrainContributors || 0;
+            const adDurationSeconds = data.adDuration || 0;
+            const adDuration = new Date(adDurationSeconds * 1000).toISOString().substr(11, 8);
+            document.getElementById("adDuration").innerText = adDuration;
+            document.getElementById("predictionWonPoints").innerText = data.predictionWonPoints || 0;
+
+            document.getElementById("messageCount").innerText = data.messageCount || 0;
+
+            const mostUsedEmote = Object.entries(data.emotes || {}).reduce((a, b) => b[1].count > a[1].count ? b : a, [null, { count: 0 }]);
+            document.getElementById("emote-name").innerText = mostUsedEmote[0] || "N/A";
+            document.getElementById("emote-count").innerText = mostUsedEmote[1].count || 0;
+            document.getElementById("emote-image").src = mostUsedEmote[1].imageUrl || "";
+
+            document.getElementById("topChatter").innerText = topChatter || "N/A";
+            document.getElementById("topChatterCount").innerText = topChatterCount || 0;
+
+            document.getElementById("deletedMessages").innerText = data.deletedMessages || 0;
+            document.getElementById("timedoutCount").innerText = data.timedoutUsers?.timedoutCount || 0;
+            const timedoutDurationSeconds = data.timedoutUsers?.timedoutDuration || 0;
+            const timedoutDuration = new Date(timedoutDurationSeconds * 1000).toISOString().substr(11, 8);
+            document.getElementById("timedoutDuration").innerText = timedoutDuration;
+
+            document.getElementById("bannedUsers").innerText = data.bannedUsers || 0;
+            document.getElementById("current-time").innerText = now.toLocaleTimeString();
+            document.getElementById("auth-code").innerText = Math.floor(10000 + Math.random() * 90000);
+            document.getElementById("cardholder-name").innerText = broadcaster || "unknown";
+        }
+
+
+        const params = new URLSearchParams(window.location.search);
+        const font = params.get("font");
+        if (font) {
+            document.documentElement.style.setProperty("--font-family", font);
+        }
+    </script>
+</body>
+
+</html>
