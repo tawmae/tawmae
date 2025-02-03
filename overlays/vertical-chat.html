@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>VERTICAL CHAT - v.1.0.0 – tawmae.xyz</title>
+    <title>VERTICAL CHAT - v.1.0.0 - tawmae.xyz</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
@@ -679,19 +679,40 @@
                 el.appendChild(header);
                 if (color) userColorCache.set(userId, color);
                 if (isReply && reply && reply.msgBody) {
-                    const rp = document.createElement('div');
-                    rp.classList.add('reply-preview');
+                    const replyPreview = document.createElement('div');
+                    replyPreview.classList.add('reply-preview');
+
+                    replyPreview.appendChild(document.createTextNode('↪ «'));
+
                     const maxLen = 50;
-                    let pv = '↪  «' + reply.msgBody + '»';
-                    if (pv.length > maxLen) pv = pv.substring(0, maxLen) + '...»';
-                    const orgE = msgEmotesMap.get(reply.msgId) || [];
-                    rp.innerHTML = replaceEmotesInText(pv, orgE);
-                    el.appendChild(rp);
-                    if (reply.msgId) {
-                        if (!replyPreviewsMap.has(reply.msgId)) replyPreviewsMap.set(reply.msgId, []);
-                        replyPreviewsMap.get(reply.msgId).push(rp);
+                    let previewText = reply.msgBody;
+                    let emotes = msgEmotesMap.get(reply.msgId) || [];
+
+                    if (previewText.length > maxLen) {
+                        previewText = previewText.substring(0, maxLen) + '...';
+
+
+                        emotes = emotes.filter(emote => emote.startIndex < maxLen);
                     }
+
+                    const emoteContent = replaceEmotesInText(previewText, emotes);
+
+
+                    const wrappedEmoteContent = document.createElement('span');
+                    wrappedEmoteContent.appendChild(document.createTextNode(' '));
+                    wrappedEmoteContent.appendChild(emoteContent.cloneNode(true));
+                    wrappedEmoteContent.appendChild(document.createTextNode(' '));
+
+                    replyPreview.appendChild(wrappedEmoteContent);
+
+                    replyPreview.appendChild(document.createTextNode('»'));
+
+                    el.appendChild(replyPreview);
                 }
+
+
+
+
                 const msgText = document.createElement('div');
                 msgText.classList.add('message-text');
                 if (Array.isArray(parts)) {
@@ -976,18 +997,38 @@
             function escapeRegExp(s) {
                 return s.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');
             }
-            function replaceEmotesInText(t, ea) {
-                if (!ea || ea.length === 0) return t;
-                ea.sort((a, b) => b.startIndex - a.startIndex);
-                ea.forEach(em => {
-                    const reg = new RegExp(`\\b${escapeRegExp(em.name)}\\b`, 'gi');
-                    const tag = (t.includes('gigantified-emote')) ?
-                        `<img class="gigantified-emote" src="${em.imageUrl}" alt="${em.name}">` :
-                        `<img src="${em.imageUrl}" alt="${em.name}">`;
-                    t = t.replace(reg, tag);
+            function replaceEmotesInText(text, emotes) {
+                if (!emotes || emotes.length === 0) return document.createTextNode(text);
+
+                let container = document.createDocumentFragment();
+                let lastIndex = 0;
+
+                emotes.sort((a, b) => a.startIndex - b.startIndex);
+
+                emotes.forEach(emote => {
+
+                    if (lastIndex < emote.startIndex) {
+                        container.appendChild(document.createTextNode(text.substring(lastIndex, emote.startIndex)));
+                    }
+
+
+                    let img = document.createElement("img");
+                    img.src = emote.imageUrl;
+                    img.alt = emote.name;
+                    img.classList.add("emote");
+                    container.appendChild(img);
+
+                    lastIndex = emote.endIndex + 1;
                 });
-                return t;
+
+
+                if (lastIndex < text.length) {
+                    container.appendChild(document.createTextNode(text.substring(lastIndex)));
+                }
+
+                return container;
             }
+
             function createSubscriptionElement(title, color, icon) {
                 const el = document.createElement('div');
                 el.classList.add('subscription');
