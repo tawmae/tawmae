@@ -32,7 +32,7 @@ function copyToClipboard(id) {
 
 function copyURLToClipboard(url) {
 
-    const button = document.querySelector('#import .copy-btn');
+    const button = document.querySelector('.copy-box .copy-btn');
     navigator.clipboard.writeText(url).then(() => {
         button.innerHTML = '<span class="iconify" data-icon="fluent:checkmark-20-filled"></span> Copied';
         button.classList.add('copied');
