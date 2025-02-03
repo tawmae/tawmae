@@ -17,7 +17,8 @@ const wordToEmojiMap = {
   "SNIFFA": "/assets/emotes/sniffa.webp",
   "moneyWave": "/assets/emotes/moneyWave.webp",
   "griffinTyping": "/assets/emotes/peter-griffin-typing.webp",
-  "catJAM": "/assets/emotes/cat-jam.webp"
+  "catJAM": "/assets/emotes/cat-jam.webp",
+  "_EDM": "/assets/emotes/edm.webp"
 };
 
 function replacePlaceholdersWithEmojis(text) {
