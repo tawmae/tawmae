@@ -51,7 +51,7 @@
                             <li><a href="{{ site.baseurl }}/obs-widgets/hot-words.html"><span class="iconify nav-icon-child" data-icon="solar:flame-bold"></span> HOT WORDS</a></li>
                             <li><a href="{{ site.baseurl }}/obs-widgets/rotator.html"><span class="iconify nav-icon-child" data-icon="material-symbols-light:rotate-90-degrees-ccw"></span> ROTATOR</a></li>
                             <li><a href="{{ site.baseurl }}/obs-widgets/steam-welcome.html"><span class="iconify nav-icon-child" data-icon="mdi:steam-box"></span> STEAM WELCOME</a></li>
-                            <li><a href="{{ site.baseurl }}/obs-widgets/stream-receipt.html"><span class="iconify nav-icon-child" data-icon="material-symbols:receipt-long-outline"></span>STREAM RECEIPT</a></li>
+                            <li><a href="{{ site.baseurl }}/obs-widgets/stream-receipt.html"><span class="iconify nav-icon-child" data-icon="material-symbols:receipt-long-outline"></span> STREAM RECEIPT</a></li>
                             <li><a href="{{ site.baseurl }}/obs-widgets/vertical-chat.html"><span class="iconify nav-icon-child" data-icon="ic:baseline-mark-unread-chat-alt"></span> VERTICAL CHAT</a></li>
                         </ul>
                     </li>
@@ -148,10 +148,12 @@
         document.addEventListener("DOMContentLoaded", function () {
             var hamburger = document.querySelector(".hamburger");
             var mobileMenu = document.querySelector(".mobile-menu");
-            hamburger.addEventListener("click", function (e) {
-                e.stopPropagation();
-                mobileMenu.classList.toggle("open");
-            });
+            if(hamburger){
+                hamburger.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle("open");
+                });
+            }
             var dropdownToggles = mobileMenu.querySelectorAll(".dropdown-toggle");
             dropdownToggles.forEach(function (toggle) {
                 toggle.addEventListener("click", function (e) {
