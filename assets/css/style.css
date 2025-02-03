@@ -1,4 +1,3 @@
-/* Style.css */
 * {
   margin: 0;
   padding: 0;
@@ -339,46 +338,45 @@ header {
 
 @media (max-width: 768px) {
   header {
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 15px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 2%;
   }
   .header-left,
   .header-center,
   .header-right {
+    flex: none;
     width: 100%;
-    display: block;
     text-align: center;
-    margin: 10px 0;
+    margin-bottom: 5px;
   }
   .header-center ul {
     flex-direction: column;
     gap: 10px;
   }
-  .header-center ul li {
-    margin: 5px 0;
+  .header-right {
+    margin-top: 10px;
   }
-  .rotator-wrapper {
-    flex-direction: column;
-    align-items: center;
+  main {
+    padding-top: 120px;
   }
   .rotator-container {
-    max-width: 100%;
-    margin-top: 20px;
-    aspect-ratio: 16 / 9;
-  }
-  .product-grid-wrapper {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-  }
-  .product-grid {
-    grid-template-columns: 1fr;
-    max-width: 350px;
+    aspect-ratio: 4 / 3;
   }
   .black-text-box {
-    margin-top: 20px;
-    width: 90%;
-    min-width: unset;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-center ul li a {
+    font-size: 0.9rem;
+  }
+  .header-right a {
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
+  .product-card {
+    width: 100%;
   }
 }
