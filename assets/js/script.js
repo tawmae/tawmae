@@ -174,3 +174,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // ====================================================================================================================
+
+document.addEventListener("DOMContentLoaded", function() {
+      // Alle Elemente finden, die als Codeblock-Inhalt dienen sollen
+      var codeBlocks = document.querySelectorAll('.code-block-content');
+      
+      codeBlocks.forEach(function(block) {
+        // Sprache aus dem data-Attribut ermitteln, Standard ist "none"
+        var language = block.getAttribute('data-language') || 'none';
+        
+        // Erstelle <pre> und <code> Elemente
+        var pre = document.createElement('pre');
+        var code = document.createElement('code');
+        code.className = 'language-' + language;
+        
+        // Den reinen Textinhalt des Blocks übernehmen (Whitespace wird erhalten)
+        var codeText = block.textContent.trim();
+        code.textContent = codeText;
+        
+        // <code> in <pre> einfügen
+        pre.appendChild(code);
+        
+        // Den Original-Container durch den neuen Codeblock ersetzen
+        block.parentNode.replaceChild(pre, block);
+        
+        // Falls Prism.js verfügbar ist, den neuen Block hervorheben
+        if (typeof Prism !== 'undefined') {
+          Prism.highlightElement(code);
+        }
+      });
+    });
