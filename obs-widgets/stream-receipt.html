@@ -1,0 +1,179 @@
+---
+layout: default
+title: "STREAM RECEIPT | tawmae"
+description: "An OBS widget to display a summary of your current stream in form of a receipt."
+---
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
+<!----    TITLE    ------------------------------------------------------------------------------------------------------------------------------>
+<div class="extension-title">
+    <div class="black-text-box">
+        <h1>STREAM RECEIPT</h1>
+        <p>You most likely know all of those recipes on other social media platforms like Twitter or Bluesky that boomers love to share? Well, I've made one for Twitch... It shows a nice lil' summary of your current stream. <br><span
+                style="font-size: 1.5rem">moneyWave</span></p>
+    </div>
+    <a href="{{ site.baseurl }}/assets/covers/stream-receipt.gif" target="_blank">
+        <div class="extension-image"
+            style="background-image: url('{{ site.baseurl }}/assets/covers/stream-receipt.gif');"></div>
+    </a>
+</div>
+
+<div class="accordion">
+    <div class="accordion-divider"></div>
+    <!----    BROWSER SOURCE URL    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('import')">
+            <span class="iconify title-icon" data-icon="jam:unlink"></span> <span>Browser Source URL</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="import">
+            <div class="copy-box">
+                <span class="copy-text" id="base64-string"
+                    data-copy-text="https://tawmae.xyz/overlays/stream-receipt.html">
+                    https://tawmae.xyz/overlays/stream-receipt.html
+                </span>
+                <button class="copy-btn"
+                    onclick="copyURLToClipboard('https://tawmae.xyz/overlays/stream-receipt.html')">
+                    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+    <div class="accordion-divider"></div>
+    <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('setup')">
+            <span class="iconify title-icon" data-icon="material-symbols:settings-b-roll"></span> <span>Setup</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="setup">
+            <!---------------------------------------------->
+            <div class="description-container">
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">1.</span> In <span
+                            style="font-weight: bold; color: #d4af37;">Streamer.bot</span>, go into the <span
+                            style="font-weight: bold; color: #d4af37;">Servers/Clients -> WebSocket Server</span> tab.
+                        Check <span style="font-weight: bold; color: #d4af37;">Auto Start WebSocket Server</span>, leave
+                        <span style="font-weight: bold; color: #d4af37;">Address</span> at <span
+                            style="font-weight: bold; color: #d4af37;">127.0.0.1</span> and the <span
+                            style="font-weight: bold; color: #d4af37;">Port</span> at <span
+                            style="font-weight: bold; color: #d4af37;">8080</span>. You can set a password if you want,
+                        just make sure to leave <span style="font-weight: bold; color: #d4af37;">Enforce All
+                            Requests</span> unchecked. Start the server.</p>
+                </div>
+                <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png');">
+                    </div>
+                </a>
+            </div>
+
+            <!---------------------------------------------->
+            <div class="description-container">
+                <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
+                </a>
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">2.</span> Copy the <span
+                            style="font-weight: bold; color: #d4af37;">Browser Source URL</span> from above into your
+                        clipboard.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+            <div class="description-container">
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">3.</span> In <span
+                            style="font-weight: bold; color: #d4af37;">OBS</span>, create a new <span
+                            style="font-weight: bold; color: #d4af37;">Browser Source</span>, name it whatever you want.
+                        Then paste the copied URL into <span style="font-weight: bold; color: #d4af37;">URL</span> and
+                        preferably set the <span style="font-weight: bold; color: #d4af37;">Width</span> and <span
+                            style="font-weight: bold; color: #d4af37;">Height</span> to you about span
+                            style="font-weight: bold; color: #d4af37;">450x1200</span>. You might want to fiddle around with it. <br><br>
+                        <span style="font-weight: bold; color: #fff;">And then you're done</span> <span
+                            style="font-size: 1.8rem">Pog Clap</span> <br> <span style="font-size: 0.9rem;"> If you want
+                            to test it, you can rightclick the triggers in the <span style="font-weight: bold; color: #d4af37;">2 - Data</span>
+                            action and hit <span
+                                style="font-weight: bold; color: #d4af37;">Simulate Event</span></span></p>
+                </div>
+                <a href="{{ site.baseurl }}/assets/setup/obs-browser-source.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/obs-browser-source.png');"></div>
+                </a>
+            </div>
+            <!---------------------------------------------->
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="accordion-divider"></div>
+    <!-----------    CUSTOMIZATION    --------------------------------------------------------------------------------------------------------------->
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('customization')">
+            <span class="iconify title-icon" data-icon="gridicons:customize"></span> <span>Customization</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="customization">
+            <p>You can add <span style="font-weight: bold; color: #d4af37;">URL Parameters</span> at the end of the URL
+                to customize certain things. The first parameter is getting added with a <span
+                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">?</span>, every
+                additional one with a <span
+                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">&</span>.</p>
+            <p><br></p>
+            <p>Example: <span
+                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">https://tawmae.xyz/overlays/ad-notification.html?font=comic+sans+ms&color=pink</span>
+            </p>
+            <p><br><br></p>
+            <!---------------------------------------------->
+            <div class="customization-text-container">
+                <div class="black-text-box-3">
+                    <p><span class="iconify title-icon" data-icon="mdi:format-font"></span><span
+                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font</span></p>
+                    <p>Changes the font used for the text. Supports standard fonts. Use a <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">+</span>
+                        character to replace spaces.</p>
+                </div>
+                <div class="black-text-box-4">
+                    <p><span style="color: #d4af37; font-weight: bold;">font=Arial</span></p>
+                    <p><br></p>
+                    <p><span style="color: #d4af37; font-weight: bold;">font=Comic+Sans+MS</span></p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+    <div class="accordion-divider"></div>
+    <!------    CHANGELOG    --------------------------------------------------------------------------------------------------------------------->
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('changelog')">
+            <span class="iconify title-icon" data-icon="material-symbols:published-with-changes"></span>
+            <span>Changelog</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="changelog">
+            <table class="extension-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Changes</th>
+                        <th>Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!---------------------------------------------->
+                    <tr>
+                        <td>February 02, 2025</td>
+                        <td>Release</td>
+                        <td>1.0.0</td>
+                    </tr>
+                    <!---------------------------------------------->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+    <div class="accordion-divider"></div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+</div>
