@@ -310,18 +310,6 @@ p {
   height: 90px;
 }
 
-.black-text-box-long-2{
-  background-color: #111;
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  height: 90px;
-  margin-bottom: 20px;
-  text-align: center !important;
-  vertical-align: middle !important;
-}
-
-
 .extension-example-image {
   width: 866px !important; 
   height: 228px !important;
