@@ -343,38 +343,4 @@ header {
   color: black;
 }
 
-.link-preview {
-  position: absolute;
-  left: 0;
-  bottom: -150px;
-  width: 250px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  display: none;
-  z-index: 999;
-}
-
-.link-preview-img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.link-preview-text {
-  padding: 5px;
-}
-
-.link-preview-title {
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.link-preview-desc {
-  font-size: 12px;
-  color: #555;
-}
-
 
