@@ -401,7 +401,8 @@ description: "Request songs and fully control your Spotify player via Twitch cha
         <p><span style="font-weight: bold; color: #fff;">!removeFromQueue <span style="color: #455f8c;">[Songname]</span></span></p>
     </div>
     <div class="black-text-box-6">
-        <p>Removes the requested song from the queue. Once the song starts, it will automatically skip it. The name doesn't have to be exact, it will just check if the actual track name contains the input. So <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">("emptiness" for "The Emptiness Machine")</span> is enough. Just make sure it's precise enough to not accidentally remove a wrong one. The action also populates variables to perform refunds or whatever: <code>removedSong_user</code>, <code>removedSong_userName</code>, <code>removedSong_userId</code>, <code>removedSong_isChannelReward</code>, <code>removedSong_rewardId</code> and <code>removedSong_redemptionId</code>. If it was a reward, the method already automatically refunds the channel points upon removal.</p>
+        <p>Removes the requested song from the queue. Once the song starts, it will automatically skip it. The name doesn't have to be exact, it will just check if the actual track name contains the input. So <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">("emptiness" for "The Emptiness Machine")</span> is enough.
+        <span style="fontsize: 0.7rem">The action also populates user variables on a successful removal and auto-refunds channel points if any have been spent.</span></p>
     </div>
 </div>
 
