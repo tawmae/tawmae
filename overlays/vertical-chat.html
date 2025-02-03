@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>VERTICAL CHAT - v.1.0.0 - tawmae.xyz</title>
+    <title>VERTICAL CHAT - v.1.0.0 - tawmae</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
@@ -772,7 +772,12 @@
                 if (enterDirection === 'left') el.classList.add('slide-in-left');
                 const at = document.createElement('div');
                 at.classList.add('subscription-text');
-                at.innerHTML = replaceEmotesInText(text, []);
+                const announcementContent = replaceEmotesInText(text, []);
+                if (announcementContent instanceof DocumentFragment) {
+                    at.appendChild(announcementContent);
+                } else {
+                    at.textContent = announcementContent.textContent;
+                }
                 el.appendChild(at);
                 addElement(el);
                 messagesMap.set(messageId, el);
