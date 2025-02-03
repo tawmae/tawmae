@@ -66,5 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
     } 
     else if (currentPage.includes("stream-receipt")) {
         loadImportString("/action-imports/stream-receipt.txt");  
+    }
+    else if (currentPage.includes("spotify-and-sb")) {
+        loadImportString("/action-imports/spotify-and-sb.txt");  
     } 
 });
