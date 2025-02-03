@@ -352,6 +352,38 @@ header {
   color: black;
 }
 @media (max-width: 768px) {
+  .header-center {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #131315 0%, #1f1c20 100%);
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+  .header-center.active {
+    display: flex;
+  }
+  .header-center ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .mobile-menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 15px;
+  }
+}
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
   .header-center ul {
     gap: 10px;
   }
