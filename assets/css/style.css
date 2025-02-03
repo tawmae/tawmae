@@ -247,6 +247,8 @@ header {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
   max-width: 1200px;
   flex: 1;
+  width: 100%;
+  align-items: stretch; 
 }
 .product-card-link {
   text-decoration: none;
@@ -254,11 +256,14 @@ header {
   display: block;
 }
 .product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   text-align: center;
-  min-width: 200px;
-  height: auto;
+  width: 220px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .product-card:hover {
