@@ -334,5 +334,9 @@ header {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+.nav-icon{
+  margin-top: 5px;
+}
+
 
 
