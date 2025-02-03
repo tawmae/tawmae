@@ -379,6 +379,57 @@ header {
   .product-card p {
     font-size: 0.8rem;
   }
+  .header-center,
+  .header-right {
+    display: none;
+  }
+  .header-left {
+    flex: 1;
+    text-align: center;
+  }
+  .hamburger-icon {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.8rem;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #131315;
+    padding: 20px 0;
+    z-index: 999;
+  }
+  #mobile-menu-toggle:checked ~ .mobile-menu {
+    display: block;
+  }
+  .mobile-menu nav ul {
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+  }
+  .mobile-menu nav ul li a {
+    font-size: 1.2rem;
+    color: white;
+    padding: 10px;
+    display: block;
+  }
+  .mobile-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .mobile-social a {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
 }
 @media (max-width: 480px) {
   .header-center ul {
