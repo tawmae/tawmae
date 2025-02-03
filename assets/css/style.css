@@ -258,7 +258,7 @@ header {
 .product-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
@@ -290,11 +290,13 @@ header {
 .product-card h3 {
   margin-top: 10px;
   font-size: 1.1rem;
+  flex-grow: 0;
 }
 .product-card p {
   font-size: 0.9rem;
   color: #ccc;
   padding: 5px;
+  flex-grow: 0;
 }
 .product-card img.emoji {
   width: auto !important;
