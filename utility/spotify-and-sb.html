@@ -482,11 +482,11 @@ description: "Request songs and fully control your Spotify player via Twitch cha
             <p><br></p>
             <!--------------------------------->
             <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                <p style="font-weight: bold;">New Song</p>
-                <p>Fires when a new song starts <span
-                        style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(also fires if the
+                <p style="font-weight: bold; font-size: 1.3rem">New Song</p>
+                <p>Fires when a new song starts <br><span
+                        style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95; font-size: 0.7rem">(also fires if the
                         same song gets played over/reset)</span>.</p>
-                <p style="font-weight: bold;">Available variables:</p>
+                <p style="font-weight: bold;">Available variables:<br></p>
                 <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
                     <li>
                         <span style="font-weight: bold; color: #455f8c;">trackId</span>
@@ -534,13 +534,13 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                         <span style="font-weight: bold; color: #455f8c;">progressTimeFormatted</span>
                         <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the new song's progress time in a mm:ss format
+                        - the new song's progress time in a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span> format
                     </li>
                     <li>
                         <span style="font-weight: bold; color: #455f8c;">durationTimeFormatted</span>
                         <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the new song's total duration in a mm:ss format
+                        - the new song's total duration in a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span> format
                     </li>
                     <li>
                         <span style="font-weight: bold; color: #455f8c;">isRequested</span>
@@ -553,7 +553,7 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                         <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
                         - the display name of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">( <null> if not
+                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if not
                                 requested )</span>
                     </li>
                     <li>
@@ -561,7 +561,7 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                         <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
                         - the user login of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">( <null> if not
+                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if not
                                 requested )</span>
                     </li>
                     <li>
@@ -569,7 +569,7 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                         <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
                         - the user ID of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">( <null> if not
+                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if not
                                 requested )</span>
                     </li>
                     <li>
@@ -577,7 +577,7 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                         <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
                         - the profile picture URL of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">( <null> if not
+                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if not
                                 requested )</span>
                     </li>
                 </ul>
@@ -585,9 +585,9 @@ description: "Request songs and fully control your Spotify player via Twitch cha
 
             <!--------------------------------->
             <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                <p style="font-weight: bold;">Song Continued</p>
+                <p style="font-weight: bold; font-size: 1.3rem">Song Continued</p>
                 <p>Fires when a song gets resumed.</p>
-                <p style="font-weight: bold;">Available variables:</p>
+                <p style="font-weight: bold;">Available variables:<br></p>
                 <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
                     <li>
                         <span style="font-weight: bold; color: #455f8c;">trackId</span>
@@ -635,22 +635,22 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                         <span style="font-weight: bold; color: #455f8c;">progressTimeFormatted</span>
                         <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's progress time in a mm:ss format
+                        - the song's progress time in a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span> format
                     </li>
                     <li>
                         <span style="font-weight: bold; color: #455f8c;">durationTimeFormatted</span>
                         <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's total duration in a mm:ss format
+                        - the song's total duration in a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span> format
                     </li>
                 </ul>
             </div>
 
             <!--------------------------------->
             <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px;">
-                <p style="font-weight: bold;">Song Paused</p>
+                <p style="font-weight: bold; font-size: 1.3rem">Song Paused</p>
                 <p>Fires when a song gets paused.</p>
-                <p style="font-weight: bold;">Available variables:</p>
+                <p style="font-weight: bold;">Available variables:<br></p>
                 <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
                     <li>
                         <span style="font-weight: bold; color: #455f8c;">trackId</span>
@@ -700,13 +700,13 @@ description: "Request songs and fully control your Spotify player via Twitch cha
                         <span style="font-weight: bold; color: #455f8c;">progressTimeFormatted</span>
                         <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's progress time in a mm:ss format
+                        - the song's progress time in a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span> format
                     </li>
                     <li>
                         <span style="font-weight: bold; color: #455f8c;">durationTimeFormatted</span>
                         <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's total duration in a mm:ss format
+                        - the song's total duration in a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span> format
                     </li>
                 </ul>
             </div>
