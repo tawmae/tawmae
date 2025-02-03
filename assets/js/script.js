@@ -168,3 +168,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // ====================================================================================================================
+
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const headerCenter = document.querySelector(".header-center");
+
+  menuToggle.addEventListener("click", function() {
+    headerCenter.classList.toggle("active");
+  });
+});
