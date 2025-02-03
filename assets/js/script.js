@@ -1,75 +1,75 @@
 // ====================================================================================================================
 const wordToEmojiMap = {
-  "5Head": "/assets/emotes/5head.webp",
-  "Pog": "/assets/emotes/pog.webp",
-  "FeelsBadMan": "/assets/emotes/feelsbadman.webp",
-  "Kapp": "/assets/emotes/kapp.webp",
-  "pepeSmoke": "/assets/emotes/pepesmoke.webp",
-  "MrDestructoid": "/assets/emotes/mrdestructoid.webp",
-  "widetime": "/assets/emotes/widetime.webp",
-  "modCheck": "/assets/emotes/modcheck.webp",
-  "PauseChamp": "/assets/emotes/pausechamp.webp",
-  "Clap": "/assets/emotes/clap.webp",
-  "itsTimeToStop": "/assets/emotes/joji-clock.webp",
-  "rupertRotate": "/assets/emotes/rupert.webp",
-  "kingGABEN": "/assets/emotes/kingGABEN.webp",
-  "thisIsFine": "/assets/emotes/this-is-fine.webp",
-  "SNIFFA": "/assets/emotes/sniffa.webp",
-  "moneyWave": "/assets/emotes/moneyWave.webp",
-  "griffinTyping": "/assets/emotes/peter-griffin-typing.webp",
-  "catJAM": "/assets/emotes/cat-jam.webp",
-  "_EDM": "/assets/emotes/edm.webp"
+    "5Head": "/assets/emotes/5head.webp",
+    "Pog": "/assets/emotes/pog.webp",
+    "FeelsBadMan": "/assets/emotes/feelsbadman.webp",
+    "Kapp": "/assets/emotes/kapp.webp",
+    "pepeSmoke": "/assets/emotes/pepesmoke.webp",
+    "MrDestructoid": "/assets/emotes/mrdestructoid.webp",
+    "widetime": "/assets/emotes/widetime.webp",
+    "modCheck": "/assets/emotes/modcheck.webp",
+    "PauseChamp": "/assets/emotes/pausechamp.webp",
+    "Clap": "/assets/emotes/clap.webp",
+    "itsTimeToStop": "/assets/emotes/joji-clock.webp",
+    "rupertRotate": "/assets/emotes/rupert.webp",
+    "kingGABEN": "/assets/emotes/kingGABEN.webp",
+    "thisIsFine": "/assets/emotes/this-is-fine.webp",
+    "SNIFFA": "/assets/emotes/sniffa.webp",
+    "moneyWave": "/assets/emotes/moneyWave.webp",
+    "griffinTyping": "/assets/emotes/peter-griffin-typing.webp",
+    "catJAM": "/assets/emotes/cat-jam.webp",
+    "_EDM": "/assets/emotes/edm.webp"
 };
 
 function replacePlaceholdersWithEmojis(text) {
-  for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
-    const emojiTag = `<img src="${emojiURL}" alt="${word}" class="emoji" data-fullsize="${emojiURL}" style="height: 1em; vertical-align: middle;">`;
+    for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
+        const emojiTag = `<img src="${emojiURL}" alt="${word}" class="emoji" data-fullsize="${emojiURL}" style="height: 1em; vertical-align: middle;">`;
 
-    text = text.replace(new RegExp(`:\\b${word}\\b:`, 'g'), emojiTag);  
-    text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);     
-  }
-  return text;
+        text = text.replace(new RegExp(`:\\b${word}\\b:`, 'g'), emojiTag);
+        text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
+    }
+    return text;
 }
 
 function replaceWordsWithEmojis() {
-  const elements = document.querySelectorAll('p, h1, h2, h3, span, div');  
+    const elements = document.querySelectorAll('p, h1, h2, h3, span, div');
 
-  elements.forEach(element => {
-    let text = element.innerHTML;
+    elements.forEach(element => {
+        let text = element.innerHTML;
 
-    for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
-      const emojiTag = `<img src="${emojiURL}" alt="${word}" class="emoji" data-fullsize="${emojiURL}" style="height: 1em; vertical-align: middle;">`;  
-      text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
-    }
+        for (const [word, emojiURL] of Object.entries(wordToEmojiMap)) {
+            const emojiTag = `<img src="${emojiURL}" alt="${word}" class="emoji" data-fullsize="${emojiURL}" style="height: 1em; vertical-align: middle;">`;
+            text = text.replace(new RegExp(`\\b${word}\\b`, 'g'), emojiTag);
+        }
 
-    element.innerHTML = text;
-  });
+        element.innerHTML = text;
+    });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  replaceWordsWithEmojis();
+document.addEventListener("DOMContentLoaded", function () {
+    replaceWordsWithEmojis();
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-  const emojis = document.querySelectorAll('.emoji');
+document.addEventListener("DOMContentLoaded", function () {
+    const emojis = document.querySelectorAll('.emoji');
 
-  emojis.forEach(emoji => {
-    emoji.addEventListener('mouseenter', function() {
-      const fullsizePreview = document.createElement('div');
-      fullsizePreview.classList.add('emoji-preview');
-      fullsizePreview.style.position = 'absolute';
-      fullsizePreview.style.zIndex = '1000';
-      fullsizePreview.style.top = `${emoji.getBoundingClientRect().top + window.scrollY}px`;
-      fullsizePreview.style.left = `${emoji.getBoundingClientRect().right + 10}px`;
-      fullsizePreview.innerHTML = `<img src="${emoji.getAttribute('data-fullsize')}" style="max-width: 200px; max-height: 200px;">`;
+    emojis.forEach(emoji => {
+        emoji.addEventListener('mouseenter', function () {
+            const fullsizePreview = document.createElement('div');
+            fullsizePreview.classList.add('emoji-preview');
+            fullsizePreview.style.position = 'absolute';
+            fullsizePreview.style.zIndex = '1000';
+            fullsizePreview.style.top = `${emoji.getBoundingClientRect().top + window.scrollY}px`;
+            fullsizePreview.style.left = `${emoji.getBoundingClientRect().right + 10}px`;
+            fullsizePreview.innerHTML = `<img src="${emoji.getAttribute('data-fullsize')}" style="max-width: 200px; max-height: 200px;">`;
 
-      document.body.appendChild(fullsizePreview);
+            document.body.appendChild(fullsizePreview);
 
-      emoji.addEventListener('mouseleave', function() {
-        fullsizePreview.remove();
-      });
+            emoji.addEventListener('mouseleave', function () {
+                fullsizePreview.remove();
+            });
+        });
     });
-  });
 });
 
 // ====================================================================================================================
@@ -77,130 +77,124 @@ document.addEventListener("DOMContentLoaded", function() {
 var slides, indicators, currentIndex = 0;
 
 function showSlide(i) {
-  slides[currentIndex].classList.remove("active");
-  indicators[currentIndex].classList.remove("active");
-  slides[i].classList.add("active");
-  indicators[i].classList.add("active");
+    slides[currentIndex].classList.remove("active");
+    indicators[currentIndex].classList.remove("active");
+    slides[i].classList.add("active");
+    indicators[i].classList.add("active");
 
-  const title = slides[i].getAttribute("data-title");
-  document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(title);
+    const title = slides[i].getAttribute("data-title");
+    document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(title);
 
-  currentIndex = i;
+    currentIndex = i;
 }
 
 function nextSlide() {
-  var i = (currentIndex + 1) % slides.length;
-  showSlide(i);
+    var i = (currentIndex + 1) % slides.length;
+    showSlide(i);
 }
 
 function prevSlide() {
-  var i = (currentIndex - 1 + slides.length) % slides.length;
-  showSlide(i);
+    var i = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(i);
 }
 
 function handleImageHover(event, isRotator = false) {
-  const image = event.target;
-  const originalSrc = image.src;
+    const image = event.target;
+    const originalSrc = image.src;
 
-  image.dataset.originalSrc = originalSrc;
-  image.src = originalSrc.replace('.png', '_2.png'); 
+    image.dataset.originalSrc = originalSrc;
+    image.src = originalSrc.replace('.png', '_2.png');
 
-  image.classList.add('fade-in'); 
+    image.classList.add('fade-in');
 
-  if (isRotator) {
-    image.addEventListener('mouseleave', () => {
-      image.src = image.dataset.originalSrc; 
-      image.classList.remove('fade-in'); 
-    });
-  } else {
-    image.addEventListener('mouseleave', () => {
-      image.src = image.dataset.originalSrc; 
-      image.classList.remove('fade-in'); 
-    });
-  }
+    if (isRotator) {
+        image.addEventListener('mouseleave', () => {
+            image.src = image.dataset.originalSrc;
+            image.classList.remove('fade-in');
+        });
+    } else {
+        image.addEventListener('mouseleave', () => {
+            image.src = image.dataset.originalSrc;
+            image.classList.remove('fade-in');
+        });
+    }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
-    slides = document.querySelectorAll(".rotator a");
-    indicators = document.createElement("div");
-    document.querySelector(".rotator-indicators").appendChild(indicators);
-    indicators.remove();
-    indicators = [];
+document.addEventListener("DOMContentLoaded", function () {
+    if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
+        slides = document.querySelectorAll(".rotator a");
+        indicators = document.createElement("div");
+        document.querySelector(".rotator-indicators").appendChild(indicators);
+        indicators.remove();
+        indicators = [];
 
-    slides.forEach(function(_, i) {
-      var d = document.createElement("div");
-      d.className = "indicator";
-      d.addEventListener("click", function() {
-        showSlide(i);
-      });
-      document.querySelector(".rotator-indicators").appendChild(d);
-      indicators.push(d);
-    });
+        slides.forEach(function (_, i) {
+            var d = document.createElement("div");
+            d.className = "indicator";
+            d.addEventListener("click", function () {
+                showSlide(i);
+            });
+            document.querySelector(".rotator-indicators").appendChild(d);
+            indicators.push(d);
+        });
 
-    slides[0].classList.add("active");
-    indicators[0].classList.add("active");
+        slides[0].classList.add("active");
+        indicators[0].classList.add("active");
 
-    const initialTitle = slides[0].getAttribute("data-title");
-    document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(initialTitle);
+        const initialTitle = slides[0].getAttribute("data-title");
+        document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(initialTitle);
 
-    setInterval(nextSlide, 8000);
+        setInterval(nextSlide, 8000);
 
-    const productCardImages = document.querySelectorAll('.product-card img');
-    productCardImages.forEach(image => {
-      image.addEventListener('mouseenter', (event) => handleImageHover(event));
-    });
+        const productCardImages = document.querySelectorAll('.product-card img');
+        productCardImages.forEach(image => {
+            image.addEventListener('mouseenter', (event) => handleImageHover(event));
+        });
 
-    const rotatorImages = document.querySelectorAll('.rotator img');
-    rotatorImages.forEach(image => {
-      image.addEventListener('mouseenter', (event) => handleImageHover(event, true));
-    });
-  }
-
-  const dropdownToggle = document.querySelector(".dropdown-toggle");
-  dropdownToggle.addEventListener("click", function(event) {
-    event.preventDefault();
-  });
-
-  const links = document.querySelectorAll(".header-center ul li a");
-  const currentUrl = window.location.pathname;
-
-  links.forEach(link => {
-    if (link.getAttribute("href") === currentUrl) {
-      link.classList.add("active");
+        const rotatorImages = document.querySelectorAll('.rotator img');
+        rotatorImages.forEach(image => {
+            image.addEventListener('mouseenter', (event) => handleImageHover(event, true));
+        });
     }
-  });
+
+    const dropdownToggle = document.querySelector(".dropdown-toggle");
+    dropdownToggle.addEventListener("click", function (event) {
+        event.preventDefault();
+    });
+
+    const links = document.querySelectorAll(".header-center ul li a");
+    const currentUrl = window.location.pathname;
+
+    links.forEach(link => {
+        if (link.getAttribute("href") === currentUrl) {
+            link.classList.add("active");
+        }
+    });
 });
 
 
 // ====================================================================================================================
 
-document.addEventListener("DOMContentLoaded", function() {
-      // Alle Elemente finden, die als Codeblock-Inhalt dienen sollen
-      var codeBlocks = document.querySelectorAll('.code-block-content');
-      
-      codeBlocks.forEach(function(block) {
-        // Sprache aus dem data-Attribut ermitteln, Standard ist "none"
+document.addEventListener("DOMContentLoaded", function () {
+
+    var codeBlocks = document.querySelectorAll('.code-block-content');
+
+    codeBlocks.forEach(function (block) {
+
         var language = block.getAttribute('data-language') || 'none';
-        
-        // Erstelle <pre> und <code> Elemente
         var pre = document.createElement('pre');
         var code = document.createElement('code');
         code.className = 'language-' + language;
-        
-        // Den reinen Textinhalt des Blocks übernehmen (Whitespace wird erhalten)
+
         var codeText = block.textContent.trim();
         code.textContent = codeText;
-        
-        // <code> in <pre> einfügen
         pre.appendChild(code);
-        
-        // Den Original-Container durch den neuen Codeblock ersetzen
         block.parentNode.replaceChild(pre, block);
-        
-        // Falls Prism.js verfügbar ist, den neuen Block hervorheben
+
         if (typeof Prism !== 'undefined') {
-          Prism.highlightElement(code);
+            Prism.highlightElement(code);
         }
-      });
     });
+});
+
+// ====================================================================================================================
