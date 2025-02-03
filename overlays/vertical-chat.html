@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>VERTICAL CHAT - v.1.0.0 – tawmae.xyz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+            text-shadow: none;
+        }
+
+        body.dropshadow * {
+            text-shadow: 1.3px 1.3px 1.3px black;
+        }
+
+        body.big-dropshadow * {
+            text-shadow: 0.8px 0.8px black, 0.9px 0.9px black, 1px 1px black, 1.1px 1.1px black, 1.2px 1.2px black, 1.3px 1.3px black, 1.4px 1.4px black, 1.5px 1.5px black;
+        }
+
+        body.dropshadow .iconify,
+        body.big-dropshadow .iconify {
+            filter: drop-shadow(1.3px 1.3px 1.3px black);
+        }
+
+        body.big-dropshadow .iconify {
+            filter: drop-shadow(0.8px 0.8px black, 0.9px 0.9px black, 1px 1px black, 1.1px 1.1px black, 1.2px 1.2px black, 1.3px 1.3px black, 1.4px 1.4px black, 1.5px 1.5px black);
+        }
+
+        #background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        #chat-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+            z-index: 1;
+        }
+
+        #messages {
+            flex: 1;
+            padding: 0.625em;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #message-list {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transform: translateY(0);
+            will-change: transform;
+        }
+
+        .message,
+        .announcement,
+        .subscription {
+            margin-bottom: 0.625em;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateX(100%);
+            animation: slide-in-right 0.5s forwards;
+            color: #ffffff;
+        }
+
+        .slide-in-left {
+            transform: translateX(-100%);
+            animation: slide-in-left 0.5s forwards;
+        }
+
+        @keyframes slide-in-right {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slide-in-left {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .message-header,
+        .announcement-header,
+        .subscription-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.3125em;
+        }
+
+        .avatar {
+            height: 2.5em;
+            width: 2.5em;
+            border-radius: 50%;
+            margin-right: 0.3125em;
+            flex-shrink: 0;
+        }
+
+        .shared-chat-icon {
+            height: 1em;
+            width: 1em;
+            border-radius: 50%;
+            margin-left: 0.3125em;
+        }
+
+        .badges img {
+            height: 1em;
+            width: 1em;
+            margin-right: 0.125em;
+            margin-top: 0.375em;
+        }
+
+        .username {
+            font-weight: 700;
+            margin-right: 0.3125em;
+            margin-left: 0.3125em;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .pronouns-box {
+            font-size: 0.625em;
+            color: #cccccc;
+            background: #333333;
+            padding: 0 0.1875em;
+            border-radius: 0.1875em;
+            margin-left: 0.3125em;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .new-chatter {
+            font-size: 0.75em;
+            color: #00FFFF;
+            font-weight: 600;
+            margin-left: 0.3125em;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .message-text {
+            word-wrap: break-word;
+            margin: 0.0625em 0 0.3125em 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            width: 100%;
+            margin-top: 0;
+        }
+
+        .announcement-text,
+        .subscription-text {
+            word-wrap: break-word;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            width: 100%;
+            margin-top: 0;
+        }
+
+        .message-text img,
+        .announcement-text img,
+        .subscription-text img {
+            height: 1.25em;
+            width: auto;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-left: 0.25em;
+            margin-right: 0.25em;
+        }
+
+        .gigantified-emote {
+            width: 6.25em !important;
+            height: 6.25em !important;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-left: 0.25em;
+            margin-right: 0.25em;
+        }
+
+        .reply-preview {
+            padding: 0.0625em 0.1875em;
+            margin: 0.0625em 0 0.3125em 0;
+            font-size: 0.75em;
+            color: #dddddd;
+            max-width: 100%;
+            word-wrap: break-word;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+        }
+
+        .reply-preview img {
+            height: 0.75em;
+            width: auto;
+            object-fit: contain;
+            vertical-align: middle;
+            margin-left: 0.125em;
+            margin-right: 0.125em;
+        }
+
+        .announcement .icon,
+        .subscription .icon {
+            height: 1em;
+            width: 1em;
+            margin-right: 0.3125em;
+            flex-shrink: 0;
+            margin-bottom: 0.3125em;
+        }
+
+        .announcement .icon svg,
+        .subscription .icon svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
+
+        .announcement-title,
+        .subscription-title {
+            font-weight: 900;
+            font-size: 1em;
+        }
+
+        #status-indicator {
+            position: fixed;
+            top: 0.625em;
+            right: 0.625em;
+            background: red;
+            color: #fff;
+            padding: 0.3125em 0.625em;
+            border-radius: 0.25em;
+            font-size: 0.875em;
+            z-index: 9999;
+            transition: background 0.5s, opacity 0.5s;
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .message-text,
+        .announcement-text,
+        .subscription-text {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="status-indicator">DISCONNECTED</div>
+    <div id="chat-container">
+        <div id="messages">
+            <div id="message-list"></div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            const MAX_CACHE_SIZE = 1000;
+            function cacheSet(map, key, value) {
+                if (map.size >= MAX_CACHE_SIZE) {
+                    map.delete(map.keys().next().value);
+                }
+                map.set(key, value);
+            }
+            const params = new URLSearchParams(window.location.search);
+            const caseInsensitiveParams = {};
+            for (const [key, value] of params.entries()) {
+                caseInsensitiveParams[key.toLowerCase()] = value;
+            }
+            function getParam(key, defaultValue = null) {
+                return caseInsensitiveParams[key.toLowerCase()] || defaultValue;
+            }
+            const font = getParam('font', 'Poppins');
+            const fontsize = getParam('fontsize', '16px');
+            const dropshadow = getParam('dropshadow', 'true') !== 'false';
+            const excludedaccounts = getParam('excludeaccounts') ? getParam('excludeaccounts').split(/[,+\s]+/).map(acc => acc.trim().toLowerCase()) : [];
+            const excludecommands = getParam('excludecommands') === 'true';
+            const enterDirection = getParam('enter', 'right') === 'left' ? 'left' : 'right';
+            const excludeEventsParam = getParam('excludeevents') ? getParam('excludeevents').split(/[,+\s]+/).map(e => e.trim().toLowerCase()) : [];
+            const address = getParam('address', '127.0.0.1');
+            const port = getParam('port', '8080');
+            const backgroundEnabled = getParam('background') === 'true';
+            const backgroundOpacity = getParam('backgroundopacity', '90');
+            const backgroundColor = getParam('backgroundcolor', 'black');
+            const showPronouns = getParam('showpronouns', 'true') !== 'false';
+            const showTimestamp = getParam('showtimestamp', 'false') === 'true';
+            const showAvatars = getParam('showavatars', 'true') !== 'false';
+            const minRewardCost = parseInt(getParam('minrewardcost', '0'), 10);
+            const hideAfterSec = getParam('hideafter') ? parseInt(getParam('hideafter'), 10) : null;
+            const justify = getParam('justify', '');
+            const invert = getParam('invert', 'false') === 'true';
+            const forceUpper = getParam('forceuppercase', 'false') === 'true';
+            const forceLower = getParam('forcelowercase', 'false') === 'true';
+            const hideIcons = getParam('hideicons', 'false') === 'true';
+            const hideBadges = getParam('hidebadges', 'false') === 'true';
+            const bigDropshadow = getParam('bigdropshadow', 'false') === 'true';
+            const backgroundStyle = getParam('backgroundstyle', null)?.toLowerCase();
+            document.body.style.fontFamily = font + ', sans-serif';
+            document.body.style.fontSize = fontsize;
+            if (dropshadow) {
+                if (bigDropshadow) {
+                    document.body.classList.add('big-dropshadow');
+                } else {
+                    document.body.classList.add('dropshadow');
+                }
+            }
+            document.body.style.backgroundColor = 'transparent';
+            function parseColorToRGBA(col, alpha) {
+                let tempDiv = document.createElement('div');
+                tempDiv.style.color = col;
+                document.body.appendChild(tempDiv);
+                let computedColor = window.getComputedStyle(tempDiv).color;
+                document.body.removeChild(tempDiv);
+                if (computedColor.indexOf("rgba") === 0) {
+                    return computedColor.replace(/rgba\((\d+),\s*(\d+),\s*(\d+),\s*(.*)\)/, "rgba($1,$2,$3," + alpha + ")");
+                } else if (computedColor.indexOf("rgb") === 0) {
+                    return computedColor.replace(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/, "rgba($1,$2,$3," + alpha + ")");
+                }
+                return col;
+            }
+            if (forceUpper) {
+                document.body.style.textTransform = 'uppercase';
+            } else if (forceLower) {
+                document.body.style.textTransform = 'lowercase';
+            }
+            const chatContainer = document.getElementById('chat-container');
+            chatContainer.style.position = 'absolute';
+            chatContainer.style.top = '0';
+            if (enterDirection === 'left') {
+                chatContainer.style.left = '0';
+                chatContainer.style.right = 'auto';
+            } else {
+                chatContainer.style.right = '0';
+                chatContainer.style.left = 'auto';
+            }
+            const statusIndicator = document.getElementById('status-indicator');
+            let ws;
+            let reconnectTimeout = 2000;
+            function updateStatus(text, color) {
+                statusIndicator.textContent = text;
+                statusIndicator.style.background = color;
+                statusIndicator.classList.remove('hidden');
+            }
+            function hideStatus() {
+                statusIndicator.classList.add('hidden');
+            }
+            function scheduleHide(el) {
+                if (!hideAfterSec) return;
+                setTimeout(() => {
+                    el.style.transition = 'opacity 1s';
+                    el.style.opacity = '0';
+                    setTimeout(() => {
+                        if (el.parentNode) {
+                            el.parentNode.removeChild(el);
+                        }
+                    }, 1000);
+                }, hideAfterSec * 1000);
+            }
+            function connectWebSocket() {
+                const wsUrl = `ws://${address}:${port}/`;
+                ws = new WebSocket(wsUrl);
+                ws.onopen = () => {
+                    updateStatus('CONNECTED', 'green');
+                    setTimeout(hideStatus, 2000);
+                    const subscribeMessage = JSON.stringify({
+                        request: 'Subscribe',
+                        events: {
+                            Twitch: ['ChatMessage', 'ChatMessageDeleted', 'UserTimedOut', 'UserBanned', 'ChatCleared', 'AutomaticRewardRedemption', 'Announcement', 'Sub', 'ReSub', 'GiftSub', 'GiftBomb', 'RewardRedemption', 'WatchStreak', 'Cheer', 'Raid'],
+                            Kofi: ['Donation']
+                        },
+                        id: 'eventSubscriptions'
+                    });
+                    ws.send(subscribeMessage);
+                };
+                ws.onmessage = (event) => {
+                    try {
+                        const payload = JSON.parse(event.data);
+                        if (!payload.event || !payload.event.type) return;
+                        const type = payload.event.type.toLowerCase();
+                        if (excludeEventsParam.includes(type)) return;
+                        let action;
+                        switch (type) {
+                            case 'chatmessage': action = () => processEvent(() => addChatMessage(payload.data.message, payload.data.user, payload.data.emotes, payload.data.isSharedChat, payload.data.sharedChat)); break;
+                            case 'chatmessagedeleted': action = () => processEvent(() => deleteChatMessage(payload.data.messageId)); break;
+                            case 'usertimedout':
+                            case 'userbanned': action = () => processEvent(() => removeUserMessages(payload.data.user_id)); break;
+                            case 'chatcleared': action = () => processEvent(() => clearAllMessages()); break;
+                            case 'automaticrewardredemption': action = () => processEvent(() => handleAutomaticRewardRedemption(payload.data)); break;
+                            case 'announcement': action = () => processEvent(() => handleAnnouncement(payload.data)); break;
+                            case 'sub': action = () => processEvent(() => handleSubscription(payload.data)); break;
+                            case 'resub': action = () => processEvent(() => handleReSubscription(payload.data)); break;
+                            case 'giftsub': action = () => processEvent(() => handleGiftSubscription(payload.data)); break;
+                            case 'giftbomb': action = () => processEvent(() => handleGiftBombSubscription(payload.data)); break;
+                            case 'rewardredemption': action = () => processEvent(() => handleRewardRedemption(payload.data)); break;
+                            case 'watchstreak': action = () => processEvent(() => handleWatchStreak(payload.data)); break;
+                            case 'cheer': action = () => processEvent(() => handleCheer(payload.data)); break;
+                            case 'raid': action = () => processEvent(() => handleRaid(payload.data)); break;
+                            case 'donation': action = () => processEvent(() => handleDonation(payload.data)); break;
+                            default: return;
+                        }
+                        eventQueueCount++;
+                        eventQueue = eventQueue.then(() => action().then(() => {
+                            eventQueueCount--;
+                        }));
+                    } catch (error) { }
+                };
+                ws.onclose = () => {
+                    updateStatus('DISCONNECTED', 'red');
+                    setTimeout(connectWebSocket, reconnectTimeout);
+                };
+                ws.onerror = () => {
+                    ws.close();
+                };
+            }
+            connectWebSocket();
+            const messagesContainer = document.getElementById('messages');
+            const messageList = document.getElementById('message-list');
+            if (invert) {
+                messagesContainer.style.justifyContent = 'flex-end';
+            }
+            if (justify === 'right') {
+                chatContainer.style.textAlign = 'right';
+                messageList.style.alignItems = 'flex-end';
+                const styleEl = document.createElement('style');
+                styleEl.innerHTML = ".message, .announcement, .subscription { text-align: right; } .message-header, .announcement-header, .subscription-header { justify-content: flex-end; } .message-text, .announcement-text, .subscription-text { text-align: right; }";
+                document.head.appendChild(styleEl);
+            } else if (justify === 'left') {
+                chatContainer.style.textAlign = 'left';
+                messageList.style.alignItems = 'flex-start';
+            }
+            function addElement(elt) {
+                if (invert) {
+                    messageList.insertBefore(elt, messageList.firstChild);
+                } else {
+                    messageList.appendChild(elt);
+                }
+            }
+            const messagesMap = new Map();
+            const userMessagesMap = new Map();
+            const avatarCache = new Map();
+            const sharedChatAvatarCache = new Map();
+            const replyPreviewsMap = new Map();
+            const msgEmotesMap = new Map();
+            const userColorCache = new Map();
+            const pronounCache = new Map();
+            const pronounMap = { "hehim": "he/him", "sheher": "she/her", "theythem": "they/them", "itits": "it/its", "any": "any", "other": "other", "avoid": "avoid/avoid", "ask": "ask/ask", "xiexier": "xie/xier" };
+            const pendingGigantify = new Map();
+            let offset = 0;
+            let animating = false;
+            let eventQueue = Promise.resolve();
+            let eventQueueCount = 0;
+            function processEvent(fn) {
+                return new Promise(resolve => {
+                    fn();
+                    adjustOffset().then(() => resolve());
+                });
+            }
+            function adjustOffset() {
+                return new Promise(resolve => {
+                    const containerHeight = messagesContainer.clientHeight;
+                    const contentHeight = messageList.scrollHeight;
+                    const desiredOffset = Math.max(0, contentHeight - containerHeight);
+                    if (desiredOffset === offset) {
+                        resolve();
+                        return;
+                    }
+                    animateOffsetChange(offset, desiredOffset).then(() => {
+                        offset = desiredOffset;
+                        resolve();
+                    });
+                });
+            }
+            function animateOffsetChange(from, to) {
+                return new Promise(resolve => {
+                    if (document.hidden) {
+                        messageList.style.transition = 'none';
+                        messageList.style.transform = invert ? `translateY(${to}px)` : `translateY(-${to}px)`;
+                        resolve();
+                        return;
+                    }
+                    if (animating) {
+                        requestAnimationFrame(() => {
+                            animateOffsetChange(from, to).then(resolve);
+                        });
+                        return;
+                    }
+                    animating = true;
+                    let duration = eventQueueCount > 3 ? 0.1 : 0.5;
+                    messageList.style.transition = `transform ${duration}s ease`;
+                    messageList.addEventListener('transitionend', onEnd);
+                    requestAnimationFrame(() => {
+                        messageList.style.transform = invert ? `translateY(${to}px)` : `translateY(-${to}px)`;
+                    });
+                    function onEnd() {
+                        messageList.removeEventListener('transitionend', onEnd);
+                        animating = false;
+                        resolve();
+                    }
+                });
+            }
+            async function fetchPronouns(username) {
+                if (pronounCache.has(username)) return pronounCache.get(username);
+                try {
+                    const res = await fetch(`https://api.pronouns.alejo.io/v1/users/${encodeURIComponent(username)}`);
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (data && data.pronoun_id && pronounMap[data.pronoun_id]) {
+                            cacheSet(pronounCache, username, pronounMap[data.pronoun_id]);
+                            return pronounMap[data.pronoun_id];
+                        }
+                    }
+                } catch (e) { }
+                cacheSet(pronounCache, username, null);
+                return null;
+            }
+            function updateExistingGigantify(key, gigantifiedEmote) {
+                userMessagesMap.forEach((msgIds, userId) => {
+                    msgIds.forEach(msgId => {
+                        const el = messagesMap.get(msgId);
+                        if (el && el.dataset.userName === key.split('|')[0].toLowerCase() && el.dataset.rawMessage === key.split('|')[1]) {
+                            const imgs = el.querySelectorAll('img');
+                            imgs.forEach(img => {
+                                if (img.alt === gigantifiedEmote.name) {
+                                    img.classList.add('gigantified-emote');
+                                }
+                            });
+                        }
+                    });
+                });
+            }
+            function addChatMessage(m, u, e, isShared, sharedData) {
+                const { msgId, displayName, color, badges, message, parts, isReply, reply, firstMessage } = m;
+                const { id: userId, username, login, name } = u;
+                const actualUsername = (username || login || name || '').toLowerCase();
+                if (!actualUsername) return;
+                if (excludedaccounts.includes(actualUsername)) return;
+                if (excludecommands && message.startsWith('!')) return;
+                let displayColor = color;
+                if (!displayColor) {
+                    if (userColorCache.has(userId)) {
+                        displayColor = userColorCache.get(userId);
+                    } else {
+                        const defaultColors = ['#FF0000', '#0000FF', '#008000', '#B22222', '#FF7F50', '#9ACD32', '#8A2BE2', '#5F9EA0', '#1E90FF', '#D2691E', '#2E8B57', '#DAA520', '#FF69B4', '#FF4500', '#00FF7F'];
+                        displayColor = defaultColors[Math.floor(Math.random() * defaultColors.length)];
+                        userColorCache.set(userId, displayColor);
+                    }
+                }
+                const key = (u.user_name || displayName) + '|' + (message || '');
+                if (pendingGigantify.has(key)) {
+                    m.gigantifyEmote = pendingGigantify.get(key);
+                    pendingGigantify.delete(key);
+                }
+                const el = document.createElement('div');
+                el.classList.add('message');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                el.dataset.msgId = msgId;
+                el.dataset.userId = userId;
+                el.dataset.rawMessage = message;
+                el.dataset.userName = actualUsername;
+                const header = document.createElement('div');
+                header.classList.add('message-header');
+                if (showAvatars) {
+                    const avatar = document.createElement('img');
+                    avatar.classList.add('avatar');
+                    if (avatarCache.has(actualUsername)) {
+                        avatar.src = avatarCache.get(actualUsername);
+                    } else {
+                        const aUrl = `https://decapi.me/twitch/avatar/${actualUsername}`;
+                        fetch(aUrl).then(r => r.text()).then(u => {
+                            avatar.src = u;
+                            cacheSet(avatarCache, actualUsername, u);
+                        }).catch(() => avatar.src = '');
+                    }
+                    header.appendChild(avatar);
+                }
+                if (!hideBadges) {
+                    const badCont = document.createElement('div');
+                    badCont.classList.add('badges');
+                    if (badges && badges.length > 0) {
+                        badges.forEach(b => {
+                            const bImg = document.createElement('img');
+                            bImg.src = b.imageUrl;
+                            bImg.alt = b.name;
+                            badCont.appendChild(bImg);
+                        });
+                    }
+                    header.appendChild(badCont);
+                }
+                const unameSpan = document.createElement('span');
+                unameSpan.classList.add('username');
+                unameSpan.textContent = displayName;
+                unameSpan.style.color = displayColor;
+                header.appendChild(unameSpan);
+                if (showPronouns || showTimestamp) {
+                    if (showPronouns) {
+                        fetchPronouns(actualUsername).then(pronouns => {
+                            if (pronouns) {
+                                const pronounSpan = document.createElement('span');
+                                pronounSpan.classList.add('pronouns-box');
+                                pronounSpan.textContent = pronouns;
+                                header.appendChild(pronounSpan);
+                            }
+                            if (showTimestamp) {
+                                const ts = document.createElement('span');
+                                ts.classList.add('pronouns-box');
+                                ts.textContent = new Date().toLocaleTimeString('de-DE', { hour12: false });
+                                header.appendChild(ts);
+                            }
+                        });
+                    } else if (showTimestamp) {
+                        const ts = document.createElement('span');
+                        ts.classList.add('pronouns-box');
+                        ts.textContent = new Date().toLocaleTimeString('de-DE', { hour12: false });
+                        header.appendChild(ts);
+                    }
+                }
+                if (!hideBadges && isShared && sharedData && sharedData.primarySource === false) {
+                    const sL = (sharedData.sourceRoom && sharedData.sourceRoom.login) ? sharedData.sourceRoom.login.toLowerCase() : null;
+                    if (sL && showAvatars) {
+                        const sImg = document.createElement('img');
+                        sImg.classList.add('shared-chat-icon');
+                        if (sharedChatAvatarCache.has(sL)) {
+                            sImg.src = sharedChatAvatarCache.get(sL);
+                        } else {
+                            const sUrl = `https://decapi.me/twitch/avatar/${sL}`;
+                            fetch(sUrl).then(r => r.text()).then(u => {
+                                sImg.src = u;
+                                cacheSet(sharedChatAvatarCache, sL, u);
+                            }).catch(() => sImg.src = '');
+                        }
+                        header.appendChild(sImg);
+                    }
+                }
+                if (firstMessage === true) {
+                    const nc = document.createElement('span');
+                    nc.classList.add('new-chatter');
+                    nc.textContent = 'NEW CHATTER';
+                    header.appendChild(nc);
+                }
+                el.appendChild(header);
+                if (color) userColorCache.set(userId, color);
+                if (isReply && reply && reply.msgBody) {
+                    const rp = document.createElement('div');
+                    rp.classList.add('reply-preview');
+                    const maxLen = 50;
+                    let pv = '↪  «' + reply.msgBody + '»';
+                    if (pv.length > maxLen) pv = pv.substring(0, maxLen) + '...»';
+                    const orgE = msgEmotesMap.get(reply.msgId) || [];
+                    rp.innerHTML = replaceEmotesInText(pv, orgE);
+                    el.appendChild(rp);
+                    if (reply.msgId) {
+                        if (!replyPreviewsMap.has(reply.msgId)) replyPreviewsMap.set(reply.msgId, []);
+                        replyPreviewsMap.get(reply.msgId).push(rp);
+                    }
+                }
+                const msgText = document.createElement('div');
+                msgText.classList.add('message-text');
+                if (Array.isArray(parts)) {
+                    parts.forEach(pt => {
+                        if (pt.type === 'text') {
+                            msgText.appendChild(document.createTextNode(pt.text));
+                        } else if (pt.type === 'emote') {
+                            const img = document.createElement('img');
+                            img.src = pt.imageUrl;
+                            img.alt = pt.text;
+                            if (m.gigantifyEmote && pt.text === m.gigantifyEmote.name) {
+                                img.classList.add('gigantified-emote');
+                            }
+                            msgText.appendChild(img);
+                        }
+                    });
+                } else if (message && Array.isArray(e) && e.length > 0) {
+                    let proc = message;
+                    e.sort((a, b) => b.startIndex - a.startIndex);
+                    e.forEach(em => {
+                        const tag = (m.gigantifyEmote && em.name === m.gigantifyEmote.name) ?
+                            `<img class="gigantified-emote" src="${em.imageUrl}" alt="${em.name}">` :
+                            `<img src="${em.imageUrl}" alt="${em.name}">`;
+                        if (typeof em.startIndex === 'number' && typeof em.endIndex === 'number') {
+                            const bef = proc.substring(0, em.startIndex);
+                            const aft = proc.substring(em.endIndex + 1);
+                            proc = bef + tag + aft;
+                        } else {
+                            const reg = new RegExp(`\\b${escapeRegExp(em.name)}\\b`, 'gi');
+                            proc = proc.replace(reg, tag);
+                        }
+                    });
+                    msgText.innerHTML = proc;
+                } else if (message) {
+                    msgText.appendChild(document.createTextNode(message));
+                }
+                el.appendChild(msgText);
+                const frag = document.createDocumentFragment();
+                frag.appendChild(el);
+                addElement(frag);
+                messagesMap.set(msgId, el);
+                msgEmotesMap.set(msgId, e || []);
+                if (!userMessagesMap.has(userId)) userMessagesMap.set(userId, new Set());
+                userMessagesMap.get(userId).add(msgId);
+                scheduleHide(el);
+            }
+            function handleAutomaticRewardRedemption(d) {
+                if (d.reward_type === 'gigantify_an_emote') {
+                    const key = d.user_name + '|' + d.message_text;
+                    pendingGigantify.set(key, d.gigantified_emote);
+                    updateExistingGigantify(key, d.gigantified_emote);
+                }
+            }
+            function handleAnnouncement(d) {
+                const { text, messageId } = d;
+                const el = createSubscriptionElement('ANNOUNCEMENT', '#FF43D1', 'ri:megaphone-line');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                const at = document.createElement('div');
+                at.classList.add('subscription-text');
+                at.innerHTML = replaceEmotesInText(text, []);
+                el.appendChild(at);
+                addElement(el);
+                messagesMap.set(messageId, el);
+                scheduleHide(el);
+            }
+            function handleSubscription(d) {
+                const { sub_tier, is_prime, user, messageId } = d;
+                const { name: dn } = user;
+                let st = '';
+                if (is_prime) st = 'Prime'; else {
+                    const tn = Math.floor(parseInt(sub_tier, 10) / 1000);
+                    st = `Tier ${tn}`;
+                }
+                const el = createSubscriptionElement('SUBSCRIPTION', '#FFD700', 'material-symbols:kid-star-outline-sharp');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                const tx = document.createElement('div');
+                tx.classList.add('subscription-text');
+                const tN = document.createTextNode(`${dn} subscribed with a ${st} Sub!`);
+                tx.appendChild(tN);
+                el.appendChild(tx);
+                addElement(el);
+                messagesMap.set(messageId, el);
+                scheduleHide(el);
+            }
+            function handleReSubscription(d) {
+                const { subTier, isPrime, cumulativeMonths, text, user, messageId } = d;
+                const { name: dn } = user;
+                let st = '';
+                if (isPrime) st = 'Prime'; else {
+                    const tn = Math.floor(parseInt(subTier, 10) / 1000);
+                    st = `Tier ${tn}`;
+                }
+                const el = createSubscriptionElement('RESUBSCRIPTION', '#FFD700', 'material-symbols:kid-star-outline-sharp');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                const tx = document.createElement('div');
+                tx.classList.add('subscription-text');
+                const tN = document.createTextNode(`${dn} resubscribed with a ${st} sub for the ${cumulativeMonths}. month!`);
+                tx.appendChild(tN);
+                if (text && text.trim() !== '') {
+                    const br = document.createElement('br');
+                    tx.appendChild(br);
+                    const uT = document.createTextNode('↪  «' + text + '»');
+                    tx.appendChild(uT);
+                }
+                el.appendChild(tx);
+                addElement(el);
+                messagesMap.set(messageId, el);
+                scheduleHide(el);
+            }
+            function handleGiftSubscription(d) {
+                const { subTier, user, recipient, messageId } = d;
+                const { name: dn } = user;
+                const { name: rn } = recipient;
+                let tn = Math.floor(parseInt(subTier, 10) / 1000);
+                let tt = `Tier ${tn}`;
+                const el = createSubscriptionElement('GIFT SUBSCRIPTION', '#FFD700', 'iconamoon:gift-light');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                const tx = document.createElement('div');
+                tx.classList.add('subscription-text');
+                const tN = document.createTextNode(`${dn} gifted a ${tt} sub to ${rn}!`);
+                tx.appendChild(tN);
+                el.appendChild(tx);
+                addElement(el);
+                messagesMap.set(messageId, el);
+                scheduleHide(el);
+            }
+            function handleGiftBombSubscription(d) {
+                const { sub_tier, user, total, messageId } = d;
+                const { name: dn } = user;
+                const { name: gfts } = total;
+                let tn = Math.floor(parseInt(sub_tier, 10) / 1000);
+                let tt = `Tier ${tn}`;
+                const el = createSubscriptionElement('GIFT BOMB', '#FFD700', 'iconamoon:gift-light');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                const tx = document.createElement('div');
+                tx.classList.add('subscription-text');
+                const tN = document.createTextNode(`${dn} gifted ${gfts} ${tt} subs to the community!`);
+                tx.appendChild(tN);
+                el.appendChild(tx);
+                addElement(el);
+                messagesMap.set(messageId, el);
+                scheduleHide(el);
+            }
+            function handleRewardRedemption(d) {
+                const { user_name, reward, user_input, messageId } = d;
+                const { title, cost } = reward;
+                if (cost < minRewardCost) return;
+                const el = createSubscriptionElement('REWARD REDEMPTION', '#64d419', 'mdi:star-four-points-circle-outline');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                const tx = document.createElement('div');
+                tx.classList.add('subscription-text');
+                const tN = document.createTextNode(`${user_name} redeemed ${title} for ${cost} channel points!`);
+                tx.appendChild(tN);
+                if (user_input && user_input.trim() !== '') {
+                    const br = document.createElement('br');
+                    tx.appendChild(br);
+                    const uT = document.createTextNode('↪  «' + user_input + '»');
+                    tx.appendChild(uT);
+                }
+                el.appendChild(tx);
+                addElement(el);
+                messagesMap.set(messageId, el);
+                scheduleHide(el);
+            }
+            function handleWatchStreak(d) {
+                const { displayName, watchStreak, message, msgId } = d;
+                const el = createSubscriptionElement('WATCH STREAK', '#ff6b4a', 'lucide:flame');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                const tx = document.createElement('div');
+                tx.classList.add('subscription-text');
+                const tN = document.createTextNode(`${displayName} is on a ${watchStreak}x watch streak!`);
+                tx.appendChild(tN);
+                if (message && message.trim() !== '') {
+                    const br = document.createElement('br');
+                    tx.appendChild(br);
+                    const uT = document.createTextNode('↪  «' + message + '»');
+                    tx.appendChild(uT);
+                }
+                el.appendChild(tx);
+                addElement(el);
+                messagesMap.set(msgId, el);
+                scheduleHide(el);
+            }
+            function handleCheer(d) {
+                const { bits, user, messageId, message } = d;
+                const { name: dn } = user;
+                let cm = message.message.replace(/Cheer\d+/gi, '');
+                const el = createSubscriptionElement('CHEER', '#FFD700', 'mingcute:diamond-square-line');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                const tx = document.createElement('div');
+                tx.classList.add('subscription-text');
+                const tN = document.createTextNode(`${dn} cheered with ${bits} bits!`);
+                tx.appendChild(tN);
+                if (cm && cm.trim() !== '') {
+                    const br = document.createElement('br');
+                    tx.appendChild(br);
+                    const uT = document.createTextNode('↪  «' + cm.trim() + '»');
+                    tx.appendChild(uT);
+                }
+                el.appendChild(tx);
+                addElement(el);
+                messagesMap.set(messageId, el);
+                scheduleHide(el);
+            }
+            function handleRaid(d) {
+                const { from_broadcaster_user_name, viewers } = d;
+                const msgId = d.messageId ? d.messageId : Math.random().toString(36);
+                const el = createSubscriptionElement('RAID', '#10e094', 'lsicon:user-crowd-outline');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                const tx = document.createElement('div');
+                tx.classList.add('subscription-text');
+                const tN = document.createTextNode(`${from_broadcaster_user_name} raided with ${viewers} viewers!`);
+                tx.appendChild(tN);
+                el.appendChild(tx);
+                addElement(el);
+                messagesMap.set(msgId, el);
+                scheduleHide(el);
+            }
+            function handleDonation(d) {
+                const { from, isPublic, messageId, message, amount, currency } = d;
+                let df = isPublic ? from : 'Someone';
+                const el = createSubscriptionElement('DONATION', '#26acff', 'hugeicons:money-03');
+                if (enterDirection === 'left') el.classList.add('slide-in-left');
+                const tx = document.createElement('div');
+                tx.classList.add('subscription-text');
+                const tN = document.createTextNode(`${df} donated ${currency} ${amount}`);
+                tx.appendChild(tN);
+                if (message && message.trim() !== '') {
+                    const br = document.createElement('br');
+                    tx.appendChild(br);
+                    const uT = document.createTextNode('↪  «' + message + '»');
+                    tx.appendChild(uT);
+                }
+                el.appendChild(tx);
+                addElement(el);
+                messagesMap.set(messageId, el);
+                scheduleHide(el);
+            }
+            function deleteChatMessage(msgId) {
+                const el = messagesMap.get(msgId);
+                if (el) {
+                    messageList.removeChild(el);
+                    messagesMap.delete(msgId);
+                    msgEmotesMap.delete(msgId);
+                    replyPreviewsMap.delete(msgId);
+                    userMessagesMap.forEach((msgIds, userId) => {
+                        msgIds.delete(msgId);
+                        if (msgIds.size === 0) userMessagesMap.delete(userId);
+                    });
+                }
+            }
+            function removeMessageById(msgId) {
+                const el = messagesMap.get(msgId);
+                if (el) {
+                    messageList.removeChild(el);
+                    messagesMap.delete(msgId);
+                    msgEmotesMap.delete(msgId);
+                    replyPreviewsMap.delete(msgId);
+                    userMessagesMap.forEach((msgIds, userId) => {
+                        msgIds.delete(msgId);
+                        if (msgIds.size === 0) userMessagesMap.delete(userId);
+                    });
+                }
+            }
+            function removeUserMessages(uid) {
+                if (userMessagesMap.has(uid)) {
+                    const mIds = Array.from(userMessagesMap.get(uid));
+                    mIds.forEach(i => removeMessageById(i));
+                    userMessagesMap.delete(uid);
+                }
+            }
+            function clearAllMessages() {
+                messageList.innerHTML = '';
+                messagesMap.clear();
+                userMessagesMap.clear();
+                replyPreviewsMap.clear();
+                msgEmotesMap.clear();
+                offset = 0;
+                messageList.style.transition = 'none';
+                messageList.style.transform = 'translateY(0)';
+            }
+            function escapeRegExp(s) {
+                return s.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');
+            }
+            function replaceEmotesInText(t, ea) {
+                if (!ea || ea.length === 0) return t;
+                ea.sort((a, b) => b.startIndex - a.startIndex);
+                ea.forEach(em => {
+                    const reg = new RegExp(`\\b${escapeRegExp(em.name)}\\b`, 'gi');
+                    const tag = (t.includes('gigantified-emote')) ?
+                        `<img class="gigantified-emote" src="${em.imageUrl}" alt="${em.name}">` :
+                        `<img src="${em.imageUrl}" alt="${em.name}">`;
+                    t = t.replace(reg, tag);
+                });
+                return t;
+            }
+            function createSubscriptionElement(title, color, icon) {
+                const el = document.createElement('div');
+                el.classList.add('subscription');
+                const hd = document.createElement('div');
+                hd.classList.add('subscription-header');
+                if (!hideIcons) {
+                    const ic = document.createElement('div');
+                    ic.classList.add('icon');
+                    ic.innerHTML = `<span class="iconify" data-icon="${icon}" data-inline="false"></span>`;
+                    hd.appendChild(ic);
+                }
+                const tt = document.createElement('span');
+                tt.classList.add('subscription-title');
+                tt.textContent = title;
+                tt.style.color = color;
+                hd.appendChild(tt);
+                if (showTimestamp) {
+                    const timestampText = new Date().toLocaleTimeString(undefined, { hour12: false });
+                    const ts = document.createElement('span');
+                    ts.classList.add('pronouns-box');
+                    ts.textContent = timestampText;
+                    hd.appendChild(ts);
+                }
+                el.appendChild(hd);
+                return el;
+            }
+
+            if (backgroundEnabled && (backgroundStyle === 'cards' || backgroundStyle === 'cardsrounded')) {
+                let op = Number(backgroundOpacity) / 100;
+                let rgbaCol = parseColorToRGBA(backgroundColor, op);
+                const styleEl = document.createElement('style');
+                styleEl.innerHTML = `
+                .message,
+                .announcement,
+                .subscription {
+                    background-color: ${rgbaCol} !important;
+                    padding: 0.5em;
+                    margin: 0.5em 0;
+                }
+                `;
+                if (backgroundStyle === 'cardsrounded') {
+                    styleEl.innerHTML += `
+                    .message,
+                    .announcement,
+                    .subscription {
+                        border-radius: 0.5em;
+                    }
+                    `;
+                }
+                document.head.appendChild(styleEl);
+            } else if (backgroundEnabled) {
+                const overlay = document.createElement('div');
+                overlay.id = 'background-overlay';
+                let op = Number(backgroundOpacity) / 100;
+                overlay.style.backgroundColor = backgroundColor;
+                overlay.style.opacity = op;
+                document.body.insertBefore(overlay, document.body.firstChild);
+            }
+        })();
+    </script>
+</body>
+
+</html>
