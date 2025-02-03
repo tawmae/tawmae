@@ -257,7 +257,7 @@ header {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   text-align: center;
-  width: 200px;
+  width: 220px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .product-card:hover {
@@ -287,7 +287,7 @@ header {
 .product-card p {
   font-size: 0.9rem;
   color: #ccc;
-  padding-bottom: 5px;
+  padding: 5px;
 }  
 
 .header-right .need-help:hover {
