@@ -132,6 +132,12 @@ header {
   gap: 5px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+.hamburger-icon {
+  display: none;
+}
+.mobile-menu {
+  display: none;
+}
 .rotator-wrapper {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -352,33 +358,6 @@ header {
   color: black;
 }
 @media (max-width: 768px) {
-  .header-center ul {
-    gap: 10px;
-  }
-  .header-center ul li a {
-    font-size: 0.9rem;
-  }
-  .rotator-container {
-    max-width: 100%;
-  }
-  .product-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-  }
-  .product-card {
-    width: 100%;
-    padding: 10px;
-  }
-  .product-card img {
-    aspect-ratio: 4 / 5;
-    max-width: 100%;
-  }
-  .product-card h3 {
-    font-size: 1rem;
-  }
-  .product-card p {
-    font-size: 0.8rem;
-  }
   .header-center,
   .header-right {
     display: none;
@@ -396,8 +375,10 @@ header {
     cursor: pointer;
     font-size: 1.8rem;
   }
+  #mobile-menu-toggle:checked ~ .mobile-menu {
+    display: block;
+  }
   .mobile-menu {
-    display: none;
     position: fixed;
     top: 60px;
     left: 0;
@@ -405,9 +386,6 @@ header {
     background: #131315;
     padding: 20px 0;
     z-index: 999;
-  }
-  #mobile-menu-toggle:checked ~ .mobile-menu {
-    display: block;
   }
   .mobile-menu nav ul {
     flex-direction: column;
@@ -463,4 +441,4 @@ header {
       line-height: 1.5;
       color: #f8f8f2;
       margin: 1em 0;
-    }
+}
