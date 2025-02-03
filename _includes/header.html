@@ -47,10 +47,6 @@
                 <img src="{{ site.baseurl }}/assets/page-design/logo-2.png" alt="Logo">
             </a>
         </div>
-        <input type="checkbox" id="mobile-menu-toggle" hidden>
-        <label for="mobile-menu-toggle" class="hamburger-icon">
-            <span class="iconify" data-icon="mdi:menu"></span>
-        </label>
         <nav class="header-center">
             <ul>
                 <li><a href="{{ site.baseurl }}/"><span class="iconify nav-icon" data-icon="mdi:home"></span> START</a>
@@ -121,7 +117,6 @@
             <a href="https://discord.com/invite/gEm5UMSvYs" target="_blank" class="need-help">
                 Need help? <span class="iconify" data-icon="simple-icons:discord"></span>
             </a>
-            </a>
             <a href="https://bsky.app/profile/tawmae.xyz" target="_blank">
                 <span class="iconify" data-icon="simple-icons:bluesky"></span>
             </a>
@@ -133,70 +128,46 @@
             </a>
             <a href="https://ko-fi.com/tawmae" target="_blank">
                 <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-                <script
-                    type='text/javascript'>kofiwidget2.init('Tip', '#455f8c', 'P5P7RA8SG'); kofiwidget2.draw();</script>
+                <script type='text/javascript'>kofiwidget2.init('Tip', '#455f8c', 'P5P7RA8SG'); kofiwidget2.draw();</script>
             </a>
         </div>
+        <label for="mobile-menu-toggle" class="hamburger-icon">
+            <span class="iconify" data-icon="mdi:menu"></span>
+        </label>
+        <input type="checkbox" id="mobile-menu-toggle" hidden>
     </header>
     <div class="mobile-menu">
         <nav class="mobile-nav">
             <ul>
-                <li><a href="{{ site.baseurl }}/"><span class="iconify nav-icon" data-icon="mdi:home"></span> START</a>
-                </li>
+                <li><a href="{{ site.baseurl }}/"><span class="iconify nav-icon" data-icon="mdi:home"></span> START</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon"
-                            data-icon="simple-icons:obsstudio"></span> OBS WIDGETS<span class="arrow">&#9662;</span></a>
+                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon" data-icon="simple-icons:obsstudio"></span> OBS WIDGETS<span class="arrow">&#9662;</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ site.baseurl }}/obs-widgets/ad-notification.html"><span
-                                    class="iconify nav-icon-child" data-icon="ri:advertisement-fill"></span> AD
-                                NOTIFICATION</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/basic-alerts.html"><span
-                                    class="iconify nav-icon-child" data-icon="ic:baseline-notifications-active"></span>
-                                BASIC ALERTS</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/dynamic-timers.html"><span
-                                    class="iconify nav-icon-child" data-icon="solar:stopwatch-bold"></span> DYNAMIC
-                                TIMERS</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/event-list.html"><span
-                                    class="iconify nav-icon-child" data-icon="material-symbols:event-list"></span> EVENT
-                                LIST</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/hot-words.html"><span class="iconify nav-icon-child"
-                                    data-icon="solar:flame-bold"></span> HOT WORDS</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/rotator.html"><span class="iconify nav-icon-child"
-                                    data-icon="material-symbols-light:rotate-90-degrees-ccw"></span> ROTATOR</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/steam-welcome.html"><span
-                                    class="iconify nav-icon-child" data-icon="mdi:steam-box"></span> STEAM WELCOME</a>
-                        </li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/stream-receipt.html"><span
-                                    class="iconify nav-icon-child"
-                                    data-icon="material-symbols:receipt-long-outline"></span>STREAM RECEIPT</a></li>
-                        <li><a href="{{ site.baseurl }}/obs-widgets/vertical-chat.html"><span
-                                    class="iconify nav-icon-child"
-                                    data-icon="ic:baseline-mark-unread-chat-alt"></span>VERTICAL CHAT</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/ad-notification.html"><span class="iconify nav-icon-child" data-icon="ri:advertisement-fill"></span> AD NOTIFICATION</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/basic-alerts.html"><span class="iconify nav-icon-child" data-icon="ic:baseline-notifications-active"></span> BASIC ALERTS</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/dynamic-timers.html"><span class="iconify nav-icon-child" data-icon="solar:stopwatch-bold"></span> DYNAMIC TIMERS</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/event-list.html"><span class="iconify nav-icon-child" data-icon="material-symbols:event-list"></span> EVENT LIST</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/hot-words.html"><span class="iconify nav-icon-child" data-icon="solar:flame-bold"></span> HOT WORDS</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/rotator.html"><span class="iconify nav-icon-child" data-icon="material-symbols-light:rotate-90-degrees-ccw"></span> ROTATOR</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/steam-welcome.html"><span class="iconify nav-icon-child" data-icon="mdi:steam-box"></span> STEAM WELCOME</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/stream-receipt.html"><span class="iconify nav-icon-child" data-icon="material-symbols:receipt-long-outline"></span> STREAM RECEIPT</a></li>
+                        <li><a href="{{ site.baseurl }}/obs-widgets/vertical-chat.html"><span class="iconify nav-icon-child" data-icon="ic:baseline-mark-unread-chat-alt"></span> VERTICAL CHAT</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon"
-                            data-icon="material-symbols:instant-mix"></span> UTILITY<span class="arrow">&#9662;</span></a>
+                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon" data-icon="material-symbols:instant-mix"></span> UTILITY<span class="arrow">&#9662;</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ site.baseurl }}/utility/spotify-and-sb.html"><span
-                                    class="iconify nav-icon-child" data-icon="teenyicons:spotify-outline"></span>
-                                SPOTIFY & SB</a></li>
-                        <li><a href="{{ site.baseurl }}/utility/bluesky-and-sb.html"><span
-                                    class="iconify nav-icon-child" data-icon="tabler:brand-bluesky"></span>
-                                BLUESKY & SB</a></li>
+                        <li><a href="{{ site.baseurl }}/utility/spotify-and-sb.html"><span class="iconify nav-icon-child" data-icon="teenyicons:spotify-outline"></span> SPOTIFY & SB</a></li>
+                        <li><a href="{{ site.baseurl }}/utility/bluesky-and-sb.html"><span class="iconify nav-icon-child" data-icon="tabler:brand-bluesky"></span> BLUESKY & SB</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon"
-                            data-icon="bi:dice-6-fill"></span> CHAT GAMES<span class="arrow">&#9662;</span></a>
+                    <a href="#" class="dropdown-toggle"><span class="iconify nav-icon" data-icon="bi:dice-6-fill"></span> CHAT GAMES<span class="arrow">&#9662;</span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ site.baseurl }}/utility/movie-and-tv-show-quiz.html"><span
-                                    class="iconify nav-icon-child" data-icon="fluent:movies-and-tv-16-regular"></span>
-                                MOVIE & TV SHOW QUIZ</a></li>
+                        <li><a href="{{ site.baseurl }}/utility/movie-and-tv-show-quiz.html"><span class="iconify nav-icon-child" data-icon="fluent:movies-and-tv-16-regular"></span> MOVIE & TV SHOW QUIZ</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ site.baseurl }}/commissions.html"><span class="iconify nav-icon"
-                            data-icon="mynaui:euro-circle-solid"></span> COMMISSIONS</a></li>
+                <li><a href="{{ site.baseurl }}/commissions.html"><span class="iconify nav-icon" data-icon="mynaui:euro-circle-solid"></span> COMMISSIONS</a></li>
             </ul>
         </nav>
         <div class="mobile-social">
@@ -214,8 +185,7 @@
             </a>
             <a href="https://ko-fi.com/tawmae" target="_blank">
                 <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-                <script
-                    type='text/javascript'>kofiwidget2.init('Tip', '#455f8c', 'P5P7RA8SG'); kofiwidget2.draw();</script>
+                <script type='text/javascript'>kofiwidget2.init('Tip', '#455f8c', 'P5P7RA8SG'); kofiwidget2.draw();</script>
             </a>
         </div>
     </div>
