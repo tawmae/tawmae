@@ -14,7 +14,8 @@ const wordToEmojiMap = {
   "rupertRotate": "/assets/emotes/rupert.webp",
   "kingGABEN": "/assets/emotes/kingGABEN.webp",
   "thisIsFine": "/assets/emotes/this-is-fine.webp",
-  "SNIFFA": "/assets/emotes/sniffa.webp"
+  "SNIFFA": "/assets/emotes/sniffa.webp",
+  "moneyWave": "/assets/emotes/moneyWave.webp"
 };
 
 function replacePlaceholdersWithEmojis(text) {
