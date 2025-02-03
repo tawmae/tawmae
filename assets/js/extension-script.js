@@ -69,5 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     else if (currentPage.includes("spotify-and-sb")) {
         loadImportString("/action-imports/spotify-and-sb.txt");  
+    }
+    else if (currentPage.includes("bluesky-and-sb")) {
+        loadImportString("/action-imports/bluesky-and-sb.txt");  
     } 
 });
