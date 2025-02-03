@@ -13,7 +13,8 @@ const wordToEmojiMap = {
   "itsTimeToStop": "/assets/emotes/joji-clock.webp",
   "rupertRotate": "/assets/emotes/rupert.webp",
   "kingGABEN": "/assets/emotes/kingGABEN.webp",
-  "thisIsFine": "/assets/emotes/this-is-fine.webp"
+  "thisIsFine": "/assets/emotes/this-is-fine.webp",
+  "SNIFFA": "/assets/emotes/sniffa.webp"
 };
 
 function replacePlaceholdersWithEmojis(text) {
