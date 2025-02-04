@@ -513,6 +513,13 @@ header {
     .rotator-container {
         aspect-ratio: 2 / 1;
     }
+
+    .collage {
+    width: 100%;
+    height: auto;
+    transform: scale(0.5);
+    transform-origin: top center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -556,6 +563,11 @@ header {
     .product-card p {
         font-size: 0.75rem;
     }
+
+    .collage {
+    transform: scale(0.4);
+    transform-origin: top center;
+  }
 }
 
 .dynamic-code pre {
@@ -599,7 +611,7 @@ header {
 /* Passe die Werte hier nach deinen Wünschen an */
 .pos1 {
   top: 20px;
-  left: 50px;
+  left: 10px;         /* start-1: Etwas weiter nach außen */
   --rotation: -5deg;
   transform: rotate(var(--rotation));
 }
@@ -628,24 +640,30 @@ header {
 .pos5 {
   top: 300px;
   left: 550px;
-  --rotation: -4deg;
+  --rotation: 4deg;    /* start-5: Mehr nach rechts rotiert (statt -4deg jetzt +4deg) */
   transform: rotate(var(--rotation));
 }
 
-/* Logo unten links positionieren */
+/* Logo unten links positionieren, etwas weiter innen und leicht links rotiert */
 .logo {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  z-index: 10;  /* Höherer z-index, damit das Logo immer oben liegt */
+  bottom: 30px;         /* Etwas weiter vom unteren Rand */
+  left: 30px;           /* Etwas weiter vom linken Rand */
+  z-index: 10;          /* Höherer z-index, damit das Logo immer oben liegt */
   width: 256px;
   height: 256px;
+  --logo-rotation: -8deg;
+  transform: rotate(var(--logo-rotation));
   transition: transform 0.3s ease;
   cursor: pointer;
 }
 
-/* Optional: Hover-Effekt auch für das Logo */
+/* Hover-Effekt für das Logo: Rotation beibehalten und zusätzlich skalieren */
 .logo:hover {
-  transform: scale(1.1);
+  transform: rotate(var(--logo-rotation)) scale(1.1);
 }
+
+
+
+
 
