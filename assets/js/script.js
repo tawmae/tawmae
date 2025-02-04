@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // ====================================================================================================================
 
 document.addEventListener("DOMContentLoaded", function () {
-    var codeBlocks = document.querySelectorAll('.code-block-content');
+    var codeBlocks = document.querySelectorAll('.extension-code-block');
 
     codeBlocks.forEach(function (block) {
         var language = block.getAttribute('data-language') || 'none';
