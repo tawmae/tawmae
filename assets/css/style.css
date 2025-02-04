@@ -573,44 +573,43 @@ header {
     margin: 1em 0;
 }
 
-/* --- Wrapper für die Collage --- */
+/* ============================================= */
+/* Collage – Desktop */
+/* ============================================= */
+
+/* Wrapper, der die Collage zentriert */
 .collage-container {
-  width: 100%;
-  /* Damit die geskalierte Collage nicht über den Container hinausragt */
-  overflow: hidden;
-  /* Zentriert die Collage horizontal */
-  display: flex;
-  justify-content: center;
-  /* Desktop-Höhe: Originalhöhe (800px) mal Desktop-Skalierung (0.7) */
-  height: calc(800px * 0.7);
+  width: 1200px;         /* Originalbreite */
   margin: 0 auto;
+  overflow: hidden;       /* Verhindert Überlaufen der skalierten Inhalte */
+  /* Für Desktop: Höhe entspricht der Originalhöhe (800px) multipliziert mit der Desktop-Skalierung (0.7) */
+  height: calc(800px * 0.7);
 }
 
-/* --- Container für die Collage --- */
+/* Container für die Collage */
 .collage {
   position: relative;
   width: 1200px;          /* Originalbreite der Collage */
   height: 800px;          /* Originalhöhe */
   background-color: transparent;
+  margin: 0 auto;
   
   /* Desktop: 70% Skalierung */
   transform: scale(0.7);
   transform-origin: top center;
 }
 
-/* --- Gemeinsamer Stil für alle Collage-Bilder --- */
+/* Die einzelnen Bilder und das Logo bleiben unverändert */
 .collage-img {
   position: absolute;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
 
-/* Hover-Effekt: Rotation beibehalten und zusätzliches Scaling */
 .collage-img:hover {
   transform: rotate(var(--rotation)) scale(1.1);
 }
 
-/* --- Positionierung und Rotation der 5 Bilder --- */
 .pos1 {
   top: 20px;
   left: 10px;         /* start-1: Etwas weiter nach außen */
@@ -646,7 +645,6 @@ header {
   transform: rotate(var(--rotation));
 }
 
-/* --- Logo unten links --- */
 .logo {
   position: absolute;
   bottom: 30px;         /* Weiter vom unteren Rand */
@@ -664,28 +662,40 @@ header {
   transform: rotate(var(--logo-rotation)) scale(1.1);
 }
 
-/* --- Mobile Optimierung --- */
-/* Bei Viewport-Breiten ≤ 768px und ≤ 480px: 
-   Der Skalierungsfaktor wird dynamisch so gesetzt, dass 1200px exakt 100vw entsprechen. */
+/* ============================================= */
+/* Collage – Mobile (ähnlich wie .extension-image) */
+/* ============================================= */
+
+/*
+  Anstatt eines starren Skalierungsfaktors (wie 0.7) wird hier in den Media Queries 
+  der Container auf 90vw (bzw. einen anderen Wert) gesetzt und die Skalierung dynamisch berechnet.
+  Das Originalseitenverhältnis der Collage beträgt 1200:800, also ca. 0.667.
+*/
+
 @media (max-width: 768px) {
-  .collage {
-    /* Berechnet den Faktor: 100vw / 1200 */
-    transform: scale(calc(100vw / 1200)) !important;
-    transform-origin: top center;
-  }
   .collage-container {
-    /* Die Container-Höhe passt sich der neuen Skalierung an */
-    height: calc(800px * (100vw / 1200));
+    /* Setze die Breite des Containers auf 90vw (du kannst diesen Wert anpassen) */
+    width: 90vw;
+    margin: 0 auto;
+    /* Höhe entspricht 90vw * (800/1200) = 90vw * 0.667 */
+    height: calc(90vw * (800 / 1200));
+  }
+  .collage {
+    /* Skalierungsfaktor so, dass 1200px (Originalbreite) 90vw entspricht */
+    transform: scale(calc(90vw / 1200));
+    transform-origin: top center;
   }
 }
 
 @media (max-width: 480px) {
-  .collage {
-    transform: scale(calc(100vw / 1200)) !important;
-    transform-origin: top center;
-  }
   .collage-container {
-    height: calc(800px * (100vw / 1200));
+    width: 90vw;
+    margin: 0 auto;
+    height: calc(90vw * (800 / 1200));
+  }
+  .collage {
+    transform: scale(calc(90vw / 1200));
+    transform-origin: top center;
   }
 }
 
