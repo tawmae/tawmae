@@ -25,7 +25,8 @@ body {
 }
 
 .black-text-box {
-  flex-grow: 1;
+  width: 100%;
+  max-width: 400px;
   opacity: 0.95;
   background-color: var(--black-bg);
   border-radius: 12px;
