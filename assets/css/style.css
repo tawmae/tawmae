@@ -618,14 +618,14 @@ header {
     margin: 1em 0;
 }
 
+/* Desktopansicht: Elemente in .home-title links und rechts anordnen */
 .home-title {
     margin: 0 auto;
     margin-top: 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Angepasst: links Textbox, rechts Bild */
     gap: 20px;
-    /* Hier wurde der max-width-Wert von 1550px auf 1200px angepasst */
     max-width: 1200px;
     width: 100%;
 }
@@ -637,6 +637,7 @@ header {
     border-radius: 12px;
     padding: 30px 40px;
     text-align: left;
+    /* Die Textbox nutzt durch flex:1 den verfügbaren Platz */
 }
 
 .home-title-image {
