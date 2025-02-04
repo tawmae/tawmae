@@ -339,12 +339,12 @@ p {
     margin: 0 auto;
     text-align: center;
   }
-  /* Bild im Titel anpassen: maximale Breite und zentriert; aspect-ratio erzwingt Mindesthöhe */
+  /* Bild im Titel: max. Bildschirmbreite, zentriert und mit festem Seitenverhältnis */
   .extension-image {
     width: 90%;
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 16 / 9;
     background-size: cover;
     background-position: center;
     border: none;
@@ -358,16 +358,16 @@ p {
   .copy-box {
     width: 90%;
   }
-  /* Beschreibung: Container als Spalte, damit Text Box und Bild untereinander stehen */
+  /* Beschreibung: Container als Spalte, sodass Textbox und Bild untereinander stehen */
   .description-container {
     flex-direction: column;
     gap: 20px;
     align-items: center;
   }
-  /* Bild in der Beschreibung anpassen: maximale Breite, zentriert und passendes Seitenverhältnis */
+  /* Bild in der Beschreibung: max. 90% der Bildschirmbreite, zentriert und festes Seitenverhältnis */
   .extension-image-2 {
     width: 90%;
-    max-width: 500px;
+    max-width: 100%;
     margin: 0 auto;
     aspect-ratio: 16 / 9;
     background-size: cover;
@@ -382,7 +382,7 @@ p {
 }
 
 @media (max-width: 480px) {
-  /* Schriftgrößen und Abstände weiter reduzieren */
+  /* Schriftgrößen und Abstände ggf. weiter reduzieren */
   .extension-title h1 {
     font-size: 2rem;
   }
@@ -392,5 +392,5 @@ p {
   .accordion-header {
     font-size: 1.2rem;
   }
-  /* Falls erforderlich: Weitere spezifische Anpassungen für sehr kleine Bildschirme */
+  /* Weitere Anpassungen für sehr kleine Bildschirme können hier erfolgen */
 }
