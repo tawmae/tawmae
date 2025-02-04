@@ -139,7 +139,7 @@ p {
   text-overflow: ellipsis;
   color: #fff;
   padding-right: 10px;
-  font-family: 'Poppins', sans-serif;  /*'Fira Code', monospace;*/
+  font-family: 'Poppins', sans-serif;
 }
 
 .copy-btn {
@@ -152,7 +152,7 @@ p {
   align-items: center;
   border-radius: 5px;
   transition: background-color 0.3s;
-  font-family: 'Poppins', sans-serif;  
+  font-family: 'Poppins', sans-serif;
 }
 
 .copy-btn:hover {
@@ -168,7 +168,6 @@ p {
   background-color: #4CAF50 !important;
   font-weight: bold;
 }
-
 
 .description-container {
   display: flex;
@@ -222,7 +221,7 @@ p {
 }
 
 .black-text-box-3,
-.black-text-box-4{
+.black-text-box-4 {
   flex: 1; 
   background-color: #111;
   color: white;
@@ -232,7 +231,7 @@ p {
 }
 
 .black-text-box-5,
-.black-text-box-6{
+.black-text-box-6 {
   flex: 1; 
   background-color: #111;
   color: white;
@@ -301,7 +300,7 @@ p {
   transform: scale(1.05);
 }
 
-.black-text-box-long{
+.black-text-box-long {
   flex: 1; 
   background-color: #111;
   color: white;
@@ -321,4 +320,69 @@ p {
 
 .extension-example-image:hover {
   transform: scale(1.03);
+}
+
+/* Desktop bleibt unverändert – ab hier folgen die Mobile-Anpassungen */
+
+@media (max-width: 768px) {
+  /* Titelbereich als Spalte */
+  .extension-title {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  /* Black Box im Titel auf volle Breite */
+  .black-text-box {
+    max-width: none;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  /* Bild im Titel anpassen */
+  .extension-image {
+    width: 90%;
+    height: auto;
+    max-width: none;
+    border: none;
+  }
+  /* Accordion: Breite anpassen */
+  .accordion {
+    width: 90%;
+    margin: 0 auto;
+  }
+  /* Copy-Box: Breite anpassen */
+  .copy-box {
+    width: 90%;
+  }
+  /* Beschreibung: Container als Spalte */
+  .description-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  /* Bilder in Beschreibung anpassen */
+  .extension-image-2 {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+  }
+  /* Customization-Container als Spalte */
+  .customization-text-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Schriftgröße und Abstände ggf. weiter reduzieren */
+  .extension-title h1 {
+    font-size: 2rem;
+  }
+  .extension-title p {
+    font-size: 1rem;
+  }
+  /* Accordion Header kleiner */
+  .accordion-header {
+    font-size: 1.2rem;
+  }
+  /* Weitere Anpassungen bei Bedarf */
 }
