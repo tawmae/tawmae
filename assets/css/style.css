@@ -15,7 +15,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #27262b;
     color: white;
-    text-align: center;
+    text-align: initial;
     padding: 20px;
     margin-bottom: 100px;
     height: 100%;
@@ -435,6 +435,7 @@ header {
 .home-title-container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
     max-width: 1200px;
     width: 100%;
