@@ -477,7 +477,7 @@ header {
 .home-title-image {
   flex-shrink: 0;
   width: 100%;
-  max-width: 600px;
+  max-width: 1000px;
 }
 
 .home-title-image img {
