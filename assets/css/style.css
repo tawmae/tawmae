@@ -1,4 +1,4 @@
-/* Grundlegende Reset- und globale Einstellungen */
+/* === Globale Einstellungen === */
 * {
   margin: 0;
   padding: 0;
@@ -155,7 +155,7 @@ header {
   position: relative;
   width: 100%;
   max-width: 1200px;
-  aspect-ratio: 6 / 1;  /* 1200:200 = 6:1 */
+  aspect-ratio: 6 / 1; /* 1200x200 -> 6:1 */
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -247,11 +247,11 @@ header {
 }
 
 /* Weitere Desktop-Stile (Produkt-Cards, etc.) – unverändert */
-/* ... (Dein übriger Code) ... */
+/* ... */
 
 /* === Mobile-Anpassungen === */
 @media (max-width: 768px) {
-  /* Header- und Mobile-Menü-Regeln bleiben unverändert */
+  /* Header und Mobile-Menü */
   .header-center,
   .header-right {
     display: none;
@@ -321,23 +321,17 @@ header {
     text-decoration: none;
     margin: 5px 0;
   }
-  /* Rotator-Anpassungen: Originalverhältnis der Bilder (1200x200 = 6:1) beibehalten.
-     Damit die Bilder in der mobilen Ansicht vollständig sichtbar sind, wird object-fit auf "contain" gesetzt. */
+  /* Rotator: Für Mobile optimiert, damit das 1200x200 Bild (6:1) vollständig sichtbar ist */
   .rotator-container {
     max-width: 1200px;
-    /* Für Mobile passt sich der Container weiterhin an 100% Breite an – das Seitenverhältnis bleibt 6:1 */
     aspect-ratio: 6 / 1;
   }
+  /* Hier ändern wir die Rotator-Bilder: object-fit von "cover" zu "contain" */
   .rotator img {
-    width: 100%;
-    height: 100%;
     object-fit: contain;
     object-position: center;
-    transition: transform 0.3s ease-in-out;
   }
-  /* Falls nötig, kann hier auch noch padding oder margin für den Rotator angepasst werden */
-  
-  /* Weitere mobile Anpassungen für andere Bereiche (extension-title, description-container, etc.) */
+  /* Weitere Mobile-Anpassungen für andere Bereiche */
   .extension-title,
   .accordion,
   .copy-box,
@@ -353,6 +347,7 @@ header {
     gap: 20px;
     text-align: center;
   }
+  /* Erzwinge Reihenfolge im Titel: Textbox vor Bild */
   .extension-title .black-text-box {
     order: 1;
   }
@@ -369,7 +364,7 @@ header {
     width: 90vw;
     max-width: 800px;
     margin: 0 auto;
-    height: calc(90vw * (1/6));
+    height: calc(90vw * 0.5);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -390,7 +385,7 @@ header {
     width: 90vw;
     max-width: 800px;
     margin: 0 auto;
-    height: calc(90vw * (1/6));
+    height: calc(90vw * 0.5);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
