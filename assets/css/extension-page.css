@@ -201,7 +201,6 @@ p {
   border-radius: 8px;
 }
 
-/* Für Bilder in Beschreibungen */
 .extension-image-2 {
   width: 600px;
   height: 300px;
@@ -231,7 +230,7 @@ p {
 
 /* === Mobile-Anpassungen === */
 @media (max-width: 768px) {
-  /* Alle Container auf volle Breite, zentriert, mit internem Padding */
+  /* Alle Container: 100% Breite, zentriert, mit internem Padding */
   .extension-title,
   .accordion,
   .copy-box,
@@ -249,6 +248,13 @@ p {
     gap: 20px;
     text-align: center;
   }
+  /* Erzwinge Reihenfolge: Black Text Box zuerst, dann Bild */
+  .extension-title .black-text-box {
+    order: 1;
+  }
+  .extension-title a {
+    order: 2;
+  }
   
   /* Black Text Box im Titel: 90% der Bildschirmbreite */
   .black-text-box {
@@ -259,9 +265,9 @@ p {
   }
   
   /* Bilder im Titel:
-     - Maximale Breite: 90vw, aber nicht größer als 800px
-     - Höhe wird über ein Pseudo-Element (padding-top) erzwungen, sodass das 2:1-Verhältnis erhalten bleibt
-     - background-size: contain sorgt dafür, dass das gesamte GIF sichtbar bleibt
+     - Breite: 90vw (90% der Viewportbreite), maximal 800px
+     - Höhe: via Pseudo-Element (50% der Breite, d.h. 2:1-Verhältnis)
+     - background-size: contain, damit das gesamte GIF sichtbar ist
   */
   .extension-image {
     width: 90vw;
@@ -285,9 +291,21 @@ p {
     align-items: center;
     gap: 20px;
   }
+  /* Erzwinge Reihenfolge in jedem description-container:
+     - Die Black Text Box (Klasse .black-text-box-2) soll zuerst erscheinen
+     - Das Bild (über <a>) danach
+  */
+  .description-container > .black-text-box-2 {
+    order: 1;
+  }
+  .description-container > a {
+    order: 2;
+  }
   
   /* Bilder in der Beschreibung:
-     - Gleiche Regeln wie oben, aber hier verwenden wir background-size: contain, damit das Bild vollständig angezeigt wird
+     - Breite: 90vw, maximal 800px
+     - Höhe: über Pseudo-Element (50% der Breite)
+     - background-size: contain (damit das gesamte Bild sichtbar bleibt)
   */
   .extension-image-2 {
     width: 90vw;
