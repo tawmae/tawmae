@@ -253,6 +253,15 @@ p {
   height: 165px;
 }
 
+.black-text-box-bsky {
+  flex: 1;
+  background-color: var(--black-bg);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  height: 300px;
+}
+
 .extension-table {
   width: 100%;
   border-collapse: collapse;
