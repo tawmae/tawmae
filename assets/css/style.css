@@ -630,8 +630,6 @@ header {
 }
 
 .home-title-black-text-box {
-    width: 100%;
-    max-width: 400px;
     opacity: 0.95;
     background-color: #111;
     border-radius: 12px;
