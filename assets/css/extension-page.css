@@ -328,7 +328,7 @@ p {
 
 /* === Mobile-Anpassungen === */
 @media (max-width: 768px) {
-  /* Alle Hauptcontainer: 100% Breite, zentriert mit internem Padding */
+  /* Alle Hauptcontainer: 100% Breite, zentriert, mit internem Padding */
   .extension-title,
   .accordion,
   .copy-box,
@@ -362,9 +362,9 @@ p {
   }
   
   /* Bilder im Titel:
-     - Breite: 90vw (90% der Viewportbreite) – maximal 800px
-     - Höhe: Berechnet als 50% der Breite (2:1-Verhältnis)
-     - Verwende background-size: contain (damit das ganze GIF sichtbar bleibt)
+     - Breite: 90vw (90% der Viewportbreite), maximal 800px
+     - Höhe: 50% der Viewportbreite (2:1-Verhältnis), errechnet mit calc(90vw * 0.5)
+     - background-size: contain (damit das ganze GIF sichtbar bleibt)
   */
   .extension-image {
     width: 90vw;
@@ -377,7 +377,7 @@ p {
     border: none;
   }
   
-  /* Beschreibung: Container als Spalte – Textbox immer vor Bild */
+  /* Beschreibung: Container als Spalte – Textbox vor Bild */
   .description-container {
     flex-direction: column;
     align-items: center;
@@ -391,8 +391,8 @@ p {
   }
   
   /* Bilder in der Beschreibung:
-     - Breite: 90vw, max. 800px; Höhe: 50% der Viewportbreite (2:1-Verhältnis)
-     - background-size: contain (damit das gesamte Bild sichtbar bleibt)
+     - Breite: 90vw, maximal 800px; Höhe: calc(90vw * 0.5)
+     - background-size: contain (damit das ganze Bild sichtbar bleibt)
   */
   .extension-image-2 {
     width: 90vw;
@@ -405,10 +405,14 @@ p {
     border: none;
   }
   
-  /* Customization-Container als Spalte */
+  /* Customization-Container als Spalte:
+     Hier wird zusätzlich ein erhöhter margin-bottom eingefügt,
+     sodass zwischen den Paketen (Textbox3+4 oder Textbox5+6) mehr Abstand entsteht.
+  */
   .customization-text-container {
     flex-direction: column;
     gap: 20px;
+    margin-bottom: 40px;
   }
 }
 
