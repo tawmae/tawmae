@@ -359,6 +359,7 @@ header {
   color: black;
 }
 
+/* Mobile-spezifische Anpassungen */
 @media (max-width: 768px) {
   .header-center,
   .header-right {
@@ -368,9 +369,9 @@ header {
     flex: 1;
     text-align: center;
   }
-  /* Logo in Mobile verkleinern, damit es nicht vom Hamburger-Icon überlappt wird */
+  /* Logo im Header etwas größer – bei Bedarf anpassen */
   .header-left img {
-    max-width: 120px;
+    max-width: 150px;
   }
   .hamburger-icon {
     display: block;
@@ -380,7 +381,7 @@ header {
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 1.8rem;
-    z-index: 2000; /* Erhöhter z-index für volle Klickbarkeit */
+    z-index: 2000;
   }
   #mobile-menu-toggle:checked ~ .mobile-menu {
     display: block;
@@ -393,6 +394,8 @@ header {
     background: #131315;
     padding: 20px 0;
     z-index: 999;
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
   }
   .mobile-menu nav ul {
     flex-direction: column;
@@ -405,17 +408,20 @@ header {
     padding: 10px;
     display: block;
   }
-  .mobile-social {
-    display: flex;
+  /* Dropdowns im mobilen Menü standardmäßig geschlossen */
+  .mobile-menu .dropdown .dropdown-menu {
+    display: none;
     flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
   }
-  .mobile-social a {
-    font-size: 1.5rem;
-    margin: 10px 0;
+  /* Wenn Dropdown per Klick geöffnet wurde (.active hinzugefügt) */
+  .mobile-menu .dropdown.active .dropdown-menu {
+    display: block;
   }
-  /* Neue mobile Anpassungen für Rotator und Featured-Text */
+  /* Child-Icons im mobilen Menü sollen weiß sein */
+  .mobile-menu .nav-icon-child {
+    color: white;
+  }
+  /* Für den Rest der Rotator-/Featured-Text-Anpassungen */
   .rotator-wrapper {
     flex-direction: column;
     align-items: center;
@@ -440,7 +446,7 @@ header {
     gap: 20px;
   }
   .product-grid {
-    grid-template-columns: 1fr;  /* Cards in einer Spalte */
+    grid-template-columns: 1fr;
     gap: 10px;
     width: 100%;
   }
