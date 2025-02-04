@@ -242,7 +242,9 @@ header {
 }
 .product-grid-wrapper {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: flex-start;
   margin-top: 50px;
   width: 100%;
   padding: 0 10px;
@@ -408,12 +410,12 @@ header {
     padding: 10px;
     display: block;
   }
-  /* Dropdowns im mobilen Menü standardmäßig geschlossen */
+  /* Dropdowns im mobilen Menü – standardmäßig geschlossen */
   .mobile-menu .dropdown .dropdown-menu {
     display: none;
     flex-direction: column;
   }
-  /* Wenn Dropdown per Klick geöffnet wurde (.active hinzugefügt) */
+  /* Wenn das Dropdown per Klick (über Script) aktiv ist, anzeigen */
   .mobile-menu .dropdown.active .dropdown-menu {
     display: block;
   }
@@ -421,7 +423,19 @@ header {
   .mobile-menu .nav-icon-child {
     color: white;
   }
-  /* Für den Rest der Rotator-/Featured-Text-Anpassungen */
+  /* Social & Need help, Kofi Widget: alle untereinander und weiß */
+  .mobile-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .mobile-social a {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+  }
+  /* Rest der Rotator-/Featured-Text-Anpassungen */
   .rotator-wrapper {
     flex-direction: column;
     align-items: center;
@@ -438,17 +452,25 @@ header {
   .header-center ul li a {
     font-size: 0.8rem;
   }
-  /* Alle Produkt-Elemente untereinander anordnen */
+  /* Produkt-Wrapper als Spalte und Elemente zentriert */
   .product-grid-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
   }
+  /* Black Text Box über den Cards (mittels Order) */
+  .black-text-box {
+    order: -1;
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
   .product-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;  /* Cards in einer Spalte */
     gap: 10px;
     width: 100%;
+    justify-items: center;
   }
   .product-card {
     padding: 8px;
@@ -458,12 +480,6 @@ header {
   }
   .product-card p {
     font-size: 0.75rem;
-  }
-  /* Black-Textbox ebenfalls in voller Breite und zentriert */
-  .black-text-box {
-    width: 100%;
-    max-width: none;
-    text-align: center;
   }
 }
 
