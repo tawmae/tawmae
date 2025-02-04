@@ -569,3 +569,69 @@ header {
     color: #f8f8f2;
     margin: 1em 0;
 }
+
+/* Container für die Collage */
+.collage {
+  position: relative;
+  width: 1200px;  /* Passe die Breite nach Bedarf an */
+  height: 800px;  /* Passe die Höhe nach Bedarf an */
+  margin: 0 auto; /* Zentriert den Container horizontal */
+  background-color: #f0f0f0; /* Optional: Hintergrundfarbe zum Testen */
+}
+
+/* Gemeinsamer Stil für alle Collage-Bilder */
+.collage-img {
+  position: absolute;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover-Effekt: Bild wird etwas größer */
+.collage-img:hover {
+  transform: scale(1.1);
+}
+
+/* Positionierung der 5 Bilder */
+/* Passe die Werte hier nach deinen Wünschen an */
+.pos1 {
+  top: 20px;
+  left: 50px;
+}
+
+.pos2 {
+  top: 100px;
+  left: 400px;
+}
+
+.pos3 {
+  top: 250px;
+  left: 150px;
+}
+
+.pos4 {
+  top: 50px;
+  left: 700px;
+}
+
+.pos5 {
+  top: 300px;
+  left: 550px;
+}
+
+/* Logo oben drüber */
+.logo {
+  position: absolute;
+  top: 10px;
+  right: 10px;  /* Beispiel: Rechts oben positioniert */
+  z-index: 10;  /* Höherer z-index, damit das Logo immer oben liegt */
+  width: 256px;
+  height: 256px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Optional: Hover-Effekt auch für das Logo */
+.logo:hover {
+  transform: scale(1.1);
+}
+
