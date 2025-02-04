@@ -368,6 +368,10 @@ header {
     flex: 1;
     text-align: center;
   }
+  /* Logo in Mobile verkleinern, damit es nicht vom Hamburger-Icon überlappt wird */
+  .header-left img {
+    max-width: 120px;
+  }
   .hamburger-icon {
     display: block;
     position: absolute;
