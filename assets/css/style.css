@@ -576,7 +576,11 @@ header {
   width: 1200px;  /* Passe die Breite nach Bedarf an */
   height: 800px;  /* Passe die Höhe nach Bedarf an */
   margin: 0 auto; /* Zentriert den Container horizontal */
-  background-color: #f0f0f0; /* Optional: Hintergrundfarbe zum Testen */
+  background-color: transparent; /* Transparenter Hintergrund */
+  
+  /* Gesamte Collage auf 70% skalieren */
+  transform: scale(0.7);
+  transform-origin: top center;
 }
 
 /* Gemeinsamer Stil für alle Collage-Bilder */
@@ -586,43 +590,53 @@ header {
   cursor: pointer;
 }
 
-/* Hover-Effekt: Bild wird etwas größer */
+/* Hover-Effekt: Beibehaltung der Rotation und zusätzliches Scaling */
 .collage-img:hover {
-  transform: scale(1.1);
+  transform: rotate(var(--rotation)) scale(1.1);
 }
 
-/* Positionierung der 5 Bilder */
+/* Positionierung und Rotation der 5 Bilder */
 /* Passe die Werte hier nach deinen Wünschen an */
 .pos1 {
   top: 20px;
   left: 50px;
+  --rotation: -5deg;
+  transform: rotate(var(--rotation));
 }
 
 .pos2 {
   top: 100px;
   left: 400px;
+  --rotation: 3deg;
+  transform: rotate(var(--rotation));
 }
 
 .pos3 {
   top: 250px;
   left: 150px;
+  --rotation: -2deg;
+  transform: rotate(var(--rotation));
 }
 
 .pos4 {
   top: 50px;
   left: 700px;
+  --rotation: 6deg;
+  transform: rotate(var(--rotation));
 }
 
 .pos5 {
   top: 300px;
   left: 550px;
+  --rotation: -4deg;
+  transform: rotate(var(--rotation));
 }
 
-/* Logo oben drüber */
+/* Logo unten links positionieren */
 .logo {
   position: absolute;
-  top: 10px;
-  right: 10px;  /* Beispiel: Rechts oben positioniert */
+  bottom: 10px;
+  left: 10px;
   z-index: 10;  /* Höherer z-index, damit das Logo immer oben liegt */
   width: 256px;
   height: 256px;
