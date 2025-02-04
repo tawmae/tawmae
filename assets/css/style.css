@@ -573,25 +573,27 @@ header {
     margin: 1em 0;
 }
 
-/* Wrapper, der die Collage zentriert */
+/* Wrapper, der die Collage zentriert und als maximale Breite den Viewport nutzt */
 .collage-container {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  /* Optional: overflow hidden, falls die skalierten Inhalte überstehen */
-  overflow: hidden;
+  max-width: 100vw;
+  margin: 0 auto;         /* zentriert horizontal */
+  overflow: hidden;       /* verhindert Überlaufen der skalierten Inhalte */
+  /* Die Höhe passt sich in den Media Queries an – initial: 70% von 800px = 560px */
+  height: calc(800px * 0.7);
 }
 
 /* Container für die Collage */
 .collage {
   position: relative;
-  width: 1200px;  /* Originale Breite – passe diesen Wert bei Bedarf an */
-  height: 800px;  /* Originale Höhe */
-  background-color: transparent; /* Transparenter Hintergrund */
+  width: 1200px;          /* Originalbreite der Collage */
+  height: 800px;          /* Originalhöhe */
+  margin: 0 auto;         /* intern horizontal zentriert */
+  background-color: transparent;
   
-  /* Gesamte Collage auf 70% skalieren, Skalierung von der Mitte oben */
+  /* Desktop: 70% Skalierung */
   transform: scale(0.7);
-  transform-origin: center top;
+  transform-origin: top center;
 }
 
 /* Gemeinsamer Stil für alle Collage-Bilder */
@@ -601,7 +603,7 @@ header {
   cursor: pointer;
 }
 
-/* Hover-Effekt: Beibehaltung der Rotation plus zusätzliches Scaling */
+/* Hover: Rotation beibehalten und zusätzliches Scaling */
 .collage-img:hover {
   transform: rotate(var(--rotation)) scale(1.1);
 }
@@ -642,12 +644,12 @@ header {
   transform: rotate(var(--rotation));
 }
 
-/* Logo unten links positionieren, etwas weiter innen und leicht links rotiert */
+/* Logo unten links positionieren, etwas weiter innen und leicht rotiert */
 .logo {
   position: absolute;
-  bottom: 30px;         /* Etwas weiter vom unteren Rand */
-  left: 30px;           /* Etwas weiter vom linken Rand */
-  z-index: 10;          /* Damit das Logo immer oben liegt */
+  bottom: 30px;         /* weiter vom unteren Rand */
+  left: 30px;           /* weiter vom linken Rand */
+  z-index: 10;
   width: 256px;
   height: 256px;
   --logo-rotation: -8deg;
@@ -656,25 +658,33 @@ header {
   cursor: pointer;
 }
 
-/* Hover-Effekt für das Logo */
 .logo:hover {
   transform: rotate(var(--logo-rotation)) scale(1.1);
 }
 
-/* Mobile Optimierung für die Collage */
+/* --- Responsive Anpassungen --- */
+
+/* Bei Viewport-Breiten ≤ 768px: Skaliere so, dass die 1200px der Collage genau 100% der Breite ausmachen */
 @media (max-width: 768px) {
   .collage {
-    /* Für Tablets oder kleinere Bildschirme: etwas stärker skalieren */
-    transform: scale(0.5);
-    transform-origin: center top;
+    /* Skalierungsfaktor = Viewport-Breite / 1200px */
+    transform: scale(calc(100vw / 1200));
+    transform-origin: top center;
+  }
+  /* Die Container-Höhe passt sich der neuen Skalierung an */
+  .collage-container {
+    height: calc(800px * (100vw / 1200));
   }
 }
 
+/* Bei Viewport-Breiten ≤ 480px: Analog */
 @media (max-width: 480px) {
   .collage {
-    /* Für Smartphones: noch mehr skalieren */
-    transform: scale(0.4);
-    transform-origin: center top;
+    transform: scale(calc(100vw / 1200));
+    transform-origin: top center;
+  }
+  .collage-container {
+    height: calc(800px * (100vw / 1200));
   }
 }
 
