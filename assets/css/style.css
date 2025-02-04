@@ -573,29 +573,29 @@ header {
     margin: 1em 0;
 }
 
-/* -------------------------------
-   Collage – Desktop (Standard)
-------------------------------- */
+/* ================================ */
+/* Collage – Desktop (Standard) */
+/* ================================ */
+
 .collage-container {
   width: 1200px;          /* Originalbreite */
   margin: 0 auto;
   overflow: hidden;
-  height: calc(800px * 0.7);  /* Desktop-Höhe bei 70% Skalierung */
+  /* Desktop-Höhe: 800px * 0.7 (da .collage wird mit scale(0.7) dargestellt) */
+  height: calc(800px * 0.7);
 }
 
 .collage {
   position: relative;
-  width: 1200px;          /* Originalbreite */
+  width: 1200px;          /* Originalbreite der Collage */
   height: 800px;          /* Originalhöhe */
   background-color: transparent;
   margin: 0 auto;
-  
-  /* Desktop-Skalierung */
   transform: scale(0.7);
   transform-origin: top center;
 }
 
-/* Positionierung der Bilder bleibt unverändert */
+/* (Die Positionierung der Bilder und des Logos bleibt unverändert) */
 .collage-img {
   position: absolute;
   transition: transform 0.3s ease;
@@ -604,7 +604,6 @@ header {
 .collage-img:hover {
   transform: rotate(var(--rotation)) scale(1.1);
 }
-
 .pos1 {
   top: 20px;
   left: 10px;
@@ -652,16 +651,24 @@ header {
   transform: rotate(var(--logo-rotation)) scale(1.1);
 }
 
-/* -------------------------------
-   Collage – Mobile
-   Ziel: 1200px Originalbreite passt exakt in 100vw
-------------------------------- */
+/* ================================ */
+/* Collage – Mobile (Anpassung) */
+/* ================================ */
+/*
+  Auf mobilen Geräten soll die Collage so skaliert werden, dass die Originalbreite (1200px)
+  exakt 100vw (also 100% der Viewport-Breite) entspricht. Das Seitenverhältnis (1200:800) wird
+  zur Berechnung der Höhe herangezogen.
+  
+  Wichtig: Diese Regeln sollten **nach** allen Desktop-Regeln stehen und ggf. mit !important
+  versehen sein, damit sie alle anderen überschreiben.
+*/
+
 @media (max-width: 768px) {
   .collage-container {
     width: 100vw !important;
-    /* Höhe = Originalhöhe (800px) * (100vw/1200) */
     height: calc(800px * (100vw / 1200)) !important;
-    margin: 0 auto;
+    margin: 0 auto !important;
+    overflow: hidden !important;
   }
   .collage {
     transform: scale(calc(100vw / 1200)) !important;
@@ -673,10 +680,12 @@ header {
   .collage-container {
     width: 100vw !important;
     height: calc(800px * (100vw / 1200)) !important;
-    margin: 0 auto;
+    margin: 0 auto !important;
+    overflow: hidden !important;
   }
   .collage {
     transform: scale(calc(100vw / 1200)) !important;
     transform-origin: top left !important;
   }
 }
+
