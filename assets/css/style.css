@@ -358,6 +358,7 @@ header {
   vertical-align: middle;
   color: black;
 }
+
 @media (max-width: 768px) {
   .header-center,
   .header-right {
@@ -375,6 +376,7 @@ header {
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 1.8rem;
+    z-index: 1100; /* Hamburger-Menü nun über anderen Elementen */
   }
   #mobile-menu-toggle:checked ~ .mobile-menu {
     display: block;
@@ -409,7 +411,7 @@ header {
     font-size: 1.5rem;
     margin: 10px 0;
   }
-  /* New mobile adjustments for rotator and featured text */
+  /* Neue mobile Anpassungen für Rotator und Featured-Text */
   .rotator-wrapper {
     flex-direction: column;
     align-items: center;
@@ -418,6 +420,7 @@ header {
     aspect-ratio: 2 / 1;
   }
 }
+
 @media (max-width: 480px) {
   .header-center ul {
     gap: 5px;
@@ -426,7 +429,7 @@ header {
     font-size: 0.8rem;
   }
   .product-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: 1fr;  /* Produkt Cards werden untereinander angeordnet */
     gap: 10px;
   }
   .product-card {
@@ -441,13 +444,13 @@ header {
 }
 
 .dynamic-code pre {
-      background-color: #2d2d2d;
-      border-radius: 5px;
-      padding: 15px;
-      overflow: auto;
-      font-family: 'Fira Code', monospace;
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #f8f8f2;
-      margin: 1em 0;
+  background-color: #2d2d2d;
+  border-radius: 5px;
+  padding: 15px;
+  overflow: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #f8f8f2;
+  margin: 1em 0;
 }
