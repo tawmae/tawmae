@@ -22,8 +22,6 @@ main {
   flex: 1;
   padding-top: 100px;
 }
-
-/* Header */
 header {
   position: fixed;
   top: 0;
@@ -155,7 +153,7 @@ header {
   position: relative;
   width: 100%;
   max-width: 1200px;
-  aspect-ratio: 6 / 1;  /* 1200x200 -> 6:1 */
+  aspect-ratio: 6 / 1;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -249,9 +247,8 @@ header {
 /* Weitere Desktop-Stile (Produkt-Cards etc.) – unverändert */
 /* ... */
 
-/* === Mobile-Anpassungen === */
+/* === Mobile-spezifische Anpassungen === */
 @media (max-width: 768px) {
-  /* Header und Mobile-Menü */
   .header-center,
   .header-right {
     display: none;
@@ -298,10 +295,12 @@ header {
     padding: 10px;
     display: block;
   }
+  /* Dropdowns im mobilen Menü – standardmäßig geschlossen */
   .mobile-menu .dropdown .dropdown-menu {
     display: none;
     flex-direction: column;
   }
+  /* Beim Klick: aktivierte Dropdowns anzeigen */
   .mobile-menu .dropdown.active > .dropdown-menu {
     display: block;
   }
@@ -322,13 +321,13 @@ header {
     margin: 5px 0;
   }
   /* Rotator-Anpassungen für Mobile:
-     Hier wird lediglich das object-fit der Bilder im Rotator angepasst, damit sie vollständig sichtbar sind.
-     Das Seitenverhältnis (6:1) bleibt wie im Desktop unverändert. */
+     Hier wird ausschließlich das object-fit der Rotator-Bilder angepasst, damit das 1200x200 Bild (6:1) vollständig sichtbar bleibt.
+     Desktop-Verhalten (object-fit: cover) bleibt unverändert.
+  */
   .rotator img {
     object-fit: contain;
     object-position: center;
   }
-  
   /* Weitere Mobile-Anpassungen für andere Bereiche */
   .extension-title,
   .accordion,
