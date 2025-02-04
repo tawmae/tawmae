@@ -573,29 +573,33 @@ header {
     margin: 1em 0;
 }
 
-/* ================================ */
-/* Collage – Desktop (Standard) */
-/* ================================ */
-
-.collage-container {
-  width: 1200px;          /* Originalbreite */
-  margin: 0 auto;
-  overflow: hidden;
-  /* Desktop-Höhe: 800px * 0.7 (da .collage wird mit scale(0.7) dargestellt) */
-  height: calc(800px * 0.7);
+/* --- Standard: Desktop --- */
+:root {
+  /* Desktop-Skalierung: 0.7 (d.h. 1200px * 0.7 = 840px Breite der sichtbaren Collage) */
+  --collage-scale: 0.7;
 }
 
 .collage {
   position: relative;
-  width: 1200px;          /* Originalbreite der Collage */
-  height: 800px;          /* Originalhöhe */
+  width: 1200px;         /* Originalbreite */
+  height: 800px;         /* Originalhöhe */
+  /* Skaliert den Inhalt */
+  transform: scale(var(--collage-scale));
+  /* Skalierung erfolgt von der oberen linken Ecke */
+  transform-origin: top left;
   background-color: transparent;
-  margin: 0 auto;
-  transform: scale(0.7);
-  transform-origin: top center;
+  /* (Weitere Styles wie margin etc. können hier gesetzt werden) */
 }
 
-/* (Die Positionierung der Bilder und des Logos bleibt unverändert) */
+.collage-container {
+  /* Der Container passt seine Größe der skalierten Collage an */
+  width: calc(1200px * var(--collage-scale));
+  height: calc(800px * var(--collage-scale));
+  margin: 0 auto;        /* Zentriert horizontal */
+  overflow: hidden;      /* Verhindert, dass skaliert Inhalte herausragen */
+}
+
+/* Positionierung der Bilder bleibt unverändert */
 .collage-img {
   position: absolute;
   transition: transform 0.3s ease;
@@ -604,30 +608,35 @@ header {
 .collage-img:hover {
   transform: rotate(var(--rotation)) scale(1.1);
 }
+
 .pos1 {
   top: 20px;
   left: 10px;
   --rotation: -5deg;
   transform: rotate(var(--rotation));
 }
+
 .pos2 {
   top: 100px;
   left: 400px;
   --rotation: 3deg;
   transform: rotate(var(--rotation));
 }
+
 .pos3 {
   top: 250px;
   left: 150px;
   --rotation: -2deg;
   transform: rotate(var(--rotation));
 }
+
 .pos4 {
   top: 50px;
   left: 700px;
   --rotation: 6deg;
   transform: rotate(var(--rotation));
 }
+
 .pos5 {
   top: 300px;
   left: 550px;
@@ -651,19 +660,21 @@ header {
   transform: rotate(var(--logo-rotation)) scale(1.1);
 }
 
-/* ================================ */
-/* Collage – Mobile (Anpassung) */
-/* ================================ */
-/*
-  Auf mobilen Geräten soll die Collage so skaliert werden, dass die Originalbreite (1200px)
-  exakt 100vw (also 100% der Viewport-Breite) entspricht. Das Seitenverhältnis (1200:800) wird
-  zur Berechnung der Höhe herangezogen.
-  
-  Wichtig: Diese Regeln sollten **nach** allen Desktop-Regeln stehen und ggf. mit !important
-  versehen sein, damit sie alle anderen überschreiben.
-*/
-
+/* --- Mobile: Collage passt sich exakt der Bildschirmbreite an --- */
 @media (max-width: 768px) {
+  :root {
+    /* Berechnet den Skalierungsfaktor so, dass 1200px exakt 100vw entsprechen */
+    --collage-scale: calc(100vw / 1200);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    /* Bei kleinen Bildschirmen dasselbe */
+    --collage-scale: calc(100vw / 1200);
+  }
+}
+ (max-width: 768px) {
   .collage-container {
     width: 100vw !important;
     height: calc(800px * (100vw / 1200)) !important;
