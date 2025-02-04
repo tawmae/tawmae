@@ -43,7 +43,7 @@ html, body {
   transform: scale(1.03);
 }
 
-/* Weitere Desktop-Regeln bleiben unverändert … */
+/* Weitere Desktop-Regeln (Accordion, Copy-Box, etc.) bleiben unverändert … */
 
 .accordion {
   max-width: 1200px;
@@ -201,6 +201,7 @@ p {
   border-radius: 8px;
 }
 
+/* Für Bilder in Beschreibungen */
 .extension-image-2 {
   width: 600px;
   height: 300px;
@@ -226,11 +227,11 @@ p {
   margin-bottom: 20px;
 }
 
-/* Weitere Desktop-Stile (black-text-box-3, tables, etc.) bleiben unverändert … */
+/* Weitere Desktop-Regeln (black-text-box-3, Tabellen etc.) bleiben unverändert … */
 
 /* === Mobile-Anpassungen === */
 @media (max-width: 768px) {
-  /* Alle Container auf volle Breite, zentriert und mit internem Padding */
+  /* Alle Container auf volle Breite, zentriert, mit internem Padding */
   .extension-title,
   .accordion,
   .copy-box,
@@ -258,39 +259,49 @@ p {
   }
   
   /* Bilder im Titel:
-     - Breite: 90vw (90% der Viewportbreite) mit max-width:800px
-     - Höhe: 50% der Breite (800×400 = 2:1)
-     - background-size: contain (damit das ganze GIF sichtbar bleibt)
-     - zentriert */
+     - Maximale Breite: 90vw, aber nicht größer als 800px
+     - Höhe wird nun über ein Pseudo-Element erzwungen, sodass das Originalverhältnis (2:1) erhalten bleibt.
+     - Für das Cover-GIF verwenden wir background-size: contain, damit das gesamte Bild sichtbar ist.
+  */
   .extension-image {
     width: 90vw;
     max-width: 800px;
     margin: 0 auto;
-    height: calc(90vw * 0.5);
+    position: relative;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     border: none;
   }
+  /* Pseudo-Element erzwingt die Höhe (50% der Breite → 2:1-Verhältnis) */
+  .extension-image::before {
+    content: "";
+    display: block;
+    padding-top: 50%;
+  }
   
-  /* Beschreibung: Container als Spalte (Textbox über Bild) */
+  /* Beschreibung: Container als Spalte, sodass erst Text, dann Bild */
   .description-container {
     flex-direction: column;
     align-items: center;
     gap: 20px;
   }
   
-  /* Bilder in der Beschreibung:
-     - gleiche Regel wie oben, aber mit background-size: cover */
+  /* Bilder in der Beschreibung: gleiche Regeln wie oben, aber mit background-size: cover */
   .extension-image-2 {
     width: 90vw;
     max-width: 800px;
     margin: 0 auto;
-    height: calc(90vw * 0.5);
+    position: relative;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border: none;
+  }
+  .extension-image-2::before {
+    content: "";
+    display: block;
+    padding-top: 50%;
   }
   
   /* Customization-Container als Spalte */
