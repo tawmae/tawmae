@@ -573,16 +573,14 @@ header {
     margin: 1em 0;
 }
 
-/* =================================================== */
-/* Collage – Desktop */
-/* =================================================== */
-
+/* -------------------------------
+   Collage – Desktop (Standard)
+------------------------------- */
 .collage-container {
   width: 1200px;          /* Originalbreite */
   margin: 0 auto;
-  overflow: hidden;       /* Verhindert, dass skaliert Inhalte überstehen */
-  /* Desktop-Höhe: 800px * 0.7 (Desktop-Skalierung) */
-  height: calc(800px * 0.7);
+  overflow: hidden;
+  height: calc(800px * 0.7);  /* Desktop-Höhe bei 70% Skalierung */
 }
 
 .collage {
@@ -592,12 +590,12 @@ header {
   background-color: transparent;
   margin: 0 auto;
   
-  /* Desktop: 70% Skalierung */
+  /* Desktop-Skalierung */
   transform: scale(0.7);
   transform-origin: top center;
 }
 
-/* Positionierung der Bilder und des Logos (bleibt unverändert) */
+/* Positionierung der Bilder bleibt unverändert */
 .collage-img {
   position: absolute;
   transition: transform 0.3s ease;
@@ -606,6 +604,7 @@ header {
 .collage-img:hover {
   transform: rotate(var(--rotation)) scale(1.1);
 }
+
 .pos1 {
   top: 20px;
   left: 10px;
@@ -653,45 +652,31 @@ header {
   transform: rotate(var(--logo-rotation)) scale(1.1);
 }
 
-/* =================================================== */
-/* Collage – Mobile */
-/* =================================================== */
-/*
-  Auf mobilen Geräten soll die Collage exakt die Bildschirmbreite einnehmen.
-  Hier wird der Wrapper (.collage-container) auf 100vw gesetzt. Der Skalierungsfaktor
-  für .collage wird dynamisch als 100vw/1200 berechnet – so entspricht die originale
-  Breite (1200px) exakt 100vw. Das Seitenverhältnis (1200:800) wird zur Höhenberechnung genutzt.
-  
-  Wichtig: Wir setzen in diesem Fall den transform-origin auf top left, da die
-  Skala dann exakt die linke obere Ecke als Fixpunkt nimmt – und das Element passt exakt in den Container.
-*/
-
+/* -------------------------------
+   Collage – Mobile
+   Ziel: 1200px Originalbreite passt exakt in 100vw
+------------------------------- */
 @media (max-width: 768px) {
   .collage-container {
-    width: 100vw;
-    /* Höhe = 800px * (100vw / 1200) */
-    height: calc(800px * (100vw / 1200));
+    width: 100vw !important;
+    /* Höhe = Originalhöhe (800px) * (100vw/1200) */
+    height: calc(800px * (100vw / 1200)) !important;
     margin: 0 auto;
   }
   .collage {
-    /* Skaliere so, dass 1200px exakt 100vw entsprechen */
-    transform: scale(calc(100vw / 1200));
-    transform-origin: top left;
+    transform: scale(calc(100vw / 1200)) !important;
+    transform-origin: top left !important;
   }
 }
 
 @media (max-width: 480px) {
   .collage-container {
-    width: 100vw;
-    height: calc(800px * (100vw / 1200));
+    width: 100vw !important;
+    height: calc(800px * (100vw / 1200)) !important;
     margin: 0 auto;
   }
   .collage {
-    transform: scale(calc(100vw / 1200));
-    transform-origin: top left;
+    transform: scale(calc(100vw / 1200)) !important;
+    transform-origin: top left !important;
   }
 }
-
-
-
-
