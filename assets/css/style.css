@@ -625,7 +625,8 @@ header {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    max-width: 1550px;
+    /* Hier wurde der max-width-Wert von 1550px auf 1200px angepasst */
+    max-width: 1200px;
     width: 100%;
 }
 
@@ -651,4 +652,3 @@ header {
 .home-title-image:hover {
     transform: scale(1.03);
 }
-
