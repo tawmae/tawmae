@@ -49,7 +49,7 @@ function loadImportString(file) {
     fetch(file)
         .then(response => response.text())
         .then(data => {
-            importText.textContent = data.substring(0, 100) + '...';
+            importText.textContent = data.substring(0, 200) + '...';
             importText.setAttribute("data-copy-text", data);
         })
         .catch(err => console.error("Error loading file:", err));
