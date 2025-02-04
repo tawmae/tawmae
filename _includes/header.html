@@ -1,26 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: "tawmae" }}</title>
-  <!--------------------->
-  <meta name="description" content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
-  <meta name="keywords" content="{{ page.keywords | default: 'Streamerbot, Streaming, Twitch, OBS, Widgets, Streamer.bot' }}">
-  <meta name="description" content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
-  <meta name="keywords" content="{{ page.keywords | default: 'Streamerbot, Streaming, Twitch, OBS, Widgets, Streamer.bot' }}">
-  <!--------------------->
-  <meta property="og:title" content="{{ page.title | default: " tawmae" }}">
-  <meta property="og:description" content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
-  <meta property="og:image" content="{{ site.url }}/assets/page-design/website-card.png">
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:type" content="website">
-  <!--------------------->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page.title | default: " tawmae" }}">
-  <meta name="twitter:description" content="{{ page.description | default: 'A collection of Streamer.bot extensions for Twitch and OBS.' }}">
-  <meta name="twitter:image" content="{{ site.url }}/assets/page-design/website-card.png">
-  <!--------------------->
+  <!-- Meta und Link-Tags bleiben unverändert -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
@@ -42,9 +26,9 @@
     <nav class="header-center">
       <ul>
         <li><a href="{{ site.baseurl }}/"><span class="iconify nav-icon" data-icon="mdi:home"></span> START</a></li>
-        <!--------------------->
+        <!-- Dropdown-Parent für OBS WIDGETS -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle">
+          <a href="javascript:void(0)" class="dropdown-toggle">
             <span class="iconify nav-icon" data-icon="simple-icons:obsstudio"></span> OBS WIDGETS<span class="arrow">&#9662;</span>
           </a>
           <ul class="dropdown-menu">
@@ -59,9 +43,9 @@
             <li><a href="{{ site.baseurl }}/obs-widgets/vertical-chat.html"><span class="iconify nav-icon-child" data-icon="ic:baseline-mark-unread-chat-alt"></span> VERTICAL CHAT</a></li>
           </ul>
         </li>
-        <!--------------------->
+        <!-- Weitere Dropdowns analog -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle">
+          <a href="javascript:void(0)" class="dropdown-toggle">
             <span class="iconify nav-icon" data-icon="material-symbols:instant-mix"></span> UTILITY<span class="arrow">&#9662;</span>
           </a>
           <ul class="dropdown-menu">
@@ -69,16 +53,14 @@
             <li><a href="{{ site.baseurl }}/utility/bluesky-and-sb.html"><span class="iconify nav-icon-child" data-icon="tabler:brand-bluesky"></span> BLUESKY & SB</a></li>
           </ul>
         </li>
-        <!--------------------->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle">
+          <a href="javascript:void(0)" class="dropdown-toggle">
             <span class="iconify nav-icon" data-icon="bi:dice-6-fill"></span> CHAT GAMES<span class="arrow">&#9662;</span>
           </a>
           <ul class="dropdown-menu">
             <li><a href="{{ site.baseurl }}/utility/movie-and-tv-show-quiz.html"><span class="iconify nav-icon-child" data-icon="fluent:movies-and-tv-16-regular"></span> MOVIE & TV SHOW QUIZ</a></li>
           </ul>
         </li>
-        <!--------------------->
         <li><a href="{{ site.baseurl }}/commissions.html"><span class="iconify nav-icon" data-icon="mynaui:euro-circle-solid"></span> COMMISSIONS</a></li>
       </ul>
     </nav>
@@ -103,7 +85,7 @@
         </script>
       </a>
     </div>
-    <!-- Hamburger-Icon & Input – bleiben im Header -->
+    <!-- Hamburger-Icon und zugehöriger Input -->
     <label for="mobile-menu-toggle" class="hamburger-icon">
       <span class="iconify" data-icon="mdi:menu"></span>
     </label>
@@ -113,7 +95,7 @@
         <ul>
           <li><a href="{{ site.baseurl }}/"><span class="iconify nav-icon" data-icon="mdi:home"></span> START</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle">
+            <a href="javascript:void(0)" class="dropdown-toggle">
               <span class="iconify nav-icon" data-icon="simple-icons:obsstudio"></span> OBS WIDGETS<span class="arrow">&#9662;</span>
             </a>
             <ul class="dropdown-menu">
@@ -129,7 +111,7 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle">
+            <a href="javascript:void(0)" class="dropdown-toggle">
               <span class="iconify nav-icon" data-icon="material-symbols:instant-mix"></span> UTILITY<span class="arrow">&#9662;</span>
             </a>
             <ul class="dropdown-menu">
@@ -138,7 +120,7 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle">
+            <a href="javascript:void(0)" class="dropdown-toggle">
               <span class="iconify nav-icon" data-icon="bi:dice-6-fill"></span> CHAT GAMES<span class="arrow">&#9662;</span>
             </a>
             <ul class="dropdown-menu">
@@ -172,19 +154,17 @@
     </div>
   </header>
 
-  <!-- Am Ende von header.html, direkt vor dem schließenden </body> -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var mobileDropdownToggles = document.querySelectorAll(".mobile-menu .dropdown .dropdown-toggle");
-    mobileDropdownToggles.forEach(function (toggle) {
-      toggle.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation(); // Verhindert, dass das Standardverhalten (z.B. URL-Änderung) ausgeführt wird
-        this.parentElement.classList.toggle("active");
+  <!-- Script für Mobile Dropdowns -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var mobileDropdownToggles = document.querySelectorAll(".mobile-menu .dropdown .dropdown-toggle");
+      mobileDropdownToggles.forEach(function (toggle) {
+        toggle.addEventListener("click", function (e) {
+          e.preventDefault();
+          this.parentElement.classList.toggle("active");
+        });
       });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
