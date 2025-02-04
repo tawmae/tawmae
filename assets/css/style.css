@@ -415,25 +415,27 @@ header {
     display: none;
     flex-direction: column;
   }
-  /* Wenn das Dropdown per Klick (über Script) aktiv ist, anzeigen */
-  .mobile-menu .dropdown.active .dropdown-menu {
+  /* Beim Klick: aktivierte Dropdowns anzeigen */
+  .mobile-menu .dropdown.active > .dropdown-menu {
     display: block;
   }
   /* Child-Icons im mobilen Menü sollen weiß sein */
   .mobile-menu .nav-icon-child {
     color: white;
   }
-  /* Social & Need help, Kofi Widget: alle untereinander und weiß */
+  /* Social & Need help: Mehr Abstand und untereinander (spacing) */
   .mobile-social {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    margin-top: 20px;
   }
   .mobile-social a {
     font-size: 1.2rem;
     color: white;
     text-decoration: none;
+    margin: 5px 0;
   }
   /* Rest der Rotator-/Featured-Text-Anpassungen */
   .rotator-wrapper {
