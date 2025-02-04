@@ -435,13 +435,18 @@ header {
 .home-title-container {
             display: flex;
             align-items: center; 
-            justify-content: center;
+            justify-content: space-between;
             gap: 20px;
+            padding: 0 10px;
         }
         .-home-title-textbox {
             flex: 1; 
             padding: 10px;
         }
+
+.home-title-image {
+    flex-shrink: 0; 
+}
         .-home-title-image img {
             width: auto; 
             height: auto;
