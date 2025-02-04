@@ -63,21 +63,22 @@
 }
 
 .accordion-header:hover {
-  transform: scale(1.01); 
+  transform: scale(1.01);
 }
 
 .accordion-header:hover span {
-  color: #455f8c; 
+  color: #455f8c;
 }
 
-.accordion-header:hover .accordion-icon, 
+.accordion-header:hover .accordion-icon,
 .accordion-header:hover .title-icon {
-  color: #455f8c; 
-  transform: scale(1.1); 
+  color: #455f8c;
+  transform: scale(1.1);
 }
 
-.accordion-icon, .title-icon {
-  transition: transform 0.3s ease, color 0.3s ease; 
+.accordion-icon,
+.title-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .accordion-icon {
@@ -129,7 +130,7 @@ p {
   padding: 10px;
   background-color: #111;
   opacity: 0.95;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .copy-text {
@@ -174,7 +175,7 @@ p {
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 20px; 
+  gap: 20px;
   padding-bottom: 20px;
 }
 
@@ -184,21 +185,21 @@ p {
 }
 
 .black-text-box-2 {
-  flex: 1; 
+  flex: 1;
   background-color: #111;
   color: white;
   padding: 20px;
   border-radius: 8px;
-  min-width: 0; 
+  min-width: 0;
 }
 
 .extension-image-2 {
-  width: 600px; 
+  width: 600px;
   height: 300px;
   background-size: cover;
   background-position: center;
   border: 1px solid black;
-  flex-shrink: 0; 
+  flex-shrink: 0;
   transition: transform 0.4s ease-in-out;
   transform-origin: center center;
 }
@@ -222,7 +223,7 @@ p {
 
 .black-text-box-3,
 .black-text-box-4 {
-  flex: 1; 
+  flex: 1;
   background-color: #111;
   color: white;
   padding: 20px;
@@ -232,7 +233,7 @@ p {
 
 .black-text-box-5,
 .black-text-box-6 {
-  flex: 1; 
+  flex: 1;
   background-color: #111;
   color: white;
   padding: 20px;
@@ -274,7 +275,7 @@ p {
 .settings-ui-container {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start; 
+  align-items: flex-start;
   gap: 20px;
   padding-bottom: 20px;
 }
@@ -284,12 +285,12 @@ p {
   color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 300px; 
+  width: 300px;
 }
 
 .settings-ui-image {
-  width: 600px; 
-  height: auto; 
+  width: 600px;
+  height: auto;
   border: 1px solid black;
   flex-shrink: 0;
   transition: transform 0.4s ease-in-out;
@@ -301,7 +302,7 @@ p {
 }
 
 .black-text-box-long {
-  flex: 1; 
+  flex: 1;
   background-color: #111;
   color: white;
   padding: 15px;
@@ -310,7 +311,7 @@ p {
 }
 
 .extension-example-image {
-  width: 866px !important; 
+  width: 866px !important;
   height: 228px !important;
   display: block !important;
   margin: 0 auto !important;
@@ -322,8 +323,7 @@ p {
   transform: scale(1.03);
 }
 
-/* Desktop bleibt unverändert – ab hier folgen die Mobile-Anpassungen */
-
+/* === Mobile-Anpassungen === */
 @media (max-width: 768px) {
   /* Titelbereich als Spalte */
   .extension-title {
@@ -338,10 +338,12 @@ p {
     margin: 0 auto;
     text-align: center;
   }
-  /* Bild im Titel anpassen */
+  /* Bild im Titel anpassen – Feste Breite und ein Seitenverhältnis festlegen */
   .extension-image {
     width: 90%;
-    height: auto;
+    /* Mit aspect-ratio (2:1) wird eine Mindesthöhe erzeugt */
+    aspect-ratio: 2 / 1;
+    /* Alternativ: min-height: 200px; */
     max-width: none;
     border: none;
   }
@@ -359,10 +361,10 @@ p {
     flex-direction: column;
     gap: 20px;
   }
-  /* Bilder in Beschreibung anpassen */
+  /* Bilder in Beschreibung anpassen – auch hier das Seitenverhältnis sichern */
   .extension-image-2 {
     width: 90%;
-    height: auto;
+    aspect-ratio: 2 / 1;
     margin: 0 auto;
   }
   /* Customization-Container als Spalte */
@@ -373,16 +375,15 @@ p {
 }
 
 @media (max-width: 480px) {
-  /* Schriftgröße und Abstände ggf. weiter reduzieren */
+  /* Schriftgrößen und Abstände weiter reduzieren */
   .extension-title h1 {
     font-size: 2rem;
   }
   .extension-title p {
     font-size: 1rem;
   }
-  /* Accordion Header kleiner */
   .accordion-header {
     font-size: 1.2rem;
   }
-  /* Weitere Anpassungen bei Bedarf */
+  /* Falls erforderlich: Weitere spezifische Anpassungen für sehr kleine Bildschirme */
 }
