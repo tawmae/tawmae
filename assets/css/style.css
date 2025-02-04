@@ -444,7 +444,7 @@ header {
 .extension-code-block pre {
   background-color: #2d2d2d;
   border-radius: 5px;
-  padding: 15px;
+  padding: 20px;
   overflow: auto;
   font-family: 'Fira Code', monospace;
   font-size: 1rem;
