@@ -227,7 +227,7 @@ p {
   margin-bottom: 20px;
 }
 
-/* Weitere Desktop-Regeln (black-text-box-3, Tabellen etc.) bleiben unverändert … */
+/* Weitere Desktop-Stile (black-text-box-3, Tabellen etc.) bleiben unverändert … */
 
 /* === Mobile-Anpassungen === */
 @media (max-width: 768px) {
@@ -260,8 +260,8 @@ p {
   
   /* Bilder im Titel:
      - Maximale Breite: 90vw, aber nicht größer als 800px
-     - Höhe wird nun über ein Pseudo-Element erzwungen, sodass das Originalverhältnis (2:1) erhalten bleibt.
-     - Für das Cover-GIF verwenden wir background-size: contain, damit das gesamte Bild sichtbar ist.
+     - Höhe wird über ein Pseudo-Element (padding-top) erzwungen, sodass das 2:1-Verhältnis erhalten bleibt
+     - background-size: contain sorgt dafür, dass das gesamte GIF sichtbar bleibt
   */
   .extension-image {
     width: 90vw;
@@ -273,27 +273,28 @@ p {
     background-repeat: no-repeat;
     border: none;
   }
-  /* Pseudo-Element erzwingt die Höhe (50% der Breite → 2:1-Verhältnis) */
   .extension-image::before {
     content: "";
     display: block;
-    padding-top: 50%;
+    padding-top: 50%;  /* 2:1-Verhältnis */
   }
   
-  /* Beschreibung: Container als Spalte, sodass erst Text, dann Bild */
+  /* Beschreibung: Container als Spalte (Textbox über Bild) */
   .description-container {
     flex-direction: column;
     align-items: center;
     gap: 20px;
   }
   
-  /* Bilder in der Beschreibung: gleiche Regeln wie oben, aber mit background-size: cover */
+  /* Bilder in der Beschreibung:
+     - Gleiche Regeln wie oben, aber hier verwenden wir background-size: contain, damit das Bild vollständig angezeigt wird
+  */
   .extension-image-2 {
     width: 90vw;
     max-width: 800px;
     margin: 0 auto;
     position: relative;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     border: none;
