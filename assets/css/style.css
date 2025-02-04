@@ -435,28 +435,25 @@ header {
 .home-title-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 20px;
-    padding: 0 10px;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
 
 .home-title-text-box {
-    flex-grow: 1;  /* Füllt so viel Platz wie möglich */
+    flex-grow: 1;
     padding: 20px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     text-align: left;
     color: white;
-    min-width: 300px; /* Stellt sicher, dass es nicht zu schmal wird */
 }
 
 .home-title-image {
     flex-shrink: 0;
-    max-width: 600px; /* Begrenzung für das Bild */
-    width: 100%; 
+    width: 100%;
+    max-width: 600px;
 }
 
 .home-title-image img {
@@ -464,6 +461,7 @@ header {
     height: auto;
     display: block;
 }
+
 
 
 
