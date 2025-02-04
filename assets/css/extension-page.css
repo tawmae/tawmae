@@ -1,3 +1,9 @@
+/* === Globale Einstellungen === */
+html, body {
+  height: 100%;
+  overflow-x: hidden;  /* verhindert horizontales Scrollen */
+}
+
 /* === Desktop-Stile === */
 .extension-title {
   margin-top: 30px;
@@ -36,8 +42,7 @@
 
 .accordion {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -52,7 +57,7 @@
 
 .accordion-header {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
   color: white;
@@ -85,7 +90,6 @@
 .accordion-icon {
   font-size: 1.5rem;
   color: white;
-  transition: transform 0.3s;
   margin-left: 10px;
 }
 
@@ -175,7 +179,6 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   gap: 20px;
   padding-bottom: 20px;
 }
@@ -191,7 +194,6 @@ p {
   color: white;
   padding: 20px;
   border-radius: 8px;
-  min-width: 0;
 }
 
 .extension-image-2 {
@@ -200,7 +202,6 @@ p {
   background-size: cover;
   background-position: center;
   border: 1px solid black;
-  flex-shrink: 0;
   transition: transform 0.4s ease-in-out;
   transform-origin: center center;
 }
@@ -216,8 +217,6 @@ p {
 .customization-text-container {
   display: flex;
   justify-content: center;
-  align-items: stretch;
-  width: 100%;
   gap: 20px;
   margin-bottom: 20px;
 }
@@ -240,10 +239,6 @@ p {
   padding: 20px;
   border-radius: 8px;
   height: 165px;
-}
-
-.black-text-box-5,{
-  text-wrap: nowrap;
 }
 
 .extension-table {
@@ -275,8 +270,6 @@ p {
 
 .settings-ui-container {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   gap: 20px;
   padding-bottom: 20px;
 }
@@ -291,9 +284,7 @@ p {
 
 .settings-ui-image {
   width: 600px;
-  height: auto;
   border: 1px solid black;
-  flex-shrink: 0;
   transition: transform 0.4s ease-in-out;
   transform-origin: center center;
 }
@@ -326,57 +317,55 @@ p {
 
 /* === Mobile-Anpassungen === */
 @media (max-width: 768px) {
+  /* Alle Container auf volle Breite mit internem Padding und zentriert */
+  .extension-title,
+  .accordion,
+  .copy-box,
+  .description-container,
+  .customization-text-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
   /* Titelbereich als Spalte */
   .extension-title {
     flex-direction: column;
     gap: 20px;
     text-align: center;
   }
-  /* Black Box im Titel auf volle Breite */
+  
+  /* Black Text Box im Titel auf volle Breite */
   .black-text-box {
-    max-width: none;
+    max-width: 100%;
     width: 90%;
     margin: 0 auto;
     text-align: center;
   }
-  /* Bild im Titel: maximal 100% der Containerbreite (bis zu 800px) und 2:1-Verhältnis */
-  .extension-image {
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
-    /* Mit dem folgenden Padding-Hack wird das 2:1-Verhältnis erzwungen */
-    height: 0;
-    padding-top: 50%;
-    background-size: cover;
-    background-position: center;
-    border: none;
-  }
-  /* Accordion: Breite anpassen */
-  .accordion {
-    width: 90%;
-    margin: 0 auto;
-  }
-  /* Copy-Box: Breite anpassen */
-  .copy-box {
-    width: 90%;
-  }
-  /* Beschreibung: Container als Spalte, sodass Textbox und Bild untereinander stehen */
-  .description-container {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-  /* Bild in der Beschreibung: maximal 100% der Containerbreite (bis zu 800px) und 2:1-Verhältnis */
+  
+  /* Bilder (sowohl im Titel als auch in Beschreibungen)
+     - nehmen maximal 100% der Containerbreite ein (bis zu 800px)
+     - behalten das Original-Seitenverhältnis 800:400 (2:1) */
+  .extension-image,
   .extension-image-2 {
     width: 90%;
     max-width: 800px;
     margin: 0 auto;
-    height: 0;
-    padding-top: 50%;
+    aspect-ratio: 2 / 1;
     background-size: cover;
     background-position: center;
     border: none;
   }
+  
+  /* Beschreibung: Container als Spalte, sodass zuerst Text, dann Bild */
+  .description-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
   /* Customization-Container als Spalte */
   .customization-text-container {
     flex-direction: column;
