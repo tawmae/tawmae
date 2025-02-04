@@ -1,3 +1,4 @@
+/* === Desktop-Stile === */
 .extension-title {
   margin-top: 30px;
   display: flex;
@@ -338,13 +339,14 @@ p {
     margin: 0 auto;
     text-align: center;
   }
-  /* Bild im Titel anpassen – Feste Breite und ein Seitenverhältnis festlegen */
+  /* Bild im Titel anpassen: maximale Breite und zentriert; aspect-ratio erzwingt Mindesthöhe */
   .extension-image {
     width: 90%;
-    /* Mit aspect-ratio (2:1) wird eine Mindesthöhe erzeugt */
+    max-width: 600px;
+    margin: 0 auto;
     aspect-ratio: 2 / 1;
-    /* Alternativ: min-height: 200px; */
-    max-width: none;
+    background-size: cover;
+    background-position: center;
     border: none;
   }
   /* Accordion: Breite anpassen */
@@ -356,16 +358,21 @@ p {
   .copy-box {
     width: 90%;
   }
-  /* Beschreibung: Container als Spalte */
+  /* Beschreibung: Container als Spalte, damit Text Box und Bild untereinander stehen */
   .description-container {
     flex-direction: column;
     gap: 20px;
+    align-items: center;
   }
-  /* Bilder in Beschreibung anpassen – auch hier das Seitenverhältnis sichern */
+  /* Bild in der Beschreibung anpassen: maximale Breite, zentriert und passendes Seitenverhältnis */
   .extension-image-2 {
     width: 90%;
-    aspect-ratio: 2 / 1;
+    max-width: 500px;
     margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    border: none;
   }
   /* Customization-Container als Spalte */
   .customization-text-container {
