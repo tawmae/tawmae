@@ -15,7 +15,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #27262b;
     color: white;
-    text-align: initial;
+    text-align: center;
     padding: 20px;
     margin-bottom: 100px;
     height: 100%;
@@ -432,6 +432,10 @@ header {
     margin: 1em 0;
 }
 
+body {
+    text-align: initial;
+}
+
 .home-title-container {
     display: flex;
     align-items: center;
@@ -462,10 +466,6 @@ header {
     height: auto;
     display: block;
 }
-
-
-
-
 
 @media (max-width: 768px) {
 
