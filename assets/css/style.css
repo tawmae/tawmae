@@ -438,31 +438,32 @@ header {
     justify-content: space-between;
     gap: 20px;
     padding: 0 10px;
-    max-width: 1200px; 
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
 
 .home-title-text-box {
-    flex: 1; 
+    flex-grow: 1; /* Nutzt den gesamten verfügbaren Platz */
     padding: 20px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     text-align: left;
     color: white;
-    width: auto; 
 }
 
 .home-title-image {
     flex-shrink: 0;
-    max-width: 600px; 
-    width: 100%; 
+    flex-basis: 600px; /* Standardgröße: 600px, kann kleiner werden */
+    max-width: 600px; /* Darf aber nicht größer als 600px werden */
+    width: 100%; /* Sorgt dafür, dass es sich mit verkleinert */
 }
 
 .home-title-image img {
     width: 100%;
     height: auto;
 }
+
 
 
 
