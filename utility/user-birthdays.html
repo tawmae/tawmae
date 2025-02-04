@@ -1,0 +1,415 @@
+---
+layout: default
+title: "USER BIRTHDAYS | tawmae"
+description: "Add user's birthdays and have them automatically congratulated on their birthday"
+---
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
+<!----    TITLE   ------------------------------------------------------------------------------------------------------------------------------>
+<div class="extension-title">
+    <div class="black-text-box">
+        <h1>USER BIRTHDAYS</h1>
+        <p>
+            Never ever get into the situation of forgetting someone's birthday again! Have your viewers add their
+            birthday (or let your mods add them) and the bot will automatically wish happy birthday once they join the
+            chat.
+            <br>
+            <br>
+            And no worries if you didn't stream on their birthday – it works for belated birthday wishes too!
+            <br>
+            <span style="font-size: 2rem">catBirthday</span>
+        </p>
+    </div>
+    <a href="{{ site.baseurl }}/assets/covers/user-birthdays.gif" target="_blank">
+        <div class="extension-image"
+            style="background-image: url('{{ site.baseurl }}/assets/covers/user-birthdays.gif');"></div>
+    </a>
+</div>
+
+<!----    ENTIRE ACCORDION THINGY WHATEVER IT'S CALLED    ------------------------------------------------------------------------------------------------------------------------------>
+
+<div class="accordion">
+    <div class="accordion-divider"></div>
+    <!----    ACTION IMPORT    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('action-import')">
+            <span class="iconify title-icon" data-icon="line-md:download"></span> <span>Action Import</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="action-import">
+            <div class="copy-box">
+                <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
+                <button class="copy-btn" onclick="copyToClipboard('import-string')">
+                    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------------------->
+
+    <div class="accordion-divider"></div>
+
+
+
+    <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('setup')">
+            <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>Setup</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="setup">
+            <!---------------------------------------------->
+            <div class="description-container">
+                <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
+                </a>
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">1.</span> Copy the <span
+                            style="font-weight: bold; color: #d4af37;">Action Import</span> text from above into your
+                        clipboard.</p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+            <div class="description-container">
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">2.</span> In <span
+                            style="font-weight: bold; color: #d4af37;">Streamer.bot</span>, click the <span
+                            style="font-weight: bold; color: #d4af37;">Import</span> button at the top of the window.
+                        Paste the text into the <span style="font-weight: bold; color: #d4af37;">Import String</span>
+                        section and press <span style="font-weight: bold; color: #d4af37;">Import</span> at the bottom.
+                    </p>
+                </div>
+                <a href="{{ site.baseurl }}/assets/setup/import-actions.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/import-actions.png');">
+                    </div>
+                </a>
+            </div>
+            <!---------------------------------------------->
+            <div class="description-container">
+                <a href="{{ site.baseurl }}/assets/setup/enable-commands.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/enable-commands.png');">
+                    </div>
+                </a>
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">3.</span> Now head to the <span
+                            style="font-weight: bold; color: #d4af37;">Commands</span> tab and look for the imported
+                        commands. Then <span style="font-weight: bold; color: #d4af37;">rightclick</span> the group and
+                        select <span style="font-weight: bold; color: #d4af37;">Group -> Enable All</span>.</p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+            <div class="description-container">
+                <a href="{{ site.baseurl }}/assets/setup/user-birthdays/user-birthdays.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/user-birthdays/user-birthdays.png');">
+                    </div>
+                </a>
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">7. In the action <span
+                                style="font-weight: bold; color: #d4af37;">[User Birthday] 1 - Set / Change /
+                                Delete</span>, make sure you have your preferred <span
+                                style="font-weight: bold; color: #d4af37">dateFormat</span>.
+                            <br><br>
+                            Other than that, you're good to go!
+                            <br><br><span style="font-size: 2rem">Pog Clap</span></span>
+                    </p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+        </div>
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="accordion-divider"></div>
+
+    <!----    COMMANDS    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('commands')">
+            <span class="iconify title-icon" data-icon="line-md:alert-circle"></span>
+            <span>Commands</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="commands">
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!BIRTHDAY SET <span
+                                style="color: #455f8c;">[DATE]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Sets your own birthday date.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!BIRTHDAY CHECK <span
+                                style="color: #455f8c;">[USERNAME]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Posts the birthday date of the specified user to chat.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!BIRTHDAY NEXT</span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Posts the next upcoming birthdays into chat.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!BIRTHDAY ADD <span
+                                style="color: #455f8c;">[USERNAME] [DATE]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Adds a birthday date for the specified user.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!BIRTHDAY CHANGE <span
+                                style="color: #455f8c;">[USERNAME] [DATE]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Changes the set birthday date of the specified user.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!BIRTHDAY DELETE <span
+                                style="color: #455f8c;">[USERNAME]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Deletes the birthday date of the specified user.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="accordion-divider"></div>
+
+    <!----    CUSTOM TRIGGERS    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('custom-triggers')">
+            <span class="iconify title-icon" data-icon="line-md:bell-alert"></span>
+            <span>Custom Triggers</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="custom-triggers">
+            <p>Under <span style="font-weight: bold; color: #d4af37;">Custom -> SPOTIFY & SB</span> you will be able
+                to find triggers whenever a new song plays or a song gets paused/continued with song info variables.</p>
+            <p><br></p>
+            <!--------------------------------->
+            <a href="{{ site.baseurl }}/assets/custom-triggers/spotify-and-sb.png" target="_blank">
+                <div class="extension-image-2"
+                    style="background-image: url('{{ site.baseurl }}/assets/custom-triggers/spotify-and-sb.png');">
+                </div>
+            </a>
+            <!--------------------------------->
+            <p><br></p>
+            <!--------------------------------->
+            <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37;">Birthday Wished</p>
+                <p>Fires when a birthday wish is sent on time.</p>
+                <p style="font-weight: bold;">Available variables:</p>
+                <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayUser</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
+                        - The display name of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayUserName</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
+                        - The login name of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayUserId</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
+                        - The user ID of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayUserProfileImageUrl</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
+                        - The profile image URL of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayDate</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(DateTime)</span>
+                        - DateTime object of the current year with the congratulated person's birthday date
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayDateFormatted</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
+                        - Formatted birthday date of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayDay</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
+                        - Birthday day of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayMonth</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
+                        - Birthday month of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">isBelated</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(bool)</span>
+                        - Indicator whether the wishes have been belated or not
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">belatedDays</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
+                        - Passed days since the birthday (0 if not belated)
+                    </li>
+                </ul>
+            </div>
+
+            <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37;">Belated Birthday Wished</p>
+                <p>Fires when a belated birthday wish is sent.</p>
+                <p style="font-weight: bold;">Available variables:</p>
+                <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayUser</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
+                        - The display name of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayUserName</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
+                        - The login name of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayUserId</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
+                        - The user ID of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayUserProfileImageUrl</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
+                        - The profile image URL of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayDate</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(DateTime)</span>
+                        - DateTime object of the current year with the congratulated person's birthday date
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayDateFormatted</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
+                        - Formatted birthday date of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayDay</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
+                        - Birthday day of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">birthdayMonth</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
+                        - Birthday month of the congratulated person
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">isBelated</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(bool)</span>
+                        - Indicator whether the wishes have been belated or not
+                    </li>
+                    <li>
+                        <span style="font-weight: bold; color: #455f8c;">belatedDays</span>
+                        <span
+                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
+                        - Passed days since the birthday (0 if not belated)
+                    </li>
+                </ul>
+            </div>
+
+            <p><br><br></p>
+
+            <!---------------------------------------------->
+
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+    <div class="accordion-divider"></div>
+    <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('changelog')">
+            <span class="iconify title-icon" data-icon="line-md:rotate-270"></span>
+            <span>Changelog</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="changelog">
+            <table class="extension-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Changes</th>
+                        <th>Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!---------------------------------------------->
+                    <tr>
+                        <td>February 02, 2025</td>
+                        <td>Migrated sources to new website</td>
+                        <td>1.1.5</td>
+                    </tr>
+                    <!---------------------------------------------->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+    <div class="accordion-divider"></div>
+    <!---------------------------------------------->
+</div>
