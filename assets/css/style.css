@@ -573,6 +573,21 @@ header {
     margin: 1em 0;
 }
 
+.homepage-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 120px; /* z. B. damit der fixe Header nicht überlappt */
+}
+
+/* Auf mobilen Geräten – Collage unter der Textbox */
+@media (max-width: 768px) {
+  .homepage-header {
+    flex-direction: column;
+  }
+}
+
 /* --- Standard: Desktop --- */
 :root {
   /* Desktop-Skalierung: 0.7 (d.h. 1200px * 0.7 = 840px Breite der sichtbaren Collage) */
@@ -588,27 +603,29 @@ header {
   /* Skalierung erfolgt von der oberen linken Ecke */
   transform-origin: top left;
   background-color: transparent;
-  /* (Weitere Styles wie margin etc. können hier gesetzt werden) */
 }
 
 .collage-container {
   /* Der Container passt seine Größe der skalierten Collage an */
   width: calc(1200px * var(--collage-scale));
   height: calc(800px * var(--collage-scale));
-  margin: 0 auto;        /* Zentriert horizontal */
-  overflow: hidden;      /* Verhindert, dass skaliert Inhalte herausragen */
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-/* Positionierung der Bilder bleibt unverändert */
+
 .collage-img {
   position: absolute;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
+
+/* Beim Hover soll das Bild zur Originalrotation (also die in der CSS-Variable definierte Rotation) zurück */
 .collage-img:hover {
   transform: rotate(var(--rotation)) scale(1.1);
 }
 
+/* Beispiel-Positionierungen (passe Top/Left und --rotation nach Bedarf an) */
 .pos1 {
   top: 20px;
   left: 10px;
@@ -644,6 +661,7 @@ header {
   transform: rotate(var(--rotation));
 }
 
+/* Das Logo: 256x256, unten links über allen Bildern */
 .logo {
   position: absolute;
   bottom: 30px;
@@ -656,30 +674,29 @@ header {
   transition: transform 0.3s ease;
   cursor: pointer;
 }
+
 .logo:hover {
   transform: rotate(var(--logo-rotation)) scale(1.1);
 }
 
-/* --- Mobile: Collage passt sich exakt der Bildschirmbreite an --- */
-@media (max-width: 768px) {
-  :root {
-    /* Berechnet den Skalierungsfaktor so, dass 1200px exakt 100vw entsprechen */
-    --collage-scale: calc(100vw / 1200);
-  }
-}
 
 @media (max-width: 768px) {
+  :root {
+    --collage-scale: calc(100vw / 1200);
+  }
   .collage-container {
     width: 100vw;
-    /* Höhe: Originalhöhe * (100vw/1200) */
     height: calc(800px * (100vw / 1200));
     margin: 0 auto;
     overflow: hidden;
   }
   .collage {
-    /* Skaliere so, dass 1200px exakt 100vw entsprechen */
     transform: scale(calc(100vw / 1200));
     transform-origin: top left;
   }
+}
+
+.collage-img:hover {
+  transform: rotate(var(--rotation)) scale(1.1);
 }
 
