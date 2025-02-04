@@ -180,17 +180,15 @@ document.addEventListener("DOMContentLoaded", function () {
 // ====================================================================================================================
 
 document.addEventListener("DOMContentLoaded", function () {
-
     var codeBlocks = document.querySelectorAll('.code-block-content');
 
     codeBlocks.forEach(function (block) {
-
         var language = block.getAttribute('data-language') || 'none';
         var pre = document.createElement('pre');
         var code = document.createElement('code');
         code.className = 'language-' + language;
 
-        var codeText = block.textContent.trim();
+        var codeText = block.innerHTML.trim();
         code.textContent = codeText;
         pre.appendChild(code);
         block.parentNode.replaceChild(pre, block);
@@ -200,5 +198,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 
 // ====================================================================================================================
