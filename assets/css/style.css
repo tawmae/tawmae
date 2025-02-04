@@ -574,4 +574,15 @@ header {
     margin: 1em 0;
 }
 
-
+.home-title-container {
+            display: flex;
+            align-items: center; /* Vertikal ausrichten */
+        }
+        .-home-title-textbox {
+            flex: 1; /* Lässt den Text den verfügbaren Platz einnehmen */
+            padding: 10px;
+        }
+        .-home-title-image img {
+            width: auto; /* Bildgröße anpassen */
+            height: auto;
+        }
