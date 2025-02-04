@@ -72,5 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     else if (currentPage.includes("bluesky-and-sb")) {
         loadImportString("/action-imports/bluesky-and-sb.txt");  
+    }
+    else if (currentPage.includes("user-birthdays")) {
+        loadImportString("/action-imports/user-birthdays.txt");  
     } 
 });
