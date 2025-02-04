@@ -668,35 +668,18 @@ header {
   }
 }
 
-@media (max-width: 480px) {
-  :root {
-    /* Bei kleinen Bildschirmen dasselbe */
-    --collage-scale: calc(100vw / 1200);
-  }
-}
- (max-width: 768px) {
+@media (max-width: 768px) {
   .collage-container {
-    width: 100vw !important;
-    height: calc(800px * (100vw / 1200)) !important;
-    margin: 0 auto !important;
-    overflow: hidden !important;
+    width: 100vw;
+    /* Höhe: Originalhöhe * (100vw/1200) */
+    height: calc(800px * (100vw / 1200));
+    margin: 0 auto;
+    overflow: hidden;
   }
   .collage {
-    transform: scale(calc(100vw / 1200)) !important;
-    transform-origin: top left !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .collage-container {
-    width: 100vw !important;
-    height: calc(800px * (100vw / 1200)) !important;
-    margin: 0 auto !important;
-    overflow: hidden !important;
-  }
-  .collage {
-    transform: scale(calc(100vw / 1200)) !important;
-    transform-origin: top left !important;
+    /* Skaliere so, dass 1200px exakt 100vw entsprechen */
+    transform: scale(calc(100vw / 1200));
+    transform-origin: top left;
   }
 }
 
