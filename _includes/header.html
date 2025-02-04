@@ -154,16 +154,19 @@
     </div>
   </header>
 
-  <!-- Script für Mobile Dropdowns -->
+  <!-- Mobile Dropdowns: Nur auf Mobile aktivieren -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      var mobileDropdownToggles = document.querySelectorAll(".mobile-menu .dropdown .dropdown-toggle");
-      mobileDropdownToggles.forEach(function (toggle) {
-        toggle.addEventListener("click", function (e) {
-          e.preventDefault();
-          this.parentElement.classList.toggle("active");
+      if (window.innerWidth <= 768) {
+        var mobileDropdownToggles = document.querySelectorAll(".mobile-menu .dropdown .dropdown-toggle");
+        mobileDropdownToggles.forEach(function (toggle) {
+          toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            // Toggle "active" Klasse am übergeordneten <li>
+            this.parentElement.classList.toggle("active");
+          });
         });
-      });
+      }
     });
   </script>
 </body>
