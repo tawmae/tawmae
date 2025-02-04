@@ -420,6 +420,31 @@ header {
     color: black;
 }
 
+.dynamic-code pre {
+    background-color: #2d2d2d;
+    border-radius: 5px;
+    padding: 15px;
+    overflow: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #f8f8f2;
+    margin: 1em 0;
+}
+
+.home-title-container {
+            display: flex;
+            align-items: center; 
+        }
+        .-home-title-textbox {
+            flex: 1; 
+            padding: 10px;
+        }
+        .-home-title-image img {
+            width: auto; 
+            height: auto;
+        }
+
 
 @media (max-width: 768px) {
 
@@ -562,27 +587,4 @@ header {
 
 }
 
-.dynamic-code pre {
-    background-color: #2d2d2d;
-    border-radius: 5px;
-    padding: 15px;
-    overflow: auto;
-    font-family: 'Fira Code', monospace;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #f8f8f2;
-    margin: 1em 0;
-}
 
-.home-title-container {
-            display: flex;
-            align-items: center; /* Vertikal ausrichten */
-        }
-        .-home-title-textbox {
-            flex: 1; /* Lässt den Text den verfügbaren Platz einnehmen */
-            padding: 10px;
-        }
-        .-home-title-image img {
-            width: auto; /* Bildgröße anpassen */
-            height: auto;
-        }
