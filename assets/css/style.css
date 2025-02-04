@@ -478,12 +478,17 @@ header {
   flex-shrink: 0;
   width: 100%;
   max-width: 1000px;
+  transition: transform 0.4s ease-in-out;
 }
 
 .home-title-image img {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.home-title-image:hover {
+  transform: scale(1.05);
 }
 
 .section-divider {
