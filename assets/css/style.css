@@ -300,7 +300,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 50px;
   width: 100%;
   max-width: var(--container-width);
