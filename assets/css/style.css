@@ -376,7 +376,7 @@ header {
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 1.8rem;
-    z-index: 1100; /* Hamburger-Menü nun über anderen Elementen */
+    z-index: 2000; /* Erhöhter z-index für volle Klickbarkeit */
   }
   #mobile-menu-toggle:checked ~ .mobile-menu {
     display: block;
@@ -428,9 +428,17 @@ header {
   .header-center ul li a {
     font-size: 0.8rem;
   }
+  /* Alle Produkt-Elemente untereinander anordnen */
+  .product-grid-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
   .product-grid {
-    grid-template-columns: 1fr;  /* Produkt Cards werden untereinander angeordnet */
+    grid-template-columns: 1fr;  /* Cards in einer Spalte */
     gap: 10px;
+    width: 100%;
   }
   .product-card {
     padding: 8px;
@@ -440,6 +448,12 @@ header {
   }
   .product-card p {
     font-size: 0.75rem;
+  }
+  /* Black-Textbox ebenfalls in voller Breite und zentriert */
+  .black-text-box {
+    width: 100%;
+    max-width: none;
+    text-align: center;
   }
 }
 
