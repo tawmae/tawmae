@@ -542,10 +542,10 @@ header {
 
 
     .home-title-image {
-        width: 90vw;
-        max-width: 800px;
+        width: 80vw;
+        max-width: 600px;
         margin: 0 auto;
-        height: calc(90vw * 0.5);
+        height: calc(80vw * 0.5);
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -625,7 +625,7 @@ header {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    max-width: 1600px;
+    max-width: 1550px;
     width: 100%;
 }
 
