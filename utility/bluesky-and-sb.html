@@ -8,7 +8,9 @@ description: "A Bluesky integration for Streamer.bot. Create posts, update your 
 <div class="extension-title">
     <div class="black-text-box">
         <h1>BLUESKY & SB</h1>
-        <p>Wanna let your followers know when you're going live? <br><br>Or change your profile picture or display name while you are live? <br><br> Then you're at the right place<br><br><span style="font-size: 2rem">widetime</span></p>
+        <p>Wanna let your followers know when you're going live? <br><br>Or change your profile picture or display name
+            while you are live? <br><br> Then you're at the right place<br><br><span
+                style="font-size: 2rem">widetime</span></p>
     </div>
     <a href="{{ site.baseurl }}/assets/covers/bluesky-and-sb.png" target="_blank">
         <div class="extension-image"
@@ -39,8 +41,6 @@ description: "A Bluesky integration for Streamer.bot. Create posts, update your 
 
     <div class="accordion-divider"></div>
 
-
-
     <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion('setup')">
@@ -48,16 +48,6 @@ description: "A Bluesky integration for Streamer.bot. Create posts, update your 
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
         <div class="accordion-content" id="setup">
-            <!---------------------------------------------->
-            <div class="black-text-box-long" style="text-align: center; margin-bottom: 20px">
-
-                <span class="iconify title-icon" data-icon="iconoir:warning-circle"
-                    style="color: lightgreen; font-size: 1.5rem; margin-top: 10px"></span>
-                <span style=" color: lightgreen;">Note:</span> This extension requires <span
-                    style="font-weight: bold; color: #d4af37;">Spotify Premium</span>.
-
-
-            </div>
             <!---------------------------------------------->
             <div class="description-container">
                 <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
@@ -88,31 +78,17 @@ description: "A Bluesky integration for Streamer.bot. Create posts, update your 
             </div>
             <!---------------------------------------------->
             <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/enable-commands.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/enable-commands.png');">
-                    </div>
-                </a>
                 <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">3.</span> Now head to the <span
-                            style="font-weight: bold; color: #d4af37;">Commands</span> tab and look for the imported
-                        commands. Then <span style="font-weight: bold; color: #d4af37;">rightclick</span> the group and
-                        select <span style="font-weight: bold; color: #d4af37;">Group -> Enable All</span>.</p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="description-container">
-                <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">4.</span> Go to <span
-                            style="font-weight: bold; color: #455f8c;"><a href="https://developer.spotify.com/"
-                                class="link-preview" target="_blank">https://developer.spotify.com/</a></span> and login
-                        with your Spotify account. Then enter your <span
-                            style="font-weight: bold; color: #d4af37;">Dashboard</span> and hit <span
-                            style="font-weight: bold; color: #d4af37;">Create app</span>.</p>
+                    <p><span style="font-weight: bold; color: #fff;">4.</span> In Bluesky, go to <span
+                            style="font-weight: bold; color: #d4af37;">Settings -> Privacy and security -> App
+                            passwords</span> (or click here <span style="font-weight: bold; color: #455f8c;"><a
+                                href="https://developer.spotify.com/" class="link-preview"
+                                target="_blank">https://bsky.app/settings/app-passwords</a></span>) and add a new app
+                        password.
                 </div>
                 <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
                     <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/spotify-and-sb/spotify-and-sb-1.png');">
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/bluesky-and-sb/bluesky-and-sb-1.png');">
                     </div>
                 </a>
             </div>
@@ -120,63 +96,37 @@ description: "A Bluesky integration for Streamer.bot. Create posts, update your 
             <div class="description-container">
                 <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
                     <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/spotify-and-sb/spotify-and-sb-2.png');">
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/bluesky-and-sb/bluesky-and-sb-2.png');">
                     </div>
                 </a>
                 <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">5.</span> Enter <span
-                            style="font-weight: bold; color: #d4af37;">App name</span> and <span
-                            style="font-weight: bold; color: #d4af37;">App description</span> (those can be whatever).
-                        Then copy this URL:<br><br> <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">http://127.0.0.1:1312/tawmaeSpotify/</span>
-                        <br><br> Paste it into the <span style="font-weight: bold; color: #d4af37;">Redirect
-                            URIs</span>. It's important that this link is this exact one.
-                        <br><br> Accept the <span style="font-weight: bold; color: #d4af37;">ToS</span> and hit <span
-                            style="font-weight: bold; color: #d4af37;">Save</span>.
-                    </p>
-                </div>
-
-            </div>
-            <!---------------------------------------------->
-            <div class="description-container">
-                <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">6.</span> Now that your app has been created, click
-                        on <span style="font-weight: bold; color: #d4af37;">Settings</span> in the top right corner.
-                        Click <span style="font-weight: bold; color: #d4af37;">View client secret</span> below <span
-                            style="font-weight: bold; color: #d4af37;">Client ID</span> to reveal your <span
-                            style="font-weight: bold; color: #d4af37;">Client secret</span>. We will need both of them
-                        in a second.</p>
-                </div>
-                <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/spotify-and-sb/spotify-and-sb-3.png');">
-                    </div>
-                </a>
-            </div>
-            <!---------------------------------------------->
-            <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/spotify-and-sb/spotify-and-sb-4.png');">
-                    </div>
-                </a>
-                <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">7. In <span
-                                style="font-weight: bold; color: #d4af37;">Streamer.bot</span>, head into the <span
-                                style="font-weight: bold; color: #d4af37;">[SPOTIFY & SB] # 0 - Settings</span> action,
-                            rightclick the <span style="font-weight: bold; color: #d4af37;">Test</span> trigger and hit
-                            <span style="font-weight: bold; color: #d4af37;">Test Trigger</span> to open the Settings
-                            UI. Paste your <span style="font-weight: bold; color: #d4af37;">Client ID</span> and <span
-                                style="font-weight: bold; color: #d4af37;">Client secret</span> in there and hit <span
-                                style="font-weight: bold; color: #d4af37;">Connect</span>. A browser page will open up
-                            and you'll need to click <span style="font-weight: bold; color: #d4af37;">Accept</span>.
-                            <br><br>If the connection button turned <span
-                                style="font-weight: bold; color: green;">green</span>, you are good to go. Happy
-                            spotifying... or whatever!<br><br><span style="font-size: 2rem">catJAM Clap</span></span>
+                    <p><span style="font-weight: bold; color: #fff;">5.</span> Type in any name you want and hit <span
+                            style="font-weight: bold; color: #d4af37;">Next</span>. Then copy your app password into
+                        your clipboard and click <span style="font-weight: bold; color: #d4af37;">Done</span>.
                     </p>
                 </div>
             </div>
-
+            <!---------------------------------------------->
+            <div class="description-container">
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">6.</span> Back in Streamer.bot, head to the action
+                        [BLUESKY & SB] 0 - Credentials and enter your credentials.
+                        <br><br>
+                        Your Bluesky Login is your entire handle, so pokimane.bsky.social instead of just pokimane.
+                        <br><br>
+                        Your password is the app password you have just created and pasted into your clipboard.
+                        <br><br>
+                        And then you're done already!
+                        <br><br>
+                        <span style="font-size: 2rem">Pog Clap</span>
+                    </p>
+                </div>
+                <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/bluesky-and-sb/bluesky-and-sb-3.png');">
+                    </div>
+                </a>
+            </div>
             <!---------------------------------------------->
         </div>
     </div>
@@ -185,14 +135,14 @@ description: "A Bluesky integration for Streamer.bot. Create posts, update your 
 
     <div class="accordion-divider"></div>
 
-    <!----    COMMANDS    ------------------------------------------------------------------------------------------------------------------------------>
+    <!----    FEATURES    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('commands')">
-            <span class="iconify title-icon" data-icon="rivet-icons:exclamation-mark-circle-solid"></span>
-            <span>Commands</span>
+        <div class="accordion-header" onclick="toggleAccordion('features')">
+            <span class="iconify title-icon" data-icon="line-md:edit-filled"></span>
+            <span>Create Post Format</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="commands">
+        <div class="accordion-content" id="features">
             <!---------------------------------------------->
 
             <div class="customization-text-container">
@@ -200,13 +150,12 @@ description: "A Bluesky integration for Streamer.bot. Create posts, update your 
                     <p><span style="font-weight: bold; color: #fff;">!sr <span
                                 style="color: #455f8c;">[Song]</span></span></p>
                 </div>
-                <div class="black-text-box-6">
-                    <p>Adds a song to the queue. Can be the song name, the direct Spotify link and even a YouTube link
-                        <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(for YouTube
-                            links, the video title will be used as the query)</span>. Spotify links are the only method
-                        to get the 100%ly correct request in.
-                    </p>
+                <div class="extension-code-block" data-language="plaintext">
+                    Hello
+
+                    my name is || tawmae
                 </div>
+
             </div>
 
             <!---------------------------------------------->
@@ -221,707 +170,10 @@ description: "A Bluesky integration for Streamer.bot. Create posts, update your 
             </div>
 
             <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!songLink</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Posts the currently playing song with its Spotify link into chat.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!last</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Posts the previously playing song into chat.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!skip</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Skips the currently playing song.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!back</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Replays the previously played song.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!playlists</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Posts the owned playlists into chat.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!addSong <span
-                                style="color: #455f8c;">[Playlist]</span></span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Adds the current song to a specified playlist. Can be the playlist's name or its index number.
-                    </p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!playPlaylist <span
-                                style="color: #455f8c;">[Playlist]</span></span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Plays the specified playlist. Can be the playlist's name or its index number.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!banSong</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Bans the current song from song requests.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!unbanSong <span
-                                style="color: #455f8c;">[Index]</span></span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Bans the specified song from song requests.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!bannedSongs</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Posts the banned songs with their index into chat.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!queue <span
-                                style="color: #455f8c;">[Number]</span></span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Posts the upcoming songs into chat. Defaults to <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(3)</span>
-                        without a number, max. <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(10)</span>.
-                    </p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!play</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Resumes the currently paused song.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!pause</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Pauses the currently playing song.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!vol <span
-                                style="color: #455f8c;">[Number]</span></span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Sets the volume of the player. Can also be a number like <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(+10)</span> or
-                        <span style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(-10)</span>
-                        to add/subtract to/from the current volume. Not entering <span
-                            style="color: #455f8c;">[Number]</span> will output the current volume to chat.
-                    </p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!devices</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Posts the list of available devices into chat.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!setDevice <span
-                                style="color: #455f8c;">[Index]</span></span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Changes the active device.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!voteskip</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Vote to skip the currently playing song.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!removeFromQueue <span
-                                style="color: #455f8c;">[Songname]</span></span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Removes the requested song from the queue. Once the song starts, it will automatically skip it.
-                        The name doesn't have to be exact.<br>
-                        <span style="font-size: 0.7rem">The action also populates user variables on a successful removal
-                            and auto-refunds channel points if any have been spent.</span>
-                    </p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!queuePosition</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Posts your current requests in queue into chat with their respective queue position and the
-                        remaining time until the first request will play.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!requests</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Posts the amount of all requests and their total run time into chat.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
         </div>
     </div>
     <!---------------------------------------------------------------------------------------------------------------------------------->
 
-    <div class="accordion-divider"></div>
-
-    <!----    CUSTOM TRIGGERS    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('custom-triggers')">
-            <span class="iconify title-icon" data-icon="rivet-icons:exclamation-mark-circle-solid"></span>
-            <span>Custom Triggers</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
-        </div>
-        <div class="accordion-content" id="custom-triggers">
-            <p>Under <span style="font-weight: bold; color: #d4af37;">Custom -> SPOTIFY & SB</span> you will be able
-                to find triggers whenever a new song plays or a song gets paused/continued with song info variables.</p>
-            <p><br></p>
-            <!--------------------------------->
-            <a href="{{ site.baseurl }}/assets/custom-triggers/spotify-and-sb.png" target="_blank">
-                <div class="extension-image-2"
-                    style="background-image: url('{{ site.baseurl }}/assets/custom-triggers/spotify-and-sb.png');">
-                </div>
-            </a>
-            <!--------------------------------->
-            <p><br></p>
-            <!--------------------------------->
-            <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37">New Song</p>
-                <p>Fires when a new song starts<br><span
-                        style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95; font-size: 0.7rem">(also
-                        fires if the
-                        same song gets played over/reset)</span><br></p>
-                <p style="font-weight: bold;">Available variables:</p>
-                <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackId</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the ID of the track
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackName</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the name of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">artists</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the artist(s) of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">coverImageURL</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the image URL of the cover art
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">isPlaying</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(bool)</span>
-                        - indicator whether the new song is playing when it comes up
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the new song's progress in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the new song's total duration in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the new song's progress time in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the new song's total duration in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">isRequested</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(bool)</span>
-                        - indicator whether the new song has been requested or not
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">user</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the display name of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if
-                            not
-                            requested )</span>
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">userName</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the user login of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if
-                            not
-                            requested )</span>
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">userId</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the user ID of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if
-                            not
-                            requested )</span>
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">userProfileImageUrl</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the profile picture URL of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if
-                            not
-                            requested )</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!--------------------------------->
-            <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37">Song Continued</p>
-                <p>Fires when a song gets resumed.<br></p>
-                <p style="font-weight: bold;">Available variables:</p>
-                <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackId</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the ID of the track
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackName</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the name of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">artists</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the artist(s) of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">coverImageURL</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the image URL of the cover art
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">isPlaying</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(bool)</span>
-                        - indicator whether the song is playing when it gets resumed
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the song's progress in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the song's total duration in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's progress time in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's total duration in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                </ul>
-            </div>
-
-            <!--------------------------------->
-            <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px;">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37">Song Paused</p>
-                <p>Fires when a song gets paused.<br></p>
-                <p style="font-weight: bold;">Available variables:</p>
-                <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackId</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the ID of the track
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackName</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the name of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">artists</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the artist(s) of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">coverImageURL</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the image URL of the cover art
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">isPlaying</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(bool)</span>
-                        - indicator whether the song is playing (typically <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">false</span>
-                        when paused)
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the song's progress in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the song's total duration in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's progress time in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's total duration in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                </ul>
-            </div>
-
-
-
-            <p><br><br></p>
-
-            <!---------------------------------------------->
-
-        </div>
-    </div>
-    <!---------------------------------------------------------------------------------------------------------------------------------->
-
-    <div class="accordion-divider"></div>
-
-    <!----    OBS WIDGET    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('obs-widget')">
-            <span class="iconify title-icon" data-icon="gridicons:customize"></span> <span>OBS Widget</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
-        </div>
-        <div class="accordion-content" id="obs-widget">
-
-            <!---------------------------------------------->
-
-            <a href="{{ site.baseurl }}/assets/setup/spotify-and-sb/spotify-and-sb-obs-widget.gif" target="_blank">
-                <div class="extension-example-image"
-                    style="background-image: url('{{ site.baseurl }}/assets/setup/spotify-and-sb/spotify-and-sb-obs-widget.gif');">
-                </div>
-            </a>
-            <!---------------------------------------------->
-            <p><br><br></p>
-
-            <!---------------------------------------------->
-            <p>You can copy the <span style="font-weight: bold; color: #d4af37;">Browser Source URL</span> below and use
-                it in <span style="font-weight: bold; color: #d4af37;">OBS</span> to display the current song. <br>
-
-                <span style="font-size: 0.7rem;"><span style="font-weight: bold; color: red;">Note:</span> Make sure
-                    your <span style="font-weight: bold; color: #d4af37;">Websocket Server</span> in the <span
-                        style="font-weight: bold; color: #d4af37;">Servers/Clients -> WebSocket Server</span> tab is
-                    enabled and set to <span style="font-weight: bold; color: #d4af37;">127.0.0.1</span> and <span
-                        style="font-weight: bold; color: #d4af37;">8080</span></span>.<br><br>
-            </p>
-            <!---------------------------------------------->
-            <div id="import">
-                <div class="copy-box">
-                    <span class="copy-text" id="base64-string"
-                        data-copy-text="https://tawmae.xyz/overlays/spotify-and-sb.html">
-                        https://tawmae.xyz/overlays/spotify-and-sb.html
-                    </span>
-                    <button class="copy-btn"
-                        onclick="copyURLToClipboard('https://tawmae.xyz/overlays/spotify-and-sb.html')">
-                        <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
-                    </button>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-            <p><br><br></p>
-            <!---------------------------------------------->
-
-            <p>You can then add <span style="font-weight: bold; color: #d4af37;">URL Parameters</span> at the end of the
-                URL
-                to customize certain things. The first parameter is getting added with a <span
-                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">?</span>, every
-                additional one with a <span
-                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">&</span>.</p>
-            <p><br></p>
-            <p>Example: <span
-                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">https://tawmae.xyz/overlays/dynamic-timers.html?hideBackground=true&font=Segoe+UI&idColor=pink</span>
-            </p>
-            <p><br><br></p>
-
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Background Color</span></p>
-                    <p>Changes the background color of the background. Supports hex colors, but then you need to replace
-                        the <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">#</span>
-                        with <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span></p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">backgroundColor=pink</span></p>
-                    <p><br></p>
-                    <p><span style="color: #d4af37; font-weight: bold;">backgroundColor=%23ffc0cb</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon"
-                            data-icon="material-symbols:background-grid-small-sharp"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Hide Background</span></p>
-                    <p>Hide the background. This also removes the progress bar.</p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">hideBackground=true</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="mdi:circle-opacity"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Background Opacity</span></p>
-                    <p>Changes the opacity of the background. The default opacity is set to <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">80</span></p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">backgroundOpacity=69</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="mdi:format-font"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font</span></p>
-                    <p>Changes the font used for the text. Supports standard fonts. Use a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">+</span>
-                        character to replace spaces.</p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">font=Arial</span></p>
-                    <p><br></p>
-                    <p><span style="color: #d4af37; font-weight: bold;">font=Comic+Sans+MS</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font Color</span></p>
-                    <p>Changes the font color. Supports hex colors, but then you need to replace the <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">#</span> with
-                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span>
-                    </p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">fontColor=pink</span></p>
-                    <p><br></p>
-                    <p><span style="color: #d4af37; font-weight: bold;">fontColor=%23ffc0cb</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="material-symbols:format-size"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font Size</span></p>
-                    <p>Changes the font size and also scales all other elements according to it. The default size is set
-                        to <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">40</span>
-                    </p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">fontSize=30</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">ID Color</span></p>
-                    <p>Changes the ID color. Supports hex colors, but then you need to replace the <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">#</span> with
-                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span>
-                    </p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">idColor=pink</span></p>
-                    <p><br></p>
-                    <p><span style="color: #d4af37; font-weight: bold;">idColor=%23ffc0cb</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="mdi:alarm-multiple"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Max. Timers</span></p>
-                    <p>Changes the max. limit of timers you can have at the same time. Default is set to <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">7</span></p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">maxTimers=5</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-        </div>
-    </div>
 
     <div class="accordion-divider"></div>
     <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
