@@ -435,6 +435,8 @@ header {
 .home-title-container {
             display: flex;
             align-items: center; 
+            justify-content: center;
+            gap: 20px;
         }
         .-home-title-textbox {
             flex: 1; 
@@ -443,6 +445,7 @@ header {
         .-home-title-image img {
             width: auto; 
             height: auto;
+            max-width: 100%;
         }
 
 
@@ -539,7 +542,14 @@ header {
         aspect-ratio: 2 / 1;
     }
 
+    .home-title-container {
+        flex-direction: column;
+        text-align: center; 
+    }
 
+    .home-title-image img {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
