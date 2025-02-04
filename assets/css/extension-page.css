@@ -1,7 +1,10 @@
 /* === Globale Einstellungen === */
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;  /* verhindert horizontales Scrollen */
+  box-sizing: border-box;
 }
 
 /* === Desktop-Stile === */
@@ -317,7 +320,7 @@ p {
 
 /* === Mobile-Anpassungen === */
 @media (max-width: 768px) {
-  /* Alle Container auf volle Breite und zentriert */
+  /* Alle Container: volle Breite, zentriert, kein horizontaler Scroll */
   .extension-title,
   .accordion,
   .copy-box,
@@ -336,7 +339,7 @@ p {
     text-align: center;
   }
   
-  /* Black Text Box im Titel: volle Breite */
+  /* Black Text Box im Titel: 90% der Bildschirmbreite */
   .black-text-box {
     width: 90%;
     max-width: 100%;
@@ -344,36 +347,44 @@ p {
     text-align: center;
   }
   
-  /* Bilder im Titel: maximale Breite = 100% (bis zu 800px), zentriert, mit festem 2:1-Verhältnis  
-     Für das Cover-GIF verwenden wir background-size: contain, damit das ganze Bild sichtbar bleibt */
+  /* Bilder im Titel: 
+     - maximal 100% der Breite, aber nicht größer als 800px
+     - Verwende den Padding-Hack für ein 2:1-Verhältnis
+     - background-size: contain sorgt dafür, dass das ganze GIF sichtbar bleibt
+  */
   .extension-image {
     width: 90%;
     max-width: 800px;
     margin: 0 auto;
-    aspect-ratio: 2 / 1;
+    position: relative;
     background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
     border: none;
+    /* Höhe über Padding definieren (2:1-Verhältnis) */
+    height: 0;
+    padding-top: 50%;
   }
   
-  /* Accordion, Copy-Box, etc. bleiben wie gehabt */
-  
-  /* Beschreibung: Container als Spalte, sodass zuerst Text, dann Bild */
+  /* Beschreibung: Container als Spalte (Textbox über Bild) */
   .description-container {
     flex-direction: column;
     align-items: center;
     gap: 20px;
   }
   
-  /* Bilder in der Beschreibung: maximale Breite = 100% (bis zu 800px), zentriert, 2:1-Verhältnis */
+  /* Bilder in der Beschreibung: gleiche Regeln wie oben */
   .extension-image-2 {
     width: 90%;
     max-width: 800px;
     margin: 0 auto;
-    aspect-ratio: 2 / 1;
+    position: relative;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     border: none;
+    height: 0;
+    padding-top: 50%;
   }
   
   /* Customization-Container als Spalte */
