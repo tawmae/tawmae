@@ -514,12 +514,6 @@ header {
         aspect-ratio: 2 / 1;
     }
 
-    .collage {
-    width: 100%;
-    height: auto;
-    transform: scale(0.5);
-    transform-origin: top center;
-  }
 }
 
 @media (max-width: 480px) {
@@ -564,10 +558,7 @@ header {
         font-size: 0.75rem;
     }
 
-    .collage {
-    transform: scale(0.4);
-    transform-origin: top center;
-  }
+
 }
 
 .dynamic-code pre {
@@ -582,17 +573,25 @@ header {
     margin: 1em 0;
 }
 
+/* Wrapper, der die Collage zentriert */
+.collage-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Optional: overflow hidden, falls die skalierten Inhalte überstehen */
+  overflow: hidden;
+}
+
 /* Container für die Collage */
 .collage {
   position: relative;
-  width: 1200px;  /* Passe die Breite nach Bedarf an */
-  height: 800px;  /* Passe die Höhe nach Bedarf an */
-  margin: 0 auto; /* Zentriert den Container horizontal */
+  width: 1200px;  /* Originale Breite – passe diesen Wert bei Bedarf an */
+  height: 800px;  /* Originale Höhe */
   background-color: transparent; /* Transparenter Hintergrund */
   
-  /* Gesamte Collage auf 70% skalieren */
+  /* Gesamte Collage auf 70% skalieren, Skalierung von der Mitte oben */
   transform: scale(0.7);
-  transform-origin: top center;
+  transform-origin: center top;
 }
 
 /* Gemeinsamer Stil für alle Collage-Bilder */
@@ -602,13 +601,12 @@ header {
   cursor: pointer;
 }
 
-/* Hover-Effekt: Beibehaltung der Rotation und zusätzliches Scaling */
+/* Hover-Effekt: Beibehaltung der Rotation plus zusätzliches Scaling */
 .collage-img:hover {
   transform: rotate(var(--rotation)) scale(1.1);
 }
 
 /* Positionierung und Rotation der 5 Bilder */
-/* Passe die Werte hier nach deinen Wünschen an */
 .pos1 {
   top: 20px;
   left: 10px;         /* start-1: Etwas weiter nach außen */
@@ -640,7 +638,7 @@ header {
 .pos5 {
   top: 300px;
   left: 550px;
-  --rotation: 4deg;    /* start-5: Mehr nach rechts rotiert (statt -4deg jetzt +4deg) */
+  --rotation: 4deg;    /* start-5: Mehr nach rechts rotiert */
   transform: rotate(var(--rotation));
 }
 
@@ -649,7 +647,7 @@ header {
   position: absolute;
   bottom: 30px;         /* Etwas weiter vom unteren Rand */
   left: 30px;           /* Etwas weiter vom linken Rand */
-  z-index: 10;          /* Höherer z-index, damit das Logo immer oben liegt */
+  z-index: 10;          /* Damit das Logo immer oben liegt */
   width: 256px;
   height: 256px;
   --logo-rotation: -8deg;
@@ -658,12 +656,27 @@ header {
   cursor: pointer;
 }
 
-/* Hover-Effekt für das Logo: Rotation beibehalten und zusätzlich skalieren */
+/* Hover-Effekt für das Logo */
 .logo:hover {
   transform: rotate(var(--logo-rotation)) scale(1.1);
 }
 
+/* Mobile Optimierung für die Collage */
+@media (max-width: 768px) {
+  .collage {
+    /* Für Tablets oder kleinere Bildschirme: etwas stärker skalieren */
+    transform: scale(0.5);
+    transform-origin: center top;
+  }
+}
 
+@media (max-width: 480px) {
+  .collage {
+    /* Für Smartphones: noch mehr skalieren */
+    transform: scale(0.4);
+    transform-origin: center top;
+  }
+}
 
 
 
