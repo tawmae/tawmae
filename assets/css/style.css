@@ -444,24 +444,25 @@ header {
 }
 
 .home-title-text-box {
-    flex-grow: 1; /* Nutzt den gesamten verfügbaren Platz */
+    flex-grow: 1;  /* Füllt so viel Platz wie möglich */
     padding: 20px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     text-align: left;
     color: white;
+    min-width: 300px; /* Stellt sicher, dass es nicht zu schmal wird */
 }
 
 .home-title-image {
     flex-shrink: 0;
-    flex-basis: 600px; /* Standardgröße: 600px, kann kleiner werden */
-    max-width: 600px; /* Darf aber nicht größer als 600px werden */
-    width: 100%; /* Sorgt dafür, dass es sich mit verkleinert */
+    max-width: 600px; /* Begrenzung für das Bild */
+    width: 100%; 
 }
 
 .home-title-image img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 
