@@ -23,7 +23,8 @@ const wordToEmojiMap = {
     "happie": "/assets/emotes/happie.webp",
     "CLASSIC": "/assets/emotes/classic.webp",
     "helloThere": "/assets/emotes/hellothere.webp",
-    "streamer_BOT": "/assets/emotes/streamerbot.png"
+    "streamer_BOT": "/assets/emotes/streamerbot.png",
+    "LUL": "/assets/emotes/lul.webp"
 };
 
 function replacePlaceholdersWithEmojis(text) {
