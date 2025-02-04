@@ -339,12 +339,14 @@ p {
     margin: 0 auto;
     text-align: center;
   }
-  /* Bild im Titel: max. Bildschirmbreite, zentriert und mit festem Seitenverhältnis */
+  /* Bild im Titel: maximal 100% der Containerbreite (bis zu 800px) und 2:1-Verhältnis */
   .extension-image {
     width: 90%;
-    max-width: 100%;
+    max-width: 800px;
     margin: 0 auto;
-    aspect-ratio: 16 / 9;
+    /* Mit dem folgenden Padding-Hack wird das 2:1-Verhältnis erzwungen */
+    height: 0;
+    padding-top: 50%;
     background-size: cover;
     background-position: center;
     border: none;
@@ -364,12 +366,13 @@ p {
     gap: 20px;
     align-items: center;
   }
-  /* Bild in der Beschreibung: max. 90% der Bildschirmbreite, zentriert und festes Seitenverhältnis */
+  /* Bild in der Beschreibung: maximal 100% der Containerbreite (bis zu 800px) und 2:1-Verhältnis */
   .extension-image-2 {
     width: 90%;
-    max-width: 100%;
+    max-width: 800px;
     margin: 0 auto;
-    aspect-ratio: 16 / 9;
+    height: 0;
+    padding-top: 50%;
     background-size: cover;
     background-position: center;
     border: none;
