@@ -209,32 +209,32 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("/assets/state/state.txt")
         .then(response => response.text())
         .then(status => {
-            status = status.trim(); 
-            const statusIndicator = document.getElementById("status-indicator");
- 
-            statusIndicator.innerHTML = "tawmae is ";
+            status = status.trim();
+            
+            const tooltip = document.createElement("div");
+            tooltip.classList.add("status-tooltip");
+            tooltip.textContent = status === "true" ? "tawmae is online ●" : "tawmae is offline ●";
+            tooltip.style.color = status === "true" ? "lightgreen" : "red";
+            tooltip.style.textShadow = `0px 0px 5px ${status === "true" ? "lightgreen" : "red"}`;
+            
+            document.body.appendChild(tooltip);
+            
+            const discordIcon = document.querySelector('.header-right a[href*="discord.com"]');
 
-            const statusText = document.createElement("span");
-            statusText.style.fontWeight = "bold";
-            statusText.style.marginLeft = "5px"; 
+            if (discordIcon) {
+                discordIcon.addEventListener("mouseenter", function (event) {
+                    tooltip.style.display = "block";
+                    tooltip.style.left = `${event.target.getBoundingClientRect().right + 10}px`;
+                    tooltip.style.top = `${event.target.getBoundingClientRect().top}px`;
+                });
 
-            if (status === "true") {
-                statusText.textContent = "online ●";
-                statusText.style.color = "lightgreen";
-                statusText.style.textShadow = "0px 0px 5px lightgreen";
-            } else {
-                statusText.textContent = "offline ●";
-                statusText.style.color = "red";
-                statusText.style.textShadow = "0px 0px 5px red";
+                discordIcon.addEventListener("mouseleave", function () {
+                    tooltip.style.display = "none";
+                });
             }
-
-            statusIndicator.style.fontSize = "12px"; 
-            statusIndicator.style.display = "inline-flex";
-            statusIndicator.appendChild(statusText);
         })
         .catch(error => {
             console.error("Error loading status:", error);
-            document.getElementById("status-indicator").textContent = "Status unavailable";
         });
 });
 
