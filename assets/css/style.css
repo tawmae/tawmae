@@ -588,6 +588,15 @@ header {
   }
 }
 
+.need-help-container {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; /
+
+}
+
+
 @media (max-width: 480px) {
   .header-center ul {
     gap: 5px;
