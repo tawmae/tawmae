@@ -486,6 +486,7 @@ header {
   border-radius: 10px;
   height: auto;
   display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .home-title-image:hover {
