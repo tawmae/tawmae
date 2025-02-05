@@ -219,11 +219,11 @@ document.addEventListener("DOMContentLoaded", function () {
             statusText.style.marginLeft = "5px"; 
 
             if (status === "true") {
-                statusText.textContent = "online";
+                statusText.textContent = "online ●";
                 statusText.style.color = "lightgreen";
                 statusText.style.textShadow = "0px 0px 5px lightgreen";
             } else {
-                statusText.textContent = "offline";
+                statusText.textContent = "offline ●";
                 statusText.style.color = "red";
                 statusText.style.textShadow = "0px 0px 5px red";
             }
