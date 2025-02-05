@@ -123,6 +123,12 @@ h1 {
   color: white;
   text-align: left;
 }
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: white;
+  text-align: left;
+}
 
 p {
   font-size: 1.1rem;
