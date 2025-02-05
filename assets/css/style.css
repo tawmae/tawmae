@@ -465,13 +465,9 @@ header {
   padding-right: var(--min-gap);
 }
 
-.home-title-text-box,
-.home-title-image {
-  flex: 1;  
-  min-width: 0; 
-}
-
 .home-title-text-box {
+  flex: 1;
+  min-width: 0; 
   padding: 20px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.5);
@@ -481,7 +477,8 @@ header {
 }
 
 .home-title-image {
-  flex-shrink: 1; 
+  flex: 2;
+  min-width: 0;
   max-width: 1000px;
   transition: transform 0.3s ease-in-out;
 }
@@ -497,7 +494,6 @@ header {
 .home-title-image:hover {
   transform: scale(1.03);
 }
-
 
 .section-divider {
   border: none;
