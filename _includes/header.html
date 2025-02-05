@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: "tawmae" }}</title>
     <!------------------------------------------------------>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DN4KG43EJ"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -20,9 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-    {% unless page.no_css %}
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
-    {% endunless %}
     <link rel="icon" href="{{ site.baseurl }}/assets/page-design/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
