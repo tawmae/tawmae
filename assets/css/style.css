@@ -516,6 +516,10 @@ header {
     z-index: 1000;
 }
 
+.link-preview {
+  color: #00f5b8;
+}
+
 @media (max-width: 768px) {
   .header-center,
   .header-right {
