@@ -91,8 +91,6 @@ function showSlide(i) {
     slides[i].classList.add("active");
     indicators[i].classList.add("active");
 
-    const title = slides[i].getAttribute("data-title");
-    document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(title);
 
     currentIndex = i;
 }
@@ -150,8 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
         slides[0].classList.add("active");
         indicators[0].classList.add("active");
 
-        const initialTitle = slides[0].getAttribute("data-title");
-        document.querySelector(".slide-title").innerHTML = replacePlaceholdersWithEmojis(initialTitle);
 
         setInterval(nextSlide, 8000);
 
