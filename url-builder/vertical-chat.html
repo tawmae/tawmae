@@ -1,12 +1,210 @@
----
-layout: default
-title: "VERTICAL CHAT URL BUILDER | tawmae"
-description: "A URL builder for the Vertical Chat widget"
----
-
-<main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Overlay URL BUILDER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
+  <style>
+    body {
+      background: #27262b;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      position: relative;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .copied-popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      display: none;
+      z-index: 9999;
+    }
+    .url-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      max-width: 1160px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #generatedUrl {
+      width: 100%;
+      background: #131315;
+      border: 1px solid #555;
+      color: white;
+      padding: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+    }
+    #generatedUrl:focus {
+      outline: 2px solid #466090;
+    }
+    .copy-button {
+      display: inline-flex;
+      align-items: center;
+      background: #466090;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: background 0.2s;
+      gap: 8px;
+    }
+    .copy-button:hover {
+      background: #5a79b5;
+    }
+    .builder-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .builder-section {
+      background: rgba(17,17,17,0.95);
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .builder-section h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    .setting {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 10px;
+    }
+    .setting:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .setting label {
+      font-weight: 600;
+      margin: 0;
+    }
+    .setting input[type="text"],
+    .setting input[type="number"],
+    .setting select {
+      width: 120px;
+      background: #131315;
+      border: 1px solid #444;
+      color: white;
+      padding: 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .setting input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 5px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    .setting input[type="color"] {
+      width: 60px;
+      height: 40px;
+      border: none;
+      cursor: pointer;
+      background: #131315;
+    }
+    .description {
+      color: #aaa;
+      font-size: 0.8rem;
+      margin-left: 1px;
+    }
+    .exclude-events-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .select-button {
+      background: #466090;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 5px 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .select-button:hover {
+      background: #5a79b5;
+    }
+    .exclude-events-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .exclude-events-list label {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
+      margin: 0;
+    }
+    .exclude-accounts-input {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: center;
+      max-width: 350px;
+    }
+    .exclude-accounts-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .exclude-accounts-list span {
+      background: #131315;
+      padding: 5px 8px;
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .exclude-accounts-list button {
+      background: transparent;
+      border: none;
+      color: #bbb;
+      margin-left: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .exclude-accounts-list button:hover {
+      color: #fff;
+    }
+    @media(max-width: 900px) {
+      .builder-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
   <h1>VERTICAL CHAT URL BUILDER</h1>
-
   <div class="copied-popup" id="copyMessage"></div>
   <div class="url-section">
     <input id="generatedUrl" readonly>
@@ -15,136 +213,311 @@ description: "A URL builder for the Vertical Chat widget"
       Copy
     </button>
   </div>
-
   <div class="builder-wrapper">
     <div class="builder-section">
       <h2>General Settings</h2>
       <div class="setting">
-        <label for="hideAfter">Hide Messages After X Seconds</label>
+        <label>Hide Messages After X Seconds</label>
         <input type="number" id="hideAfter" min="0">
-        <div class="description">Hides messages after X seconds</div>
+        <div class="description">Hides messages after the given amount of time.</div>
       </div>
       <div class="setting">
         <label>
           <input type="checkbox" id="excludeCommands">
           Exclude Commands
         </label>
-        <div class="description">Hide messages that start with !</div>
+        <div class="description">Hide messages that start with an exclamation mark.</div>
+      </div>
+      <div class="setting">
+        <label>Minimum Reward Cost</label>
+        <input type="number" id="minRewardCost" min="0">
+        <div class="description">Prevent all rewards below that cost from showing.</div>
+      </div>
+      <div class="setting">
+        <label>Entry Direction</label>
+        <select id="enterSelect">
+          <option value="">right (default)</option>
+          <option value="left">left</option>
+          <option value="right">right</option>
+        </select>
+        <div class="description">Change the direction of entry.</div>
+      </div>
+      <div class="setting">
+        <label>Text Alignment</label>
+        <select id="justifySelect">
+          <option value="">right (default)</option>
+          <option value="left">left</option>
+          <option value="right">right</option>
+        </select>
+        <div class="description">Change the alignment.</div>
+      </div>
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="forceUppercase">
+          Force Uppercase
+        </label>
+        <div class="description">Force uppercase on all texts.</div>
+      </div>
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="forceLowercase">
+          Force Lowercase
+        </label>
+        <div class="description">Force lowercase on all texts.</div>
+      </div>
+    </div>
+    <div class="builder-section">
+      <h2>Appearance</h2>
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="showTimestamp">
+          Show Timestamp
+        </label>
+        <div class="description">Show a timestamp.</div>
+      </div>
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="showPronouns" checked>
+          Show Pronouns
+        </label>
+        <div class="description">Show user pronouns.</div>
+      </div>
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="showAvatars" checked>
+          Show Avatars
+        </label>
+        <div class="description">Show user avatars.</div>
+      </div>
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="hideBadges">
+          Hide Badges
+        </label>
+        <div class="description">Hide badges and shared chat symbols.</div>
+      </div>
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="hideIcons">
+          Hide Icons
+        </label>
+        <div class="description">Hide icons on events.</div>
+      </div>
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="background">
+          Background
+        </label>
+        <div class="description">Enables the background.</div>
+      </div>
+      <div class="setting">
+        <label>Background Style</label>
+        <select id="backgroundStyle">
+          <option value="">no style</option>
+          <option value="cards">cards</option>
+          <option value="cardsRounded">cardsRounded</option>
+        </select>
+        <div class="description">Changes the background style (background needs to be enabled)</div>
+      </div>
+      <div class="setting">
+        <label>Background Opacity</label>
+        <input type="number" id="backgroundOpacity" min="0" max="100">
+        <div class="description">Changes the background opacity.</div>
+      </div>
+      <div class="setting">
+        <label>Background Color</label>
+        <input type="color" id="backgroundColor" value="#ffffff">
+        <div class="description">Changes the background color.</div>
+      </div>
+      <div class="setting">
+        <label>Font</label>
+        <input type="text" id="font" placeholder="Poppins">
+        <div class="description">Changes the font.</div>
+      </div>
+      <div class="setting">
+        <label>Font Size</label>
+        <input type="number" id="fontSizeInput" min="1" max="100" step="1" value="16">
+        <div class="description">Changes fontsize (and scales other elements accordingly).</div>
+      </div>
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="dropshadow" checked>
+          Dropshadow
+        </label>
+        <div class="description">Adds a dropshadow to text.</div>
+      </div>
+      <div class="setting">
+        <label>
+          <input type="checkbox" id="bigDropshadow">
+          Big Dropshadow
+        </label>
+        <div class="description">Adds an even bigger dropshadow.</div>
+      </div>
+    </div>
+    <div class="builder-section">
+      <h2>Exclude Events</h2>
+      <div class="description">Exclude events from showing.</div>
+      <div class="exclude-events-buttons">
+        <button class="select-button" id="selectAllEventsBtn">Select All</button>
+        <button class="select-button" id="deselectAllEventsBtn">Select None</button>
+      </div>
+      <div class="exclude-events-list">       
+        <label>
+          <input type="checkbox" value="sub">Subscriptions
+        </label>
+        <label>
+          <input type="checkbox" value="resub">Resubscriptions
+        </label>
+        <label>
+          <input type="checkbox" value="giftsub">Gift Subscriptions
+        </label>
+        <label>
+          <input type="checkbox" value="giftbomb">Gift Bombs
+        </label>
+        <label>
+          <input type="checkbox" value="rewardredemption">Channel Reward Redemptions
+        </label>
+        <label>
+          <input type="checkbox" value="watchstreak">Watch Streaks
+        </label>
+        <label>
+          <input type="checkbox" value="cheer">Cheers
+        </label>
+        <label>
+          <input type="checkbox" value="raid">Raids
+                </label>
+        <label>
+          <input type="checkbox" value="donation">Kofi Donations
+        </label>
+        <label>
+          <input type="checkbox" value="announcement">Announcements
+        </label>
       </div>
     </div>
     <div class="builder-section">
       <h2>Exclude Accounts</h2>
       <div class="description">Exclude accounts from showing in the chat.</div>
       <div class="exclude-accounts-input">
-        <input
-          type="text"
-          id="excludeAccountInput"
-          placeholder="Add account"
-        >
-        <button id="addExcludeAccountBtn">
-          Add
-        </button>
+        <input type="text" id="excludeAccountInput" placeholder="Add account" style="width:150px;">
+        <button id="addExcludeAccountBtn" style="background:#466090;color:white;border:none;cursor:pointer;padding:5px 10px;">Add</button>
       </div>
       <div class="exclude-accounts-list" id="excludeAccountsList"></div>
     </div>
   </div>
-
   <script>
-    console.log("Der JavaScript-Code wurde geladen!");
-
-    let excludedAccounts = [];
-    let defaultCopyBtnContent = `<span class="iconify" data-icon="material-symbols:content-copy-outline"></span> Copy`;
-    let copiedCopyBtnContent = `<span class="iconify" data-icon="fluent:checkmark-12-regular"></span> Copied`;
-
+    let excludedAccounts = []
+    let defaultCopyBtnContent = `<span class="iconify" data-icon="material-symbols:content-copy-outline"></span> Copy`
+    let copiedCopyBtnContent = `<span class="iconify" data-icon="fluent:checkmark-12-regular"></span> Copied`
     function buildURL() {
-      const params = [];
-
-      // Hide messages after X seconds
-      const hideAfterVal = document.getElementById("hideAfter").value.trim();
-      if (hideAfterVal) {
-        params.push("hideAfter=" + encodeURIComponent(hideAfterVal));
+      let params = []
+      let hideAfterVal = document.getElementById("hideAfter").value.trim()
+      if(hideAfterVal) params.push("hideAfter="+encodeURIComponent(hideAfterVal))
+      if(document.getElementById("excludeCommands").checked) params.push("excludeCommands=true")
+      let minRC = document.getElementById("minRewardCost").value.trim()
+      if(minRC) params.push("minRewardCost="+encodeURIComponent(minRC))
+      let enterVal = document.getElementById("enterSelect").value
+      if(enterVal) params.push("enter="+encodeURIComponent(enterVal))
+      let justifyVal = document.getElementById("justifySelect").value
+      if(justifyVal) params.push("justify="+encodeURIComponent(justifyVal))
+      if(document.getElementById("forceUppercase").checked) params.push("forceUppercase=true")
+      if(document.getElementById("forceLowercase").checked) params.push("forceLowercase=true")
+      if(document.getElementById("showTimestamp").checked) params.push("showTimestamp=true")
+      if(!document.getElementById("showPronouns").checked) params.push("showPronouns=false")
+      if(!document.getElementById("showAvatars").checked) params.push("showAvatars=false")
+      if(document.getElementById("hideBadges").checked) params.push("hideBadges=true")
+      if(document.getElementById("hideIcons").checked) params.push("hideIcons=true")
+      if(document.getElementById("background").checked) {
+        params.push("background=true")
+        let bgStyleVal = document.getElementById("backgroundStyle").value
+        if(bgStyleVal) params.push("backgroundStyle="+encodeURIComponent(bgStyleVal))
+        let bgOpacityVal = document.getElementById("backgroundOpacity").value.trim()
+        if(bgOpacityVal) params.push("backgroundOpacity="+encodeURIComponent(bgOpacityVal))
+        let bgColorVal = document.getElementById("backgroundColor").value.replace("#","%23")
+        if(bgColorVal) params.push("backgroundColor="+encodeURIComponent(bgColorVal))
       }
-
-      // Exclude commands
-      if (document.getElementById("excludeCommands").checked) {
-        params.push("excludeCommands=true");
+      let fontVal = document.getElementById("font").value.trim()
+      if(fontVal) {
+        let replacedFont = fontVal.replaceAll(" ","+")
+        params.push("font="+encodeURIComponent(replacedFont))
       }
-
-      // Exclude Accounts
-      if (excludedAccounts.length > 0) {
-        params.push("excludeAccounts=" + excludedAccounts.join("+"));
+      let fsVal = document.getElementById("fontSizeInput").value.trim()
+      if(fsVal) params.push("fontsize="+encodeURIComponent(fsVal+"px"))
+      if(!document.getElementById("dropshadow").checked) params.push("dropshadow=false")
+      if(document.getElementById("bigDropshadow").checked) params.push("bigDropshadow=true")
+      let evChecks = document.querySelectorAll(".exclude-events-list input[type='checkbox']:checked")
+      if(evChecks.length>0) {
+        let evVals = []
+        evChecks.forEach(e=>evVals.push(e.value))
+        params.push("excludeEvents="+evVals.join("+"))
       }
-
-      const queryString = params.length > 0 ? "?" + params.join("&") : "";
-      document.getElementById("generatedUrl").value =
-        "https://tawmae.xyz/overlays/vertical-chat.html" + queryString;
-
-      console.log("buildURL() -> " + document.getElementById("generatedUrl").value);
+      if(excludedAccounts.length>0) {
+        params.push("excludeAccounts="+excludedAccounts.join("+"))
+      }
+      let queryString = params.length>0 ? "?"+params.join("&") : ""
+      document.getElementById("generatedUrl").value = "https://tawmae.xyz/overlays/vertical-chat.html"+queryString
     }
-
     function updateAccountsUI() {
-      const container = document.getElementById("excludeAccountsList");
-      container.innerHTML = "";
-      excludedAccounts.forEach(acc => {
-        const span = document.createElement("span");
-        span.textContent = acc + " ";
-        
-        const btn = document.createElement("button");
-        btn.textContent = "x";
-        btn.onclick = () => {
-          excludedAccounts = excludedAccounts.filter(a => a !== acc);
-          updateAccountsUI();
-        };
-
-        span.appendChild(btn);
-        container.appendChild(span);
-      });
-      buildURL();
-    }
-
-    function init() {
-      // Inputs beobachten
-      const inputs = document.querySelectorAll("input");
-      inputs.forEach(el => {
-        el.addEventListener("input", buildURL);
-        el.addEventListener("change", buildURL);
-      });
-
-      // Exclude Account hinzufügen
-      document.getElementById("addExcludeAccountBtn").onclick = () => {
-        const val = document.getElementById("excludeAccountInput").value.trim();
-        if (val) {
-          excludedAccounts.push(val);
-          document.getElementById("excludeAccountInput").value = "";
-          updateAccountsUI();
+      let container = document.getElementById("excludeAccountsList")
+      container.innerHTML = ""
+      excludedAccounts.forEach(acc=>{
+        let span = document.createElement("span")
+        span.textContent = acc
+        let btn = document.createElement("button")
+        btn.textContent = "x"
+        btn.onclick = ()=>{
+          excludedAccounts=excludedAccounts.filter(a=>a!==acc)
+          updateAccountsUI()
+          buildURL()
         }
-      };
-
-      // Copy-Button
-      const copyBtn = document.getElementById("copyBtn");
-      const originalBg = copyBtn.style.background;
-      const originalHTML = copyBtn.innerHTML;
-
-      copyBtn.onclick = () => {
-        const urlField = document.getElementById("generatedUrl");
-        urlField.select();
-        urlField.setSelectionRange(0, 99999);
-        document.execCommand("copy");
-
-        copyBtn.style.background = "lightgreen";
-        copyBtn.innerHTML = copiedCopyBtnContent;
-
-        setTimeout(() => {
-          copyBtn.style.background = originalBg;
-          copyBtn.innerHTML = originalHTML;
-        }, 2500);
-      };
-
-      // Erste Initialisierung
-      buildURL();
+        span.appendChild(btn)
+        container.appendChild(span)
+      })
+      buildURL()
     }
-
-    // Warten, bis der DOM fertig ist
-    document.addEventListener("DOMContentLoaded", init);
+    function init() {
+      document.getElementById("addExcludeAccountBtn").onclick=()=>{
+        let val = document.getElementById("excludeAccountInput").value.trim()
+        if(val) {
+          excludedAccounts.push(val)
+          document.getElementById("excludeAccountInput").value=""
+          updateAccountsUI()
+        }
+      }
+      let inputs = document.querySelectorAll("input, select")
+      inputs.forEach(el=>{
+        el.addEventListener("input", buildURL)
+        el.addEventListener("change", buildURL)
+      })
+      buildURL()
+      document.getElementById("selectAllEventsBtn").onclick=()=>{
+        document.querySelectorAll(".exclude-events-list input[type='checkbox']").forEach(chk=>{
+          chk.checked = true
+        })
+        buildURL()
+      }
+      document.getElementById("deselectAllEventsBtn").onclick=()=>{
+        document.querySelectorAll(".exclude-events-list input[type='checkbox']").forEach(chk=>{
+          chk.checked = false
+        })
+        buildURL()
+      }
+      let copyBtn = document.getElementById("copyBtn")
+      let originalBg = copyBtn.style.background
+      let originalHTML = copyBtn.innerHTML
+      copyBtn.onclick=()=>{
+        let urlField = document.getElementById("generatedUrl")
+        urlField.select()
+        urlField.setSelectionRange(0,99999)
+        document.execCommand("copy")
+        copyBtn.style.background = "lightgreen"
+        copyBtn.innerHTML = copiedCopyBtnContent
+        setTimeout(()=>{
+          copyBtn.style.background = originalBg
+          copyBtn.innerHTML = originalHTML
+        },2500)
+      }
+    }
+    init()
   </script>
-</main>
+</body>
+</html>
