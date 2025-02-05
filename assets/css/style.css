@@ -498,23 +498,59 @@ header {
   width: 80%;
 }
 
-.status-indicator {
-  display: inline-flex;
-  align-items: center;
-  font-size: 1rem;
-  font-weight: normal;
-  margin-left: 15px;
+/* Container für die Statusanzeige, unter "Need help?" mit leichtem Rechtsversatz */
+#status-indicator-container {
+    margin-left: 30px; /* Rechtsversatz */
+    margin-top: 5px; /* Etwas Abstand nach unten */
+    display: flex;
+    align-items: center;
 }
 
-.status-indicator::after {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin-left: 5px;
-  border-radius: 50%;
-  background-color: gray; 
+/* Grundlegende Formatierung für den Text */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: normal;
+    margin-left: 15px;
 }
+
+/* Status-Punkt mit Glow-Effekt */
+.status-dot {
+    width: 10px;
+    height: 10px;
+    margin-left: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Animation für den Glow-Effekt */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(0, 255, 0, 1);
+    }
+}
+
+/* Offline-Farbe für den leuchtenden Punkt */
+.status-offline {
+    background-color: red !important;
+    animation: glow-red 1.5s infinite alternate;
+}
+
+/* Animation für den roten Glow, wenn offline */
+@keyframes glow-red {
+    from {
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(255, 0, 0, 1);
+    }
+}
+
 
 @media (max-width: 768px) {
   .header-center,
