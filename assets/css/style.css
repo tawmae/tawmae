@@ -472,6 +472,7 @@ header {
   background: rgba(0, 0, 0, 0.5);
   text-align: left;
   color: white;
+  min-width: 300px;
 }
 
 .home-title-image {
