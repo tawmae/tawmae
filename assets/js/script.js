@@ -212,25 +212,44 @@ document.addEventListener("DOMContentLoaded", function () {
             status = status.trim(); 
             const statusIndicator = document.getElementById("status-indicator");
 
+
+            statusIndicator.innerHTML = "tawmae is ";
+
+       
+            const statusText = document.createElement("span");
+            statusText.style.fontWeight = "bold";
+
+            const statusDot = document.createElement("span");
+            statusDot.style.width = "10px";
+            statusDot.style.height = "10px";
+            statusDot.style.marginLeft = "5px";
+            statusDot.style.borderRadius = "50%";
+            statusDot.style.display = "inline-block";
+            statusDot.style.verticalAlign = "middle"; 
+
             if (status === "true") {
-                statusIndicator.textContent = "tawmae is online";
-                statusIndicator.style.color = "lightgreen";
-                statusIndicator.style.fontWeight = "bold";
-                statusIndicator.style.textShadow = "0px 0px 5px lightgreen";
-                statusIndicator.style.display = "inline-flex";
-                statusIndicator.innerHTML += '<span style="width: 10px; height: 10px; margin-left: 5px; border-radius: 50%; background-color: lightgreen; display: inline-block;"></span>';
+                statusText.textContent = "online";
+                statusText.style.color = "lightgreen";
+                statusText.style.textShadow = "0px 0px 5px lightgreen";
+                statusDot.style.backgroundColor = "lightgreen";
             } else {
-                statusIndicator.textContent = "tawmae is offline";
-                statusIndicator.style.color = "red";
-                statusIndicator.style.fontWeight = "bold";
-                statusIndicator.style.textShadow = "0px 0px 5px red";
-                statusIndicator.style.display = "inline-flex";
-                statusIndicator.innerHTML += '<span style="width: 10px; height: 10px; margin-left: 5px; border-radius: 50%; background-color: red; display: inline-block;"></span>';
+                statusText.textContent = "offline";
+                statusText.style.color = "red";
+                statusText.style.textShadow = "0px 0px 5px red";
+                statusDot.style.backgroundColor = "red";
             }
+
+            statusIndicator.style.fontSize = "14px"; 
+            statusIndicator.style.display = "inline-flex";
+            statusIndicator.appendChild(statusText);
+            statusIndicator.appendChild(statusDot);
         })
         .catch(error => {
             console.error("Error loading status:", error);
             document.getElementById("status-indicator").textContent = "Status unavailable";
         });
 });
+
+// ====================================================================================================================
+
 
