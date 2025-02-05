@@ -206,48 +206,36 @@ document.addEventListener("DOMContentLoaded", function () {
 // ====================================================================================================================
 
 document.addEventListener("DOMContentLoaded", function () {
-    function updateStatus() {
-        const statusIndicator = document.getElementById("status-indicator");
+    fetch("/assets/state/state.txt")
+        .then(response => response.text())
+        .then(status => {
+            status = status.trim(); 
+            const statusIndicator = document.getElementById("status-indicator");
+ 
+            statusIndicator.innerHTML = "tawmae is ";
 
-        if (!statusIndicator) {
-            console.warn("status-indicator not found, retrying...");
-            setTimeout(updateStatus, 1000); 
-            return;
-        }
+            const statusText = document.createElement("span");
+            statusText.style.fontWeight = "bold";
+            statusText.style.marginLeft = "5px"; 
 
-        fetch("/assets/state/state.txt")
-            .then(response => response.text())
-            .then(status => {
-                status = status.trim();
-                statusIndicator.innerHTML = "tawmae is ";
+            if (status === "true") {
+                statusText.textContent = "online ●";
+                statusText.style.color = "lightgreen";
+                statusText.style.textShadow = "0px 0px 5px lightgreen";
+            } else {
+                statusText.textContent = "offline ●";
+                statusText.style.color = "red";
+                statusText.style.textShadow = "0px 0px 5px red";
+            }
 
-                const statusText = document.createElement("span");
-                statusText.style.fontWeight = "bold";
-                statusText.style.marginLeft = "5px";
-
-                if (status === "true") {
-                    statusText.textContent = "online";
-                    statusText.style.color = "lightgreen";
-                    statusText.style.textShadow = "0px 0px 5px lightgreen";
-                } else {
-                    statusText.textContent = "offline";
-                    statusText.style.color = "red";
-                    statusText.style.textShadow = "0px 0px 5px red";
-                }
-
-                statusIndicator.style.fontSize = "12px";
-                statusIndicator.style.display = "inline-flex";
-                statusIndicator.appendChild(statusText);
-            })
-            .catch(error => {
-                console.error("Error loading status:", error);
-                if (statusIndicator) {
-                    statusIndicator.textContent = "Status unavailable";
-                }
-            });
-    }
-
-    updateStatus();
+            statusIndicator.style.fontSize = "12px"; 
+            statusIndicator.style.display = "inline-flex";
+            statusIndicator.appendChild(statusText);
+        })
+        .catch(error => {
+            console.error("Error loading status:", error);
+            document.getElementById("status-indicator").textContent = "Status unavailable";
+        });
 });
 
 
