@@ -213,10 +213,17 @@ document.addEventListener("DOMContentLoaded", function () {
             
             const tooltip = document.createElement("div");
             tooltip.classList.add("status-tooltip");
-            tooltip.textContent = status === "true" ? "tawmae is online ●" : "tawmae is offline ●";
-            tooltip.style.color = status === "true" ? "lightgreen" : "red";
-            tooltip.style.textShadow = `0px 0px 5px ${status === "true" ? "lightgreen" : "red"}`;
-            
+
+            const statusText = document.createElement("span");
+            statusText.style.fontWeight = "bold";
+            statusText.style.marginLeft = "5px"; 
+            statusText.textContent = status === "true" ? "online ●" : "offline ●";
+            statusText.style.color = status === "true" ? "lightgreen" : "red";
+            statusText.style.textShadow = `0px 0px 5px ${status === "true" ? "lightgreen" : "red"}`;
+
+            tooltip.textContent = "tawmae is ";
+            tooltip.appendChild(statusText);
+
             document.body.appendChild(tooltip);
             
             const discordIcon = document.querySelector('.header-right a[href*="discord.com"]');
@@ -224,8 +231,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (discordIcon) {
                 discordIcon.addEventListener("mouseenter", function (event) {
                     tooltip.style.display = "block";
-                    tooltip.style.left = `${event.target.getBoundingClientRect().right + 10}px`;
-                    tooltip.style.top = `${event.target.getBoundingClientRect().top}px`;
+                    tooltip.style.left = `${event.target.getBoundingClientRect().left}px`;
+                    tooltip.style.top = `${event.target.getBoundingClientRect().bottom + 15}px`;
                 });
 
                 discordIcon.addEventListener("mouseleave", function () {
@@ -237,6 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error loading status:", error);
         });
 });
+
 
 
 
