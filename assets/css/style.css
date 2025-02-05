@@ -134,7 +134,7 @@ header {
 .header-right a {
   color: white;
   font-size: 1rem;
-  margin-left: 15px;
+  margin-left: 10px;
   transition: transform 0.3s;
   text-decoration: none;
 }
@@ -144,14 +144,14 @@ header {
 }
 
 .header-right a .iconify {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   vertical-align: middle;
   white-space: nowrap;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .header-right a .iconify:hover {
-  transform: scale(1.25);
+  transform: scale(1.2);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
