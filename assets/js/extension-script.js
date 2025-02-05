@@ -59,7 +59,6 @@ function loadImportString(file) {
 document.addEventListener("DOMContentLoaded", function () {
     const currentPage = window.location.pathname;
 
-    // OBS WIDGETS
     if (currentPage.includes("dynamic-timers")) {
         loadImportString("/action-imports/dynamic-timers.txt");
     } else if (currentPage.includes("rotator")) {
@@ -76,23 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loadImportString("/action-imports/movie-and-tv-show-quiz.txt");
     } else if (currentPage.includes("temporary-vip")) {
         loadImportString("/action-imports/temporary-vip.txt");
-    }
-    // Weitere OBS Widgets
-    else if (currentPage.includes("ad-notification")) {
-        loadImportString("/action-imports/ad-notification.txt");
-    } else if (currentPage.includes("basic-alerts")) {
-        loadImportString("/action-imports/basic-alerts.txt");
-    } else if (currentPage.includes("event-list")) {
-        loadImportString("/action-imports/event-list.txt");
-    } else if (currentPage.includes("hot-words")) {
-        loadImportString("/action-imports/hot-words.txt");
-    } else if (currentPage.includes("steam-welcome")) {
-        loadImportString("/action-imports/steam-welcome.txt");
-    } else if (currentPage.includes("vertical-chat")) {
-        loadImportString("/action-imports/vertical-chat.txt");
-    }
-    // UTILITY
-    else if (currentPage.includes("channel-point-auction")) {
+    } else if (currentPage.includes("channel-point-auction")) {
         loadImportString("/action-imports/channel-point-auction.txt");
     } else if (currentPage.includes("command-checker")) {
         loadImportString("/action-imports/command-checker.txt");
@@ -116,9 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loadImportString("/action-imports/tts-queue.txt");
     } else if (currentPage.includes("user-inventory")) {
         loadImportString("/action-imports/user-inventory.txt");
-    }
-    // CHAT GAMES
-    else if (currentPage.includes("hot-potato")) {
+    } else if (currentPage.includes("hot-potato")) {
         loadImportString("/action-imports/hot-potato.txt");
     } else if (currentPage.includes("quick-maths")) {
         loadImportString("/action-imports/quick-maths.txt");
