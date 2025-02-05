@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // ====================================================================================================================
 
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("/assets/_state/_state.txt")
+    fetch("/assets/_state/_state.html")
         .then(response => response.text())
         .then(status => {
             status = status.trim(); 
