@@ -75,5 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     else if (currentPage.includes("user-birthdays")) {
         loadImportString("/action-imports/user-birthdays.txt");  
-    } 
+    }
+    else if (currentPage.includes("movie-and-tv-show-quiz")) {
+        loadImportString("/action-imports/movie-and-tv-show-quiz.txt");  
+    }
 });
