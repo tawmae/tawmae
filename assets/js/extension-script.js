@@ -79,4 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     else if (currentPage.includes("movie-and-tv-show-quiz")) {
         loadImportString("/action-imports/movie-and-tv-show-quiz.txt");  
     }
+    else if (currentPage.includes("temporary-vip")) {
+        loadImportString("/action-imports/temporary-vip.txt");  
+    }
 });
