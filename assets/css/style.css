@@ -463,13 +463,13 @@ header {
   margin: 0 auto;
   padding-left: var(--min-gap);
   padding-right: var(--min-gap);
+  border-radius: 10px;
 }
 
 .home-title-text-box {
   flex-grow: 1;
   padding: 20px;
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
   text-align: left;
   color: white;
 }
@@ -479,7 +479,6 @@ header {
   width: 100%;
   max-width: 1000px;
   transition: transform 0.3s ease-in-out;
-  border-radius: 10px;
 }
 
 .home-title-image img {
