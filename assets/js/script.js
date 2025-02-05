@@ -163,6 +163,11 @@ document.addEventListener("DOMContentLoaded", function () {
         rotatorImages.forEach(image => {
             image.addEventListener('mouseenter', (event) => handleImageHover(event, true));
         });
+
+        const titleImages = document.querySelectorAll('.home-title-image img');
+        titleImages.forEach(image => {
+            image.addEventListener('mouseenter', (event) => handleImageHover(event));
+        });
     }
 
     const dropdownToggle = document.querySelector(".dropdown-toggle");
