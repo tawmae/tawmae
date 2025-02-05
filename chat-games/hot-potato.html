@@ -1,0 +1,289 @@
+---
+layout: default
+title: "HOT POTATO | tawmae"
+description: "A interactive Twitch chat game to pass along a hot potato in chat. But don't get yourself burned!"
+---
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
+<!----    TITLE   ------------------------------------------------------------------------------------------------------------------------------>
+<div class="extension-title">
+    <div class="black-text-box">
+        <h1>HOT POTATO</h1>
+        <p>
+            Is your chat getting too quiet again?
+            <br>
+            <br>
+            TIME TO WAKE THEM UP by passing a super hot potato in chat. Pass it or get your fingers burned (and receive a juicy little timeout).
+            <br>
+            <span style="font-size: 3rem">thisIsFine</span>
+        </p>
+    </div>
+    <a href="{{ site.baseurl }}/assets/covers/hot-potato.gif" target="_blank">
+        <div class="extension-image"
+            style="background-image: url('{{ site.baseurl }}/assets/covers/hot-potato.gif');"></div>
+    </a>
+</div>
+
+<!----    ENTIRE ACCORDION THINGY WHATEVER IT'S CALLED    ------------------------------------------------------------------------------------------------------------------------------>
+
+<div class="accordion">
+    <div class="accordion-divider"></div>
+    <!----    ACTION IMPORT    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('action-import')">
+            <span class="iconify title-icon" data-icon="line-md:download"></span> <span>Action Import</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="action-import">
+            <div class="copy-box">
+                <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
+                <button class="copy-btn" onclick="copyToClipboard('import-string')">
+                    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------------------->
+
+    <div class="accordion-divider"></div>
+
+
+
+    <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('setup')">
+            <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>Setup</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="setup">
+            <!---------------------------------------------->
+            <div class="description-container">
+                <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
+                </a>
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">1.</span> Copy the <span
+                            style="font-weight: bold; color: #d4af37;">Action Import</span> text from above into your
+                        clipboard.</p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+            <div class="section-divider"></div>
+<!--------------------------------------------->
+            <div class="description-container">
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">2.</span> In <span
+                            style="font-weight: bold; color: #d4af37;">Streamer.bot</span>, click the <span
+                            style="font-weight: bold; color: #d4af37;">Import</span> button at the top of the window.
+                        Paste the text into the <span style="font-weight: bold; color: #d4af37;">Import String</span>
+                        section and press <span style="font-weight: bold; color: #d4af37;">Import</span> at the bottom.
+                    </p>
+                </div>
+                <a href="{{ site.baseurl }}/assets/setup/import-actions.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/import-actions.png');">
+                    </div>
+                </a>
+            </div>
+            <!---------------------------------------------->
+            <div class="section-divider"></div>
+<!--------------------------------------------->
+            <div class="description-container">
+                <a href="{{ site.baseurl }}/assets/setup/enable-commands.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/enable-commands.png');">
+                    </div>
+                </a>
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">3.</span> Now head to the <span
+                            style="font-weight: bold; color: #d4af37;">Commands</span> tab and look for the imported
+                        commands. Then <span style="font-weight: bold; color: #d4af37;">rightclick</span> the group and
+                        select <span style="font-weight: bold; color: #d4af37;">Group -> Enable All</span>.
+                      <br><br>
+                            Done!
+                            <br><br><span style="font-size: 2rem">Pog Clap</span></span>  
+                    </p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+            <div class="section-divider"></div>
+
+
+
+            <!---------------------------------------------->
+        </div>
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="accordion-divider"></div>
+
+    <!----    COMMANDS    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('commands')">
+            <span class="iconify title-icon" data-icon="line-md:alert-circle"></span>
+            <span>Commands</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="commands">
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!HOTPOTATO START</p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Starts the game.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!PASS</p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Passes the potato to the next person.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!HOTPOTATO EXCLUDE</p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Exclude yourself from the game. Retyping the command includes you back in.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+          <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!HOTPOTATO EXCLUDE <span
+                                style="color: #455f8c;">[USERNAME]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Exclude a specific user from the game. Retyping the command includes them back in.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="accordion-divider"></div>
+
+    <!----    CUSTOM TRIGGERS    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('custom-settings')">
+            <span class="iconify title-icon" data-icon="line-md:bell-alert"></span>
+            <span>Custom Triggers</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="custom-settings">
+            <p>You can change the values of the <span style="font-weight: bold; color: #d4af37;">Set Argument</span> subactions to change some parameters</p>
+            <p><br><br></p>
+            <!--------------------------------->
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #d4af37;">minimumActiveChatters</p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>The minimum amount of active chatters required to start a game. A user is considered an active chatter if they have typed something within the last 5 minutes.</p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+          <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #d4af37;">timeToPass</p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>The time to pass the potato before it burns somebody's hands.</p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+          <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #d4af37;">startRewardId / passRewardId</p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>The reward IDs of the starting and passing reward. The rewards need to be owned by Streamer.bot.</p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+          <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #d4af37;">passesGameEnd</p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>The maximum amount of concurrent successful passes before the game ends (so it doesn't run indefinitely)</p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+          <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #d4af37;">excludedGroup</p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>You can specify an entire user group that ignores its members from participating in the game.</p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+          <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #d4af37;">ignoreMods</p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Ignores mods for participating.</p>
+                </div>
+            </div>
+            <!---------------------------------------------->
+            <p><br><br></p>
+
+            <!---------------------------------------------->
+
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+    <div class="accordion-divider"></div>
+    <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('changelog')">
+            <span class="iconify title-icon" data-icon="line-md:rotate-270"></span>
+            <span>Changelog</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="changelog">
+            <table class="extension-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Changes</th>
+                        <th>Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!---------------------------------------------->
+                    <tr>
+                        <td>February 02, 2025</td>
+                        <td>Release</td>
+                        <td>1.0.0</td>
+                    </tr>
+                    <!---------------------------------------------->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+    <div class="accordion-divider"></div>
+    <!---------------------------------------------->
+</div>
