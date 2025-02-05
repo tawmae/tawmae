@@ -11,9 +11,9 @@ description: "A URL builder for the Vertical Chat widget"
   <div class="copied-popup" id="copyMessage"></div>
 
   <!-- Bereich, in dem der generierte URL angezeigt und kopiert werden kann -->
-  <div class="url-section">
+  <div class="url-section2">
     <input id="generatedUrl" readonly>
-    <button class="copy-button" id="copyBtn">
+    <button class="copy-button2" id="copyBtn2">
       <span class="iconify" data-icon="material-symbols:content-copy-outline"></span>
       Copy
     </button>
@@ -248,8 +248,8 @@ description: "A URL builder for the Vertical Chat widget"
   <!-- Der gesamte JS-Code am Seitenende -->
   <script>
     let excludedAccounts = [];
-    let defaultCopyBtnContent = `<span class="iconify" data-icon="material-symbols:content-copy-outline"></span> Copy`;
-    let copiedCopyBtnContent = `<span class="iconify" data-icon="fluent:checkmark-12-regular"></span> Copied`;
+    let defaultcopyBtn2Content = `<span class="iconify" data-icon="material-symbols:content-copy-outline"></span> Copy`;
+    let copiedcopyBtn2Content = `<span class="iconify" data-icon="fluent:checkmark-12-regular"></span> Copied`;
 
     function buildURL() {
       let params = [];
@@ -412,23 +412,23 @@ description: "A URL builder for the Vertical Chat widget"
         buildURL();
       };
 
-      // Copy-Button
-      let copyBtn = document.getElementById("copyBtn");
-      let originalBg = copyBtn.style.background;
-      let originalHTML = copyBtn.innerHTML;
+      // copy-button2
+      let copyBtn2 = document.getElementById("copyBtn2");
+      let originalBg = copyBtn2.style.background;
+      let originalHTML = copyBtn2.innerHTML;
 
-      copyBtn.onclick = () => {
+      copyBtn2.onclick = () => {
         let urlField = document.getElementById("generatedUrl");
         urlField.select();
         urlField.setSelectionRange(0, 99999);
         document.execCommand("copy");
 
-        copyBtn.style.background = "lightgreen";
-        copyBtn.innerHTML = copiedCopyBtnContent;
+        copyBtn2.style.background = "lightgreen";
+        copyBtn2.innerHTML = copiedcopyBtn2Content;
 
         setTimeout(() => {
-          copyBtn.style.background = originalBg;
-          copyBtn.innerHTML = originalHTML;
+          copyBtn2.style.background = originalBg;
+          copyBtn2.innerHTML = originalHTML;
         }, 2500);
       };
     }
