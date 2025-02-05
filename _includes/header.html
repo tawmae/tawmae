@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: "tawmae" }}</title>
     <!------------------------------------------------------>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DN4KG43EJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5DN4KG43EJ');
+    </script>
+    <!------------------------------------------------------>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
@@ -47,7 +57,8 @@
                         </li>
                         <li>
                             <a href="{{ site.baseurl }}/obs-widgets/basic-alerts.html">
-                                <span class="iconify nav-icon-child" data-icon="ic:baseline-notifications-active"></span> BASIC ALERTS
+                                <span class="iconify nav-icon-child"
+                                    data-icon="ic:baseline-notifications-active"></span> BASIC ALERTS
                             </a>
                         </li>
                         <li>
@@ -69,7 +80,8 @@
                         </li>
                         <li>
                             <a href="{{ site.baseurl }}/obs-widgets/rotator.html">
-                                <span class="iconify nav-icon-child" data-icon="material-symbols-light:rotate-90-degrees-ccw"></span> ROTATOR
+                                <span class="iconify nav-icon-child"
+                                    data-icon="material-symbols-light:rotate-90-degrees-ccw"></span> ROTATOR
                             </a>
                         </li>
                         <li>
@@ -79,12 +91,14 @@
                         </li>
                         <li>
                             <a href="{{ site.baseurl }}/obs-widgets/stream-receipt.html">
-                                <span class="iconify nav-icon-child" data-icon="material-symbols:receipt-long-outline"></span> STREAM RECEIPT
+                                <span class="iconify nav-icon-child"
+                                    data-icon="material-symbols:receipt-long-outline"></span> STREAM RECEIPT
                             </a>
                         </li>
                         <li>
                             <a href="{{ site.baseurl }}/obs-widgets/vertical-chat.html">
-                                <span class="iconify nav-icon-child" data-icon="ic:baseline-mark-unread-chat-alt"></span> VERTICAL CHAT
+                                <span class="iconify nav-icon-child"
+                                    data-icon="ic:baseline-mark-unread-chat-alt"></span> VERTICAL CHAT
                             </a>
                         </li>
                     </ul>
@@ -110,7 +124,8 @@
                         </li>
                         <li>
                             <a href="{{ site.baseurl }}/utility/command-checker.html">
-                                <span class="iconify nav-icon-child" data-icon="pepicons-print:exclamation-circle-off"></span>
+                                <span class="iconify nav-icon-child"
+                                    data-icon="pepicons-print:exclamation-circle-off"></span>
                                 COMMAND CHECKER
                             </a>
                         </li>
@@ -122,7 +137,8 @@
                         </li>
                         <li>
                             <a href="{{ site.baseurl }}/utility/live-trigger.html">
-                                <span class="iconify nav-icon-child" data-icon="material-symbols-light:cast-connected"></span>
+                                <span class="iconify nav-icon-child"
+                                    data-icon="material-symbols-light:cast-connected"></span>
                                 LIVE TRIGGER
                             </a>
                         </li>
@@ -179,7 +195,7 @@
                                 <span class="iconify nav-icon-child" data-icon="lucide:speech"></span>
                                 TTS QUEUE
                             </a>
-                        </li> 
+                        </li>
                         <li>
                             <a href="{{ site.baseurl }}/utility/user-birthdays.html">
                                 <span class="iconify nav-icon-child" data-icon="iconoir:birthday-cake"></span>
@@ -270,29 +286,34 @@
                     </li>
                     <!------------------------------------------------------>
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" onclick="this.parentElement.classList.toggle('active'); return false;">
+                        <a href="javascript:void(0)" class="dropdown-toggle"
+                            onclick="this.parentElement.classList.toggle('active'); return false;">
                             <span class="iconify nav-icon" data-icon="simple-icons:obsstudio"></span> OBS WIDGETS
                             <span class="arrow">&#9662;</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="{{ site.baseurl }}/obs-widgets/ad-notification.html">
-                                    <span class="iconify nav-icon-child" data-icon="ri:advertisement-fill"></span> AD NOTIFICATION
+                                    <span class="iconify nav-icon-child" data-icon="ri:advertisement-fill"></span> AD
+                                    NOTIFICATION
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/obs-widgets/basic-alerts.html">
-                                    <span class="iconify nav-icon-child" data-icon="ic:baseline-notifications-active"></span> BASIC ALERTS
+                                    <span class="iconify nav-icon-child"
+                                        data-icon="ic:baseline-notifications-active"></span> BASIC ALERTS
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/obs-widgets/dynamic-timers.html">
-                                    <span class="iconify nav-icon-child" data-icon="solar:stopwatch-bold"></span> DYNAMIC TIMERS
+                                    <span class="iconify nav-icon-child" data-icon="solar:stopwatch-bold"></span>
+                                    DYNAMIC TIMERS
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/obs-widgets/event-list.html">
-                                    <span class="iconify nav-icon-child" data-icon="material-symbols:event-list"></span> EVENT LIST
+                                    <span class="iconify nav-icon-child" data-icon="material-symbols:event-list"></span>
+                                    EVENT LIST
                                 </a>
                             </li>
                             <li>
@@ -302,7 +323,8 @@
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/obs-widgets/rotator.html">
-                                    <span class="iconify nav-icon-child" data-icon="material-symbols-light:rotate-90-degrees-ccw"></span> ROTATOR
+                                    <span class="iconify nav-icon-child"
+                                        data-icon="material-symbols-light:rotate-90-degrees-ccw"></span> ROTATOR
                                 </a>
                             </li>
                             <li>
@@ -312,36 +334,42 @@
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/obs-widgets/stream-receipt.html">
-                                    <span class="iconify nav-icon-child" data-icon="material-symbols:receipt-long-outline"></span> STREAM RECEIPT
+                                    <span class="iconify nav-icon-child"
+                                        data-icon="material-symbols:receipt-long-outline"></span> STREAM RECEIPT
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/obs-widgets/vertical-chat.html">
-                                    <span class="iconify nav-icon-child" data-icon="ic:baseline-mark-unread-chat-alt"></span> VERTICAL CHAT
+                                    <span class="iconify nav-icon-child"
+                                        data-icon="ic:baseline-mark-unread-chat-alt"></span> VERTICAL CHAT
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <!------------------------------------------------------>
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" onclick="this.parentElement.classList.toggle('active'); return false;">
+                        <a href="javascript:void(0)" class="dropdown-toggle"
+                            onclick="this.parentElement.classList.toggle('active'); return false;">
                             <span class="iconify nav-icon" data-icon="material-symbols:instant-mix"></span> UTILITY
                             <span class="arrow">&#9662;</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="{{ site.baseurl }}/utility/bluesky-and-sb.html">
-                                    <span class="iconify nav-icon-child" data-icon="tabler:brand-bluesky"></span> BLUESKY & SB
+                                    <span class="iconify nav-icon-child" data-icon="tabler:brand-bluesky"></span>
+                                    BLUESKY & SB
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/utility/channel-point-auction.html">
-                                    <span class="iconify nav-icon-child" data-icon="hugeicons:auction"></span> CHANNEL POINT AUCTION
+                                    <span class="iconify nav-icon-child" data-icon="hugeicons:auction"></span> CHANNEL
+                                    POINT AUCTION
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/utility/command-checker.html">
-                                    <span class="iconify nav-icon-child" data-icon="pepicons-print:exclamation-circle-off"></span> COMMAND CHECKER
+                                    <span class="iconify nav-icon-child"
+                                        data-icon="pepicons-print:exclamation-circle-off"></span> COMMAND CHECKER
                                 </a>
                             </li>
                             <li>
@@ -351,7 +379,8 @@
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/utility/live-trigger.html">
-                                    <span class="iconify nav-icon-child" data-icon="material-symbols-light:cast-connected"></span> LIVE TRIGGER
+                                    <span class="iconify nav-icon-child"
+                                        data-icon="material-symbols-light:cast-connected"></span> LIVE TRIGGER
                                 </a>
                             </li>
                             <li>
@@ -371,27 +400,32 @@
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/utility/random-source-position.html">
-                                    <span class="iconify nav-icon-child" data-icon="tabler:arrows-random"></span> RANDOM SOURCE POSITION
+                                    <span class="iconify nav-icon-child" data-icon="tabler:arrows-random"></span> RANDOM
+                                    SOURCE POSITION
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/utility/reward-discount.html">
-                                    <span class="iconify nav-icon-child" data-icon="tabler:discount"></span> REWARD DISCOUNT
+                                    <span class="iconify nav-icon-child" data-icon="tabler:discount"></span> REWARD
+                                    DISCOUNT
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/utility/spotify-and-sb.html">
-                                    <span class="iconify nav-icon-child" data-icon="teenyicons:spotify-outline"></span> SPOTIFY & SB
+                                    <span class="iconify nav-icon-child" data-icon="teenyicons:spotify-outline"></span>
+                                    SPOTIFY & SB
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/utility/temporary-vip.html">
-                                    <span class="iconify nav-icon-child" data-icon="tabler:diamond"></span> TEMPORARY VIP
+                                    <span class="iconify nav-icon-child" data-icon="tabler:diamond"></span> TEMPORARY
+                                    VIP
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/utility/time-trigger.html">
-                                    <span class="iconify nav-icon-child" data-icon="hugeicons:alarm-clock"></span> TIME TRIGGER
+                                    <span class="iconify nav-icon-child" data-icon="hugeicons:alarm-clock"></span> TIME
+                                    TRIGGER
                                 </a>
                             </li>
                             <li>
@@ -401,19 +435,22 @@
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/utility/user-birthdays.html">
-                                    <span class="iconify nav-icon-child" data-icon="iconoir:birthday-cake"></span> USER BIRTHDAYS
+                                    <span class="iconify nav-icon-child" data-icon="iconoir:birthday-cake"></span> USER
+                                    BIRTHDAYS
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/utility/user-inventory.html">
-                                    <span class="iconify nav-icon-child" data-icon="ph:treasure-chest-light"></span> USER INVENTORY
+                                    <span class="iconify nav-icon-child" data-icon="ph:treasure-chest-light"></span>
+                                    USER INVENTORY
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <!------------------------------------------------------>
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" onclick="this.parentElement.classList.toggle('active'); return false;">
+                        <a href="javascript:void(0)" class="dropdown-toggle"
+                            onclick="this.parentElement.classList.toggle('active'); return false;">
                             <span class="iconify nav-icon" data-icon="bi:dice-6-fill"></span> CHAT GAMES
                             <span class="arrow">&#9662;</span>
                         </a>
@@ -425,17 +462,20 @@
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/chat-games/movie-and-tv-show-quiz.html">
-                                    <span class="iconify nav-icon-child" data-icon="fluent:movies-and-tv-16-regular"></span> MOVIE & TV SHOW QUIZ
+                                    <span class="iconify nav-icon-child"
+                                        data-icon="fluent:movies-and-tv-16-regular"></span> MOVIE & TV SHOW QUIZ
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/chat-games/quick-maths.html">
-                                    <span class="iconify nav-icon-child" data-icon="tabler:math-function"></span> QUICK MATHS
+                                    <span class="iconify nav-icon-child" data-icon="tabler:math-function"></span> QUICK
+                                    MATHS
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ site.baseurl }}/chat-games/stardew-valley.html">
-                                    <span class="iconify nav-icon-child" data-icon="lucide-lab:farm"></span> STARDEW VALLEY
+                                    <span class="iconify nav-icon-child" data-icon="lucide-lab:farm"></span> STARDEW
+                                    VALLEY
                                 </a>
                             </li>
                         </ul>
