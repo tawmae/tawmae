@@ -198,23 +198,6 @@ header {
   margin: 0 auto;
 }
 
-.slide-title {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-family: 'Poppins', sans-serif;
-  color: white;
-  font-size: 1rem;
-  z-index: 2;
-  transition: opacity 1s ease-in-out;
-}
-
-.slide-title.hidden {
-  opacity: 0;
-}
 
 .rotator {
   position: relative;
