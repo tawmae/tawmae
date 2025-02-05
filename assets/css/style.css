@@ -479,6 +479,7 @@ header {
   width: 100%;
   max-width: 1000px;
   transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
 }
 
 .home-title-image img {
