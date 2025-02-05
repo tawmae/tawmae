@@ -26,7 +26,8 @@ const wordToEmojiMap = {
     "streamer_BOT": "/assets/emotes/streamerbot.png",
     "LUL": "/assets/emotes/lul.webp",
     "catBirthday": "/assets/emotes/cat-birthday.webp",
-    "rightThere": "/assets/emotes/right-there.webp"
+    "rightThere": "/assets/emotes/right-there.webp",
+    "PETTHEVIP": "/assets/emotes/pet-the-vip.webp"
 };
 
 function replacePlaceholdersWithEmojis(text) {
