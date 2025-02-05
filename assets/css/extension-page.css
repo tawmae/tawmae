@@ -151,6 +151,7 @@ p {
   background-color: var(--black-bg);
   opacity: 0.95;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .copy-text {
