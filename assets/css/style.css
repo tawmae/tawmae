@@ -472,8 +472,8 @@ header {
   background: rgba(0, 0, 0, 0.5);
   text-align: left;
   color: white;
-  flex-shrink: 0;
-  min-width: 200px;
+  width: 100%;
+  display: block;
 }
 
 .home-title-image {
