@@ -516,6 +516,229 @@ header {
     z-index: 1000;
 }
 
+/* Titel des Builders (falls du ihn individuell stylen willst) */
+.page-title {
+  margin: 0;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Popup, das anzeigt, wenn etwas kopiert wurde */
+.copied-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  display: none;
+  z-index: 9999;
+}
+
+/* Bereich für URL und Copy-Button */
+.url-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#generatedUrl {
+  width: 100%;
+  background: #131315;
+  border: 1px solid #555;
+  color: white;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 18px;
+}
+
+#generatedUrl:focus {
+  outline: 2px solid #466090;
+}
+
+.copy-button {
+  display: inline-flex;
+  align-items: center;
+  background: #466090;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: background 0.2s;
+  gap: 8px;
+}
+
+.copy-button:hover {
+  background: #5a79b5;
+}
+
+/* Wrapper für alle „Builder Sections“ */
+.builder-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left; /* Falls du linksbündig willst */
+}
+
+/* Einzelner Bereich (Box) */
+.builder-section {
+  background: rgba(17,17,17,0.95);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.builder-section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* Grundeinstellungen für die Labels/Inputs */
+.setting {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.setting:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.setting label {
+  font-weight: 600;
+  margin: 0;
+}
+
+.setting input[type="text"],
+.setting input[type="number"],
+.setting select {
+  width: 120px;
+  background: #131315;
+  border: 1px solid #444;
+  color: white;
+  padding: 5px;
+  font-family: inherit;
+}
+
+.setting input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.setting input[type="color"] {
+  width: 60px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background: #131315;
+}
+
+.description {
+  color: #aaa;
+  font-size: 0.8rem;
+  margin-left: 1px;
+}
+
+/* Events */
+.exclude-events-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.select-button {
+  background: #466090;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 12px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.select-button:hover {
+  background: #5a79b5;
+}
+
+.exclude-events-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.exclude-events-list label {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+}
+
+/* Exclude Accounts */
+.exclude-accounts-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  max-width: 350px;
+}
+
+.exclude-accounts-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.exclude-accounts-list span {
+  background: #131315;
+  padding: 5px 8px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.exclude-accounts-list button {
+  background: transparent;
+  border: none;
+  color: #bbb;
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.exclude-accounts-list button:hover {
+  color: #fff;
+}
+
+/* Responsive (Mobile) */
+@media(max-width: 900px) {
+  .builder-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 @media (max-width: 768px) {
