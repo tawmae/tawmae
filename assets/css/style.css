@@ -539,7 +539,7 @@ header {
 }
 
 /* Bereich für URL und Copy-Button */
-.url-section2 {
+.url-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -565,7 +565,7 @@ header {
   outline: 2px solid #466090;
 }
 
-.copy-button2 {
+.copy-button {
   display: inline-flex;
   align-items: center;
   background: #466090;
@@ -579,7 +579,7 @@ header {
   gap: 8px;
 }
 
-.copy-button2:hover {
+.copy-button:hover {
   background: #5a79b5;
 }
 
