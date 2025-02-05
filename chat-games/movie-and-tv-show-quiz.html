@@ -501,252 +501,55 @@ description: "A movie & TV show guessing game for Twitch chat. Powered by TMDB."
             <p><br></p>
             <!--------------------------------->
             <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37">New Song</p>
-                <p>Fires when a new song starts<br><span
-                        style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95; font-size: 0.7rem">(also
-                        fires if the
-                        same song gets played over/reset)</span><br></p>
-                <p style="font-weight: bold;">Available variables:</p>
-                <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackId</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the ID of the track
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackName</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the name of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">artists</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the artist(s) of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">coverImageURL</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the image URL of the cover art
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">isPlaying</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(bool)</span>
-                        - indicator whether the new song is playing when it comes up
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the new song's progress in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the new song's total duration in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the new song's progress time in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the new song's total duration in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">isRequested</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(bool)</span>
-                        - indicator whether the new song has been requested or not
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">user</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the display name of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if
-                            not
-                            requested )</span>
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">userName</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the user login of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if
-                            not
-                            requested )</span>
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">userId</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the user ID of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if
-                            not
-                            requested )</span>
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">userProfileImageUrl</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the profile picture URL of the requester <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">(null/empty if
-                            not
-                            requested )</span>
-                    </li>
-                </ul>
-            </div>
+    <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37;">Correct Guess (single round played)</p>
+    <p>Fires when only one round is played and someone guesses the title correctly.</p>
+    <p style="font-weight: bold;">Provides user variables:</p>
+    <p>_user, _userName, _userId, _userProfilePicture</p>
+</div>
 
-            <!--------------------------------->
-            <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37">Song Continued</p>
-                <p>Fires when a song gets resumed.<br></p>
-                <p style="font-weight: bold;">Available variables:</p>
-                <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackId</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the ID of the track
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackName</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the name of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">artists</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the artist(s) of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">coverImageURL</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the image URL of the cover art
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">isPlaying</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(bool)</span>
-                        - indicator whether the song is playing when it gets resumed
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the song's progress in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the song's total duration in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's progress time in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's total duration in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                </ul>
-            </div>
+<div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37;">Correct Guess (multiple rounds played)</p>
+    <p>Fires when multiple rounds are played and someone guesses the title correctly.</p>
+    <p style="font-weight: bold;">Provides user variables:</p>
+    <p>_user, _userName, _userId, _userProfilePicture</p>
+</div>
 
-            <!--------------------------------->
-            <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px;">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37">Song Paused</p>
-                <p>Fires when a song gets paused.<br></p>
-                <p style="font-weight: bold;">Available variables:</p>
-                <ul style="list-style-position: inside; padding-left: 0; text-align: left;">
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackId</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the ID of the track
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">trackName</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the name of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">artists</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the artist(s) of the song
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">coverImageURL</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the image URL of the cover art
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">isPlaying</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(bool)</span>
-                        - indicator whether the song is playing (typically <span
-                            style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">false</span>
-                        when paused)
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the song's progress in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationMs</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(int)</span>
-                        - the song's total duration in milliseconds
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">progressTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's progress time in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                    <li>
-                        <span style="font-weight: bold; color: #455f8c;">durationTimeFormatted</span>
-                        <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">(string)</span>
-                        - the song's total duration in a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4; font-size: 0.7rem;">mm:ss</span>
-                        format
-                    </li>
-                </ul>
-            </div>
+<div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37;">No Correct Guess</p>
+    <p>Fires when no one guesses the correct title.</p>
+</div>
 
+<div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37;">Most Correct Guesses (multiple rounds played)</p>
+    <p>Fires after all rounds have been played.</p>
+    <p style="font-weight: bold;">Provides user variables:</p>
+    <p>_user, _userName, _userId, _userProfilePicture, _userCorrectGuesses</p>
+</div>
+
+<div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37;">Round Starting</p>
+    <p>Fires when a round starts.</p>
+</div>
+
+<div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37;">Round Halftime</p>
+    <p>Fires after half the time has passed.</p>
+</div>
+
+<div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37;">Round Ending</p>
+    <p>Fires when a round ends.</p>
+</div>
+
+<div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <p style="font-weight: bold; font-size: 1.6rem; color: #d4af37;">Hint Showing</p>
+    <p>Fires whenever a hint shows.</p>
+</div>
+
+
+
+
+           
 
 
             <p><br><br></p>
@@ -757,182 +560,9 @@ description: "A movie & TV show guessing game for Twitch chat. Powered by TMDB."
     </div>
     <!---------------------------------------------------------------------------------------------------------------------------------->
 
-    <div class="accordion-divider"></div>
+  
 
-    <!----    OBS WIDGET    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('obs-widget')">
-            <span class="iconify title-icon" data-icon="line-md:text-box"></span> <span>OBS Widget</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
-        </div>
-        <div class="accordion-content" id="obs-widget">
-
-            <!---------------------------------------------->
-
-            <a href="{{ site.baseurl }}/assets/setup/spotify-and-sb/spotify-and-sb-obs-widget.gif" target="_blank">
-                <div class="extension-example-image"
-                    style="background-image: url('{{ site.baseurl }}/assets/setup/spotify-and-sb/spotify-and-sb-obs-widget.gif');">
-                </div>
-            </a>
-            <!---------------------------------------------->
-            <p><br><br></p>
-
-            <!---------------------------------------------->
-            <p>You can copy the <span style="font-weight: bold; color: #d4af37;">Browser Source URL</span> below and use
-                it in <span style="font-weight: bold; color: #d4af37;">OBS</span> to display the current song. <br>
-
-                <span style="font-size: 0.7rem;"><span style="font-weight: bold; color: red;">Note:</span> Make sure
-                    your <span style="font-weight: bold; color: #d4af37;">Websocket Server</span> in the <span
-                        style="font-weight: bold; color: #d4af37;">Servers/Clients -> WebSocket Server</span> tab is
-                    enabled and set to <span style="font-weight: bold; color: #d4af37;">127.0.0.1</span> and <span
-                        style="font-weight: bold; color: #d4af37;">8080</span></span>.<br><br>
-            </p>
-            <!---------------------------------------------->
-            <div id="import">
-                <div class="copy-box">
-                    <span class="copy-text" id="base64-string"
-                        data-copy-text="https://tawmae.xyz/overlays/spotify-and-sb.html">
-                        https://tawmae.xyz/overlays/spotify-and-sb.html
-                    </span>
-                    <button class="copy-btn"
-                        onclick="copyURLToClipboard('https://tawmae.xyz/overlays/spotify-and-sb.html')">
-                        <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
-                    </button>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-            <p><br><br></p>
-            <!---------------------------------------------->
-
-            <p>You can then add <span style="font-weight: bold; color: #d4af37;">URL Parameters</span> at the end of the
-                URL
-                to customize certain things. The first parameter is getting added with a <span
-                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">?</span>, every
-                additional one with a <span
-                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">&</span>.</p>
-            <p><br></p>
-            <p>Example: <span
-                    style="background-color: #111; color: white; padding: 0 5px; opacity: 0.95;">https://tawmae.xyz/overlays/dynamic-timers.html?hideBackground=true&font=Segoe+UI&idColor=pink</span>
-            </p>
-            <p><br><br></p>
-
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Background Color</span></p>
-                    <p>Changes the background color of the background. Supports hex colors, but then you need to replace
-                        the <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">#</span>
-                        with <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span></p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">backgroundColor=pink</span></p>
-                    <p><br></p>
-                    <p><span style="color: #d4af37; font-weight: bold;">backgroundColor=%23ffc0cb</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon"
-                            data-icon="material-symbols:background-grid-small-sharp"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Hide Background</span></p>
-                    <p>Hide the background. This also removes the progress bar.</p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">hideBackground=true</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="mdi:circle-opacity"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Background Opacity</span></p>
-                    <p>Changes the opacity of the background. The default opacity is set to <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">80</span></p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">backgroundOpacity=69</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="mdi:format-font"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font</span></p>
-                    <p>Changes the font used for the text. Supports standard fonts. Use a <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">+</span>
-                        character to replace spaces.</p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">font=Arial</span></p>
-                    <p><br></p>
-                    <p><span style="color: #d4af37; font-weight: bold;">font=Comic+Sans+MS</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font Color</span></p>
-                    <p>Changes the font color. Supports hex colors, but then you need to replace the <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">#</span> with
-                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span>
-                    </p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">fontColor=pink</span></p>
-                    <p><br></p>
-                    <p><span style="color: #d4af37; font-weight: bold;">fontColor=%23ffc0cb</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="material-symbols:format-size"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font Size</span></p>
-                    <p>Changes the font size and also scales all other elements according to it. The default size is set
-                        to <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">40</span>
-                    </p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">fontSize=30</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">ID Color</span></p>
-                    <p>Changes the ID color. Supports hex colors, but then you need to replace the <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">#</span> with
-                        <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span>
-                    </p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">idColor=pink</span></p>
-                    <p><br></p>
-                    <p><span style="color: #d4af37; font-weight: bold;">idColor=%23ffc0cb</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-            <div class="customization-text-container">
-                <div class="black-text-box-3">
-                    <p><span class="iconify title-icon" data-icon="mdi:alarm-multiple"></span><span
-                            style="font-size: 1.1rem; color: #fff; font-weight: bold;">Max. Timers</span></p>
-                    <p>Changes the max. limit of timers you can have at the same time. Default is set to <span
-                            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">7</span></p>
-                </div>
-                <div class="black-text-box-4">
-                    <p><span style="color: #d4af37; font-weight: bold;">maxTimers=5</span></p>
-                </div>
-            </div>
-            <!---------------------------------------------->
-        </div>
-    </div>
-
+    
     <div class="accordion-divider"></div>
     <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
