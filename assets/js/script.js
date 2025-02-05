@@ -204,3 +204,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // ====================================================================================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("/assets/_state/_state.txt")
+        .then(response => response.text())
+        .then(status => {
+            status = status.trim(); 
+            const statusIndicator = document.getElementById("status-indicator");
+
+            if (status === "true") {
+                statusIndicator.textContent = "tawmae is online";
+                statusIndicator.style.color = "lightgreen";
+                statusIndicator.style.fontWeight = "bold";
+                statusIndicator.style.textShadow = "0px 0px 5px lightgreen";
+                statusIndicator.style.display = "inline-flex";
+                statusIndicator.innerHTML += '<span style="width: 10px; height: 10px; margin-left: 5px; border-radius: 50%; background-color: lightgreen; display: inline-block;"></span>';
+            } else {
+                statusIndicator.textContent = "tawmae is offline";
+                statusIndicator.style.color = "red";
+                statusIndicator.style.fontWeight = "bold";
+                statusIndicator.style.textShadow = "0px 0px 5px red";
+                statusIndicator.style.display = "inline-flex";
+                statusIndicator.innerHTML += '<span style="width: 10px; height: 10px; margin-left: 5px; border-radius: 50%; background-color: red; display: inline-block;"></span>';
+            }
+        })
+        .catch(error => {
+            console.error("Error loading status:", error);
+            document.getElementById("status-indicator").textContent = "Status unavailable";
+        });
+});
+
