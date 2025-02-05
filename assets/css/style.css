@@ -462,23 +462,26 @@ header {
   max-width: var(--container-width);
   margin: 0 auto;
   padding-left: var(--min-gap);
-  padding-right: var(--min-gap); 
+  padding-right: var(--min-gap);
+}
+
+.home-title-text-box,
+.home-title-image {
+  flex: 1;  
+  min-width: 0; 
 }
 
 .home-title-text-box {
-  flex-grow: 1;
   padding: 20px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.5);
   text-align: left;
   color: white;
-  width: 100%;
   display: block;
 }
 
 .home-title-image {
-  flex-shrink: 0;
-  width: 100%;
+  flex-shrink: 1; 
   max-width: 1000px;
   transition: transform 0.3s ease-in-out;
 }
@@ -494,6 +497,7 @@ header {
 .home-title-image:hover {
   transform: scale(1.03);
 }
+
 
 .section-divider {
   border: none;
