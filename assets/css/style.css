@@ -498,6 +498,24 @@ header {
   width: 80%;
 }
 
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: normal;
+  margin-left: 15px;
+}
+
+.status-indicator::after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+  border-radius: 50%;
+  background-color: gray; 
+}
+
 @media (max-width: 768px) {
   .header-center,
   .header-right {
