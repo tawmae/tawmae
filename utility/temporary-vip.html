@@ -1,0 +1,285 @@
+---
+layout: default
+title: "TEMPORARY VIP | tawmae"
+description: "Add viewers as a VIP for a specified time span and have them removed automatically after it expires."
+---
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
+<!----    TITLE   ------------------------------------------------------------------------------------------------------------------------------>
+<div class="extension-title">
+    <div class="black-text-box">
+        <h1>TEMPORARY VIP</h1>
+        <p>Imagine it's the year 2025 and you are still removing your temporary VIP manually.
+            <br><br>
+            YOU HEARD ME RIGHT! Grab this fancy extension and add temporary VIPs for whatever timespan you want and
+            remove them automatically once their precious time expires.
+            <br><span style="font-size: 2rem">PETTHEVIPS</span>
+        </p>
+    </div>
+    <a href="{{ site.baseurl }}/assets/covers/temporary-vip.gif" target="_blank">
+        <div class="extension-image"
+            style="background-image: url('{{ site.baseurl }}/assets/covers/temporary-vip.gif');"></div>
+    </a>
+</div>
+
+<!----    ENTIRE ACCORDION THINGY WHATEVER IT'S CALLED    ------------------------------------------------------------------------------------------------------------------------------>
+
+<div class="accordion">
+    <div class="accordion-divider"></div>
+    <!----    ACTION IMPORT    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('action-import')">
+            <span class="iconify title-icon" data-icon="line-md:download"></span> <span>Action Import</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="action-import">
+            <div class="copy-box">
+                <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
+                <button class="copy-btn" onclick="copyToClipboard('import-string')">
+                    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
+                </button>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------------------->
+
+    <div class="accordion-divider"></div>
+
+
+
+    <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('setup')">
+            <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>Setup</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="setup">
+            <!---------------------------------------------->
+            <div class="description-container">
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">1.</span> Copy the <span
+                            style="font-weight: bold; color: #d4af37;">Action Import</span> text from above into your
+                        clipboard.</p>
+                </div>
+                <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
+                </a>
+
+            </div>
+            <!---------------------------------------------->
+            <div class="section-divider"></div>
+            <!--------------------------------------------->
+            <div class="description-container">
+                <a href="{{ site.baseurl }}/assets/setup/import-actions.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/import-actions.png');">
+                    </div>
+                </a>
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">2.</span> In <span
+                            style="font-weight: bold; color: #d4af37;">Streamer.bot</span>, click the <span
+                            style="font-weight: bold; color: #d4af37;">Import</span> button at the top of the window.
+                        Paste the text into the <span style="font-weight: bold; color: #d4af37;">Import String</span>
+                        section and press <span style="font-weight: bold; color: #d4af37;">Import</span> at the bottom.
+                    </p>
+                </div>
+
+            </div>
+            <!---------------------------------------------->
+            <div class="section-divider"></div>
+            <!--------------------------------------------->
+            <div class="description-container">
+
+                <div class="black-text-box-2">
+                    <p><span style="font-weight: bold; color: #fff;">3.</span> Now head to the <span
+                            style="font-weight: bold; color: #d4af37;">Commands</span> tab and look for the imported
+                        commands. Then <span style="font-weight: bold; color: #d4af37;">rightclick</span> the group and
+                        select <span style="font-weight: bold; color: #d4af37;">Group -> Enable All</span>.
+                        <br><br>
+                        And you're done!
+                        <br>
+                        <span style="font-size: 1.5rem">Pog Clap</span>
+
+                    </p>
+                </div>
+                <a href="{{ site.baseurl }}/assets/setup/enable-commands.png" target="_blank">
+                    <div class="extension-image-2"
+                        style="background-image: url('{{ site.baseurl }}/assets/setup/enable-commands.png');">
+                    </div>
+                </a>
+            </div>
+
+            <!---------------------------------------------->
+
+        </div>
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="accordion-divider"></div>
+
+    <!----    COMMANDS    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('commands')">
+            <span class="iconify title-icon" data-icon="line-md:alert-circle"></span>
+            <span>Commands</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="commands">
+
+            <!--------------------------------->
+            <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h3> <span style="font-weight: bold; color: #fff">Available time formats:</span></h3>
+                <p>
+                    1y / 2mo / 3w / 4d / 5h / 6min / 7s
+                </p>
+
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!ADDVIP <span style="color: #455f8c;">[USERNAME]
+                                [TIME]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Adds VIP time to the specified user. If <span style="color: #455f8c;">[TIME]</span> has been left
+                        blank, it will pick the default time from the settings menu, unless a defaultTime argument has
+                        been provided. See the available time formats above.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!REMOVEVIP <span style="color: #455f8c;">[USERNAME]
+                                [TIME]</span></span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Removes VIP time. If no time is given or if the removed time exceeds the time the user had left,
+                        it will un-vip them immediately.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!CHECKVIP</span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>Allows users to check when their VIP status expires. If a moderator or permanent VIP uses this,
+                        it lists all current temporary VIPs.</p>
+                </div>
+            </div>
+
+            <!---------------------------------------------->
+
+            <div class="customization-text-container">
+                <div class="black-text-box-5">
+                    <p><span style="font-weight: bold; color: #fff;">!REFRESHVIP</span></p>
+                </div>
+                <div class="black-text-box-6">
+                    <p>A manual refresh that checks for expired VIPs. If any are expired, they’ll be removed.</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="accordion-divider"></div>
+    <!----    SETTINGS UI    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('customization')">
+            <span class="iconify title-icon" data-icon="line-md:check-list-3"></span> <span>Settings UI</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="customization">
+            <p>The <span style="font-weight: bold; color: #d4af37;">Settings UI</span> allows for some customization.
+            </p>
+            <p><br><br></p>
+            <!--------------------------------->
+            <div style="background-color: #111; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h3> <span style="font-weight: bold; color: #fff">Available time formats:</span></h3>
+                <p>
+                    1y / 2mo / 3w / 4d / 5h / 6min / 7s
+                </p>
+
+            </div>
+
+
+
+            <!---------------------------------------------->
+            <div class="settings-ui-container">
+                <div class="black-text-box-7">
+                    <p><span style="font-weight: bold; color: #fff;">General</span> <br>You can change the general
+                        settings here. <span style="font-weight: bold; color: #d4af37;">Default Time Amount</span> and
+                        <span style="font-weight: bold; color: #d4af37;">Default Time Unit</span> are just a fallback in
+                        case you didn't specify any timespan. You add the timespan in commands directly by input (see
+                        <span style="font-weight: bold; color: #d4af37;">Commands</span> above) and for any other
+                        trigger, you just add a <span style="font-weight: bold; color: #d4af37;">Set Argument</span>
+                        subaction with a <span style="font-weight: bold; color: #d4af37;">defaultTime</span> variable
+                        and type the timespan in there.
+                        <br><br>
+                        You can also allow stacking (so two redeems add up instead of just refreshing the time) and
+                        limit the slots or exclude a user group from becoming a temporary VIP.
+                    </p>
+                </div>
+                <a href="{{ site.baseurl }}/assets/settings/temporary-vip/temporary-vip-1.png" target="_blank">
+                    <img class="settings-ui-image"
+                        src="{{ site.baseurl }}/assets/settings/temporary-vip/temporary-vip-1.png" alt="Settings Image">
+                </a>
+            </div>
+            <!---------------------------------------------->
+            <div class="settings-ui-container">
+                <div class="black-text-box-7">
+                    <p><span style="font-weight: bold; color: #fff;">Messages</span> <br>This tab allows you to
+                        customize the chat responses. You can make use of the variables listed below each message.
+                    </p>
+                </div>
+                <a href="{{ site.baseurl }}/assets/settings/temporary-vip/temporary-vip-2.png" target="_blank">
+                    <img class="settings-ui-image"
+                        src="{{ site.baseurl }}/assets/settings/temporary-vip/temporary-vip-2.png" alt="Settings Image">
+                </a>
+            </div>
+            <!---------------------------------------------->
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+    <div class="accordion-divider"></div>
+    <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('changelog')">
+            <span class="iconify title-icon" data-icon="line-md:rotate-270"></span>
+            <span>Changelog</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="changelog">
+            <table class="extension-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Changes</th>
+                        <th>Version</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!---------------------------------------------->
+                    <tr>
+                        <td>February 02, 2025</td>
+                        <td>Release</td>
+                        <td>1.0.0</td>
+                    </tr>
+                    <!---------------------------------------------->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+    <div class="accordion-divider"></div>
+    <!---------------------------------------------->
+</div>
