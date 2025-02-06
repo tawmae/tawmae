@@ -314,7 +314,8 @@ header {
     align-items: center; 
     height: 350px; 
     padding: 20px;
-    margin-top: 80px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .product-card-link {
