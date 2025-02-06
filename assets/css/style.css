@@ -154,7 +154,6 @@ header {
 .header-right a .iconify {
   font-size: 1.2rem;
   vertical-align: middle;
-  white-space: nowrap;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -165,12 +164,11 @@ header {
 
 .header-right .need-help {
   font-size: 1rem;
-  font-weight: normal;
   margin-right: 20px;
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s;
 }
 
 .header-right .need-help:hover {
@@ -320,9 +318,12 @@ header {
 }
 
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  justify-content: center;
   align-items: stretch;
   width: 100%;
   max-width: var(--container-width);
@@ -341,15 +342,13 @@ header {
   border-radius: 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  width: 100%;
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   transition: transform 0.3s, box-shadow 0.3s;
   padding-bottom: 10px;
-  margin: 0 auto;
-  height: 100%;
 }
 
 .product-card:hover {
@@ -386,14 +385,6 @@ header {
   font-size: 0.9rem;
   color: #ccc;
   padding: 5px;
-}
-
-.product-card img.emoji {
-  width: auto !important;
-  height: 1em !important;
-  object-fit: contain;
-  display: inline;
-  border-radius: 0 !important;
 }
 
 .kofi-button {
@@ -505,7 +496,7 @@ header {
     text-align: center;
   }
   .product-grid {
-    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
   }
   .rotator-container {
     min-width: 100%;
@@ -520,7 +511,10 @@ header {
 
 @media (max-width: 600px) {
   .product-grid {
-    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+  .product-card {
+    width: 100%;
   }
 }
 
@@ -611,20 +605,11 @@ header {
     font-size: 0.8rem;
   }
   .product-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    width: 100%;
-    justify-items: center;
+    justify-content: center;
+    gap: 15px;
   }
   .product-card {
-    padding: 8px;
-    max-width: none;
-  }
-  .product-card h3 {
-    font-size: 0.9rem;
-  }
-  .product-card p {
-    font-size: 0.75rem;
+    width: 100%;
   }
   .rotator-container {
     min-width: 100%;
