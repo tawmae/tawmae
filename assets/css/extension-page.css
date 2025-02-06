@@ -1,7 +1,9 @@
 :root {
   --container-width: 1600px;
-  --black-bg: #111;
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --border-glass: rgba(255, 255, 255, 0.2);
   --transition-time: 0.4s;
+  --accent-color: #455f8c;
 }
 
 html,
@@ -11,6 +13,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   box-sizing: border-box;
+  color: #fff;
 }
 
 .extension-title {
@@ -27,12 +30,13 @@ body {
 .black-text-box {
   width: 100%;
   max-width: 400px;
-  opacity: 0.95;
-  background-color: var(--black-bg);
+  background: var(--bg-glass);
   border-radius: 12px;
   padding: 30px 40px;
   text-align: left;
-  border: 1px solid black;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .extension-image {
@@ -40,8 +44,8 @@ body {
   height: 400px;
   background-size: cover;
   background-position: center;
-  border: 1px solid black;
-  transition: transform 0.4s ease-in-out;
+  border: 1px solid var(--border-glass);
+  transition: transform var(--transition-time) ease-in-out;
   transform-origin: center center;
 }
 
@@ -63,6 +67,11 @@ body {
   padding: 15px;
   width: 100%;
   transition: background-color 0.3s;
+  background: var(--bg-glass);
+  border-radius: 12px;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .accordion-header {
@@ -70,7 +79,6 @@ body {
   justify-content: start;
   align-items: center;
   cursor: pointer;
-  color: white;
   font-size: 1.4rem;
   font-weight: bold;
   padding: 10px 0;
@@ -83,12 +91,12 @@ body {
 }
 
 .accordion-header:hover span {
-  color: #455f8c;
+  color: var(--accent-color);
 }
 
 .accordion-header:hover .accordion-icon,
 .accordion-header:hover .title-icon {
-  color: #455f8c;
+  color: var(--accent-color);
   transform: scale(1.1);
 }
 
@@ -99,13 +107,11 @@ body {
 
 .accordion-icon {
   font-size: 1.5rem;
-  color: white;
   margin-left: 10px;
 }
 
 .accordion-content {
   padding-top: 10px;
-  color: white;
   font-size: 1.1rem;
   display: none;
   margin-top: 10px;
@@ -121,13 +127,12 @@ body {
 h1 {
   font-size: 2.5rem;
   margin-bottom: 15px;
-  color: white;
   text-align: left;
 }
+
 h3 {
   font-size: 1.5rem;
   margin-bottom: 5px;
-  color: white;
   text-align: left;
 }
 
@@ -138,7 +143,7 @@ p {
 }
 
 .accordion-divider {
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid var(--border-glass);
   margin: 10px 0;
 }
 
@@ -147,11 +152,12 @@ p {
   align-items: center;
   width: 100%;
   max-width: var(--container-width);
-  border: 1px solid black;
+  border: 1px solid var(--border-glass);
   border-radius: 8px;
   padding: 10px;
-  background-color: var(--black-bg);
-  opacity: 0.95;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   justify-content: center;
 }
 
@@ -166,21 +172,21 @@ p {
 }
 
 .copy-btn {
-  background-color: #455f8c;
-  color: white;
+  background-color: var(--accent-color);
+  color: #fff;
   padding: 5px 15px;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
   font-family: 'Poppins', sans-serif;
 }
 
 .copy-btn:hover {
   transform: scale(1.05);
-  background-color: #384B6B;
+  background-color: #384b6b;
 }
 
 .copy-btn .iconify {
@@ -188,7 +194,7 @@ p {
 }
 
 .copied {
-  background-color: #4CAF50 !important;
+  background-color: #4caf50 !important;
   font-weight: bold;
 }
 
@@ -208,11 +214,13 @@ p {
 
 .black-text-box-2 {
   flex: 1;
-  background-color: var(--black-bg);
-  color: white;
+  background: var(--bg-glass);
+  color: #fff;
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid black;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .extension-image-2 {
@@ -220,8 +228,8 @@ p {
   height: 400px;
   background-size: cover;
   background-position: center;
-  border: 1px solid black;
-  transition: transform 0.4s ease-in-out;
+  border: 1px solid var(--border-glass);
+  transition: transform var(--transition-time) ease-in-out;
   transform-origin: center center;
 }
 
@@ -245,41 +253,49 @@ p {
 .black-text-box-3,
 .black-text-box-4 {
   flex: 1;
-  background-color: var(--black-bg);
-  color: white;
+  background: var(--bg-glass);
+  color: #fff;
   padding: 20px;
   border-radius: 8px;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   height: 170px;
-  border: 1px solid black;
 }
 
 .black-text-box-5,
 .black-text-box-6 {
   flex: 1;
-  background-color: var(--black-bg);
-  color: white;
+  background: var(--bg-glass);
+  color: #fff;
   padding: 20px;
   border-radius: 8px;
-  height: 165px
-  border: 1px solid black;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  height: 165px;
 }
 
 .black-text-box-bsky {
   flex: 1;
-  background-color: var(--black-bg);
-  color: white;
+  background: var(--bg-glass);
+  color: #fff;
   padding: 20px;
   border-radius: 8px;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   height: 300px;
-  border: 1px solid black;
 }
 
 .extension-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: var(--black-bg);
-  color: white;
+  background: var(--bg-glass);
+  color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-glass);
 }
 
 .extension-table th,
@@ -289,17 +305,17 @@ p {
 }
 
 .extension-table th {
-  background-color: #455f8c;
+  background-color: var(--accent-color);
   opacity: 0.9;
   font-weight: bold;
 }
 
 .extension-table tr:nth-child(even) {
-  background-color: #171616;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .extension-table tr:nth-child(odd) {
-  background-color: #1f1d1d;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .settings-ui-container {
@@ -311,20 +327,22 @@ p {
 }
 
 .black-text-box-7 {
-  background-color: var(--black-bg);
-  color: white;
+  background: var(--bg-glass);
+  color: #fff;
   padding: 20px;
   border-radius: 8px;
   width: 300px;
-  border: 1px solid black;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .settings-ui-image {
   width: 600px;
   height: auto;
-  border: 1px solid black;
+  border: 1px solid var(--border-glass);
   flex-shrink: 0;
-  transition: transform 0.4s ease-in-out;
+  transition: transform var(--transition-time) ease-in-out;
   transform-origin: center center;
 }
 
@@ -334,12 +352,14 @@ p {
 
 .black-text-box-long {
   flex: 1;
-  background-color: var(--black-bg);
-  color: white;
+  background: var(--bg-glass);
+  color: #fff;
   padding: 15px;
   border-radius: 8px;
   height: 90px;
-  border: 1px solid black;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .extension-example-image {
@@ -347,13 +367,14 @@ p {
   height: 228px !important;
   display: block !important;
   margin: 0 auto !important;
-  border: 1px solid black;
-  transition: transform 0.4s ease-in-out;
+  border: 1px solid var(--border-glass);
+  transition: transform var(--transition-time) ease-in-out;
 }
 
 .extension-example-image:hover {
   transform: scale(1.03);
 }
+
 @media (max-width: 768px) {
   .extension-title,
   .accordion,
