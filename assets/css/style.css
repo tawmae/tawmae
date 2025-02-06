@@ -508,6 +508,15 @@ header {
   color: #4b699e;
 }
 
+.commissions-container {
+  max-width: var(--container-width);
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  gap: 10px; 
+}
+
 @media (max-width: 950px) {
   .home-title-container {
     flex-direction: column;
