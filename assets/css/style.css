@@ -321,14 +321,16 @@ header {
 }
 
 .product-grid {
-  display: flex;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 1fr;
-  gap: var(--min-gap);
+  gap: 15px;
   width: 100%;
   max-width: var(--container-width);
-  align-items: stretch;
+  padding-left: 15px;
+  padding-right: 15px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .product-card-link {
