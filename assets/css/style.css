@@ -534,9 +534,8 @@ header {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-align: left;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 20px;
+  width: 600px;
 }
 
 .elfsight-widget {
@@ -554,9 +553,9 @@ header {
 }
 
 .commission-image img {
-  max-width: 100%;
+  width: 600px;
   height: auto;
-  border-radius: 8px;
+  border: 1px solid var(--glass-border);
 }
 
 
