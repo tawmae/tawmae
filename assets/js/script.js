@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         setInterval(nextSlide, 8000);
 
-        const productCardImages = document.querySelectorAll('.product-card');
+        const productCardImages = document.querySelectorAll('.product-card img');
         productCardImages.forEach(image => {
             image.addEventListener('mouseenter', (event) => handleImageHover(event));
         });
