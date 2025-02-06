@@ -23,12 +23,12 @@ body {
   margin-top: 30px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 20px;
   max-width: var(--container-width);
   margin-left: auto;
   margin-right: auto;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .black-text-box {
@@ -46,11 +46,9 @@ body {
 }
 
 .extension-image {
-  flex: 1;
-  min-width: 400px;
-  max-width: 800px;
-  width: 100%;
-  aspect-ratio: 2 / 1;
+  flex: 0 0 auto;
+  width: 800px;
+  height: 400px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -410,17 +408,6 @@ p {
 }
 
 @media (max-width: 768px) {
-  .extension-title,
-  .accordion,
-  .copy-box,
-  .description-container,
-  .customization-text-container,
-  .settings-ui-container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 10px;
-    box-sizing: border-box;
-  }
   .extension-title {
     flex-direction: column;
     gap: 20px;
@@ -435,16 +422,27 @@ p {
     order: 2;
   }
   .extension-image {
+    flex: 0 1 auto;
     width: 90vw;
-    margin: 0 auto;
     min-width: 300px;
     max-width: 800px;
-    aspect-ratio: auto;
     height: auto;
+    aspect-ratio: auto;
+    margin: 0 auto;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     border: none;
+  }
+  .accordion,
+  .copy-box,
+  .description-container,
+  .customization-text-container,
+  .settings-ui-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
   .description-container {
     flex-direction: column;
