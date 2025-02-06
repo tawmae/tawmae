@@ -112,10 +112,10 @@ header {
   position: absolute;
   top: 100%;
   left: 0;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--glass-border);
   color: #fff;
   min-width: 150px;
   padding: 5px 0;
@@ -141,7 +141,7 @@ header {
 
 .header-center ul li .dropdown-menu li a:hover {
   background: #e0e0e0;
-  color: #000;
+  color: #ffd95e;
 }
 
 .header-center ul li.dropdown:hover > .dropdown-menu {
@@ -250,6 +250,7 @@ header {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
+  border: 1px solid var(--glass-border);
 }
 
 .rotator {
@@ -377,6 +378,7 @@ header {
   object-fit: cover;
   border-radius: 12px;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  border: 1px solid var(--glass-border);
 }
 
 .product-card:hover img,
