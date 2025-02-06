@@ -141,7 +141,7 @@ header {
 }
 
 .header-center ul li .dropdown-menu li a:hover {
-  color: #466090;
+  background: black;
 }
 
 .header-center ul li.dropdown:hover > .dropdown-menu {
@@ -427,10 +427,6 @@ header {
   vertical-align: middle;
   color: #fff;
   box-shadow: 2 2px 2px rgba(0, 0, 0, 0.5);
-}
-
-.nav-icon-child:hover {
-  color: black;
 }
 
 .extension-code-block pre {
