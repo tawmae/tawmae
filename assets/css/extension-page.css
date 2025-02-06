@@ -14,6 +14,9 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
   color: #fff;
+  font-family: 'Poppins', sans-serif;
+  background: url("/assets/page-design/background-3.png") no-repeat center center fixed;
+  background-size: cover;
 }
 
 .extension-title {
@@ -25,11 +28,12 @@ body {
   max-width: var(--container-width);
   margin-left: auto;
   margin-right: auto;
+  flex-wrap: wrap;
 }
 
 .black-text-box {
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
   background: var(--bg-glass);
   border-radius: 12px;
   padding: 30px 40px;
@@ -37,6 +41,8 @@ body {
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .extension-image {
@@ -47,6 +53,7 @@ body {
   border: 1px solid var(--border-glass);
   transition: transform var(--transition-time) ease-in-out;
   transform-origin: center center;
+  margin: 0 auto;
 }
 
 .extension-image:hover {
@@ -76,7 +83,7 @@ body {
 
 .accordion-header {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
   font-size: 1.4rem;
@@ -205,6 +212,7 @@ p {
   width: 100%;
   gap: 20px;
   padding-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .description-container a {
@@ -214,6 +222,7 @@ p {
 
 .black-text-box-2 {
   flex: 1;
+  min-width: 300px;
   background: var(--bg-glass);
   color: #fff;
   padding: 20px;
@@ -221,6 +230,8 @@ p {
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .extension-image-2 {
@@ -231,6 +242,7 @@ p {
   border: 1px solid var(--border-glass);
   transition: transform var(--transition-time) ease-in-out;
   transform-origin: center center;
+  margin: 0 auto;
 }
 
 .extension-image-2:hover {
@@ -248,6 +260,7 @@ p {
   width: 100%;
   gap: 20px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .black-text-box-3,
@@ -260,7 +273,17 @@ p {
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  height: 170px;
+  min-width: 280px;
+}
+
+.black-text-box-3 {
+  max-width: 500px;
+  height: auto;
+}
+
+.black-text-box-4 {
+  max-width: 500px;
+  height: auto;
 }
 
 .black-text-box-5,
@@ -273,7 +296,8 @@ p {
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  height: 165px;
+  min-width: 280px;
+  margin: 0 auto;
 }
 
 .black-text-box-bsky {
@@ -285,6 +309,7 @@ p {
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
   height: 300px;
 }
 
@@ -296,6 +321,7 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-glass);
+  margin-top: 20px;
 }
 
 .extension-table th,
@@ -324,6 +350,7 @@ p {
   align-items: flex-start;
   gap: 20px;
   padding-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .black-text-box-7 {
@@ -344,6 +371,7 @@ p {
   flex-shrink: 0;
   transition: transform var(--transition-time) ease-in-out;
   transform-origin: center center;
+  margin: 0 auto;
 }
 
 .settings-ui-image:hover {
@@ -360,6 +388,8 @@ p {
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  margin: 0 auto;
 }
 
 .extension-example-image {
@@ -380,7 +410,8 @@ p {
   .accordion,
   .copy-box,
   .description-container,
-  .customization-text-container {
+  .customization-text-container,
+  .settings-ui-container {
     width: 100%;
     margin: 0 auto;
     padding: 0 10px;
@@ -393,15 +424,11 @@ p {
   }
   .extension-title .black-text-box {
     order: 1;
+    width: 90%;
+    max-width: 100%;
   }
   .extension-title a {
     order: 2;
-  }
-  .black-text-box {
-    width: 90%;
-    max-width: 100%;
-    margin: 0 auto;
-    text-align: center;
   }
   .extension-image {
     width: 90vw;
@@ -418,11 +445,10 @@ p {
     align-items: center;
     gap: 20px;
   }
-  .description-container > .black-text-box-2 {
-    order: 1;
-  }
-  .description-container a {
-    order: 2;
+  .black-text-box-2 {
+    width: 90%;
+    margin: 0 auto 20px;
+    max-width: 100%;
   }
   .extension-image-2 {
     width: 90vw;
@@ -438,6 +464,17 @@ p {
     flex-direction: column;
     gap: 20px;
     margin-bottom: 40px;
+  }
+  .black-text-box-3,
+  .black-text-box-4,
+  .black-text-box-5,
+  .black-text-box-6 {
+    width: 90%;
+    max-width: 100%;
+  }
+  .settings-ui-image {
+    width: 90%;
+    max-width: 600px;
   }
 }
 
