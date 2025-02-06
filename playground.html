@@ -3,6 +3,22 @@ layout: default
 title: "Playground | tawmae"
 description: "Nothing to see here"
 ---
+<div class="pricing-box">
+    <div class="badge">BUSINESS</div>
+    <h2>1000 Credits / month</h2>
+    <p class="price">$79.99 <span>/ month</span></p>
+    <p>For businesses and enterprises</p>
+    <ul>
+        <li>1000 credits each month</li>
+        <li>Priority support</li>
+        <li>6 months unlimited storage</li>
+        <li>Upscayl up to 640MP images!</li>
+        <li>Get free access to new Upscayl features and models</li>
+    </ul>
+    <a href="#" class="button">Sign Up</a>
+</div>
+
+
 
 <style>
     body {
@@ -12,5 +28,73 @@ description: "Nothing to see here"
         background-repeat: no-repeat !important;
         background-attachment: fixed !important;
     }
+    .pricing-box {
+    background: linear-gradient(to bottom, #121826, #1a2336); /* Dunkler Farbverlauf */
+    border-radius: 12px; /* Abgerundete Ecken */
+    padding: 24px;
+    width: 300px; /* Anpassen je nach Bedarf */
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Schattierung */
+    font-family: 'Arial', sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Leichte Randlinie */
+}
+
+.pricing-box .badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.pricing-box h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.pricing-box .price {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.pricing-box .price span {
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+.pricing-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.pricing-box ul li {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pricing-box ul li::before {
+    content: "✔";
+    color: #00ff99; /* Grüne Checkmarks */
+    margin-right: 8px;
+}
+
+.pricing-box .button {
+    display: block;
+    background: #ffffff;
+    color: black;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
 </style>
 
