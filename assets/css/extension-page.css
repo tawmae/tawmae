@@ -358,9 +358,9 @@ p {
 
 .settings-ui-container {
   display: flex;
-  justify-content: space-inbetween;
-  /*align-items: flex-start;*/
-  /*gap: 20px;*/
+  justify-content: space-between;
+  align-items: flex-start; 
+  gap: 20px;
   padding-bottom: 20px;
   /*flex-wrap: wrap;*/
 }
@@ -370,15 +370,15 @@ p {
   color: #fff;
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
+  max-width: 300px; 
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  height: auto;
+  width: auto;
 }
 
 .settings-ui-image {
-  width: 600px;
+  max-width: 600px;
   height: auto;
   border: 1px solid var(--border-glass);
   flex-shrink: 0;
