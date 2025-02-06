@@ -1,1 +1,1 @@
-• Release
+• Channel Rewards now use the time arguments instead of rawInput
