@@ -309,11 +309,10 @@ header {
 
 .product-card-container {
     display: flex;
-    flex-direction: row; /* Anordnung in einer Reihe */
-    justify-content: space-between; /* Elemente mit gleichem Abstand verteilen */
-    align-items: center; /* Vertikal zentrieren */
-    height: 350px; /* Höhe des Containers, anpassbar */
-    background: lightgray; /* Hintergrund zur Veranschaulichung */
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 350px; 
     padding: 20px;
 }
 
