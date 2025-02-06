@@ -509,11 +509,10 @@ header {
 }
 
 .commissions-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  grid-template-rows: repeat(2, 1fr);
+   display: flex;
+  justify-content: center; 
+  align-items: flex-start; 
   height: 100vh;
-  width: 100%;
   gap: 10px;
 }
 
