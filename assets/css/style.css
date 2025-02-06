@@ -505,6 +505,20 @@ header {
   color: #4b699e;
 }
 
+.white-text-box {
+  background: white;
+  opacity: 15;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: auto;
+  min-width: 200px;
+  text-align: left;
+  height: 350px;
+  box-sizing: border-box;
+  border: 1px solid #898d98;
+}
+
 @media (max-width: 768px) {
   .header-center,
   .header-right {
