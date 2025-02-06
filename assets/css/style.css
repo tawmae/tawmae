@@ -112,7 +112,8 @@ header {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
   color: #333;
   min-width: 150px;
   padding: 5px 0;
