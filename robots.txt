@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tawmae.xyz/sitemap.xml
