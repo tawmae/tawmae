@@ -64,9 +64,14 @@ header {
   flex: 1;
 }
 
-.header-center{
+.header-center > ul > li > a {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
+
+.header-center .dropdown-menu a {
+  text-shadow: none;
+}
+
 
 .header-center ul {
   list-style: none;
