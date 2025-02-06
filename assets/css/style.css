@@ -129,7 +129,7 @@ header {
   display: block;
 }
 
-.header-center ul li .dropdown-menu ul li a {
+.header-center ul li .dropdown-menu li a {
   display: block;
   padding: 3px 25px;
   color: #fff;
