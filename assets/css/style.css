@@ -309,11 +309,12 @@ header {
 
 .product-card-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Verteilt die Child-Elemente mit gleichmäßigem Abstand */
-    align-items: center; /* Zentriert die Child-Elemente horizontal */
-    height: 100vh; /* Optional: volle Höhe des Viewports */
-    padding: 20px; /* Optional: Abstand zum Rand */
+    flex-direction: row; /* Anordnung in einer Reihe */
+    justify-content: space-between; /* Elemente mit gleichem Abstand verteilen */
+    align-items: center; /* Vertikal zentrieren */
+    height: 350px; /* Höhe des Containers, anpassbar */
+    background: lightgray; /* Hintergrund zur Veranschaulichung */
+    padding: 20px;
 }
 
 .product-card-link {
