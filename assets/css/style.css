@@ -506,9 +506,8 @@ header {
 }
 
 .white-text-box {
-  background: white;
-  opacity: 15;
-  color: white;
+  background: rgba(255, 255, 255, 0.05)
+  color: grey;
   border-radius: 10px;
   padding: 20px;
   width: auto;
