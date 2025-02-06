@@ -343,7 +343,8 @@ header {
   border-radius: 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  width: auto;
+  width: 100%;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
