@@ -194,7 +194,7 @@ header {
   justify-content: center;
   gap: var(--min-gap);
   width: 100%;
-  max-width: var(--container-width);
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--min-gap);
