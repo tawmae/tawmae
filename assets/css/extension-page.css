@@ -23,7 +23,7 @@ body {
   margin-top: 30px;
   display: flex;
   align-items: center;
-  /*justify-content: space-evenly;*/
+  justify-content: space-evenly;
   gap: 20px;
   max-width: var(--container-width);
   margin-left: auto;
@@ -56,6 +56,7 @@ body {
   transition: transform var(--transition-time) ease-in-out;
   transform-origin: center center;
   margin: 0 auto;
+  margin-right: 30px;
 }
 
 .extension-image:hover {
