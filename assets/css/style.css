@@ -512,23 +512,20 @@ header {
 
 .commissions-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
   height: 100vh;
   width: 100%;
-  gap: 10px;
 }
 
-.commissions-text-box,
-.commission-image {
+.left-column {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 .commissions-text-box {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  flex: 1;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
@@ -536,19 +533,22 @@ header {
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
 }
 
 .elfsight-widget {
   grid-column: 2 / 3;
-  grid-row: 1 / 3;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .commission-image {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+  flex: 1;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -558,6 +558,7 @@ header {
   height: auto;
   border-radius: 8px;
 }
+
 
 
 
