@@ -314,16 +314,14 @@ header {
   max-width: var(--container-width);
   margin-left: auto;
   margin-right: auto;
-  padding: 15px;
+  padding-left: var(--min-gap);
+  padding-right: var(--min-gap);
 }
 
 .product-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  padding-left: 15px;
-  padding-right: 15px;
-  justify-content: center;
   align-items: stretch;
   width: 100%;
   max-width: var(--container-width);
@@ -337,18 +335,15 @@ header {
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding-bottom: 10px;
 }
 
 .product-card:hover {
@@ -359,21 +354,15 @@ header {
 .product-card img {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4/5;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 12px 12px 0 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.product-card:hover img,
-.rotator:hover img {
+.product-card:hover img {
   opacity: 0;
   transform: scale(1.05);
-}
-
-.product-card img.fade-in,
-.rotator img.fade-in {
-  opacity: 1;
 }
 
 .product-card h3 {
@@ -384,7 +373,7 @@ header {
 .product-card p {
   font-size: 0.9rem;
   color: #ccc;
-  padding: 5px;
+  padding: 5px 15px 15px 15px;
 }
 
 .kofi-button {
@@ -495,27 +484,6 @@ header {
     flex-direction: column;
     text-align: center;
   }
-  .product-grid {
-    justify-content: center;
-  }
-  .rotator-container {
-    min-width: 100%;
-    margin-top: 20px;
-  }
-  .black-text-box,
-  .white-text-box {
-    min-width: 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .product-grid {
-    justify-content: center;
-  }
-  .product-card {
-    width: 100%;
-  }
 }
 
 @media (max-width: 768px) {
@@ -604,19 +572,10 @@ header {
   .header-center ul li a {
     font-size: 0.8rem;
   }
-  .product-grid {
-    justify-content: center;
-    gap: 15px;
+  .section-divider {
+    width: 95%;
   }
-  .product-card {
-    width: 100%;
-  }
-  .rotator-container {
-    min-width: 100%;
-  }
-  .black-text-box,
-  .white-text-box {
-    min-width: 100%;
-    max-width: 100%;
+  .product-card p {
+    font-size: 0.8rem;
   }
 }
