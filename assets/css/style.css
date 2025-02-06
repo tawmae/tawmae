@@ -311,7 +311,6 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
   width: 100%;
   max-width: var(--container-width);
   margin-left: auto;
@@ -322,36 +321,26 @@ header {
 
 .product-grid {
   display: flex;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-rows: 1fr;
-  gap: var(--min-gap);
+  justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   max-width: var(--container-width);
-  align-items: stretch;
   margin: 0 auto;
 }
 
-.product-card-link {
-  text-decoration: none;
-  color: inherit;
-  display: inline-block;
-}
-
 .product-card {
+  flex: 1 1 calc(25% - var(--min-gap));
+  max-width: calc(25% - var(--min-gap));
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 350px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   transition: transform 0.3s, box-shadow 0.3s;
   padding-bottom: 10px;
-  margin: 0 auto;
   height: 100%;
 }
 
@@ -369,15 +358,8 @@ header {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.product-card:hover img,
-.rotator:hover img {
-  opacity: 0;
+.product-card:hover img {
   transform: scale(1.05);
-}
-
-.product-card img.fade-in,
-.rotator img.fade-in {
-  opacity: 1;
 }
 
 .product-card h3 {
@@ -391,13 +373,6 @@ header {
   padding: 5px;
 }
 
-.product-card img.emoji {
-  width: auto !important;
-  height: 1em !important;
-  object-fit: contain;
-  display: inline;
-  border-radius: 0 !important;
-}
 
 .kofi-button {
   white-space: nowrap;
