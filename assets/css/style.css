@@ -397,7 +397,7 @@ header {
   color: white;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin: 20px auto;
+  margin: 0px auto;
   box-sizing: border-box;
 }
 
