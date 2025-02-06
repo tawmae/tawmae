@@ -186,19 +186,12 @@ header {
 }
 
 .rotator-wrapper {
-  margin-top: 20px;
-  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  gap: var(--min-gap);
   width: 100%;
   max-width: var(--container-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--min-gap);
-  padding-right: var(--min-gap);
 }
 
 .black-text-box,
@@ -234,9 +227,8 @@ header {
 
 .rotator-container {
   position: relative;
-  flex: 1 1 500px;
   min-width: 500px;
-  height: 200px;
+  height: auto;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
