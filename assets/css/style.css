@@ -521,7 +521,7 @@ header {
 .left-column {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  gap: 20px;
 }
 
 .commissions-text-box {
