@@ -17,6 +17,7 @@ body {
 }
 
 body {
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
@@ -25,7 +26,6 @@ body {
   color: white;
   text-align: center;
   padding: 20px;
-  margin-bottom: 100px;
   height: 100%;
 }
 
