@@ -142,7 +142,6 @@ header {
 
 .header-center ul li .dropdown-menu li a:hover {
   background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
 }
 
 .header-center ul li.dropdown:hover > .dropdown-menu {
