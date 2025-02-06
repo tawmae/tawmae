@@ -64,6 +64,10 @@ header {
   flex: 1;
 }
 
+.header-center{
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
 .header-center ul {
   list-style: none;
   display: flex;
