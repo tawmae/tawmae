@@ -518,6 +518,12 @@ header {
   width: 100%;
 }
 
+.left-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .commissions-text-box {
   flex: 1;
   background: var(--glass-bg);
