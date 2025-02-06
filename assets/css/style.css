@@ -406,7 +406,7 @@ header {
 
 .kofi-button {
   white-space: nowrap;
-  border: 1px solid black;
+  rgba(255, 255, 255, 0.2);
 }
 
 .kofi-button:hover {
