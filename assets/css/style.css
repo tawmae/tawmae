@@ -309,21 +309,23 @@ header {
 
 .product-grid-wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   margin-top: 50px;
   width: 100%;
   max-width: var(--container-width);
-  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--min-gap);
+  padding-right: var(--min-gap);
 }
 
 .product-grid {
   display: flex;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 1fr;
-  gap: 25px;
+  gap: var(--min-gap);
   width: 100%;
-  justify-content: space-between;
   max-width: var(--container-width);
   align-items: stretch;
   margin: 0 auto;
@@ -344,6 +346,8 @@ header {
   width: 100%;
   max-width: 350px;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   transition: transform 0.3s, box-shadow 0.3s;
   padding-bottom: 10px;
