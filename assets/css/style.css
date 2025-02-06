@@ -129,7 +129,7 @@ header {
   display: block;
 }
 
-.header-center ul li .dropdown-menu li a {
+.header-center ul li .dropdown-menu ul li a {
   display: block;
   padding: 3px 25px;
   color: #fff;
@@ -140,8 +140,8 @@ header {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.header-center ul li .dropdown-menu li a:hover {
-  background: var(--glass-bg);
+.header-center ul li .dropdown-menu ul li a:hover {
+  color: #466090;
 }
 
 .header-center ul li.dropdown:hover > .dropdown-menu {
