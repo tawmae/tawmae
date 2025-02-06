@@ -116,7 +116,7 @@ header {
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #333;
+  color: #fff;
   min-width: 150px;
   padding: 5px 0;
   border-radius: 5px;
@@ -422,7 +422,7 @@ header {
 
 .nav-icon-child {
   vertical-align: middle;
-  color: black;
+  color: #fff;
 }
 
 .extension-code-block pre {
