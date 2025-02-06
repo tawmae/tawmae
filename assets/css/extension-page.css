@@ -358,9 +358,9 @@ p {
 
 .settings-ui-container {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 20px;
+  justify-content: space-inbetween;
+  /*align-items: flex-start;*/
+  /*gap: 20px;*/
   padding-bottom: 20px;
   flex-wrap: wrap;
 }
