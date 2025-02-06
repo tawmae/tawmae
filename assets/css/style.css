@@ -508,11 +508,12 @@ header {
   color: #4b699e;
 }
 
-.commissions-container {
-   display: flex;
-  justify-content: center; 
-  align-items: flex-start; 
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr); 
   height: 100vh;
+  width: 100%;
   gap: 10px;
 }
 
