@@ -525,7 +525,6 @@ header {
 }
 
 .commissions-text-box {
-  flex: 1;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
@@ -533,10 +532,11 @@ header {
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-align: left;
-  display: flex;
+  display: block;
   padding: 20px;
   width: 600px;
-   flex-direction: column;
+  height: auto;
+  max-width: 100%;
 }
 
 .elfsight-widget {
