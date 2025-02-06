@@ -1,6 +1,8 @@
 :root {
   --container-width: 1600px;
   --min-gap: 20px;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.2);
 }
 
 * {
@@ -42,8 +44,8 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 0 0 12px 12px;
   backdrop-filter: blur(10px);
   padding: 24px 5%;
@@ -187,6 +189,7 @@ header {
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
   gap: var(--min-gap);
@@ -198,9 +201,27 @@ header {
   padding-right: var(--min-gap);
 }
 
+.black-text-box,
+.white-text-box {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 24px;
+  color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  flex: 0 1 320px;
+  text-align: left;
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 600px;
+}
+
 .rotator-container {
   position: relative;
-  width: 1200px;
+  flex: 1 1 500px;
+  min-width: 500px;
   height: 200px;
   overflow: hidden;
   border-radius: 10px;
@@ -317,8 +338,8 @@ header {
 }
 
 .product-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 12px;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -384,24 +405,6 @@ header {
 
 .kofi-button:hover {
   transform: scale(1.05);
-}
-
-.black-text-box,
-.white-text-box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 24px;
-  text-align: left;
-  color: white;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin: 20px auto;
-  box-sizing: border-box;
-  width: auto;
-  min-width: 320px;
-  max-width: 100%;
-  flex: 1 1 auto;
 }
 
 .emoji-preview {
@@ -476,7 +479,7 @@ header {
 
 .section-divider {
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid var(--glass-border);
   margin: 50px auto;
   width: 80%;
 }
@@ -505,6 +508,15 @@ header {
   }
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .rotator-container {
+    min-width: 100%;
+    margin-top: 20px;
+  }
+  .black-text-box,
+  .white-text-box {
+    min-width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -615,5 +627,13 @@ header {
   }
   .product-card p {
     font-size: 0.75rem;
+  }
+  .rotator-container {
+    min-width: 100%;
+  }
+  .black-text-box,
+  .white-text-box {
+    min-width: 100%;
+    max-width: 100%;
   }
 }
