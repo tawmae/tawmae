@@ -307,30 +307,6 @@ header {
   right: 10px;
 }
 
-.product-grid-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-  width: 100%;
-  max-width: var(--container-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--min-gap);
-  padding-right: var(--min-gap);
-}
-
-.product-grid {
-  display: flex;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-rows: 1fr;
-  gap: var(--min-gap);
-  width: 100%;
-  max-width: var(--container-width);
-  align-items: stretch;
-  margin: 0 auto;
-}
-
 .product-card-link {
   text-decoration: none;
   color: inherit;
