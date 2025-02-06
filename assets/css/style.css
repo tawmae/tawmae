@@ -522,6 +522,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: flex-start;
 }
 
 .commissions-text-box {
@@ -541,22 +542,9 @@ header {
 
 .elfsight-widget {
   grid-column: 2 / 3;
-  display: flex;
+  display: flex-start;
   justify-content: center;
   align-items: center;
-}
-
-.commission-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.commission-image img {
-  width: 600px;
-  height: auto;
-  border: 1px solid var(--glass-border);
 }
 
 
