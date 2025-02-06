@@ -321,7 +321,7 @@ header {
 }
 
 .product-grid {
-  display: inline-block;
+  display: table;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 1fr;
   gap: var(--min-gap);
