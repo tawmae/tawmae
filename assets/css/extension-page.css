@@ -362,7 +362,7 @@ p {
   /*align-items: flex-start;*/
   /*gap: 20px;*/
   padding-bottom: 20px;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
 }
 
 .black-text-box-7 {
@@ -374,6 +374,7 @@ p {
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  height: auto;
 }
 
 .settings-ui-image {
