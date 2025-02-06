@@ -184,9 +184,10 @@ header {
 }
 
 .rotator-wrapper {
-  /margin-top: 20px;
+  margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
+  align-items: flex-start;
   justify-content: center;
   gap: var(--min-gap);
   width: 100%;
