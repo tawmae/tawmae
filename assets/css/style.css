@@ -321,7 +321,7 @@ header {
 }
 
 .product-grid {
-  display: table;
+  display: flex;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 1fr;
   gap: var(--min-gap);
@@ -350,7 +350,7 @@ header {
   justify-content: flex-start;
   align-items: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  padding: 16px;
+  padding-bottom: 10px;
   margin: 0 auto;
   height: 100%;
 }
