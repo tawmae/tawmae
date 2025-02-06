@@ -29,6 +29,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   flex-wrap: nowrap;
+  margin-bottom: 50px;
 }
 
 .black-text-box {
@@ -56,7 +57,7 @@ body {
   transition: transform var(--transition-time) ease-in-out;
   transform-origin: center center;
   margin: 0 auto;
-  margin-right: 30px;
+  margin-right: 50px;
 }
 
 .extension-image:hover {
