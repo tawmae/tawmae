@@ -32,6 +32,7 @@ body {
   border-radius: 12px;
   padding: 30px 40px;
   text-align: left;
+  border: 1px solid black;
 }
 
 .extension-image {
@@ -211,6 +212,7 @@ p {
   color: white;
   padding: 20px;
   border-radius: 8px;
+  border: 1px solid black;
 }
 
 .extension-image-2 {
@@ -248,6 +250,7 @@ p {
   padding: 20px;
   border-radius: 8px;
   height: 170px;
+  border: 1px solid black;
 }
 
 .black-text-box-5,
@@ -257,7 +260,8 @@ p {
   color: white;
   padding: 20px;
   border-radius: 8px;
-  height: 165px;
+  height: 165px
+  border: 1px solid black;
 }
 
 .black-text-box-bsky {
@@ -267,6 +271,7 @@ p {
   padding: 20px;
   border-radius: 8px;
   height: 300px;
+  border: 1px solid black;
 }
 
 .extension-table {
@@ -311,6 +316,7 @@ p {
   padding: 20px;
   border-radius: 8px;
   width: 300px;
+  border: 1px solid black;
 }
 
 .settings-ui-image {
@@ -333,6 +339,7 @@ p {
   padding: 15px;
   border-radius: 8px;
   height: 90px;
+  border: 1px solid black;
 }
 
 .extension-example-image {
