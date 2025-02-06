@@ -321,7 +321,7 @@ header {
 }
 
 .product-grid {
-  display: block;
+  display: inline-block;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 1fr;
   gap: var(--min-gap);
@@ -334,7 +334,7 @@ header {
 .product-card-link {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: inline-block;
 }
 
 .product-card {
