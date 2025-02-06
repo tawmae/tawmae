@@ -367,7 +367,7 @@ header {
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 12px;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -391,14 +391,6 @@ header {
   font-size: 0.9rem;
   color: #ccc;
   padding: 5px;
-}
-
-.product-card img.emoji {
-  width: auto !important;
-  height: 1em !important;
-  object-fit: contain;
-  display: inline;
-  border-radius: 0 !important;
 }
 
 .kofi-button {
