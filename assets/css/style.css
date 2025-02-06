@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
-  background: url("/assets/page-design/background-1.png") no-repeat center center fixed;
+  background: url("/assets/page-design/background-3.png") no-repeat center center fixed;
   background-size: cover;
   color: white;
   text-align: center;
@@ -199,9 +199,8 @@ header {
 
 .rotator-container {
   position: relative;
-  width: 100%;
-  max-width: var(--container-width);
-  aspect-ratio: 6 / 1;
+  width: 1200px;
+  height: 200px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -231,8 +230,8 @@ header {
 
 .rotator img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -323,9 +322,6 @@ header {
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 320px;
-  text-align: center;
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -333,6 +329,7 @@ header {
   transition: transform 0.3s, box-shadow 0.3s;
   padding: 16px;
   margin: 0 auto;
+  height: 100%;
 }
 
 .product-card:hover {
@@ -363,14 +360,12 @@ header {
 .product-card h3 {
   margin-top: 10px;
   font-size: 1.1rem;
-  flex-grow: 0;
 }
 
 .product-card p {
   font-size: 0.9rem;
   color: #ccc;
   padding: 5px;
-  flex-grow: 0;
 }
 
 .product-card img.emoji {
@@ -500,11 +495,6 @@ header {
   color: #4b699e;
 }
 
-/* Responsive adjustments */
-
-/* From 950px down to 601px: 
-   - Place .home-title-container items in a column
-   - Display product cards in 2 columns */
 @media (max-width: 950px) {
   .home-title-container {
     flex-direction: column;
@@ -515,8 +505,6 @@ header {
   }
 }
 
-/* From 600px down: 
-   - Just 1 column for product cards */
 @media (max-width: 600px) {
   .product-grid {
     grid-template-columns: 1fr;
@@ -597,9 +585,6 @@ header {
     flex-direction: column;
     align-items: center;
   }
-  .rotator-container {
-    aspect-ratio: 2 / 1;
-  }
   .home-title-image img {
     max-width: 100%;
   }
@@ -611,11 +596,6 @@ header {
   }
   .header-center ul li a {
     font-size: 0.8rem;
-  }
-  .product-grid-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
   }
   .black-text-box,
   .white-text-box {
