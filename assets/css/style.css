@@ -137,11 +137,11 @@ header {
   white-space: nowrap;
   transition: background 0.3s, color 0.3s;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .header-center ul li .dropdown-menu li a:hover {
-  background: #e0e0e0;
-  color: #ffd95e;
+  color: #466090;
 }
 
 .header-center ul li.dropdown:hover > .dropdown-menu {
@@ -426,6 +426,11 @@ header {
 .nav-icon-child {
   vertical-align: middle;
   color: #fff;
+  box-shadow: 2 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.nav-icon-child:hover {
+  color: black;
 }
 
 .extension-code-block pre {
