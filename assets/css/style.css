@@ -392,14 +392,16 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 24px;
-  width: 100%;
-  max-width: 320px;
   text-align: left;
   color: white;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin: 0px auto;
+  margin: 20px auto;
   box-sizing: border-box;
+  width: auto;
+  min-width: 320px;
+  max-width: 100%;
+  flex: 1 1 auto;
 }
 
 .emoji-preview {
@@ -597,11 +599,6 @@ header {
   }
   .header-center ul li a {
     font-size: 0.8rem;
-  }
-  .black-text-box,
-  .white-text-box {
-    width: 100%;
-    max-width: none;
   }
   .product-grid {
     grid-template-columns: 1fr;
