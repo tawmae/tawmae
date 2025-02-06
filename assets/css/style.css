@@ -309,15 +309,11 @@ header {
 
 .product-grid-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   margin-top: 50px;
   width: 100%;
   max-width: var(--container-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--min-gap);
-  padding-right: var(--min-gap);
   justify-content: space-between;
 }
 
@@ -348,8 +344,6 @@ header {
   width: 100%;
   max-width: 350px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   transition: transform 0.3s, box-shadow 0.3s;
   padding-bottom: 10px;
