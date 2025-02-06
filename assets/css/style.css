@@ -229,7 +229,7 @@ header {
   text-align: center;
   font-size: 22px;
   font-weight: bold;
-  max-width: var(--container-width);
+  max-width: var(--container-width) !important;
 }
 
 .rotator-container {
