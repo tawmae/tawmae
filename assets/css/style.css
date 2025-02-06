@@ -536,6 +536,7 @@ header {
   display: flex;
   padding: 20px;
   width: 600px;
+   flex-direction: column;
 }
 
 .elfsight-widget {
