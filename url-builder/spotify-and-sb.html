@@ -65,6 +65,7 @@
       font-size: 1rem;
       transition: background 0.2s;
       gap: 8px;
+      margin-bottom: 20px;
     }
     .copy-button:hover {
       background: #5a79b5;
@@ -88,8 +89,7 @@
     }
     .setting {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
       margin-bottom: 10px;
       border-bottom: 1px solid #444;
       padding-bottom: 10px;
@@ -98,6 +98,11 @@
       border-bottom: none;
       margin-bottom: 0;
       padding-bottom: 0;
+    }
+    .setting > div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     .setting label {
       flex: 1;
@@ -126,6 +131,12 @@
       border: none;
       cursor: pointer;
       background: #131315;
+    }
+    .description {
+      color: #aaa;
+      font-size: 0.8rem;
+      margin-left: 1px;
+      margin-top: 2px;
     }
     #previewContainer {
       max-width: 1200px;
@@ -250,63 +261,131 @@
   <div class="url-section">
     <input id="generatedUrl" readonly>
     <button class="copy-button" id="copyBtn">
-      <span class="iconify" data-icon="material-symbols:content-copy-outline"></span>
-      Copy
+      <span class="iconify" data-icon="material-symbols:content-copy-outline"></span> Copy
     </button>
   </div>
   <div class="builder-wrapper">
     <div class="builder-section">
       <h2>General Settings</h2>
       <div class="setting">
-        <label>Always On</label>
-        <input type="checkbox" id="alwayson" checked>
+        <div>
+          <label>Always On</label>
+          <input type="checkbox" id="alwayson" checked>
+        </div>
+        <div class="description">
+          Toggle overlay visibility.
+        </div>
       </div>
       <div class="setting">
-        <label>Progressbar</label>
-        <input type="checkbox" id="progressbar" checked>
+        <div>
+          <label>Progressbar</label>
+          <input type="checkbox" id="progressbar" checked>
+        </div>
+        <div class="description">
+          Show or hide the progress bar.
+        </div>
       </div>
       <div class="setting">
-        <label>Strip Track Name</label>
-        <input type="checkbox" id="striptrackname" checked>
+        <div>
+          <label>Strip Track Name</label>
+          <input type="checkbox" id="striptrackname" checked>
+        </div>
+        <div class="description">
+          Remove unnecessary parts from track names.
+        </div>
       </div>
       <div class="setting">
-        <label>Opacity (0-100)</label>
-        <input type="number" id="opacity" min="0" max="100">
+        <div>
+          <label>Opacity (0-100)</label>
+          <input type="number" id="opacity" min="0" max="100">
+        </div>
+        <div class="description">
+          Set background opacity.
+        </div>
       </div>
       <div class="setting">
-        <label>Font Size</label>
-        <input type="number" id="fontsize" value="48" min="1" max="500">
+        <div>
+          <label>Font Size</label>
+          <input type="number" id="fontsize" value="48" min="1" max="500">
+        </div>
+        <div class="description">
+          Adjust the text size.
+        </div>
+      </div>
+      <div class="setting">
+        <div>
+          <label>Width</label>
+          <input type="number" id="width" value="850">
+        </div>
+        <div class="description">
+          Set the width of the container. Default is 850.
+        </div>
       </div>
     </div>
     <div class="builder-section">
       <h2>Appearance</h2>
       <div class="setting">
-        <label>Background Color</label>
-        <input type="color" id="backgroundcolor" value="#2a2a2a">
+        <div>
+          <label>Background Color</label>
+          <input type="color" id="backgroundcolor" value="#2a2a2a">
+        </div>
+        <div class="description">
+          Choose the overlay background color.
+        </div>
       </div>
       <div class="setting">
-        <label>Font</label>
-        <input type="text" id="font" placeholder="Poppins">
+        <div>
+          <label>Font</label>
+          <input type="text" id="font" placeholder="Poppins">
+        </div>
+        <div class="description">
+          Specify the font (e.g. Comic Sans MS).
+        </div>
       </div>
       <div class="setting">
-        <label>Font Color</label>
-        <input type="color" id="fontcolor" value="#ffffff">
+        <div>
+          <label>Font Color</label>
+          <input type="color" id="fontcolor" value="#ffffff">
+        </div>
+        <div class="description">
+          Set the text color.
+        </div>
       </div>
       <div class="setting">
-        <label>Progressbar Color</label>
-        <input type="color" id="progressbarcolor" value="#ffffff">
+        <div>
+          <label>Progressbar Color</label>
+          <input type="color" id="progressbarcolor" value="#ffffff">
+        </div>
+        <div class="description">
+          Choose the progress bar color.
+        </div>
       </div>
       <div class="setting">
-        <label>Drop Shadow</label>
-        <input type="checkbox" id="dropshadow" checked>
+        <div>
+          <label><span class="iconify" data-icon="tabler:inner-shadow-right" data-inline="false"></span> Dropshadow</label>
+          <input type="checkbox" id="dropshadow" checked>
+        </div>
+        <div class="description">
+          Enable or disable text dropshadow.
+        </div>
       </div>
       <div class="setting">
-        <label>Stroke</label>
-        <input type="number" id="stroke" min="0" value="0">
+        <div>
+          <label><span class="iconify" data-icon="material-symbols:stroke-full" data-inline="false"></span> Stroke</label>
+          <input type="number" id="stroke" min="0" value="0">
+        </div>
+        <div class="description">
+          Apply a stroke to the text.
+        </div>
       </div>
       <div class="setting">
-        <label>Stroke Color</label>
-        <input type="color" id="strokecolor" value="#000000">
+        <div>
+          <label><span class="iconify" data-icon="ic:baseline-color-lens" data-inline="false"></span> Stroke Color</label>
+          <input type="color" id="strokecolor" value="#000000">
+        </div>
+        <div class="description">
+          Set the stroke color.
+        </div>
       </div>
     </div>
   </div>
@@ -362,19 +441,21 @@
       let f = document.getElementById("font").value.trim()
       if(f) {
         let replacedFont = f.replaceAll(" ","+")
-        params.push("font="+encodeURIComponent(replacedFont))
+        params.push("font="+replacedFont)
       }
       let pbc = document.getElementById("progressbarcolor").value.replace("#","%23")
       if(pbc && pbc!=="%23ffffff") params.push("progressbarcolor="+pbc)
       if(!document.getElementById("alwayson").checked) params.push("alwayson=false")
       if(!document.getElementById("progressbar").checked) params.push("progressbar=false")
       let op = document.getElementById("opacity").value.trim()
-      if(op) params.push("opacity="+encodeURIComponent(op))
+      if(op) params.push("opacity="+op)
       let fs = document.getElementById("fontsize").value.trim()
-      if(fs) params.push("fontsize="+encodeURIComponent(fs))
+      if(fs) params.push("fontsize="+fs)
+      let w = document.getElementById("width").value.trim()
+      if(w && w!=="850") params.push("width="+w)
       if(!document.getElementById("dropshadow").checked) params.push("dropshadow=false")
       let st = document.getElementById("stroke").value.trim()
-      if(st && parseInt(st)>0) params.push("stroke="+encodeURIComponent(st))
+      if(st && parseInt(st)>0) params.push("stroke="+st)
       let stc = document.getElementById("strokecolor").value.replace("#","%23")
       if(stc && stc!=="%23000000") params.push("strokecolor="+stc)
       if(!document.getElementById("striptrackname").checked) params.push("striptrackname=false")
@@ -392,7 +473,7 @@
         let link = document.createElement("link")
         link.id = "dynamicFontLink"
         link.rel = "stylesheet"
-        link.href = "https://fonts.googleapis.com/css2?family="+encodeURIComponent(fVal.replaceAll(" ","+"))+"&display=swap"
+        link.href = "https://fonts.googleapis.com/css2?family="+fVal.replaceAll(" ","+")+"&display=swap"
         document.head.appendChild(link)
         previewContainer.style.fontFamily = fVal+", sans-serif"
       } else {
@@ -402,21 +483,14 @@
       let bcRaw = document.getElementById("backgroundcolor").value
       let fcRaw = document.getElementById("fontcolor").value
       let pbcRaw = document.getElementById("progressbarcolor").value
-      let alwayson = document.getElementById("alwayson").checked
-      let progOn = document.getElementById("progressbar").checked
       let op = parseInt(document.getElementById("opacity").value.trim() || "100")
       let fs = parseInt(document.getElementById("fontsize").value.trim() || "48")
       let dsOn = document.getElementById("dropshadow").checked
       let st = parseInt(document.getElementById("stroke").value.trim() || "0")
       let stcRaw = document.getElementById("strokecolor").value
-      let newWidth = Math.round(fs * ratio)
-      if(!alwayson) {
-        songOverlay.style.opacity = "0"
-        songOverlay.style.visibility = "hidden"
-      } else {
-        songOverlay.style.opacity = "1"
-        songOverlay.style.visibility = "visible"
-      }
+      let widthInput = document.getElementById("width").value.trim()
+      let newWidth = widthInput ? parseInt(widthInput) : 850
+      previewContainer.style.width = newWidth+"px"
       songOverlay.style.width = newWidth+"px"
       bg.style.background = bcRaw
       bg.style.opacity = (op/100).toString()
@@ -425,7 +499,7 @@
       } else {
         songOverlay.style.boxShadow = "none"
       }
-      if(!progOn) {
+      if(!document.getElementById("progressbar").checked) {
         progressBarContainer.style.display = "none"
       } else {
         progressBarContainer.style.display = "block"
