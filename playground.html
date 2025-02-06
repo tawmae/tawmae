@@ -20,6 +20,7 @@ description: "Nothing to see here"
 
 
 
+
 <style>
     body {
         background-image: url('/assets/page-design/background-3.png') !important;
@@ -29,19 +30,20 @@ description: "Nothing to see here"
         background-attachment: fixed !important;
     }
     .pricing-box {
-    background: linear-gradient(to bottom, #121826, #1a2336); /* Dunkler Farbverlauf */
+    background: rgba(255, 255, 255, 0.1); /* Halbtransparenter weißlicher Hintergrund */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Leichte, weiße Randlinie */
     border-radius: 12px; /* Abgerundete Ecken */
     padding: 24px;
-    width: 300px; /* Anpassen je nach Bedarf */
+    width: 320px; /* Größe der Box */
     text-align: center;
     color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Schattierung */
+    backdrop-filter: blur(10px); /* Glas-Effekt für weiche Transparenz */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Weiche Schatten für Tiefe */
     font-family: 'Arial', sans-serif;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Leichte Randlinie */
 }
 
 .pricing-box .badge {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15); /* Abgesetzter Badge-Hintergrund */
     color: white;
     font-weight: bold;
     padding: 6px 12px;
@@ -51,19 +53,20 @@ description: "Nothing to see here"
 }
 
 .pricing-box h2 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
+    opacity: 0.9;
 }
 
 .pricing-box .price {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: bold;
     margin: 10px 0;
 }
 
 .pricing-box .price span {
     font-size: 16px;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .pricing-box ul {
@@ -77,6 +80,8 @@ description: "Nothing to see here"
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
+    opacity: 0.85;
 }
 
 .pricing-box ul li::before {
@@ -87,14 +92,20 @@ description: "Nothing to see here"
 
 .pricing-box .button {
     display: block;
-    background: #ffffff;
-    color: black;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
     padding: 12px;
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
     margin-top: 15px;
+    transition: 0.3s ease-in-out;
 }
+
+.pricing-box .button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
 
 </style>
 
