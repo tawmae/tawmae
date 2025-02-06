@@ -199,7 +199,6 @@ header {
   margin-right: auto;
   padding-left: var(--min-gap);
   padding-right: var(--min-gap);
-  aspect-ratio: 1 / 6;
 }
 
 .black-text-box,
@@ -237,7 +236,7 @@ header {
   position: relative;
   flex: 1 1 500px;
   min-width: 500px;
-  height: 200px;
+  max-height: 260px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
