@@ -475,8 +475,8 @@ description: "A movie & TV show guessing game for Twitch chat. Powered by TMDB."
                 <h3> <span style="font-weight: bold; color: #fff">What's the criteria for typing the correct title?</span></h3>
                 <p>There's an 'algorithm' that calculates the difference between two texts. This allows for typos and other differences in answer vs. title to make it count.
                      I'm adding a bunch of variants of the title to a list to make it as convenient as possible while at the same time maintaining some kind of accuracy.
-                     Titles seperated by <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">:</span> or <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">-</span> like <span style="color: #4b6aa1; font-weight: bold;">Star Wars - The Force Unleashed</span> will make both parts count as an answer, <span style="color: #4b6aa1; font-weight: bold;">Star Wars</span> and <span style="color: #4b6aa1; font-weight: bold;">The Force Unleashed</span>. 
-                    If a title contains a part number, like <span style="color: #4b6aa1; font-weight: bold;">Toy Story 2</span> or <span style="color: #4b6aa1; font-weight: bold;">Star Wars Episode IV</span>, the answer MUST contain that number, no matter how close the title otherwise is. The number in the answer can be numeric or roman.
+                     Titles seperated by <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">:</span> or <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">-</span> like <span style="font-weight: bold; color: #ffd95e;">Star Wars - The Force Unleashed</span> will make both parts count as an answer, <span style="font-weight: bold; color: #ffd95e;">Star Wars</span> and <span style="font-weight: bold; color: #ffd95e;">The Force Unleashed</span>. 
+                    If a title contains a part number, like <span style="font-weight: bold; color: #ffd95e;">Toy Story 2</span> or <span style="font-weight: bold; color: #ffd95e;">Star Wars Episode IV</span>, the answer MUST contain that number, no matter how close the title otherwise is. The number in the answer can be numeric or roman.
                      Remember: not every edge case can be handled and sooner or later, you will stumble upon things that should have counted while they didn't and vice versa.
                 </p>
 
@@ -496,20 +496,20 @@ description: "A movie & TV show guessing game for Twitch chat. Powered by TMDB."
             <!--------------------------------->
             <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
                 <h3> <span style="font-weight: bold; color: #fff">Is there a leaderboard?</span></h3>
-                <p>While there's no integrated leaderboard, stats are still being tracked. You can use any Streamer.bot extensions done by other people (like pwnyy) and use the global user variable <span style="color: #4b6aa1; font-weight: bold;">tawmae_userCorrectGuesses_MOVIE_AND_TV_SHOW_QUIZ</span> to display the top rank.
+                <p>While there's no integrated leaderboard, stats are still being tracked. You can use any Streamer.bot extensions done by other people (like pwnyy) and use the global user variable <span style="font-weight: bold; color: #ffd95e;">tawmae_userCorrectGuesses_MOVIE_AND_TV_SHOW_QUIZ</span> to display the top rank.
                 </p>
             </div>
             <!--------------------------------->
             <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
                 <h3> <span style="font-weight: bold; color: #fff">Can I exclude animes and cartoons?</span>
                 </h3>
-                <p>Sure, you can either exclude the genre <span style="color: #4b6aa1; font-weight: bold;">Animation</span> and/or <span style="color: #4b6aa1; font-weight: bold;">Japanese</span> language in the Movie/TV Show Settings.</p>
+                <p>Sure, you can either exclude the genre <span style="font-weight: bold; color: #ffd95e;">Animation</span> and/or <span style="font-weight: bold; color: #ffd95e;">Japanese</span> language in the Movie/TV Show Settings.</p>
             </div>
             <!--------------------------------->
             <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
                 <h3> <span style="font-weight: bold; color: #fff">Can I use triggers other than a command?</span>
                 </h3>
-                <p>Yes, any trigger works. By default, the round count is set to 1. But you can populate a <span style="color: #4b6aa1; font-weight: bold;">rounds</span> argument/variable to set the rounds played. If <span style="color: #4b6aa1; font-weight: bold;">rawInput</span> is populated too, it will take priority over <span style="color: #4b6aa1; font-weight: bold;">rounds</span>.</p>
+                <p>Yes, any trigger works. By default, the round count is set to 1. But you can populate a <span style="font-weight: bold; color: #ffd95e;">rounds</span> argument/variable to set the rounds played. If <span style="font-weight: bold; color: #ffd95e;">rawInput</span> is populated too, it will take priority over <span style="font-weight: bold; color: #ffd95e;">rounds</span>.</p>
             </div>
             <!--------------------------------->
             <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
@@ -521,7 +521,7 @@ description: "A movie & TV show guessing game for Twitch chat. Powered by TMDB."
             <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
                 <h3> <span style="font-weight: bold; color: #fff">Can I customize the design?</span>
                 </h3>
-                <p>Since it's all OBS sources, you can totally do that. The only thing you can't do is <span style="color: #4b6aa1; font-weight: bold;">renaming</span> sources or putting them out of the groups.</p>
+                <p>Since it's all OBS sources, you can totally do that. The only thing you can't do is <span style="font-weight: bold; color: #ffd95e;">renaming</span> sources or putting them out of the groups.</p>
             </div>
             <!--------------------------------->
             <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
