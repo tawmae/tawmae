@@ -229,7 +229,7 @@ header {
   text-align: center;
   font-size: 22px;
   font-weight: bold;
-  width: auto;
+  width: auto !important;
 }
 
 .rotator-container {
@@ -328,8 +328,8 @@ header {
     align-items: center; 
     height: 350px; 
     padding: 20px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 130px;
+    margin-bottom: 130px;
 }
 
 .product-card-link {
