@@ -194,11 +194,12 @@ header {
   justify-content: center;
   gap: var(--min-gap);
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--container-width);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--min-gap);
   padding-right: var(--min-gap);
+  aspect-ratio: 1 / 6;
 }
 
 .black-text-box,
