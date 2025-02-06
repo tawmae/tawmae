@@ -414,10 +414,10 @@ header {
 }
 
 .emoji-preview {
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 5px;
-  padding: 5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 0 0 12px 12px;
+  backdrop-filter: blur(10px);
 }
 
 .nav-icon {
