@@ -377,6 +377,7 @@ header {
 
 .kofi-button {
   white-space: nowrap;
+  border: 1px solid black;
 }
 
 .kofi-button:hover {
