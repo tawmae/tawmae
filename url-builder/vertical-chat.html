@@ -34,6 +34,21 @@
       display: none;
       z-index: 9999;
     }
+    .top-container {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 20px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .left-side {
+      flex: 2;
+      min-width: 560px;
+    }
+    .right-side {
+      flex: 1;
+      min-width: 360px;
+    }
     .url-section {
       display: flex;
       flex-wrap: wrap;
@@ -77,7 +92,6 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      max-width: 1200px;
       margin: 0 auto;
     }
     .builder-section {
@@ -197,9 +211,107 @@
       color: #fff;
     }
     @media(max-width: 900px) {
+      .top-container {
+        flex-direction: column;
+      }
       .builder-wrapper {
         grid-template-columns: 1fr;
       }
+    }
+    #previewContainer {
+      background: #111;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    #previewContainer h2 {
+      margin: 0 0 20px 0;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    #previewChat {
+      width: 300px;
+      margin: 0 auto;
+    }
+    #previewMessage {
+      display: flex;
+      flex-direction: column;
+      padding: 8px;
+      margin-bottom: 8px;
+      transition: 0.3s;
+    }
+    #previewHeader {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #previewAvatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    #previewBadge {
+      width: 16px;
+      height: 16px;
+      object-fit: cover;
+    }
+    #previewUser {
+      font-weight: 700;
+    }
+    #previewPronoun {
+      font-size: 0.75rem;
+      color: #ccc;
+      background: #333;
+      padding: 0 5px;
+      border-radius: 3px;
+    }
+    #previewTimestamp {
+      font-size: 0.75rem;
+      color: #ccc;
+      background: #333;
+      padding: 0 5px;
+      border-radius: 3px;
+    }
+    #previewText {
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .hide-avatars #previewAvatar {
+      display: none;
+    }
+    .hide-badges #previewBadge {
+      display: none;
+    }
+    .hide-icons .iconify {
+      display: none;
+    }
+    .bg-off {
+      background: none !important;
+      border-radius: 0 !important;
+      opacity: 1 !important;
+    }
+    .dropshadow {
+      text-shadow: 1.3px 1.3px 1.3px black;
+    }
+    .big-dropshadow {
+      text-shadow: 0.8px 0.8px black, 0.9px 0.9px black, 1px 1px black, 1.1px 1.1px black, 1.2px 1.2px black, 1.3px 1.3px black, 1.4px 1.4px black, 1.5px 1.5px black;
+    }
+    .align-left {
+      text-align: left;
+    }
+    .align-right {
+      text-align: right;
+    }
+    #previewText.forceUpper {
+      text-transform: uppercase;
+    }
+    #previewText.forceLower {
+      text-transform: lowercase;
+    }
+    #previewHeader.forceUpper *,
+    #previewHeader.forceLower * {
+      text-transform: inherit;
     }
   </style>
 </head>
@@ -213,195 +325,216 @@
       Copy
     </button>
   </div>
-  <div class="builder-wrapper">
-    <div class="builder-section">
-      <h2>General Settings</h2>
-      <div class="setting">
-        <label>Hide Messages After X Seconds</label>
-        <input type="number" id="hideAfter" min="0">
-        <div class="description">Hides messages after the given amount of time.</div>
-      </div>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="excludeCommands">
-          Exclude Commands
-        </label>
-        <div class="description">Hide messages that start with an exclamation mark.</div>
-      </div>
-      <div class="setting">
-        <label>Minimum Reward Cost</label>
-        <input type="number" id="minRewardCost" min="0">
-        <div class="description">Prevent all rewards below that cost from showing.</div>
-      </div>
-      <div class="setting">
-        <label>Entry Direction</label>
-        <select id="enterSelect">
-          <option value="">right (default)</option>
-          <option value="left">left</option>
-          <option value="right">right</option>
-        </select>
-        <div class="description">Change the direction of entry.</div>
-      </div>
-      <div class="setting">
-        <label>Text Alignment</label>
-        <select id="justifySelect">
-          <option value="">right (default)</option>
-          <option value="left">left</option>
-          <option value="right">right</option>
-        </select>
-        <div class="description">Change the alignment.</div>
-      </div>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="forceUppercase">
-          Force Uppercase
-        </label>
-        <div class="description">Force uppercase on all texts.</div>
-      </div>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="forceLowercase">
-          Force Lowercase
-        </label>
-        <div class="description">Force lowercase on all texts.</div>
+  <div class="top-container">
+    <div class="left-side">
+      <div class="builder-wrapper">
+        <div class="builder-section">
+          <h2>General Settings</h2>
+          <div class="setting">
+            <label>Hide Messages After X Seconds</label>
+            <input type="number" id="hideAfter" min="0">
+            <div class="description">Hides messages after the given amount of time.</div>
+          </div>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="excludeCommands">
+              Exclude Commands
+            </label>
+            <div class="description">Hide messages that start with an exclamation mark.</div>
+          </div>
+          <div class="setting">
+            <label>Minimum Reward Cost</label>
+            <input type="number" id="minRewardCost" min="0">
+            <div class="description">Prevent all rewards below that cost from showing.</div>
+          </div>
+          <div class="setting">
+            <label>Entry Direction</label>
+            <select id="enterSelect">
+              <option value="">right (default)</option>
+              <option value="left">left</option>
+              <option value="right">right</option>
+            </select>
+            <div class="description">Change the direction of entry.</div>
+          </div>
+          <div class="setting">
+            <label>Text Alignment</label>
+            <select id="justifySelect">
+              <option value="">right (default)</option>
+              <option value="left">left</option>
+              <option value="right">right</option>
+            </select>
+            <div class="description">Change the alignment.</div>
+          </div>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="forceUppercase">
+              Force Uppercase
+            </label>
+            <div class="description">Force uppercase on all texts.</div>
+          </div>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="forceLowercase">
+              Force Lowercase
+            </label>
+            <div class="description">Force lowercase on all texts.</div>
+          </div>
+        </div>
+        <div class="builder-section">
+          <h2>Appearance</h2>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="showTimestamp">
+              Show Timestamp
+            </label>
+            <div class="description">Show a timestamp.</div>
+          </div>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="showPronouns" checked>
+              Show Pronouns
+            </label>
+            <div class="description">Show user pronouns.</div>
+          </div>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="showAvatars" checked>
+              Show Avatars
+            </label>
+            <div class="description">Show user avatars.</div>
+          </div>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="hideBadges">
+              Hide Badges
+            </label>
+            <div class="description">Hide badges and shared chat symbols.</div>
+          </div>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="hideIcons">
+              Hide Icons
+            </label>
+            <div class="description">Hide icons on events.</div>
+          </div>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="background">
+              Background
+            </label>
+            <div class="description">Enables the background.</div>
+          </div>
+          <div class="setting">
+            <label>Background Style</label>
+            <select id="backgroundStyle">
+              <option value="">no style</option>
+              <option value="cards">cards</option>
+              <option value="cardsRounded">cardsRounded</option>
+            </select>
+            <div class="description">Changes the background style (background needs to be enabled)</div>
+          </div>
+          <div class="setting">
+            <label>Background Opacity</label>
+            <input type="number" id="backgroundOpacity" min="0" max="100">
+            <div class="description">Changes the background opacity.</div>
+          </div>
+          <div class="setting">
+            <label>Background Color</label>
+            <input type="color" id="backgroundColor" value="#ffffff">
+            <div class="description">Changes the background color.</div>
+          </div>
+          <div class="setting">
+            <label>Font</label>
+            <input type="text" id="font" placeholder="Poppins">
+            <div class="description">Changes the font.</div>
+          </div>
+          <div class="setting">
+            <label>Font Size</label>
+            <input type="number" id="fontSizeInput" min="1" max="100" step="1" value="16">
+            <div class="description">Changes fontsize (and scales other elements accordingly).</div>
+          </div>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="dropshadow" checked>
+              Dropshadow
+            </label>
+            <div class="description">Adds a dropshadow to text.</div>
+          </div>
+          <div class="setting">
+            <label>
+              <input type="checkbox" id="bigDropshadow">
+              Big Dropshadow
+            </label>
+            <div class="description">Adds an even bigger dropshadow.</div>
+          </div>
+        </div>
+        <div class="builder-section">
+          <h2>Exclude Events</h2>
+          <div class="description">Exclude events from showing.</div>
+          <div class="exclude-events-buttons">
+            <button class="select-button" id="selectAllEventsBtn">Select All</button>
+            <button class="select-button" id="deselectAllEventsBtn">Select None</button>
+          </div>
+          <div class="exclude-events-list">
+            <label>
+              <input type="checkbox" value="sub">Subscriptions
+            </label>
+            <label>
+              <input type="checkbox" value="resub">Resubscriptions
+            </label>
+            <label>
+              <input type="checkbox" value="giftsub">Gift Subscriptions
+            </label>
+            <label>
+              <input type="checkbox" value="giftbomb">Gift Bombs
+            </label>
+            <label>
+              <input type="checkbox" value="rewardredemption">Channel Reward Redemptions
+            </label>
+            <label>
+              <input type="checkbox" value="watchstreak">Watch Streaks
+            </label>
+            <label>
+              <input type="checkbox" value="cheer">Cheers
+            </label>
+            <label>
+              <input type="checkbox" value="raid">Raids
+            </label>
+            <label>
+              <input type="checkbox" value="donation">Kofi Donations
+            </label>
+            <label>
+              <input type="checkbox" value="announcement">Announcements
+            </label>
+          </div>
+        </div>
+        <div class="builder-section">
+          <h2>Exclude Accounts</h2>
+          <div class="description">Exclude accounts from showing in the chat.</div>
+          <div class="exclude-accounts-input">
+            <input type="text" id="excludeAccountInput" placeholder="Add account" style="width:150px;">
+            <button id="addExcludeAccountBtn" style="background:#466090;color:white;border:none;cursor:pointer;padding:5px 10px;">Add</button>
+          </div>
+          <div class="exclude-accounts-list" id="excludeAccountsList"></div>
+        </div>
       </div>
     </div>
-    <div class="builder-section">
-      <h2>Appearance</h2>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="showTimestamp">
-          Show Timestamp
-        </label>
-        <div class="description">Show a timestamp.</div>
+    <div class="right-side">
+      <div id="previewContainer">
+        <h2>Live Preview (not 100% accurate)</h2>
+        <div id="previewChat">
+          <div id="previewMessage">
+            <div id="previewHeader">
+              <img id="previewAvatar" src="https://static-cdn.jtvnw.net/jtv_user_pictures/3f79e60e-0200-454f-8886-87831db8f29f-profile_image-300x300.png" alt="">
+              <img id="previewBadge" src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/1" alt="">
+              <span id="previewUser">tawmae</span>
+              <span id="previewPronoun">he/him</span>
+              <span id="previewTimestamp"></span>
+            </div>
+            <div id="previewText">Nutty made me do this.</div>
+          </div>
+        </div>
       </div>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="showPronouns" checked>
-          Show Pronouns
-        </label>
-        <div class="description">Show user pronouns.</div>
-      </div>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="showAvatars" checked>
-          Show Avatars
-        </label>
-        <div class="description">Show user avatars.</div>
-      </div>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="hideBadges">
-          Hide Badges
-        </label>
-        <div class="description">Hide badges and shared chat symbols.</div>
-      </div>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="hideIcons">
-          Hide Icons
-        </label>
-        <div class="description">Hide icons on events.</div>
-      </div>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="background">
-          Background
-        </label>
-        <div class="description">Enables the background.</div>
-      </div>
-      <div class="setting">
-        <label>Background Style</label>
-        <select id="backgroundStyle">
-          <option value="">no style</option>
-          <option value="cards">cards</option>
-          <option value="cardsRounded">cardsRounded</option>
-        </select>
-        <div class="description">Changes the background style (background needs to be enabled)</div>
-      </div>
-      <div class="setting">
-        <label>Background Opacity</label>
-        <input type="number" id="backgroundOpacity" min="0" max="100">
-        <div class="description">Changes the background opacity.</div>
-      </div>
-      <div class="setting">
-        <label>Background Color</label>
-        <input type="color" id="backgroundColor" value="#ffffff">
-        <div class="description">Changes the background color.</div>
-      </div>
-      <div class="setting">
-        <label>Font</label>
-        <input type="text" id="font" placeholder="Poppins">
-        <div class="description">Changes the font.</div>
-      </div>
-      <div class="setting">
-        <label>Font Size</label>
-        <input type="number" id="fontSizeInput" min="1" max="100" step="1" value="16">
-        <div class="description">Changes fontsize (and scales other elements accordingly).</div>
-      </div>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="dropshadow" checked>
-          Dropshadow
-        </label>
-        <div class="description">Adds a dropshadow to text.</div>
-      </div>
-      <div class="setting">
-        <label>
-          <input type="checkbox" id="bigDropshadow">
-          Big Dropshadow
-        </label>
-        <div class="description">Adds an even bigger dropshadow.</div>
-      </div>
-    </div>
-    <div class="builder-section">
-      <h2>Exclude Events</h2>
-      <div class="description">Exclude events from showing.</div>
-      <div class="exclude-events-buttons">
-        <button class="select-button" id="selectAllEventsBtn">Select All</button>
-        <button class="select-button" id="deselectAllEventsBtn">Select None</button>
-      </div>
-      <div class="exclude-events-list">       
-        <label>
-          <input type="checkbox" value="sub">Subscriptions
-        </label>
-        <label>
-          <input type="checkbox" value="resub">Resubscriptions
-        </label>
-        <label>
-          <input type="checkbox" value="giftsub">Gift Subscriptions
-        </label>
-        <label>
-          <input type="checkbox" value="giftbomb">Gift Bombs
-        </label>
-        <label>
-          <input type="checkbox" value="rewardredemption">Channel Reward Redemptions
-        </label>
-        <label>
-          <input type="checkbox" value="watchstreak">Watch Streaks
-        </label>
-        <label>
-          <input type="checkbox" value="cheer">Cheers
-        </label>
-        <label>
-          <input type="checkbox" value="raid">Raids
-                </label>
-        <label>
-          <input type="checkbox" value="donation">Kofi Donations
-        </label>
-        <label>
-          <input type="checkbox" value="announcement">Announcements
-        </label>
-      </div>
-    </div>
-    <div class="builder-section">
-      <h2>Exclude Accounts</h2>
-      <div class="description">Exclude accounts from showing in the chat.</div>
-      <div class="exclude-accounts-input">
-        <input type="text" id="excludeAccountInput" placeholder="Add account" style="width:150px;">
-        <button id="addExcludeAccountBtn" style="background:#466090;color:white;border:none;cursor:pointer;padding:5px 10px;">Add</button>
-      </div>
-      <div class="exclude-accounts-list" id="excludeAccountsList"></div>
     </div>
   </div>
   <script>
@@ -432,8 +565,10 @@
         if(bgStyleVal) params.push("backgroundStyle="+encodeURIComponent(bgStyleVal))
         let bgOpacityVal = document.getElementById("backgroundOpacity").value.trim()
         if(bgOpacityVal) params.push("backgroundOpacity="+encodeURIComponent(bgOpacityVal))
-        let bgColorVal = document.getElementById("backgroundColor").value.replace("#","%23")
-        if(bgColorVal) params.push("backgroundColor="+encodeURIComponent(bgColorVal))
+        let bgColorVal = document.getElementById("backgroundColor").value
+        if(bgColorVal) {
+          params.push("backgroundColor="+encodeURIComponent(bgColorVal))
+        }
       }
       let fontVal = document.getElementById("font").value.trim()
       if(fontVal) {
@@ -455,6 +590,7 @@
       }
       let queryString = params.length>0 ? "?"+params.join("&") : ""
       document.getElementById("generatedUrl").value = "https://tawmae.xyz/overlays/vertical-chat.html"+queryString
+      updatePreview()
     }
     function updateAccountsUI() {
       let container = document.getElementById("excludeAccountsList")
@@ -488,7 +624,6 @@
         el.addEventListener("input", buildURL)
         el.addEventListener("change", buildURL)
       })
-      buildURL()
       document.getElementById("selectAllEventsBtn").onclick=()=>{
         document.querySelectorAll(".exclude-events-list input[type='checkbox']").forEach(chk=>{
           chk.checked = true
@@ -515,6 +650,109 @@
           copyBtn.style.background = originalBg
           copyBtn.innerHTML = originalHTML
         },2500)
+      }
+      buildURL()
+    }
+    function parseColorToRGBA(hex, alpha) {
+      let c = document.createElement('canvas').getContext('2d')
+      c.fillStyle = hex
+      let rgba = c.fillStyle
+      if(rgba.startsWith('rgb(')) {
+        let rgbVals = rgba.replace(/[^\d,]/g, '').split(',')
+        rgba = `rgba(${rgbVals[0]},${rgbVals[1]},${rgbVals[2]},${alpha})`
+      } else if(rgba.startsWith('#')) {
+        if(rgba.length===7) {
+          let r = parseInt(rgba.slice(1,3),16)
+          let g = parseInt(rgba.slice(3,5),16)
+          let b = parseInt(rgba.slice(5,7),16)
+          rgba = `rgba(${r},${g},${b},${alpha})`
+        }
+      }
+      return rgba
+    }
+    function updatePreview() {
+      let msg = document.getElementById("previewMessage")
+      let showAv = document.getElementById("showAvatars").checked
+      let hBadges = document.getElementById("hideBadges").checked
+      let hIcons = document.getElementById("hideIcons").checked
+      let bgOn = document.getElementById("background").checked
+      let bgStyle = document.getElementById("backgroundStyle").value
+      let bgOp = parseInt(document.getElementById("backgroundOpacity").value.trim()||"100")
+      let bgC = document.getElementById("backgroundColor").value
+      let forceUp = document.getElementById("forceUppercase").checked
+      let forceLow = document.getElementById("forceLowercase").checked
+      let ds = document.getElementById("dropshadow").checked
+      let dsBig = document.getElementById("bigDropshadow").checked
+      let sTS = document.getElementById("showTimestamp").checked
+      let sPN = document.getElementById("showPronouns").checked
+      let fs = parseInt(document.getElementById("fontSizeInput").value.trim()||"16")
+      let fVal = document.getElementById("font").value.trim()||"Poppins"
+      let jVal = document.getElementById("justifySelect").value
+      let timestampEl = document.getElementById("previewTimestamp")
+      let textEl = document.getElementById("previewText")
+      let headerEl = document.getElementById("previewHeader")
+      if(sTS) {
+        let timeStr = new Date().toLocaleTimeString('de-DE',{hour12:false})
+        timestampEl.textContent = timeStr
+        timestampEl.style.display = "inline-block"
+      } else {
+        timestampEl.style.display = "none"
+      }
+      document.getElementById("previewPronoun").style.display = sPN ? "inline-block" : "none"
+      msg.classList.remove("hide-avatars")
+      if(!showAv) msg.classList.add("hide-avatars")
+      msg.classList.remove("hide-badges")
+      if(hBadges) msg.classList.add("hide-badges")
+      msg.classList.remove("hide-icons")
+      if(hIcons) msg.classList.add("hide-icons")
+      if(!bgOn) {
+        msg.classList.add("bg-off")
+        msg.style.backgroundColor = "none"
+        msg.style.opacity = "1"
+        msg.style.borderRadius = "0"
+      } else {
+        msg.classList.remove("bg-off")
+        let alphaBG = parseColorToRGBA(bgC,bgOp/100)
+        msg.style.backgroundColor = alphaBG
+        if(bgStyle==="cards") {
+          msg.style.borderRadius = "4px"
+        } else if(bgStyle==="cardsRounded") {
+          msg.style.borderRadius = "12px"
+        } else {
+          msg.style.borderRadius = "0"
+        }
+      }
+      let ratio = fs/16
+      document.getElementById("previewChat").style.fontFamily = fVal+", sans-serif"
+      document.getElementById("previewChat").style.fontSize = fs+"px"
+      let avatar = document.getElementById("previewAvatar")
+      avatar.style.width = Math.round(32*ratio)+"px"
+      avatar.style.height = Math.round(32*ratio)+"px"
+      let badge = document.getElementById("previewBadge")
+      badge.style.width = Math.round(16*ratio)+"px"
+      badge.style.height = Math.round(16*ratio)+"px"
+      headerEl.classList.remove("forceUpper","forceLower")
+      textEl.classList.remove("forceUpper","forceLower")
+      if(forceUp && !forceLow) {
+        headerEl.classList.add("forceUpper")
+        textEl.classList.add("forceUpper")
+      }
+      if(forceLow && !forceUp) {
+        headerEl.classList.add("forceLower")
+        textEl.classList.add("forceLower")
+      }
+      let chat = document.getElementById("previewChat")
+      chat.classList.remove("dropshadow")
+      chat.classList.remove("big-dropshadow")
+      if(ds) {
+        if(dsBig) chat.classList.add("big-dropshadow")
+        else chat.classList.add("dropshadow")
+      }
+      msg.classList.remove("align-left","align-right")
+      if(jVal==="left") {
+        msg.classList.add("align-left")
+      } else if(jVal==="right") {
+        msg.classList.add("align-right")
       }
     }
     init()
