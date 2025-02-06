@@ -508,7 +508,7 @@ header {
 }
 
 @media (max-width: 600px) {
-  .product-grid {
+  .product-card-container {
     grid-template-columns: 1fr;
   }
 }
@@ -583,7 +583,8 @@ header {
     text-decoration: none;
     margin: 5px 0;
   }
-  .rotator-wrapper {
+  .rotator-wrapper,
+  .product-card-container{
     flex-direction: column;
     align-items: center;
   }
