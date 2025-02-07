@@ -365,6 +365,7 @@ background: rgba(255, 255, 255, 0.05);
     flex-direction: column;
     gap: 20px;
     text-align: center;
+    padding-inline: 10px;
   }
   .extension-title .extension-title-text-box,
   .settings-ui-container .extension-title-text-box{
