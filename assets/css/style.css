@@ -64,7 +64,7 @@ header {
   flex: 1;
 }
 
-.header-center > ul > li > a {
+.header-center>ul>li>a {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.9);
 }
 
@@ -145,7 +145,7 @@ header {
   color: #000;
 }
 
-.header-center ul li.dropdown:hover > .dropdown-menu {
+.header-center ul li.dropdown:hover>.dropdown-menu {
   display: flex;
 }
 
@@ -201,8 +201,8 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 1200px; 
-  margin: 0 auto; 
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 30px 0;
 }
 
@@ -213,9 +213,9 @@ header {
 }
 
 .carousel-1 img {
-  width: 100%; 
+  width: 100%;
   height: auto;
-  max-width: 1200px; 
+  max-width: 1200px;
 }
 
 .slick-prev,
@@ -226,7 +226,7 @@ header {
 }
 
 .slick-prev {
-  left: -50px; 
+  left: -50px;
 }
 
 .slick-next {
@@ -249,7 +249,7 @@ header {
 
 .slick-dots {
   position: absolute;
-  bottom: 10px; 
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex !important;
@@ -259,7 +259,7 @@ header {
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 100%; 
+  width: 100%;
   z-index: 10;
 }
 
@@ -280,7 +280,7 @@ header {
 }
 
 .slick-dots li button {
-  display: none; 
+  display: none;
 }
 
 .kofi-button {
@@ -380,97 +380,101 @@ header {
 }
 
 .product-card-container {
-    padding-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    width: 100%;
-    max-width: var(--container-width);
-    margin: 0 auto;
-    justify-content: center;
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    width: 300px;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 300px;
+  height: 100%;
 }
 
 .product-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .product-card img {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-    max-height: 400px;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  max-height: 400px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
 }
 
 .product-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-    padding: 15px;
-    background: var(--glass-bg);
-    border-top: 1px solid var(--glass-border);
-    border-radius: 0 0 12px 12px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 15px;
+  background: var(--glass-bg);
+  border-top: 1px solid var(--glass-border);
+  border-radius: 0 0 12px 12px;
+  width: 100%;
 }
 
 .product-card-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .product-info h3 {
-    font-size: 1.2rem;
-    color: white;
-    margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 8px;
 }
 
 .product-info p {
-    font-size: 1rem;
-    color: #ccc;
-    margin: 0;
+  font-size: 1rem;
+  color: #ccc;
+  margin: 0;
 }
 
 @media (max-width: 1024px) {
-    .product-card-container {
-        grid-template-columns: repeat(2, 1fr); 
-    }
+  .product-card-container {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
 }
 
 
 @media (max-width: 768px) {
   body {
-  margin-top: 0px;
+    margin-top: 0px;
   }
-  
+
   .header-center,
   .header-right {
     display: none;
   }
+
   .header-left {
     flex: 1;
     text-align: center;
   }
+
   .header-left img {
     max-width: 150px;
   }
+
   .hamburger-icon {
     display: block;
     position: absolute;
@@ -481,9 +485,11 @@ header {
     font-size: 1.8rem;
     z-index: 2000;
   }
-  #mobile-menu-toggle:checked ~ .mobile-menu {
+
+  #mobile-menu-toggle:checked~.mobile-menu {
     display: block;
   }
+
   .mobile-menu {
     position: fixed;
     top: 60px;
@@ -498,27 +504,33 @@ header {
     overflow-y: auto;
     max-height: calc(100vh - 60px);
   }
+
   .mobile-menu nav ul {
     flex-direction: column;
     display: flex;
     gap: 10px;
   }
+
   .mobile-menu nav ul li a {
     font-size: 1.2rem;
     color: black;
     padding: 10px;
     display: block;
   }
+
   .mobile-menu .dropdown .dropdown-menu {
     display: none;
     flex-direction: column;
   }
-  .mobile-menu .dropdown.active > .dropdown-menu {
+
+  .mobile-menu .dropdown.active>.dropdown-menu {
     display: block;
   }
+
   .mobile-menu .nav-icon-child {
     color: black;
   }
+
   .mobile-social {
     display: flex;
     flex-direction: column;
@@ -526,12 +538,14 @@ header {
     gap: 15px;
     margin-top: 20px;
   }
+
   .mobile-social a {
     font-size: 1.2rem;
     color: black;
     text-decoration: none;
     margin: 5px 0;
   }
+
   .commissions-container {
     display: flex;
     flex-direction: column;
@@ -561,16 +575,20 @@ header {
     width: 100%;
     max-width: 600px;
   }
-   main {
+
+  main {
     padding-left: 0;
     padding-right: 0;
   }
+
   .nav-icon {
-  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
-}
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
+  }
+
   .product-card-container {
-        grid-template-columns: 1fr;
-    }
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
 
 }
 
@@ -578,9 +596,11 @@ header {
   .header-center ul {
     gap: 5px;
   }
+
   .header-center ul li a {
     font-size: 0.8rem;
   }
+
   .commissions-container {
     padding: 10px;
   }
@@ -597,5 +617,5 @@ header {
     max-width: 100%;
   }
 
-  
+
 }
