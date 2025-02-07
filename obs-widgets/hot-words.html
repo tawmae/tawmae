@@ -6,16 +6,13 @@ description: "An OBS widget to display the most used words in your Twitch chat."
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
 <!----    TITLE    ------------------------------------------------------------------------------------------------------------------------------>
 <div class="extension-title">
-    <div class="black-text-box">
+    <div class="extension-title-text-box">
         <h1>HOT WORDS</h1>
         <p>Too lazy to start a poll and just need a quick overview of what your massive chat thinks? All run locally?!
             No worries, Hot Words' got you covered and displays the most used words in a ranked leaderboard. <br><span
                 style="font-size: 2rem">thisIsFine</span></p>
     </div>
-    <a href="{{ site.baseurl }}/assets/covers/hot-words.gif" target="_blank">
-        <div class="extension-image"
-            style="background-image: url('{{ site.baseurl }}/assets/covers/hot-words.gif');"></div>
-    </a>
+    <img src="{{ site.baseurl }}/assets/covers/hot-words.gif" class="extension-image">
 </div>
 
 <div class="accordion">
@@ -48,7 +45,7 @@ description: "An OBS widget to display the most used words in your Twitch chat."
         <div class="accordion-content" id="setup">
             <!---------------------------------------------->
             <div class="description-container">
-                <div class="black-text-box-2">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">1.</span> In <span
                             style="font-weight: bold; color: #ffd95e;">Streamer.bot</span>, go into the <span
                             style="font-weight: bold; color: #ffd95e;">Servers/Clients -> WebSocket Server</span> tab.
@@ -61,22 +58,15 @@ description: "An OBS widget to display the most used words in your Twitch chat."
                             Requests</span> unchecked. Start the server.
                     </p>
                 </div>
-                <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png');">
-                    </div>
-                </a>
+                <img src="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" class="extension-image">
             </div>
 
             <!---------------------------------------------->
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
-                </a>
-                <div class="black-text-box-2">
+                <img src="{{ site.baseurl }}/assets/setup/copy-string.png" class="extension-image">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">2.</span> Copy the <span
                             style="font-weight: bold; color: #ffd95e;">Browser Source URL</span> from above into your
                         clipboard.</p>
@@ -87,7 +77,7 @@ description: "An OBS widget to display the most used words in your Twitch chat."
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <div class="black-text-box-2">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">3.</span> In <span
                             style="font-weight: bold; color: #ffd95e;">OBS</span>, create a new <span
                             style="font-weight: bold; color: #ffd95e;">Browser Source</span>, name it whatever you want.
@@ -98,10 +88,7 @@ description: "An OBS widget to display the most used words in your Twitch chat."
                             style="font-size: 1.8rem">Pog Clap</span>
                     </p>
                 </div>
-                <a href="{{ site.baseurl }}/assets/setup/obs-browser-source.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/obs-browser-source.png');"></div>
-                </a>
+                <img src="{{ site.baseurl }}/assets/setup/obs-browser-source.png" class="extension-image">
             </div>
             <!---------------------------------------------->
         </div>
@@ -116,7 +103,7 @@ description: "An OBS widget to display the most used words in your Twitch chat."
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
         <div class="accordion-content" id="customization">
-            <div class="black-text-box-5">
+            <div class="extension-title-text-box-long">
             <p>You can add <span style="font-weight: bold; color: #ffd95e;">URL Parameters</span> at the end of the URL
                 to customize certain things. The first parameter is getting added with a <span
                     style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">?</span>, every
@@ -132,49 +119,49 @@ description: "An OBS widget to display the most used words in your Twitch chat."
 
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="material-symbols:person-off-rounded"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Exclude Users</span></p>
                     <p>Exclude chat messages of specified users. Seperate accounts with a <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">+</span>.</p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">excludeUsers=nightbot</span></p>
                 </div>
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="pepicons-print:repeat-off"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Single User Vote</span></p>
                     <p>Only count the first message of each user.</p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">singleUserVote=true</span></p>
                 </div>
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="material-symbols:person-off-rounded"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Leaderboard Count</span></p>
                     <p>Changes the count of the displayed leaderboard. Leaving it empty defaults to <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">5</span>.</p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">top=10</span></p>
                 </div>
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="mdi:format-font"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font</span></p>
                     <p>Changes the font used for the text. Supports standard fonts. Use a <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">+</span>
                         character to replace spaces.</p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">font=Arial</span></p>
                     <p><br></p>
                     <p><span style="font-weight: bold; color: #ffd95e;">font=Comic+Sans+MS</span></p>
@@ -182,14 +169,14 @@ description: "An OBS widget to display the most used words in your Twitch chat."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="material-symbols:format-size"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font Size</span></p>
                     <p>Changes the font size and also scales all other elements according to it. The default size is set
                         to <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">24</span>
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">fontSize=20</span></p>
                 </div>
             </div>
