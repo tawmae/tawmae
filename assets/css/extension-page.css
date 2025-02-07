@@ -48,7 +48,7 @@ body {
 }
 
 .extension-image {
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   width: 800px;
   height: 400px;
   background-size: cover;
