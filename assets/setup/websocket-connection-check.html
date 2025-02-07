@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Streamerbot Overlay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/@streamerbot/client/dist/streamerbot-client.js"></script>
+  <style>
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #121212;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      padding: 24px 5%;
+      max-width: 400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .input-container {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      justify-content: center;
+    }
+    .input-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .input-field {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: #fff;
+      padding: 5px 8px;
+      border-radius: 3px;
+      font-size: 14px;
+      width: 100px;
+      text-align: center;
+    }
+    #port { width: 80px; }
+    .input-desc {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+    .status-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .status-button {
+      min-width: 120px;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+      cursor: pointer;
+      padding: 0 10px;
+    }
+    .connected { background-color: #4caf50; transform: scale(1.05); }
+    .disconnected { background-color: #f44336; transform: scale(1); }
+    .status-desc {
+      font-size: 12px;
+      font-weight: normal;
+      margin: 0;
+      white-space: nowrap;
+    }
+    .desc-connected { color: #4caf50; }
+    .desc-disconnected { color: #f44336; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="input-container">
+      <div class="input-wrapper">
+        <input type="text" id="host" class="input-field" placeholder="Host" value="127.0.0.1">
+        <small class="input-desc">Default: 127.0.0.1</small>
+      </div>
+      <div class="input-wrapper">
+        <input type="number" id="port" class="input-field" placeholder="Port" value="8080">
+        <small class="input-desc">Default: 8080</small>
+      </div>
+      <div class="input-wrapper">
+        <input type="password" id="password" class="input-field" placeholder="Password">
+        <small class="input-desc">Optional</small>
+      </div>
+    </div>
+    <div class="status-container">
+      <button id="status-button" class="status-button disconnected">Disconnected</button>
+      <p id="status-desc" class="status-desc desc-disconnected">Looks like we're not connected yet :(</p>
+    </div>
+  </div>
+  <script>
+    let client = null;
+    const hostInput = document.getElementById('host');
+    const portInput = document.getElementById('port');
+    const passwordInput = document.getElementById('password');
+    const statusButton = document.getElementById('status-button');
+    const statusDesc = document.getElementById('status-desc');
+    function updateStatus(connected) {
+      if (connected) {
+        statusButton.classList.remove('disconnected');
+        statusButton.classList.add('connected');
+        statusButton.textContent = "Connected";
+        statusDesc.classList.remove('desc-disconnected');
+        statusDesc.classList.add('desc-connected');
+        statusDesc.textContent = "Your Websocket server is ready. Well done :)";
+      } else {
+        statusButton.classList.remove('connected');
+        statusButton.classList.add('disconnected');
+        statusButton.textContent = "Disconnected";
+        statusDesc.classList.remove('desc-connected');
+        statusDesc.classList.add('desc-disconnected');
+        statusDesc.textContent = "Looks like we're not connected yet :(";
+      }
+    }
+    function connectClient() {
+      if (client) {
+        try { client.disconnect(); } catch(e) { if(client.socket && client.socket.close){ client.socket.close(); } }
+        client = null;
+      }
+      updateStatus(false);
+      const options = {
+        host: hostInput.value,
+        port: Number(portInput.value),
+        password: passwordInput.value,
+        immediate: false,
+        autoReconnect: true,
+        onConnect: () => { updateStatus(true); },
+        onDisconnect: () => { updateStatus(false); },
+        onError: () => { updateStatus(false); }
+      };
+      client = new StreamerbotClient(options);
+      client.connect();
+    }
+    hostInput.addEventListener('input', connectClient);
+    portInput.addEventListener('input', connectClient);
+    passwordInput.addEventListener('input', connectClient);
+    connectClient();
+  </script>
+</body>
+</html>
