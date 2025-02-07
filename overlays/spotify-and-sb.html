@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>SPOTIFY & SB - v.1.1.5 - tawmae.xyz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>SPOTIFY & SB - v.1.0.0 - tawmae.xyz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <script type="text/javascript" src="https://unpkg.com/@streamerbot/client/dist/streamerbot-client.js"></script>
     <style>
         * {
             box-sizing: border-box;
         }
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
         }
+
         #songOverlay {
             position: fixed;
             top: 50%;
@@ -26,11 +30,13 @@
             transition: opacity 1s ease, visibility 0s linear 1s;
             overflow: hidden;
         }
+
         #songOverlay.visible {
             opacity: 1;
             visibility: visible;
             transition: opacity 1s ease, visibility 0s linear 0s;
         }
+
         #songOverlayBackground {
             position: absolute;
             top: 0;
@@ -41,6 +47,7 @@
             pointer-events: none;
             transition: opacity 1s ease;
         }
+
         #songOverlayContent {
             position: relative;
             z-index: 1;
@@ -49,10 +56,12 @@
             color: #fff;
             opacity: 1;
         }
+
         #songContent {
             display: flex;
             transition: opacity 1s ease;
         }
+
         #coverImageContainer {
             position: relative;
             flex-shrink: 0;
@@ -62,6 +71,7 @@
             margin-bottom: 10px;
             transition: opacity 1s ease;
         }
+
         #coverImage {
             display: block;
             max-width: 100%;
@@ -69,16 +79,17 @@
             border-radius: 20px;
             object-fit: cover;
         }
+
         #remainingTime {
             position: absolute;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
             color: #fff;
             font-weight: 600;
-            /*width: 63px;*/
             text-align: center;
             transition: opacity 1s ease;
         }
+
         #songDetails {
             display: flex;
             flex-direction: column;
@@ -86,26 +97,36 @@
             text-align: left;
             transition: opacity 1s ease;
         }
+
         #artists {
             font-weight: 500;
             white-space: nowrap;
             text-overflow: ellipsis;
             max-width: 100%;
         }
+
         #trackName {
-            font-weight: 700;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            max-width: 100%;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
         }
+
+        #trackNameText {
+            display: inline-block;
+            white-space: nowrap;
+            font-weight: bold;
+        }
+
         #requestedByContainer {
             display: flex;
             align-items: center;
             transition: opacity 1s ease;
         }
+
         #requestedByText {
             margin-right: 10px;
         }
+
         #userProfileImage {
             width: 45px;
             height: 45px;
@@ -113,6 +134,7 @@
             object-fit: cover;
             transition: opacity 1s ease;
         }
+
         #progressBarContainer {
             position: absolute;
             bottom: 0;
@@ -122,6 +144,7 @@
             border-radius: 0 0 20px 20px;
             overflow: hidden;
         }
+
         #progressBar {
             background: #fff;
             opacity: 0.7;
@@ -131,6 +154,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="songOverlay">
         <div id="songOverlayBackground"></div>
@@ -142,7 +166,9 @@
                 </div>
                 <div id="songDetails">
                     <div id="artists"></div>
-                    <div id="trackName"></div>
+                    <div id="trackName">
+                        <span id="trackNameText"></span>
+                    </div>
                     <div id="requestedByContainer">
                         <span id="requestedByText"></span>
                         <img id="userProfileImage" src="" alt="User Profile Image">
@@ -155,242 +181,316 @@
         </div>
     </div>
     <script type="text/javascript">
-        const p = new URLSearchParams(window.location.search)
-        const port = p.get('port') || '8080'
-        const adress = p.get('adress') || '127.0.0.1'
-        const password = p.get('password') || ''
-        const backgroundcolor = p.get('backgroundcolor') || 'linear-gradient(135deg, #2a2a2a 0%, #3b3b3b 100%)'
-        const fontcolor = p.get('fontcolor') || '#fff'
-        const font = p.get('font') || 'Poppins'
-        const progressbarcolor = p.get('progressbarcolor') || '#fff'
-        const alwayson = p.get('alwayson') !== 'false'
-        const opacityParam = parseInt(p.get('opacity') || '100')
-        const dropshadowParam = p.get('dropshadow') !== 'false'
-        const fontsizeParam = parseInt(p.get('fontsize') || '48')
-        const widthParam = parseInt(p.get('width') || '850')
-        let progressbarParam = p.get('progressbar')
-        if (!progressbarParam) progressbarParam = 'true'
-        const strokeWidthParam = parseInt(p.get('stroke') || '0')
-        const strokeColorParam = p.get('strokecolor') || '#000000'
-        const striptrackname = p.get('striptrackname') || 'true'
-        const placeholderUrl = 'https://github.com/tawmae/tawmae.github.io/blob/main/assets/media/spotify_cover_placeholder.png?raw=true'
+
+        function measureTextWidth(text, fontSpec) {
+            const canvas = measureTextWidth.canvas || (measureTextWidth.canvas = document.createElement("canvas"));
+            const ctx = canvas.getContext("2d");
+            ctx.font = fontSpec;
+            return ctx.measureText(text).width;
+        }
+        function getFontSpec(el) {
+            const comp = window.getComputedStyle(el);
+            return comp.font || (comp.fontStyle + " " + comp.fontWeight + " " + comp.fontSize + " " + comp.fontFamily);
+        }
+        function getNaturalTextWidth(el) {
+            const fontSpec = getFontSpec(el);
+            return measureTextWidth(el.textContent, fontSpec);
+        }
+
+
+        const p = new URLSearchParams(window.location.search);
+        const port = p.get('port') || '8080';
+        const adress = p.get('adress') || '127.0.0.1';
+        const password = p.get('password') || '';
+        const backgroundcolor = p.get('backgroundcolor') || 'linear-gradient(135deg, #2a2a2a 0%, #3b3b3b 100%)';
+        const fontcolor = p.get('fontcolor') || '#fff';
+        const font = p.get('font') || 'Poppins';
+        const progressbarcolor = p.get('progressbarcolor') || '#fff';
+        const alwayson = p.get('alwayson') !== 'false';
+        const opacityParam = parseInt(p.get('opacity') || '100');
+        const dropshadowParam = p.get('dropshadow') !== 'false';
+        const fontsizeParam = parseInt(p.get('fontsize') || '48');
+        const widthParam = parseInt(p.get('width') || '850');
+        let progressbarParam = p.get('progressbar');
+        if (!progressbarParam) progressbarParam = 'true';
+        const strokeWidthParam = parseInt(p.get('stroke') || '0');
+        const strokeColorParam = p.get('strokecolor') || '#000000';
+        const striptrackname = p.get('striptrackname') || 'true';
+        const placeholderUrl = 'https://github.com/tawmae/tawmae.github.io/blob/main/assets/media/spotify_cover_placeholder.png?raw=true';
 
         if (font !== 'Poppins') {
-            const link = document.createElement('link')
-            link.href = 'https://fonts.googleapis.com/css2?family=' + encodeURIComponent(font) + '&display=swap'
-            link.rel = 'stylesheet'
-            document.head.appendChild(link)
-            document.body.style.fontFamily = font + ', sans-serif'
+            const link = document.createElement('link');
+            link.href = 'https://fonts.googleapis.com/css2?family=' + encodeURIComponent(font) + '&display=swap';
+            link.rel = 'stylesheet';
+            document.head.appendChild(link);
+            document.body.style.fontFamily = font + ', sans-serif';
         }
 
-        const client = new StreamerbotClient({ host: adress, port: parseInt(port), endpoint: '/', password, onConnect })
-        const songOverlay = document.getElementById('songOverlay')
-        const bg = document.getElementById('songOverlayBackground')
-        const songContent = document.getElementById('songContent')
-        const coverImageContainer = document.getElementById('coverImageContainer')
-        const coverImage = document.getElementById('coverImage')
-        const remainingTime = document.getElementById('remainingTime')
-        const artistsEl = document.getElementById('artists')
-        const trackNameEl = document.getElementById('trackName')
-        const requestedByText = document.getElementById('requestedByText')
-        const userProfileImage = document.getElementById('userProfileImage')
-        const progressBar = document.getElementById('progressBar')
-        const progressBarContainer = document.getElementById('progressBarContainer')
+        const client = new StreamerbotClient({ host: adress, port: parseInt(port), endpoint: '/', password, onConnect });
+        const songOverlay = document.getElementById('songOverlay');
+        const bg = document.getElementById('songOverlayBackground');
+        const songContent = document.getElementById('songContent');
+        const coverImageContainer = document.getElementById('coverImageContainer');
+        const coverImage = document.getElementById('coverImage');
+        const remainingTime = document.getElementById('remainingTime');
+        const artistsEl = document.getElementById('artists');
+        const trackNameEl = document.getElementById('trackName');
+        const trackNameText = document.getElementById('trackNameText');
+        const requestedByText = document.getElementById('requestedByText');
+        const userProfileImage = document.getElementById('userProfileImage');
+        const progressBar = document.getElementById('progressBar');
+        const progressBarContainer = document.getElementById('progressBarContainer');
 
-        songOverlay.style.width = widthParam + 'px'
-        bg.style.background = backgroundcolor
-        bg.style.opacity = (opacityParam / 100).toString()
+
+        songOverlay.style.width = widthParam + 'px';
+        bg.style.background = backgroundcolor;
+        bg.style.opacity = (opacityParam / 100).toString();
         if (opacityParam === 100) {
-            songOverlay.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.3)'
+            songOverlay.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.3)';
         } else {
-            songOverlay.style.boxShadow = 'none'
+            songOverlay.style.boxShadow = 'none';
         }
         if (progressbarParam === 'false') {
-            progressBarContainer.style.display = 'none'
+            progressBarContainer.style.display = 'none';
         }
 
         function setFontSizes(baseSize) {
-            const r = baseSize / 56
-            trackNameEl.style.fontSize = baseSize + 'px'
-            artistsEl.style.fontSize = Math.round(baseSize * 40/56) + 'px'
-            requestedByText.style.setProperty('font-size', Math.round(baseSize * 22 / 56) + 'px', 'important')
-            remainingTime.style.fontSize = Math.round(baseSize * 28/56) + 'px'
-            const pad = Math.round(20 * r)
-            songContent.style.padding = pad + 'px'
-            coverImageContainer.style.marginRight = Math.round(20 * r) + 'px'
-            progressBarContainer.style.height = Math.round(10 * r) + 'px'
-            const coverSize = Math.round(200 * r)
-            coverImageContainer.style.width = coverSize + 'px'
-            coverImageContainer.style.height = coverSize + 'px'
-            const tOff = Math.round(10 * r)
-            remainingTime.style.bottom = tOff + 'px'
-            remainingTime.style.right = tOff + 'px'
-            remainingTime.style.padding = Math.round(3 * r) + 'px ' + Math.round(5 * r) + 'px'
-            remainingTime.style.width = Math.round(68 * r) + 'px'
-            userProfileImage.style.width = Math.round(45 * r) + 'px'
-            userProfileImage.style.height = Math.round(45 * r) + 'px'
+            const r = baseSize / 56;
+
+            trackNameEl.style.fontSize = baseSize + 'px';
+            artistsEl.style.fontSize = Math.round(baseSize * 40 / 56) + 'px';
+            requestedByText.style.setProperty('font-size', Math.round(baseSize * 22 / 56) + 'px', 'important');
+            remainingTime.style.fontSize = Math.round(baseSize * 28 / 56) + 'px';
+            const pad = Math.round(20 * r);
+            songContent.style.padding = pad + 'px';
+            coverImageContainer.style.marginRight = Math.round(20 * r) + 'px';
+            progressBarContainer.style.height = Math.round(10 * r) + 'px';
+            const coverSize = Math.round(200 * r);
+            coverImageContainer.style.width = coverSize + 'px';
+            coverImageContainer.style.height = coverSize + 'px';
+            const tOff = Math.round(10 * r);
+            remainingTime.style.bottom = tOff + 'px';
+            remainingTime.style.right = tOff + 'px';
+            remainingTime.style.padding = Math.round(3 * r) + 'px ' + Math.round(5 * r) + 'px';
+            remainingTime.style.width = Math.round(68 * r) + 'px';
+            userProfileImage.style.width = Math.round(45 * r) + 'px';
+            userProfileImage.style.height = Math.round(45 * r) + 'px';
         }
-        setFontSizes(fontsizeParam)
-        songContent.style.color = fontcolor
-        progressBar.style.background = progressbarcolor
+        setFontSizes(fontsizeParam);
+        songContent.style.color = fontcolor;
+        progressBar.style.background = progressbarcolor;
 
         function applyDropShadow() {
-            const val = '2px 1px 1.5px rgba(1,1,1,1)'
-            artistsEl.style.textShadow = val
-            trackNameEl.style.textShadow = val
-            requestedByText.style.textShadow = val
+            const val = '2px 1px 1.5px rgba(1,1,1,1)';
+            artistsEl.style.textShadow = val;
+            trackNameEl.style.textShadow = val;
+            requestedByText.style.textShadow = val;
         }
-        if (dropshadowParam) applyDropShadow()
+        if (dropshadowParam) applyDropShadow();
 
         function applyOuterStroke(el, sw, sc) {
-            if (sw <= 0) return
-            let shadows = []
+            if (sw <= 0) return;
+            let shadows = [];
             for (let i = 0; i < 360; i += 6) {
-                const rad = i * Math.PI / 180
-                const x = Math.round(sw * Math.cos(rad))
-                const y = Math.round(sw * Math.sin(rad))
-                shadows.push(x + 'px ' + y + 'px 1px ' + sc)
+                const rad = i * Math.PI / 180;
+                const x = Math.round(sw * Math.cos(rad));
+                const y = Math.round(sw * Math.sin(rad));
+                shadows.push(x + 'px ' + y + 'px 1px ' + sc);
             }
-            el.style.textShadow = shadows.join(',')
+            el.style.textShadow = shadows.join(',');
         }
         if (strokeWidthParam > 0) {
-            applyOuterStroke(artistsEl, strokeWidthParam, strokeColorParam)
-            applyOuterStroke(trackNameEl, strokeWidthParam, strokeColorParam)
-            applyOuterStroke(requestedByText, Math.floor(strokeWidthParam * 0.5), strokeColorParam)
+            applyOuterStroke(artistsEl, strokeWidthParam, strokeColorParam);
+            applyOuterStroke(trackNameEl, strokeWidthParam, strokeColorParam);
+            applyOuterStroke(requestedByText, Math.floor(strokeWidthParam * 0.5), strokeColorParam);
         }
 
-        let currentCoverUrl = ''
-        let lastTrackId = null
-        let lastIsRequested = null
-        let hideTimeout = null
+        let currentCoverUrl = '';
+        let lastTrackId = null;
+        let lastIsRequested = null;
+        let hideTimeout = null;
 
-        function onConnect() {}
+        function onConnect() { }
 
-        function fadeInOverlay() {
-            songOverlay.classList.add('visible')
-        }
-        function fadeOutOverlay() {
-            return new Promise(resolve => {
-                songOverlay.classList.remove('visible')
-                setTimeout(resolve, 1000)
-            })
-        }
-
-        function fadeOutSongContent() {
-            return new Promise(resolve => {
-                songContent.style.opacity = '0'
-                setTimeout(resolve, 1000)
-            })
-        }
-        function fadeInSongContent() {
-            songContent.style.opacity = '1'
-        }
-
+        function fadeInOverlay() { songOverlay.classList.add('visible'); }
+        function fadeOutOverlay() { return new Promise(resolve => { songOverlay.classList.remove('visible'); setTimeout(resolve, 1000); }); }
+        function fadeOutSongContent() { return new Promise(resolve => { songContent.style.opacity = '0'; setTimeout(resolve, 1000); }); }
+        function fadeInSongContent() { songContent.style.opacity = '1'; }
         function showOverlayTemporarily() {
-            fadeInOverlay()
+            fadeInOverlay();
             if (!alwayson) {
-                if (hideTimeout) clearTimeout(hideTimeout)
-                hideTimeout = setTimeout(() => {
-                    fadeOutOverlay()
-                }, 10000)
+                if (hideTimeout) clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => { fadeOutOverlay(); }, 10000);
             }
         }
 
         function stripTrackName(t) {
-            return t.replace(/\s-\s.*$/, '').replace(/\(.*?\)/g, '').trim()
+            return t.replace(/\s-\s.*$/, '').replace(/\(.*?\)/g, '').trim();
         }
 
         function loadCoverImage(url) {
             return new Promise(resolve => {
-                const img = new Image()
-                img.onload = () => resolve(img)
-                img.onerror = () => resolve(null)
-                img.src = url
-            })
+                const img = new Image();
+                img.onload = () => resolve(img);
+                img.onerror = () => resolve(null);
+                img.src = url;
+            });
         }
 
         function updateSongInfo(d) {
             if (d.songInfo && d.songInfo.isPlaying) {
-                const s = d.songInfo
-                const newTrack = s.trackId !== lastTrackId
-                const reqChanged = s.isRequested !== lastIsRequested
+                const s = d.songInfo;
+                const newTrack = s.trackId !== lastTrackId;
+                const reqChanged = s.isRequested !== lastIsRequested;
                 if (newTrack || reqChanged) {
-                    lastTrackId = s.trackId
-                    lastIsRequested = s.isRequested
+                    lastTrackId = s.trackId;
+                    lastIsRequested = s.isRequested;
                     fadeOutSongContent().then(() => {
-                        const coverUrl = s.coverImageUrl ? s.coverImageUrl : placeholderUrl
+                        const coverUrl = s.coverImageUrl ? s.coverImageUrl : placeholderUrl;
                         if (coverUrl !== currentCoverUrl) {
                             loadCoverImage(coverUrl).then(loaded => {
-                                if (loaded) {
-                                    coverImage.src = loaded.src
-                                    currentCoverUrl = loaded.src
-                                } else {
-                                    coverImage.src = placeholderUrl
-                                    currentCoverUrl = placeholderUrl
-                                }
-                                updateContent(s)
-                                fadeInSongContent()
-                                showOverlayTemporarily()
-                            })
+                                if (loaded) { coverImage.src = loaded.src; currentCoverUrl = loaded.src; }
+                                else { coverImage.src = placeholderUrl; currentCoverUrl = placeholderUrl; }
+                                updateContent(s);
+                                fadeInSongContent();
+                                showOverlayTemporarily();
+                            });
                         } else {
-                            updateContent(s)
-                            fadeInSongContent()
-                            showOverlayTemporarily()
+                            updateContent(s);
+                            fadeInSongContent();
+                            showOverlayTemporarily();
                         }
-                    })
+                    });
                 } else {
-                    updateDynamicContent(s)
+                    updateDynamicContent(s);
                 }
             } else {
-                lastTrackId = null
-                lastIsRequested = null
-                if (hideTimeout) clearTimeout(hideTimeout)
-                fadeOutOverlay()
+                lastTrackId = null;
+                lastIsRequested = null;
+                if (hideTimeout) clearTimeout(hideTimeout);
+                fadeOutOverlay();
             }
         }
 
         function truncateText(t, m) {
-            return t.length > m ? t.substring(0, m) + '...' : t
+            return t.length > m ? t.substring(0, m) + '...' : t;
         }
 
+
         function updateContent(s) {
-            artistsEl.textContent = truncateText(s.artists || 'Unknown', 35)
-            let displayedTrackName = s.trackName || 'Unknown'
+            artistsEl.textContent = truncateText(s.artists || 'Unknown', 35);
+            let displayedTrackName = s.trackName || 'Unknown';
             if (striptrackname === 'true') {
-                displayedTrackName = stripTrackName(displayedTrackName)
+                displayedTrackName = stripTrackName(displayedTrackName);
             }
-            trackNameEl.textContent = truncateText(displayedTrackName, 30)
+
+            trackNameEl.textContent = '';
+            const span = document.createElement('span');
+            span.id = 'trackNameText';
+            span.textContent = displayedTrackName;
+
+            span.style.fontSize = "inherit";
+            trackNameEl.appendChild(span);
+
+            setTimeout(() => {
+                const naturalWidth = getNaturalTextWidth(span);
+
+                if (naturalWidth >= 650) {
+                    startScrollingAnimation(span);
+                } else {
+                    span.style.animation = '';
+                }
+            }, 100);
             if (s.isRequested && s.user) {
-                requestedByText.textContent = 'requested by ' + s.user
-                userProfileImage.src = s.userProfileImageUrl
-                userProfileImage.style.display = 'block'
+                requestedByText.textContent = 'requested by ' + s.user;
+                userProfileImage.src = s.userProfileImageUrl;
+                userProfileImage.style.display = 'block';
             } else {
-                requestedByText.textContent = ''
-                userProfileImage.src = ''
-                userProfileImage.style.display = 'none'
+                requestedByText.textContent = '';
+                userProfileImage.src = '';
+                userProfileImage.style.display = 'none';
             }
-            updateDynamicContent(s)
+            updateDynamicContent(s);
         }
 
         function updateDynamicContent(s) {
-            const remMs = s.durationMs - s.progressMs
-            const sec = Math.floor((remMs / 1000) % 60)
-            const min = Math.floor((remMs / (1000 * 60)) % 60)
-            remainingTime.textContent = min + ':' + sec.toString().padStart(2,'0')
+            const remMs = s.durationMs - s.progressMs;
+            const sec = Math.floor((remMs / 1000) % 60);
+            const min = Math.floor((remMs / (1000 * 60)) % 60);
+            remainingTime.textContent = min + ':' + sec.toString().padStart(2, '0');
             if (progressbarParam !== 'false') {
-                const pct = (remMs / s.durationMs) * 100
-                progressBar.style.width = pct + '%'
+                const pct = (remMs / s.durationMs) * 100;
+                progressBar.style.width = pct + '%';
             }
         }
+
+
+        function startScrollingAnimation(spanEl) {
+
+            const overlayWidth = songOverlay.clientWidth;
+
+            const coverWidth = coverImageContainer.clientWidth;
+            const safetyMargin = 0.05 * overlayWidth;
+
+            const availableWidth = overlayWidth - coverWidth - safetyMargin;
+            const naturalWidth = getNaturalTextWidth(spanEl);
+            const overflow = naturalWidth - availableWidth;
+
+            if (overflow > 0) {
+                const scrollSpeed = 80;
+                const scrollTime = overflow / scrollSpeed;
+                const totalDuration = 2 + scrollTime + 2 + scrollTime;
+                const startPct = (2 / totalDuration) * 100;
+                const midPct = ((2 + scrollTime) / totalDuration) * 100;
+                const pauseEndPct = ((2 + scrollTime + 2) / totalDuration) * 100;
+                const keyframes = `
+          @keyframes scrollAnimation {
+            0% { transform: translateX(0); }
+            ${startPct.toFixed(2)}% { transform: translateX(0); }
+            ${midPct.toFixed(2)}% { transform: translateX(-${overflow}px); }
+            ${pauseEndPct.toFixed(2)}% { transform: translateX(-${overflow}px); }
+            100% { transform: translateX(0); }
+          }
+        `;
+                let styleTag = document.getElementById('scrollAnimationStyle');
+                if (!styleTag) {
+                    styleTag = document.createElement('style');
+                    styleTag.id = 'scrollAnimationStyle';
+                    document.head.appendChild(styleTag);
+                }
+                styleTag.innerHTML = keyframes;
+                spanEl.style.animation = `scrollAnimation ${totalDuration}s linear infinite`;
+
+            } else {
+                spanEl.style.animation = '';
+
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            setTimeout(() => {
+                const spanEl = document.getElementById('trackNameText');
+                if (spanEl) {
+                    const naturalWidth = getNaturalTextWidth(spanEl);
+
+                    if (naturalWidth >= 650) {
+                        startScrollingAnimation(spanEl);
+                    } else {
+                        spanEl.style.animation = '';
+                    }
+                }
+            }, 100);
+        });
 
         client.on('Misc.GlobalVariableUpdated', ({ data }) => {
             if (data.name === 'tawmae_SPOTIFY_AND_SB_INFO') {
                 try {
-                    const parsed = typeof data.newValue === 'string' ? JSON.parse(data.newValue) : data.newValue
-                    updateSongInfo(parsed)
-                } catch(e){}
+                    const parsed = typeof data.newValue === 'string' ? JSON.parse(data.newValue) : data.newValue;
+                    updateSongInfo(parsed);
+                } catch (e) { console.log("Error parsing data:", e); }
             }
-        })
+        });
     </script>
 </body>
+
 </html>
