@@ -109,17 +109,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 $(document).ready(function(){
   $('.carousel-1').slick({
-    autoplay: true,        
-    autoplaySpeed: 8000,   
-    fade: true,            
-    speed: 1000,           
-    arrows: false,         
-    dots: true,            
-    infinite: true,        
-    cssEase: 'linear',
+    autoplay: true,
+    autoplaySpeed: 3000,
+    fade: false,
+    speed: 1000,
     arrows: true,
     dots: true,
-    focusOnSelect: true
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    cssEase: 'linear',
+    prevArrow: '<button type="button" class="slick-prev" aria-label="Previous">&#10094;</button>',
+    nextArrow: '<button type="button" class="slick-next" aria-label="Next">&#10095;</button>'
   });
 });
 
