@@ -256,6 +256,40 @@ header {
   justify-content: center;
   align-items: center;
 }
+.slick-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex !important;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 2;
+}
+
+.slick-dots li {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.slick-dots li.slick-active {
+  background: white;
+}
+
+.slick-dots li button {
+  display: none;
+}
+
 
 .kofi-button {
   white-space: nowrap;
