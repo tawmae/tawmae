@@ -581,7 +581,7 @@ background: rgba(255, 255, 255, 0.05);
     top: 60px;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.2);
+    background: white;
     border: 1px solid var(--glass-border);
     border-radius: 0 0 12px 12px;
     backdrop-filter: blur(10px);
