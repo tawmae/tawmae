@@ -17,7 +17,7 @@ body {
 }
 
 body {
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
@@ -387,11 +387,13 @@ header {
     width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
+    justify-content: center;
 }
 
 .product-card {
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -400,6 +402,7 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
+    width: 300px;
     height: 100%;
 }
 
@@ -415,7 +418,6 @@ header {
     max-height: 400px;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-    margin: 0 auto;
 }
 
 .product-info {
@@ -427,6 +429,7 @@ header {
     background: var(--glass-bg);
     border-top: 1px solid var(--glass-border);
     border-radius: 0 0 12px 12px;
+    width: 100%;
 }
 
 .product-card-link {
