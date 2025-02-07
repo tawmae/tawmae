@@ -261,7 +261,7 @@ $(document).ready(function(){
     infinite: true,        
     cssEase: 'linear',
     arrows: true,
-    dots: false,
+    dots: true,
     focusOnSelect: true
   });
 });
