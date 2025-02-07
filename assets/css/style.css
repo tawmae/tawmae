@@ -202,11 +202,13 @@ header {
   margin: 0 auto;
   padding: 30px 15px;
   margin-top: 20px;
-  transition: transform 0.3s ease;
 }
 
-.carousel-1:hover {
-  transform: scale(1.03);
+.carousel-1 .slick-list {
+  transition: transform 0.3s ease;
+}
+.carousel-1:hover .slick-list {
+  transform: scale(1.05);
 }
 .carousel-slide {
   display: flex !important;
