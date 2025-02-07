@@ -14,7 +14,7 @@
     body {
       margin: 0;
       padding: 20px;
-      background: none;
+      background: black;
       font-family: 'Poppins', sans-serif;
       color: #fff;
       display: flex;
@@ -93,6 +93,34 @@
     }
     .desc-connected { color: #4caf50; }
     .desc-disconnected { color: #f44336; }
+    @media (max-width: 600px) {
+      .container {
+        max-width: 100%;
+        width: 95%;
+        padding: 24px 5%;
+      }
+      .input-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .input-wrapper {
+        width: 100%;
+      }
+      .input-field {
+        width: 100%;
+      }
+      #port {
+        width: 100%;
+      }
+      .input-desc {
+        white-space: normal;
+        text-align: center;
+      }
+      .status-container {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
