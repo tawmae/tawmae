@@ -305,6 +305,39 @@ header {
 
 
 
+.carousel-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px; /* Maximale Breite des Carousels auf die Bildgröße anpassen */
+  margin: 0 auto; /* Zentrieren */
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.carousel-2 .slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-2 img {
+  width: 100%; /* Skaliert das Bild dynamisch */
+  height: auto;
+  max-width: 800px; /* Beschränkt die maximale Breite auf die Originalgröße */
+}
+
+
+
+
+
+
+
+
+
+
+
 .kofi-button {
   white-space: nowrap;
   filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
