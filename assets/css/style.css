@@ -247,6 +247,41 @@ header {
   opacity: 1;
 }
 
+/* Zentrierte und gestylte Dots */
+.slick-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex !important;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+}
+
+/* Einzelne Dots */
+.slick-dots li {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Aktiver Dot */
+.slick-dots li.slick-active {
+  background: white;
+}
+
+/* Entfernt die Standard-Slick-Styles */
+.slick-dots li button {
+  display: none; /* Standard-Slick-Button verstecken */
+}
+
+
 
 .rotator-wrapper {
   margin-top: 40px;
