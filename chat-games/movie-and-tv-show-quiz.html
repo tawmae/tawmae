@@ -6,565 +6,567 @@ description: "A movie & TV show guessing game for Twitch chat. Powered by TMDB."
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
 <!----    TITLE   ------------------------------------------------------------------------------------------------------------------------------>
 <div class="extension-title">
-    <div class="black-text-box">
-        <h1>MOVIE & TV SHOW QUIZ</h1>
-        <p>A fully automated movie and TV show guessing game for your Twitch chat.
-            <br><br>
-            You can play it in your preferred language and filter for genres, years and ratings. Hints (like the cast)
-            are coming along the way to help your viewers out. Accommodated by a one-click import for OBS.
-            <br><span style="font-size: 2rem">rightThere</span>
-        </p>
-    </div>
-    <a href="{{ site.baseurl }}/assets/covers/movie-and-tv-show-quiz.gif" target="_blank">
-        <div class="extension-image"
-            style="background-image: url('{{ site.baseurl }}/assets/covers/movie-and-tv-show-quiz.gif');"></div>
-    </a>
+  <div class="extension-title-text-box">
+    <h1>MOVIE & TV SHOW QUIZ</h1>
+    <p>A fully automated movie and TV show guessing game for your Twitch chat.
+      <br><br>
+      You can play it in your preferred language and filter for genres, years and ratings. Hints (like the cast)
+      are coming along the way to help your viewers out. Accommodated by a one-click import for OBS.
+      <br><span style="font-size: 2rem">rightThere</span>
+    </p>
+  </div>
+  <img src="{{ site.baseurl }}/assets/covers/movie-and-tv-show-quiz.gif" class="extension-image">
 </div>
 
 <!----    ENTIRE ACCORDION THINGY WHATEVER IT'S CALLED    ------------------------------------------------------------------------------------------------------------------------------>
 
 <div class="accordion">
-    <div class="accordion-divider"></div>
-    <!----    ACTION IMPORT    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('action-import')">
-            <span class="iconify title-icon" data-icon="line-md:download"></span> <span>Action Import</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
-        </div>
-        <div class="accordion-content" id="action-import">
-            <div class="copy-box">
-                <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
-                <button class="copy-btn" onclick="copyToClipboard('import-string')">
-                    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
-                </button>
-            </div>
-        </div>
+  <div class="accordion-divider"></div>
+  <!----    ACTION IMPORT    ------------------------------------------------------------------------------------------------------------------------------>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion('action-import')">
+      <span class="iconify title-icon" data-icon="line-md:download"></span> <span>Action Import</span>
+      <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
-    <!---------------------------------------------->
-
-    <div class="accordion-divider"></div>
-
-
-
-    <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('setup')">
-            <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>Setup</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
-        </div>
-        <div class="accordion-content" id="setup">
-            <!---------------------------------------------->
-            <div class="description-container">
-                <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">1.</span> This extension requires an <span
-                            style="font-weight: bold; color: #ffd95e;">API key</span> by <span
-                            style="font-weight: bold; color: #ffd95e;">TMDB</span>. It is completely <span
-                            style="font-weight: bold; color: #ffd95e;">free</span> to use, but you will need to sign up
-                        and request an API key. You'll get one immediately.
-                        <br><br>
-                        <span style="font-weight: bold; color: #ffd95e;"><a
-                                href="https://www.themoviedb.org/settings/api" class="link-preview"
-                                target="_blank">https://www.themoviedb.org/settings/api</a></span> Click the link above
-                        and sign up for an
-                        account. <span style="font-weight: bold; color: #ffd95e;">Click</span> to generate the API key,
-                        choose <span style="font-weight: bold; color: #ffd95e;">Developer</span> and fill in the <span
-                            style="font-weight: bold; color: #ffd95e;">form</span>.
-                        You can write whatever you want, no real names needed, you might just need a little more text
-                        for the description. You can totally write you are using it for your Twitch stream and
-                        link your channel though.
-                        <br><br>
-                        After that, leave the page with your <span style="font-weight: bold; color: #ffd95e;">API
-                            Key</span> open, we will need it in a minute.
-                    </p>
-                </div>
-                <a href="{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz-1.png"
-                    target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz-1.png');">
-                    </div>
-                </a>
-            </div>
-            <!---------------------------------------------->
-            <div class="section-divider"></div>
-<!--------------------------------------------->
-            <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz-2.png"
-                    target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz-2.png');">
-                    </div>
-                </a>
-                <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">2.</span> For playing with OBS, you'll need to
-                        install <span style="font-weight: bold; color: #ffd95e;">three OBS Plugins</span>:
-                        <br><br>
-                        <span style="font-weight: bold; color: #ffd95e;">1. Stroke Glow Shadow (by the GOAT Finite
-                            Singularity):</span> <span style="font-weight: bold; color: #ffd95e;"><a
-                                href="https://obsproject.com/forum/resources/stroke-glow-shadow.1800/"
-                                class="link-preview"
-                                target="_blank">https://obsproject.com/forum/resources/stroke-glow-shadow.1800/</a></span>
-                        <br>
-                        <span style="font-weight: bold; color: #ffd95e;">2. Advanced Masks (also by the GOAT
-                            Finite):</span> <span style="font-weight: bold; color: #ffd95e;"><a
-                                href="https://obsproject.com/forum/resources/advanced-masks.1856/" class="link-preview"
-                                target="_blank">https://obsproject.com/forum/resources/advanced-masks.1856/</a></span>
-                        <br>
-                        <span style="font-weight: bold; color: #ffd95e;">3. Source Copy (by the other GOAT
-                            Exeldro):</span> <span style="font-weight: bold; color: #ffd95e;"><a
-                                href="https://obsproject.com/forum/resources/source-copy.1261/" class="link-preview"
-                                target="_blank">https://obsproject.com/forum/resources/source-copy.1261/</a></span>
-                        <br><br>
-                        Install all of those. Also make sure your OBS is <span
-                            style="font-weight: bold; color: #ffd95e;">up to date</span>.
-                    </p>
-                </div>
-
-            </div>
-            <!---------------------------------------------->
-            <div class="section-divider"></div>
-<!--------------------------------------------->
-            <div class="description-container">
-                <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">3.</span> Copy the <span
-                            style="font-weight: bold; color: #ffd95e;">Action Import</span> text from above into your
-                        clipboard.</p>
-                </div>
-                <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
-                </a>
-
-            </div>
-            <!---------------------------------------------->
-            <div class="section-divider"></div>
-<!--------------------------------------------->
-            <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/import-actions.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/import-actions.png');">
-                    </div>
-                </a>
-                <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">4.</span> In <span
-                            style="font-weight: bold; color: #ffd95e;">Streamer.bot</span>, click the <span
-                            style="font-weight: bold; color: #ffd95e;">Import</span> button at the top of the window.
-                        Paste the text into the <span style="font-weight: bold; color: #ffd95e;">Import String</span>
-                        section and press <span style="font-weight: bold; color: #ffd95e;">Import</span> at the bottom.
-                    </p>
-                </div>
-
-            </div>
-            <!---------------------------------------------->
-            <div class="section-divider"></div>
-<!--------------------------------------------->
-            <div class="description-container">
-
-                <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">5.</span> Now head to the <span
-                            style="font-weight: bold; color: #ffd95e;">Commands</span> tab and look for the imported
-                        commands. Then <span style="font-weight: bold; color: #ffd95e;">rightclick</span> the group and
-                        select <span style="font-weight: bold; color: #ffd95e;">Group -> Enable All</span>.</p>
-                </div>
-                <a href="{{ site.baseurl }}/assets/setup/enable-commands.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/enable-commands.png');">
-                    </div>
-                </a>
-            </div>
-
-            <!---------------------------------------------->
-            <div class="section-divider"></div>
-<!--------------------------------------------->
-            <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz-3.png"
-                    target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz-3.png');">
-                    </div>
-                </a>
-                <div class="black-text-box-2">
-                    <p><span style="font-weight: bold; color: #fff;">6.</span> Now head into the <span
-                            style="font-weight: bold; color: #ffd95e;">[MOVIE & TV SHOW QUIZ] # 0 - Settings</span>
-                        action,
-                        rightclick the <span style="font-weight: bold; color: #ffd95e;">Test</span> trigger and hit
-                        <span style="font-weight: bold; color: #ffd95e;">Test Trigger</span> to open the Settings
-                        UI. Copy your API Key from before and paste it into <span
-                            style="font-weight: bold; color: #ffd95e;">API Key</span>.
-                        <br><br>
-                        Make sure your OBS is <span style="font-weight: bold; color: #ffd95e;">connected</span>, scroll
-                        down a little and click on <span style="font-weight: bold; color: #ffd95e;">Create</span> below
-                        <span style="font-weight: bold; color: #ffd95e;">Create OBS Sources</span>. This will create the
-                        scene and sources in your OBS, which you can then nest into your other scenes.
-                        <br><br>
-                        And done! You are good to go. Happy guessing :)
-                        !<br><br><span style="font-size: 2rem">Pog Clap</span></span>
-                    </p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-        </div>
+    <div class="accordion-content" id="action-import">
+      <div class="copy-box">
+        <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
+        <button class="copy-btn" onclick="copyToClipboard('import-string')">
+          <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
+        </button>
+      </div>
     </div>
+  </div>
+  <!---------------------------------------------->
 
-    <!---------------------------------------------------------------------------------------------------------------------------------->
-
-    <div class="accordion-divider"></div>
-
-    <!----    COMMANDS    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('commands')">
-            <span class="iconify title-icon" data-icon="line-md:alert-circle"></span>
-            <span>Commands</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
-        </div>
-        <div class="accordion-content" id="commands">
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!MTQSTART <span
-                                style="color: #ffd95e;">[ROUNDS]</span></span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Starts the quiz. Entering a number will determine the amount of rounds played.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!MTQEND</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Ends the game after the current round has finished.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!MTQTERMINATE</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Immediately ends the game.</p>
-                </div>
-            </div>
-
-            <!---------------------------------------------->
-
-            <div class="customization-text-container">
-                <div class="black-text-box-5">
-                    <p><span style="font-weight: bold; color: #fff;">!MTQSTATS</span></p>
-                </div>
-                <div class="black-text-box-6">
-                    <p>Shows the total games and how many movies the user has guessed correctly.</p>
-                </div>
-            </div>
+  <div class="accordion-divider"></div>
 
 
 
-
-
-
-
-        </div>
+  <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion('setup')">
+      <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>Setup</span>
+      <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
-    <!---------------------------------------------------------------------------------------------------------------------------------->
-
-    <div class="accordion-divider"></div>
-
-    <!----    CUSTOM TRIGGERS    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('custom-triggers')">
-            <span class="iconify title-icon" data-icon="line-md:bell-alert"></span>
-            <span>Custom Triggers</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+    <div class="accordion-content" id="setup">
+      <!---------------------------------------------->
+      <div class="description-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">1.</span> This extension requires an <span
+              style="font-weight: bold; color: #ffd95e;">API key</span> by <span
+              style="font-weight: bold; color: #ffd95e;">TMDB</span>. It is completely <span
+              style="font-weight: bold; color: #ffd95e;">free</span> to use, but you will need to sign up
+            and request an API key. You'll get one immediately.
+            <br><br>
+            <span style="font-weight: bold; color: #ffd95e;"><a href="https://www.themoviedb.org/settings/api"
+                class="link-preview" target="_blank">https://www.themoviedb.org/settings/api</a></span> Click the link
+            above
+            and sign up for an
+            account. <span style="font-weight: bold; color: #ffd95e;">Click</span> to generate the API key,
+            choose <span style="font-weight: bold; color: #ffd95e;">Developer</span> and fill in the <span
+              style="font-weight: bold; color: #ffd95e;">form</span>.
+            You can write whatever you want, no real names needed, you might just need a little more text
+            for the description. You can totally write you are using it for your Twitch stream and
+            link your channel though.
+            <br><br>
+            After that, leave the page with your <span style="font-weight: bold; color: #ffd95e;">API
+              Key</span> open, we will need it in a minute.
+          </p>
         </div>
-        <div class="accordion-content" id="custom-triggers">
-            <p>Under <span style="font-weight: bold; color: #ffd95e;">Custom -> MOVIE & TV SHOW QUIZ</span> you will be
-                able
-                to find a bunch of triggers that populate variables with all the info you need.</p>
-            <p><br></p>
-            <!--------------------------------->
-            <a href="{{ site.baseurl }}/assets/custom-triggers/movie-and-tv-show-quiz.png" target="_blank">
-                <div class="extension-image-2"
-                    style="background-image: url('{{ site.baseurl }}/assets/custom-triggers/movie-and-tv-show-quiz.png');">
-                </div>
-            </a>
-            <!--------------------------------->
-            <p><br></p>
-            <!--------------------------------->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Correct Guess (single round played)</p>
-                <p>Fires when only one round is played and someone guesses the title correctly.</p>
-                <p style="font-weight: bold;">Provides user variables:</p>
-                <p><span style="color: #ffd95e;">_user, _userName, _userId, _userProfilePicture</span></p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Correct Guess (multiple rounds played)
-                </p>
-                <p>Fires when multiple rounds are played and someone guesses the title correctly.</p>
-                <p style="font-weight: bold;">Provides user variables:</p>
-                <p><span style="color: #ffd95e;">_user, _userName, _userId, _userProfilePicture</span></p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">No Correct Guess</p>
-                <p>Fires when no one guesses the correct title.</p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Most Correct Guesses (multiple rounds
-                    played)</p>
-                <p>Fires after all rounds have been played.</p>
-                <p style="font-weight: bold;">Provides user variables:</p>
-                <p><span style="color: #ffd95e;">_user, _userName, _userId, _userProfilePicture,
-                        _userCorrectGuesses</span></p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Round Starting</p>
-                <p>Fires when a round starts.</p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Round Halftime</p>
-                <p>Fires after half the time has passed.</p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Round Ending</p>
-                <p>Fires when a round ends.</p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Hint Showing</p>
-                <p>Fires whenever a hint shows.</p>
-            </div>
-
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Variables</p>
-                <p>Due to the nature of how I coded this piece of garbabe (LUL), the trigger just throws ALL variables
-                    into the pot.<br><br>
-                    To see which ones are available, go into the <span style="font-weight: bold; color: #ffd95e;">
-                        Action Queues -> Action History</span> tab and check the action.
-                    It'll show all available variables:<br><br></p>
-
-                <a href="{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz_vars.png"
-                    target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz_vars.png');">
-                    </div>
-                </a>
-
-
-            </div>
-
-
-
-
-
-            <p><br><br></p>
-
-            <!---------------------------------------------->
-
+        <img src="{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz-1.png"
+          class="extension-image">
+      </div>
+      <!---------------------------------------------->
+      <div class="section-divider"></div>
+      <!--------------------------------------------->
+      <div class="description-container">
+        <img src="{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz-2.png"
+          class="extension-image">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">2.</span> For playing with OBS, you'll need to
+            install <span style="font-weight: bold; color: #ffd95e;">three OBS Plugins</span>:
+            <br><br>
+            <span style="font-weight: bold;">1. Stroke Glow Shadow (by the GOAT Finite
+              Singularity):</span> <span style="font-weight: bold; color: #ffd95e;"><a
+                href="https://obsproject.com/forum/resources/stroke-glow-shadow.1800/" class="link-preview"
+                target="_blank">https://obsproject.com/forum/resources/stroke-glow-shadow.1800/</a></span>
+            <br>
+            <span style="font-weight: bold;">2. Advanced Masks (also by the GOAT
+              Finite):</span> <span style="font-weight: bold; color: #ffd95e;"><a
+                href="https://obsproject.com/forum/resources/advanced-masks.1856/" class="link-preview"
+                target="_blank">https://obsproject.com/forum/resources/advanced-masks.1856/</a></span>
+            <br>
+            <span style="font-weight: bold;">3. Source Copy (by the other GOAT
+              Exeldro):</span> <span style="font-weight: bold; color: #ffd95e;"><a
+                href="https://obsproject.com/forum/resources/source-copy.1261/" class="link-preview"
+                target="_blank">https://obsproject.com/forum/resources/source-copy.1261/</a></span>
+            <br><br>
+            Install all of those. Also make sure your OBS is <span style="font-weight: bold; color: #ffd95e;">up to
+              date</span>.
+          </p>
         </div>
+
+      </div>
+      <!---------------------------------------------->
+      <div class="section-divider"></div>
+      <!--------------------------------------------->
+      <div class="description-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">3.</span> Copy the <span
+              style="font-weight: bold; color: #ffd95e;">Action Import</span> text from above into your
+            clipboard.</p>
+        </div>
+        <img src="{{ site.baseurl }}/assets/setup/copy-string.png" class="extension-image">
+
+
+      </div>
+      <!---------------------------------------------->
+      <div class="section-divider"></div>
+      <!--------------------------------------------->
+      <div class="description-container">
+        <img src="{{ site.baseurl }}/assets/setup/import-actions.png" class="extension-image">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">4.</span> In <span
+              style="font-weight: bold; color: #ffd95e;">Streamer.bot</span>, click the <span
+              style="font-weight: bold; color: #ffd95e;">Import</span> button at the top of the window.
+            Paste the text into the <span style="font-weight: bold; color: #ffd95e;">Import String</span>
+            section and press <span style="font-weight: bold; color: #ffd95e;">Import</span> at the bottom.
+          </p>
+        </div>
+
+      </div>
+      <!---------------------------------------------->
+      <div class="section-divider"></div>
+      <!--------------------------------------------->
+      <div class="description-container">
+
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">5.</span> Now head to the <span
+              style="font-weight: bold; color: #ffd95e;">Commands</span> tab and look for the imported
+            commands. Then <span style="font-weight: bold; color: #ffd95e;">rightclick</span> the group and
+            select <span style="font-weight: bold; color: #ffd95e;">Group -> Enable All</span>.</p>
+        </div>
+        <img src="{{ site.baseurl }}/assets/setup/enable-commands.png" class="extension-image">
+      </div>
+
+      <!---------------------------------------------->
+      <div class="section-divider"></div>
+      <!--------------------------------------------->
+      <div class="description-container">
+        <img src="{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz-3.png"
+          class="extension-image">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">6.</span> Now head into the <span
+              style="font-weight: bold; color: #ffd95e;">[MOVIE & TV SHOW QUIZ] # 0 - Settings</span>
+            action,
+            rightclick the <span style="font-weight: bold; color: #ffd95e;">Test</span> trigger and hit
+            <span style="font-weight: bold; color: #ffd95e;">Test Trigger</span> to open the Settings
+            UI. Copy your API Key from before and paste it into <span style="font-weight: bold; color: #ffd95e;">API
+              Key</span>.
+            <br><br>
+            Make sure your OBS is <span style="font-weight: bold; color: #ffd95e;">connected</span>, scroll
+            down a little and click on <span style="font-weight: bold; color: #ffd95e;">Create</span> below
+            <span style="font-weight: bold; color: #ffd95e;">Create OBS Sources</span>. This will create the
+            scene and sources in your OBS, which you can then nest into your other scenes.
+            <br><br>
+            And done! You are good to go. Happy guessing :)
+            !<br><br><span style="font-size: 2rem">Pog Clap</span></span>
+          </p>
+        </div>
+      </div>
+
+      <!---------------------------------------------->
     </div>
-    <!---------------------------------------------->
-    <div class="accordion-divider"></div>
-    <!----    SETTINGS UI    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('customization')">
-            <span class="iconify title-icon" data-icon="line-md:check-list-3"></span> <span>Settings UI</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
-        </div>
-        <div class="accordion-content" id="customization">
-            <p>The <span style="font-weight: bold; color: #ffd95e;">Settings UI</span> allows you to filter stuff and
-                set custom messages.</p>
-            <p><br><br></p>
+  </div>
 
-            <!---------------------------------------------->
-            <div class="settings-ui-container">
-                <div class="black-text-box-7">
-                    <p><span style="font-weight: bold; color: #fff;">General</span> <br>You can change the general
-                        settings here. Chat hints, hint times, duration, language, you get the idea...</p>
-                </div>
-                <a href="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-1.png"
-                    target="_blank">
-                    <img class="settings-ui-image"
-                        src="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-1.png"
-                        alt="Settings Image">
-                </a>
-            </div>
-            <!---------------------------------------------->
-            <div class="settings-ui-container">
-                <div class="black-text-box-7">
-                    <p><span style="font-weight: bold; color: #fff;">Movie Settngs</span> <br>This tab has all the <span
-                            style="font-weight: bold; color: #ffd95e;">Movie</span> options. You can filter for genres,
-                        release dates, votes, rating and language.
-                    </p>
-                </div>
-                <a href="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-2.png"
-                    target="_blank">
-                    <img class="settings-ui-image"
-                        src="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-2.png"
-                        alt="Settings Image">
-                </a>
-            </div>
-            <!---------------------------------------------->
-            <div class="settings-ui-container">
-                <div class="black-text-box-7">
-                    <p><span style="font-weight: bold; color: #fff;">TV Show Settings</span> <br>Same as above, but for
-                        <span style="font-weight: bold; color: #ffd95e;">TV shows</span>.
-                    </p>
-                </div>
-                <a href="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-3.png"
-                    target="_blank">
-                    <img class="settings-ui-image"
-                        src="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-3.png"
-                        alt="Settings Image">
-                </a>
-            </div>
-            <!---------------------------------------------->
-            <div class="settings-ui-container">
-                <div class="black-text-box-7">
-                    <p><span style="font-weight: bold; color: #fff;">Chat Responses</span> <br>Customize your own chat
-                        responses here. Allows the use of variables that are listed there.
-                    </p>
-                </div>
-                <a href="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-4.png"
-                    target="_blank">
-                    <img class="settings-ui-image"
-                        src="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-4.png"
-                        alt="Settings Image">
-                </a>
-            </div>
-            <!---------------------------------------------->
-            <div class="settings-ui-container">
-                <div class="black-text-box-7">
-                    <p><span style="font-weight: bold; color: #fff;">Translations</span> <br>Translate some terms for
-                        the overlays and chat responses.
-                    </p>
-                </div>
-                <a href="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-5.png"
-                    target="_blank">
-                    <img class="settings-ui-image"
-                        src="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-5.png"
-                        alt="Settings Image">
-                </a>
-            </div>
-            <!---------------------------------------------->
-        </div>
+  <!---------------------------------------------------------------------------------------------------------------------------------->
+
+  <div class="accordion-divider"></div>
+
+  <!----    COMMANDS    ------------------------------------------------------------------------------------------------------------------------------>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion('commands')">
+      <span class="iconify title-icon" data-icon="line-md:alert-circle"></span>
+      <span>Commands</span>
+      <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
-    <!---------------------------------------------------------------------------------------------------------------------------------->
-    <div class="accordion-divider"></div>
+    <div class="accordion-content" id="commands">
+      <!---------------------------------------------->
 
-    <!----    FAQ    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('faq')">
-            <span class="iconify title-icon" data-icon="line-md:question-square"></span>
-            <span>FAQ</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+      <div class="customization-text-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">!MTQSTART <span
+                style="color: #ffd95e;">[ROUNDS]</span></span></p>
         </div>
-        <div class="accordion-content" id="faq">
-            <!--------------------------------->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <h3> <span style="font-weight: bold; color: #fff">What's the criteria for typing the correct title?</span></h3>
-                <p>There's an 'algorithm' that calculates the difference between two texts. This allows for typos and other differences in answer vs. title to make it count.
-                     I'm adding a bunch of variants of the title to a list to make it as convenient as possible while at the same time maintaining some kind of accuracy.
-                     Titles seperated by <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">:</span> or <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">-</span> like <span style="font-weight: bold; color: #ffd95e;">Star Wars - The Force Unleashed</span> will make both parts count as an answer, <span style="font-weight: bold; color: #ffd95e;">Star Wars</span> and <span style="font-weight: bold; color: #ffd95e;">The Force Unleashed</span>. 
-                    If a title contains a part number, like <span style="font-weight: bold; color: #ffd95e;">Toy Story 2</span> or <span style="font-weight: bold; color: #ffd95e;">Star Wars Episode IV</span>, the answer MUST contain that number, no matter how close the title otherwise is. The number in the answer can be numeric or roman.
-                     Remember: not every edge case can be handled and sooner or later, you will stumble upon things that should have counted while they didn't and vice versa.
-                </p>
-
-            </div>
-            <!--------------------------------->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <h3> <span style="font-weight: bold; color: #fff">Do my settings persist across updates?</span></h3>
-                <p>Yes, they're saved as global variables.</p>
-
-            </div>
-            <!--------------------------------->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <h3> <span style="font-weight: bold; color: #fff">What if my filter settings are too narrow?</span>
-                </h3>
-                <p>This can happen, there aren't infinite movies and TV shows. But the extension will give you Windows Toast-notifications if that's about to happen. So make sure to enable notifications.</p>
-            </div>
-            <!--------------------------------->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <h3> <span style="font-weight: bold; color: #fff">Is there a leaderboard?</span></h3>
-                <p>While there's no integrated leaderboard, stats are still being tracked. You can use any Streamer.bot extensions done by other people (like pwnyy) and use the global user variable <span style="font-weight: bold; color: #ffd95e;">tawmae_userCorrectGuesses_MOVIE_AND_TV_SHOW_QUIZ</span> to display the top rank.
-                </p>
-            </div>
-            <!--------------------------------->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <h3> <span style="font-weight: bold; color: #fff">Can I exclude animes and cartoons?</span>
-                </h3>
-                <p>Sure, you can either exclude the genre <span style="font-weight: bold; color: #ffd95e;">Animation</span> and/or <span style="font-weight: bold; color: #ffd95e;">Japanese</span> language in the Movie/TV Show Settings.</p>
-            </div>
-            <!--------------------------------->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <h3> <span style="font-weight: bold; color: #fff">Can I use triggers other than a command?</span>
-                </h3>
-                <p>Yes, any trigger works. By default, the round count is set to 1. But you can populate a <span style="font-weight: bold; color: #ffd95e;">rounds</span> argument/variable to set the rounds played. If <span style="font-weight: bold; color: #ffd95e;">rawInput</span> is populated too, it will take priority over <span style="font-weight: bold; color: #ffd95e;">rounds</span>.</p>
-            </div>
-            <!--------------------------------->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <h3> <span style="font-weight: bold; color: #fff">How do I reset the stats?</span>
-                </h3>
-                <p>Settings UI -> General -> Very Bottom -> Reset Stats</p>
-            </div>
-            <!--------------------------------->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <h3> <span style="font-weight: bold; color: #fff">Can I customize the design?</span>
-                </h3>
-                <p>Since it's all OBS sources, you can totally do that. The only thing you can't do is <span style="font-weight: bold; color: #ffd95e;">renaming</span> sources or putting them out of the groups.</p>
-            </div>
-            <!--------------------------------->
-            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
-                <h3> <span style="font-weight: bold; color: #fff">Can I change the scene name?</span>
-                </h3>
-                <p>No.</p>
-            </div>
-            <!--------------------------------->
-
+        <div class="extension-title-text-box">
+          <p>Starts the quiz. Entering a number will determine the amount of rounds played.</p>
         </div>
+      </div>
+
+      <!---------------------------------------------->
+
+      <div class="customization-text-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">!MTQEND</span></p>
+        </div>
+        <div class="extension-title-text-box">
+          <p>Ends the game after the current round has finished.</p>
+        </div>
+      </div>
+
+      <!---------------------------------------------->
+
+      <div class="customization-text-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">!MTQTERMINATE</span></p>
+        </div>
+        <div class="extension-title-text-box">
+          <p>Immediately ends the game.</p>
+        </div>
+      </div>
+
+      <!---------------------------------------------->
+
+      <div class="customization-text-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">!MTQSTATS</span></p>
+        </div>
+        <div class="extension-title-text-box">
+          <p>Shows the total games and how many movies the user has guessed correctly.</p>
+        </div>
+      </div>
+
+
+
+
+
+
+
     </div>
-    <!---------------------------------------------------------------------------------------------------------------------------------->
-        <div class="accordion-divider"></div>
-    
-    <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('changelog')">
-            <span class="iconify title-icon" data-icon="line-md:rotate-270"></span>
-            <span>Changelog</span>
-            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
-        </div>
-        <div class="accordion-content" id="changelog">
-            <table class="extension-table">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Changes</th>
-                        <th>Version</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!---------------------------------------------->
-                    <tr>
-                        <td>February 02, 2025</td>
-                        <td>Release</td>
-                        <td>1.0.0</td>
-                    </tr>
-                    <!---------------------------------------------->
-                </tbody>
-            </table>
-        </div>
+  </div>
+  <!---------------------------------------------------------------------------------------------------------------------------------->
+
+  <div class="accordion-divider"></div>
+
+  <!----    CUSTOM TRIGGERS    ------------------------------------------------------------------------------------------------------------------------------>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion('custom-triggers')">
+      <span class="iconify title-icon" data-icon="line-md:bell-alert"></span>
+      <span>Custom Triggers</span>
+      <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
-    <!---------------------------------------------------------------------------------------------------------------------------------->
-    <div class="accordion-divider"></div>
-    <!---------------------------------------------->
+    <div class="accordion-content" id="custom-triggers">
+      <div class="extension-title-text-box-long">
+        <p>Under <span style="font-weight: bold; color: #ffd95e;">Custom -> MOVIE & TV SHOW QUIZ</span> you will be
+          able
+          to find a bunch of triggers that populate variables with all the info you need.</p>
+      </div>
+
+      <!--------------------------------->
+      <img src="{{ site.baseurl }}/assets/custom-triggers/movie-and-tv-show-quiz.png">
+
+      <!--------------------------------->
+      <p><br><br></p>
+      <!--------------------------------->
+      <div
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
+        <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Correct Guess (single round played)</p>
+        <p>Fires when only one round is played and someone guesses the title correctly.</p>
+        <p style="font-weight: bold;">Provides user variables:</p>
+        <p><span style="color: #ffd95e;">_user, _userName, _userId, _userProfilePicture</span></p>
+      </div>
+
+      <div
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
+        <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Correct Guess (multiple rounds played)
+        </p>
+        <p>Fires when multiple rounds are played and someone guesses the title correctly.</p>
+        <p style="font-weight: bold;">Provides user variables:</p>
+        <p><span style="color: #ffd95e;">_user, _userName, _userId, _userProfilePicture</span></p>
+      </div>
+
+      <div
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
+        <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">No Correct Guess</p>
+        <p>Fires when no one guesses the correct title.</p>
+      </div>
+
+      <div
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
+        <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Most Correct Guesses (multiple rounds
+          played)</p>
+        <p>Fires after all rounds have been played.</p>
+        <p style="font-weight: bold;">Provides user variables:</p>
+        <p><span style="color: #ffd95e;">_user, _userName, _userId, _userProfilePicture,
+            _userCorrectGuesses</span></p>
+      </div>
+
+      <div
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
+        <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Round Starting</p>
+        <p>Fires when a round starts.</p>
+      </div>
+
+      <div
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
+        <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Round Halftime</p>
+        <p>Fires after half the time has passed.</p>
+      </div>
+
+      <div
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
+        <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Round Ending</p>
+        <p>Fires when a round ends.</p>
+      </div>
+
+      <div
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
+        <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Hint Showing</p>
+        <p>Fires whenever a hint shows.</p>
+      </div>
+
+      <div
+        style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 24px; color: white; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); box-sizing: border-box; margin-bottom: 10px">
+        <p style="font-weight: bold; font-size: 1.6rem; color: #ffd95e;">Variables</p>
+        <p>Due to the nature of how I coded this piece of garbabe (LUL), the trigger just throws ALL variables
+          into the pot.<br><br>
+          To see which ones are available, go into the <span style="font-weight: bold; color: #ffd95e;">
+            Action Queues -> Action History</span> tab and check the action.
+          It'll show all available variables:<br><br></p>
+
+        <a href="{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz_vars.png"
+          target="_blank">
+          <div class="extension-image-2"
+            style="background-image: url('{{ site.baseurl }}/assets/setup/movie-and-tv-show-quiz/movie-and-tv-show-quiz_vars.png');">
+          </div>
+        </a>
+
+
+      </div>
+
+
+
+
+
+      <p><br><br></p>
+
+      <!---------------------------------------------->
+
+    </div>
+  </div>
+  <!---------------------------------------------->
+  <div class="accordion-divider"></div>
+  <!----    SETTINGS UI    ------------------------------------------------------------------------------------------------------------------------------>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion('customization')">
+      <span class="iconify title-icon" data-icon="line-md:check-list-3"></span> <span>Settings UI</span>
+      <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+    </div>
+    <div class="accordion-content" id="customization">
+      <p>The <span style="font-weight: bold; color: #ffd95e;">Settings UI</span> allows you to filter stuff and
+        set custom messages.</p>
+      <p><br><br></p>
+
+      <!---------------------------------------------->
+      <div class="settings-ui-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">General</span> <br>You can change the general
+            settings here. Chat hints, hint times, duration, language, you get the idea...</p>
+        </div>
+        <a href="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-1.png"
+          target="_blank">
+          <img class="settings-ui-image"
+            src="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-1.png"
+            alt="Settings Image">
+        </a>
+      </div>
+      <!---------------------------------------------->
+      <div class="settings-ui-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">Movie Settngs</span> <br>This tab has all the <span
+              style="font-weight: bold; color: #ffd95e;">Movie</span> options. You can filter for genres,
+            release dates, votes, rating and language.
+          </p>
+        </div>
+        <a href="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-2.png"
+          target="_blank">
+          <img class="settings-ui-image"
+            src="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-2.png"
+            alt="Settings Image">
+        </a>
+      </div>
+      <!---------------------------------------------->
+      <div class="settings-ui-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">TV Show Settings</span> <br>Same as above, but for
+            <span style="font-weight: bold; color: #ffd95e;">TV shows</span>.
+          </p>
+        </div>
+        <a href="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-3.png"
+          target="_blank">
+          <img class="settings-ui-image"
+            src="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-3.png"
+            alt="Settings Image">
+        </a>
+      </div>
+      <!---------------------------------------------->
+      <div class="settings-ui-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">Chat Responses</span> <br>Customize your own chat
+            responses here. Allows the use of variables that are listed there.
+          </p>
+        </div>
+        <a href="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-4.png"
+          target="_blank">
+          <img class="settings-ui-image"
+            src="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-4.png"
+            alt="Settings Image">
+        </a>
+      </div>
+      <!---------------------------------------------->
+      <div class="settings-ui-container">
+        <div class="extension-title-text-box">
+          <p><span style="font-weight: bold; color: #fff;">Translations</span> <br>Translate some terms for
+            the overlays and chat responses.
+          </p>
+        </div>
+        <a href="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-5.png"
+          target="_blank">
+          <img class="settings-ui-image"
+            src="{{ site.baseurl }}/assets/settings/movie-and-tv-show-quiz/movie-and-tv-show-quiz-5.png"
+            alt="Settings Image">
+        </a>
+      </div>
+      <!---------------------------------------------->
+    </div>
+  </div>
+  <!---------------------------------------------------------------------------------------------------------------------------------->
+  <div class="accordion-divider"></div>
+
+  <!----    FAQ    ------------------------------------------------------------------------------------------------------------------------------>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion('faq')">
+      <span class="iconify title-icon" data-icon="line-md:question-square"></span>
+      <span>FAQ</span>
+      <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+    </div>
+    <div class="accordion-content" id="faq">
+      <!--------------------------------->
+      <div class="extension-title-text-box-long">
+        <h3> <span style="font-weight: bold; color: #fff">What's the criteria for typing the correct title?</span></h3>
+        <p>There's an 'algorithm' that calculates the difference between two texts. This allows for typos and other
+          differences in answer vs. title to make it count.
+          I'm adding a bunch of variants of the title to a list to make it as convenient as possible while at the same
+          time maintaining some kind of accuracy.
+          Titles seperated by <span
+            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">:</span> or <span
+            style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">-</span> like <span
+            style="font-weight: bold; color: #ffd95e;">Star Wars - The Force Unleashed</span> will make both parts count
+          as an answer, <span style="font-weight: bold; color: #ffd95e;">Star Wars</span> and <span
+            style="font-weight: bold; color: #ffd95e;">The Force Unleashed</span>.
+          If a title contains a part number, like <span style="font-weight: bold; color: #ffd95e;">Toy Story 2</span> or
+          <span style="font-weight: bold; color: #ffd95e;">Star Wars Episode IV</span>, the answer MUST contain that
+          number, no matter how close the title otherwise is. The number in the answer can be numeric or roman.
+          Remember: not every edge case can be handled and sooner or later, you will stumble upon things that should
+          have counted while they didn't and vice versa.
+        </p>
+
+      </div>
+      <!--------------------------------->
+      <div class="extension-title-text-box-long">
+        <h3> <span style="font-weight: bold; color: #fff">Do my settings persist across updates?</span></h3>
+        <p>Yes, they're saved as global variables.</p>
+
+      </div>
+      <!--------------------------------->
+      <div class="extension-title-text-box-long">
+        <h3> <span style="font-weight: bold; color: #fff">What if my filter settings are too narrow?</span>
+        </h3>
+        <p>This can happen, there aren't infinite movies and TV shows. But the extension will give you Windows
+          Toast-notifications if that's about to happen. So make sure to enable notifications.</p>
+      </div>
+      <!--------------------------------->
+      <div class="extension-title-text-box-long">
+        <h3> <span style="font-weight: bold; color: #fff">Is there a leaderboard?</span></h3>
+        <p>While there's no integrated leaderboard, stats are still being tracked. You can use any Streamer.bot
+          extensions done by other people (like pwnyy) and use the global user variable <span
+            style="font-weight: bold; color: #ffd95e;">tawmae_userCorrectGuesses_MOVIE_AND_TV_SHOW_QUIZ</span> to
+          display the top rank.
+        </p>
+      </div>
+      <!--------------------------------->
+      <div class="extension-title-text-box-long">
+        <h3> <span style="font-weight: bold; color: #fff">Can I exclude animes and cartoons?</span>
+        </h3>
+        <p>Sure, you can either exclude the genre <span style="font-weight: bold; color: #ffd95e;">Animation</span>
+          and/or <span style="font-weight: bold; color: #ffd95e;">Japanese</span> language in the Movie/TV Show
+          Settings.</p>
+      </div>
+      <!--------------------------------->
+      <div class="extension-title-text-box-long">
+        <h3> <span style="font-weight: bold; color: #fff">Can I use triggers other than a command?</span>
+        </h3>
+        <p>Yes, any trigger works. By default, the round count is set to 1. But you can populate a <span
+            style="font-weight: bold; color: #ffd95e;">rounds</span> argument/variable to set the rounds played. If
+          <span style="font-weight: bold; color: #ffd95e;">rawInput</span> is populated too, it will take priority over
+          <span style="font-weight: bold; color: #ffd95e;">rounds</span>.</p>
+      </div>
+      <!--------------------------------->
+      <div class="extension-title-text-box-long">
+        <h3> <span style="font-weight: bold; color: #fff">How do I reset the stats?</span>
+        </h3>
+        <p>Settings UI -> General -> Very Bottom -> Reset Stats</p>
+      </div>
+      <!--------------------------------->
+      <div class="extension-title-text-box-long">
+        <h3> <span style="font-weight: bold; color: #fff">Can I customize the design?</span>
+        </h3>
+        <p>Since it's all OBS sources, you can totally do that. The only thing you can't do is <span
+            style="font-weight: bold; color: #ffd95e;">renaming</span> sources or putting them out of the groups.</p>
+      </div>
+      <!--------------------------------->
+      <div class="extension-title-text-box-long">
+        <h3> <span style="font-weight: bold; color: #fff">Can I change the scene name?</span>
+        </h3>
+        <p>No.</p>
+      </div>
+      <!--------------------------------->
+
+    </div>
+  </div>
+  <!---------------------------------------------------------------------------------------------------------------------------------->
+  <div class="accordion-divider"></div>
+
+  <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
+  <div class="accordion-item">
+    <div class="accordion-header" onclick="toggleAccordion('changelog')">
+      <span class="iconify title-icon" data-icon="line-md:rotate-270"></span>
+      <span>Changelog</span>
+      <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+    </div>
+    <div class="accordion-content" id="changelog">
+      <table class="extension-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Changes</th>
+            <th>Version</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!---------------------------------------------->
+          <tr>
+            <td>February 02, 2025</td>
+            <td>Release</td>
+            <td>1.0.0</td>
+          </tr>
+          <!---------------------------------------------->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!---------------------------------------------------------------------------------------------------------------------------------->
+  <div class="accordion-divider"></div>
+  <!---------------------------------------------->
 </div>
