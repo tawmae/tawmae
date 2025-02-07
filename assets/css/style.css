@@ -450,9 +450,9 @@ header {
 
 @media (max-width: 1024px) {
   .product-card-container {
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-  }
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+    }
 }
 
 
@@ -586,9 +586,14 @@ header {
   }
 
   .product-card-container {
-    grid-template-columns: 1fr;
-    justify-content: center;
-  }
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-card {
+        margin: 0 auto;
+    }
 
 }
 
