@@ -168,10 +168,14 @@ $(document).ready(function(){
 
 // ====================================================================================================================
 
- tippy('.youtube-link', {
-    content: 'Mein YouTube-Kanal!',
-    placement: 'top',  // Position des Tooltips
-    animation: 'scale', // Animationseffekt
-    theme: 'light', // Optionales Theme
+// Stelle sicher, dass das DOM geladen ist
+document.addEventListener("DOMContentLoaded", function() {
+    tippy('.youtube-link', {
+        content: 'Mein YouTube-Kanal!',
+        placement: 'top',  // Tooltip-Position (top, bottom, left, right)
+        animation: 'scale', // Sanfter Animationseffekt
+        theme: 'light', // Optional: Du kannst auch 'dark' oder 'material' probieren
+        delay: [100, 50], // Verzögerung beim Öffnen und Schließen
+    });
 });
 
