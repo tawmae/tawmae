@@ -231,7 +231,10 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
 }
+
 .carousel-text h3,
 .carousel-text p {
   margin: 0;
@@ -425,22 +428,13 @@ header {
     }
 
   .carousel-slide {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .carousel-image img {
-        max-width: 100%;
-        aspect-ratio: 6 / 1;
-        object-fit: cover;
-    }
-
-    .carousel-text {
-        border-left: none;
-        border-top: 1px solid var(--glass-border);
-        text-align: center;
-        width: 100%;
-    }
+    flex-direction: column;
+  }
+  .carousel-text {
+    border-left: none;
+    border-top: 1px solid var(--glass-border);
+    text-align: center;
+  }
 }
 
 
