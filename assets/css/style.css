@@ -213,8 +213,8 @@ header {
 
 .rotator-container {
   position: relative;
-  width: 100%;         /* Container füllt die Breite */
-  aspect-ratio: 6 / 1;  /* Behält das Verhältnis 6:1 bei */
+  width: 100%;         
+  aspect-ratio: 6 / 1;  
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -390,12 +390,12 @@ header {
 
 .nav-icon {
   vertical-align: middle;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
 }
 
 .nav-icon-child {
   vertical-align: middle;
   color: black;
-  box-shadow: 2 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .extension-code-block pre {
@@ -581,7 +581,10 @@ background: rgba(255, 255, 255, 0.05);
     top: 60px;
     left: 0;
     right: 0;
-    background: #131315;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 0 0 12px 12px;
+    backdrop-filter: blur(10px);
     padding: 20px 0;
     z-index: 999;
     overflow-y: auto;
