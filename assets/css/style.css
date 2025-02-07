@@ -197,42 +197,31 @@ header {
 }
 
 .carousel-1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 30px 15px;
   margin-top: 20px;
 }
-
 .carousel-slide {
   display: flex !important;
   align-items: stretch;
-  width: 100%;
-  max-width: var(--container-width);
   border: 1px solid var(--glass-border);
-  overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-
 .carousel-image {
   flex: 3;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .carousel-image img {
   width: 100%;
   height: auto;
-  max-width: 1600px;
   aspect-ratio: 6 / 1;
   object-fit: cover;
   display: block;
 }
-
 .carousel-text {
   flex: 1;
   padding: 20px;
@@ -242,29 +231,21 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
 }
-
 .carousel-text h3,
 .carousel-text p {
   margin: 0;
 }
-
 .carousel-text h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
-
 .carousel-text p {
   font-size: 1rem;
 }
-
 .slick-list {
   padding: 0 !important;
 }
-
 .slick-slide {
   margin: 0 !important;
   display: flex !important;
