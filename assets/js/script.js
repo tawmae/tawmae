@@ -132,6 +132,8 @@ $(document).ready(function(){
     arrows: true,
     dots: true,
     infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     prevArrow: '<button type="button" class="slick-prev" aria-label="Previous">&#10094;</button>',
     nextArrow: '<button type="button" class="slick-next" aria-label="Next">&#10095;</button>'
   });
