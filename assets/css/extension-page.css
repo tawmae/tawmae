@@ -39,6 +39,7 @@ body {
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  flex-grow: 1;
 }
 
 .extension-image {
@@ -46,6 +47,7 @@ body {
   height: auto;
   border: 1px solid var(--border-glass);
   transition: transform var(--transition-time) ease-in-out;
+  flex-grow: 3;
 }
 
 .extension-image:hover {
