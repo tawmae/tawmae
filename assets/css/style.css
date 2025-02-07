@@ -473,7 +473,16 @@ header {
 }
 
 .link-preview {
-  color: #b103fc;
+  color: #4da6ff; /* Helles Blau für bessere Sichtbarkeit */
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.link-preview:hover {
+  color: #1a73e8;
+  text-decoration: underline;
 }
 
 
