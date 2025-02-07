@@ -627,7 +627,7 @@ background: rgba(255, 255, 255, 0.05);
     align-items: center;
   }
   .product-card-container {
-    margin-top: 0px;
+    margin-top: 20px;
   }
   .product-card {
     margin-bottom: 20px;
@@ -674,6 +674,7 @@ background: rgba(255, 255, 255, 0.05);
     padding-right: 0;
     gap: 0;
     margin: 0;
+    margin-top: 20px;
   }
 
    main {
@@ -681,17 +682,6 @@ background: rgba(255, 255, 255, 0.05);
     padding-right: 0;
   }
 
-  .rotator-arrow {
-    padding: 5px 10px; 
-    font-size: 1rem; 
-    left: 5px;
-    right: 5px;
-  }
-
-  .indicator {
-    width: 8px;
-    height: 8px;
-  }
 }
 
 @media (max-width: 480px) {
