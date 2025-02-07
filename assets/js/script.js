@@ -165,6 +165,13 @@ document.addEventListener("DOMContentLoaded", function() {
         theme: 'light-border',
         delay: [100, 50], 
     });
+
+    tippy('.carousel-tooltip', {
+        placement: 'bottom-end',
+        animation: 'scale-subtle',
+        theme: 'light-border',
+        delay: [100, 50], 
+    });
 });
 
 
