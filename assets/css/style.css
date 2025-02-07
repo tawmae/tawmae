@@ -213,8 +213,10 @@ header {
 
 .rotator-container {
   position: relative;
-  width: 100%;
-  height: 100%;
+  flex: 1 1 500px;
+  min-width: 500px;
+  height: 250px;
+  overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
@@ -245,7 +247,7 @@ header {
 .rotator img {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
 
