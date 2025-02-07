@@ -197,7 +197,7 @@ header {
   display: none;
 }
 
-carousel-1 {
+.carousel-1 {
   display: flex;
   justify-content: center;
   align-items: center;
