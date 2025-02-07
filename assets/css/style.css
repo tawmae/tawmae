@@ -196,92 +196,64 @@ header {
   display: none;
 }
 
-.carousel-1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px 15px;
-  margin-top: 20px;
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 15px;
+    margin-top: 20px;
 }
 
-.carousel-1 .slick-slide {
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
+.carousel-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
 }
 
-.carousel-1 img {
-  width: 100%;
-  height: auto;
-  max-width: 1200px;
+.carousel-image {
+    flex: 3;
 }
 
-.slick-prev,
-.slick-next {
-  width: 40px;
-  height: 40px;
-  z-index: 10;
+.carousel-image img {
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    display: block;
 }
 
-.slick-prev {
-  left: -50px;
+.carousel-text {
+    flex: 1;
+    padding: 20px;
+    background: var(--glass-bg);
+    border-left: 1px solid var(--glass-border);
+    color: white;
+    text-align: left;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.slick-next {
-  right: -50px;
+.carousel-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
 }
 
-
-.slick-prev::before,
-.slick-next::before {
-  font-size: 24px;
-  color: white;
-  opacity: 0.75;
-}
-
-.slick-prev:hover::before,
-.slick-next:hover::before {
-  opacity: 1;
-}
-
-
-.slick-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  z-index: 10;
-}
-
-.slick-dots li {
-  width: 8px;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.slick-dots li.slick-active {
-  background: white;
-}
-
-.slick-dots li button {
-  display: none;
+.carousel-text p {
+    font-size: 1rem;
+    color: #ccc;
+    margin: 0;
 }
 
 .kofi-button {
