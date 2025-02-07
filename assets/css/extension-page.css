@@ -435,7 +435,6 @@ background: rgba(255, 255, 255, 0.05);
   }
   .extension-image {
     width: 100%;
-    height: auto;
     order: 2;
   }
   .accordion,
@@ -461,8 +460,6 @@ background: rgba(255, 255, 255, 0.05);
   .extension-image-2 {
     width: 100%;
     max-width: 100%;
-    height: auto;
-    padding: 10px;
     margin: 0 auto;
     background-size: contain;
     background-position: center;
