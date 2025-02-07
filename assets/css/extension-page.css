@@ -232,20 +232,6 @@ p {
   margin: 0 auto;
 }
 
-.black-text-box-2 {
-  flex: 1;
-  min-width: 300px;
-  background: var(--bg-glass);
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid var(--border-glass);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
 .extension-image-2 {
   width: 800px;
   height: 400px;
@@ -276,19 +262,7 @@ p {
 }
 
 
-.black-text-box-5,
-.black-text-box-6 {
-  flex: 1;
-  background: var(--bg-glass);
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid var(--border-glass);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  min-width: 280px;
-  margin: 0 auto;
-}
+
 
 .black-text-box-bsky {
   flex: 1;
@@ -340,23 +314,10 @@ p {
   align-items: flex-start; 
   gap: 20px;
   padding-bottom: 20px;
-  /*flex-wrap: wrap;*/
-}
-
-.black-text-box-7 {
-  background: var(--bg-glass);
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 300px; 
-  border: 1px solid var(--border-glass);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  width: auto;
 }
 
 .settings-ui-image {
-  width: 600px;
+  width: 400px;
   height: auto;
   border: 1px solid var(--border-glass);
   transition: transform var(--transition-time) ease-in-out;
@@ -366,20 +327,6 @@ p {
 
 .settings-ui-image:hover {
   transform: scale(1.05);
-}
-
-.black-text-box-long {
-  flex: 1;
-  background: var(--bg-glass);
-  color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  height: 90px;
-  border: 1px solid var(--border-glass);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  min-width: 200px;
-  margin: 0 auto;
 }
 
 .extension-example-image {
@@ -436,11 +383,6 @@ background: rgba(255, 255, 255, 0.05);
     align-items: center;
     gap: 20px;
   }
-  .black-text-box-2 {
-    width: 100%;
-    margin: 0 auto 20px;
-    max-width: 100%;
-  }
   .extension-image-2 {
     width: 100%;
     max-width: 100%;
@@ -455,9 +397,7 @@ background: rgba(255, 255, 255, 0.05);
     gap: 20px;
     margin-bottom: 40px;
   }
-  .extension-title-text-box-long,
-  .black-text-box-5,
-  .black-text-box-6 {
+  .extension-title-text-box-long {
     width: 100%;
     max-width: 100%;
   }
