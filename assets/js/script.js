@@ -115,7 +115,7 @@ $(document).ready(function(){
     speed: 1000,
     arrows: true,
     dots: true,
-    infinite: true,
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     cssEase: 'linear',
