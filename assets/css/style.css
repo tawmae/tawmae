@@ -659,6 +659,9 @@ header {
     .product-card {
         margin: 0 auto;
     }
+    .carousel-2 {
+    order: 2;
+    }
 
 }
 
