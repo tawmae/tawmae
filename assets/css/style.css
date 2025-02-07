@@ -389,7 +389,6 @@ header {
     margin: 0 auto;
 }
 
-/* Karten gleich hoch halten */
 .product-card {
     display: flex;
     flex-direction: column;
@@ -404,26 +403,21 @@ header {
     height: 100%;
 }
 
-/* Hover-Effekt */
 .product-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Bildgröße fixieren */
 .product-card img {
     width: 100%;
-    height: auto;
-    max-width: 300px;
-    max-height: 400px;
+    height: 400px;
     object-fit: cover;
 }
 
-/* Textbereich soll sich gleichmäßig strecken */
 .product-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Gleiche Höhe durch Ausdehnen */
+    justify-content: space-between;
     flex-grow: 1;
     padding: 15px;
     background: var(--glass-bg);
@@ -431,12 +425,10 @@ header {
     border-radius: 0 0 12px 12px;
 }
 
-/* Kein Unterstrich auf Links */
 .product-card-link {
     text-decoration: none;
 }
 
-/* Überschriften & Texte */
 .product-info h3 {
     font-size: 1.2rem;
     color: white;
@@ -446,7 +438,7 @@ header {
 .product-info p {
     font-size: 1rem;
     color: #ccc;
-    margin: 0; /* Entfernt Extra-Abstände */
+    margin: 0;
 }
 
 @media (max-width: 1024px) {
