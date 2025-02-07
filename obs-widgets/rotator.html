@@ -7,16 +7,13 @@ custom events too."
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
 <!----    TITLE   ------------------------------------------------------------------------------------------------------------------------------>
 <div class="extension-title">
-    <div class="black-text-box">
+    <div class="extension-title-text-box">
         <h1>ROTATOR</h1>
         <p>An OBS Rotator widget that displays all your recent Twitch events, Kofi donations or socials. You can even go
             fancy and add your custom events, whatever your heart desires... <br><span
                 style="font-size: 2rem">rupertRotate</span></p>
     </div>
-    <a href="{{ site.baseurl }}/assets/covers/rotator.gif" target="_blank">
-        <div class="extension-image" style="background-image: url('{{ site.baseurl }}/assets/covers/rotator.gif');">
-        </div>
-    </a>
+    <img src="{{ site.baseurl }}/assets/covers/rotator.gif" class="extension-image">
 </div>
 
 <!----    ENTIRE ACCORDION THINGY WHATEVER IT'S CALLED    ------------------------------------------------------------------------------------------------------------------------------>
@@ -74,26 +71,19 @@ custom events too."
         <div class="accordion-content" id="setup">
             <!---------------------------------------------->
             <div class="description-container">
-                <div class="black-text-box-2">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">1.</span> Copy the <span
                             style="font-weight: bold; color: #ffd95e;">Action Import</span> text from above into your
                         clipboard.</p>
                 </div>
-                <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
-                </a>
+                <img src="{{ site.baseurl }}/assets/setup/copy-string.png" class="extension-image">
             </div>
             <!---------------------------------------------->
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/import-actions.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/import-actions.png');">
-                    </div>
-                </a>
-                <div class="black-text-box-2">
+                <img src="{{ site.baseurl }}/assets/setup/import-actions.png" class="extension-image">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">2.</span> In <span
                             style="font-weight: bold; color: #ffd95e;">Streamer.bot</span>, click the <span
                             style="font-weight: bold; color: #ffd95e;">Import</span> button at the top of the window.
@@ -106,7 +96,7 @@ custom events too."
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <div class="black-text-box-2">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">3.</span> Go into the <span
                             style="font-weight: bold; color: #ffd95e;">Servers/Clients -> WebSocket Server</span> tab.
                         Check <span style="font-weight: bold; color: #ffd95e;">Auto Start WebSocket Server</span>, leave
@@ -118,21 +108,14 @@ custom events too."
                             Requests</span> unchecked. Start the server.
                     </p>
                 </div>
-                <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png');">
-                    </div>
-                </a>
+                <img src="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" class="extension-image">
             </div>
             <!---------------------------------------------->
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
-                </a>
-                <div class="black-text-box-2">
+                <img src="{{ site.baseurl }}/assets/setup/copy-string.png" class="extension-image">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">4.</span> Copy the <span
                             style="font-weight: bold; color: #ffd95e;">Browser Source URL</span> from above into your
                         clipboard.</p>
@@ -143,7 +126,7 @@ custom events too."
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <div class="black-text-box-2">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">5.</span> In <span
                             style="font-weight: bold; color: #ffd95e;">OBS</span>, create a new <span
                             style="font-weight: bold; color: #ffd95e;">Browser Source</span>, name it whatever you want.
@@ -158,21 +141,14 @@ custom events too."
                                 style="font-weight: bold; color: #ffd95e;">source clones</span>.</span>
                     </p>
                 </div>
-                <a href="{{ site.baseurl }}/assets/setup/obs-browser-source.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/obs-browser-source.png');"></div>
-                </a>
+                <img src="{{ site.baseurl }}/assets/setup/obs-browser-source.png" class="extension-image">
             </div>
             <!---------------------------------------------->
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/rotator/rotator-test-trigger.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/rotator/rotator-test-trigger.png');">
-                    </div>
-                </a>
-                <div class="black-text-box-2">
+                <img src="{{ site.baseurl }}/assets/setup/rotator/rotator-test-trigger.png" class="extension-image">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">6.</span> Back in <span style="font-weight: bold; color: #ffd95e;">Streamer.bot</span>, go into the <span
                             style="font-weight: bold; color: #ffd95e;">[Event Rotator] Settings</span> action,
                         rightclick the <span style="font-weight: bold; color: #ffd95e;">Test</span> trigger and hit
@@ -204,13 +180,13 @@ custom events too."
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
         <div class="accordion-content" id="customization">
-            <p>The <span style="font-weight: bold; color: #ffd95e;">Settings UI</span> not only allows to specify which
+            <div class="extension-title-text-box-long">The <span style="font-weight: bold; color: #ffd95e;">Settings UI</span> not only allows to specify which
                 events to show, but also for a custom design.</p>
-            <p><br><br></p>
+            </div>
 
             <!---------------------------------------------->
             <div class="settings-ui-container">
-                <div class="black-text-box-7">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">General</span> <br>Here you can customize the <span
                             style="font-weight: bold; color: #ffd95e;">design</span> of the widget.</p>
                 </div>
@@ -221,7 +197,7 @@ custom events too."
             </div>
             <!---------------------------------------------->
             <div class="settings-ui-container">
-                <div class="black-text-box-7">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">Events</span> <br>This tab has all the <span
                             style="font-weight: bold; color: #ffd95e;">Twitch</span> (and <span
                             style="font-weight: bold; color: #ffd95e;">Kofi</span>) events. By setting the respective
@@ -239,7 +215,7 @@ custom events too."
             </div>
             <!---------------------------------------------->
             <div class="settings-ui-container">
-                <div class="black-text-box-7">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">Custom</span> <br>This tab has your <span
                             style="font-weight: bold; color: #ffd95e;">custom events</span>. Those can be your socials or
                         whatever you'd like to have rotate in there.</span>.
