@@ -168,6 +168,10 @@ $(document).ready(function(){
 
 // ====================================================================================================================
 
- tippy('#social-link yt', {
-        content: 'My tooltip!',
-      });
+ tippy('.youtube-link', {
+    content: 'Mein YouTube-Kanal!',
+    placement: 'top',  // Position des Tooltips
+    animation: 'scale', // Animationseffekt
+    theme: 'light', // Optionales Theme
+});
+
