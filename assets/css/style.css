@@ -220,7 +220,6 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Bild nimmt exakt die Hälfte der Breite ein */
 .carousel-image {
     flex: 3;
     display: flex;
@@ -237,7 +236,6 @@ header {
     object-fit: cover;
 }
 
-/* Textbox exakt auf gleiche Höhe wie Bild */
 .carousel-text {
     flex: 1;
     padding: 20px;
@@ -252,8 +250,7 @@ header {
     height: 100%;
 }
 
-/* Kein doppelter Hintergrund oder Abstände */
-.carousel-text h3, 
+.carousel-text h3,
 .carousel-text p {
     margin: 0;
 }
@@ -267,6 +264,16 @@ header {
 .carousel-text p {
     font-size: 1rem;
     color: #ccc;
+}
+
+.slick-list {
+    padding: 0 !important;
+}
+
+.slick-slide {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .kofi-button {
@@ -438,6 +445,24 @@ header {
   .product-card-container {
         grid-template-columns: repeat(2, 1fr);
         justify-content: center;
+    }
+
+  .carousel-slide {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .carousel-image img {
+        max-width: 100%;
+        aspect-ratio: 6 / 1;
+        object-fit: cover;
+    }
+
+    .carousel-text {
+        border-left: none;
+        border-top: 1px solid var(--glass-border);
+        text-align: center;
+        width: 100%;
     }
 }
 
