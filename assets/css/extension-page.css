@@ -22,7 +22,7 @@ body {
 .extension-title {
   margin-top: 30px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   gap: 30px;
   max-width: var(--container-width);
@@ -431,14 +431,12 @@ background: rgba(255, 255, 255, 0.05);
   }
   .extension-title .extension-title-text-box {
     order: 1;
-    max-width: 90%;
-  }
-  .extension-title a {
-    order: 2;
+    max-width: 100%;
   }
   .extension-image {
     width: 100%;
     height: auto;
+    order: 2;
   }
   .accordion,
   .copy-box,
