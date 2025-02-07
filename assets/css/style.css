@@ -581,7 +581,7 @@ background: rgba(255, 255, 255, 0.05);
     top: 60px;
     left: 0;
     right: 0;
-    background: var(--glass-bg);
+    background: white;
     border: 1px solid var(--glass-border);
     border-radius: 0 0 12px 12px;
     backdrop-filter: blur(10px);
@@ -597,7 +597,7 @@ background: rgba(255, 255, 255, 0.05);
   }
   .mobile-menu nav ul li a {
     font-size: 1.2rem;
-    color: white;
+    color: black;
     padding: 10px;
     display: block;
   }
@@ -609,7 +609,7 @@ background: rgba(255, 255, 255, 0.05);
     display: block;
   }
   .mobile-menu .nav-icon-child {
-    color: white;
+    color: black;
   }
   .mobile-social {
     display: flex;
@@ -620,7 +620,7 @@ background: rgba(255, 255, 255, 0.05);
   }
   .mobile-social a {
     font-size: 1.2rem;
-    color: white;
+    color: black;
     text-decoration: none;
     margin: 5px 0;
   }
