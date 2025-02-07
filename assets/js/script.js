@@ -168,14 +168,46 @@ $(document).ready(function(){
 
 // ====================================================================================================================
 
-// Stelle sicher, dass das DOM geladen ist
 document.addEventListener("DOMContentLoaded", function() {
+    tippy('.discord-link', {
+        content: 'Join my Discord server',
+        placement: 'bottom',
+        animation: 'scale-subtle',
+        theme: 'light-border',
+        delay: [100, 50], 
+    });
+
+    tippy('.bluesky-link', {
+        content: 'Follow me on Bluesky',
+        placement: 'bottom',
+        animation: 'scale-subtle',
+        theme: 'light-border',
+        delay: [100, 50], 
+    });
+
+    tippy('.twitch-link', {
+        content: 'I don\'t stream KEKW',
+        placement: 'bottom',
+        animation: 'scale-subtle',
+        theme: 'light-border',
+        delay: [100, 50], 
+    });
+
     tippy('.youtube-link', {
-        content: 'Mein YouTube-Kanal!',
-        placement: 'top',  // Tooltip-Position (top, bottom, left, right)
-        animation: 'scale', // Sanfter Animationseffekt
-        theme: 'light', // Optional: Du kannst auch 'dark' oder 'material' probieren
-        delay: [100, 50], // Verzögerung beim Öffnen und Schließen
+        content: 'My YouTube channel (german only)',
+        placement: 'bottom',
+        animation: 'scale-subtle',
+        theme: 'light-border',
+        delay: [100, 50], 
+    });
+
+    tippy('.kofi-link', {
+        content: 'Buy me an Iced Pumpkin Spice Latte',
+        placement: 'bottom',
+        animation: 'scale-subtle',
+        theme: 'light-border',
+        delay: [100, 50], 
     });
 });
+
 
