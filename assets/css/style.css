@@ -473,7 +473,7 @@ header {
 }
 
 .link-preview {
-  color: #4da6ff; /* Helles Blau für bessere Sichtbarkeit */
+  color: #4da6ff;
   font-weight: bold;
   text-decoration: none;
   position: relative;
@@ -484,8 +484,6 @@ header {
   color: #1a73e8;
   text-decoration: underline;
 }
-
-
 
 .commissions-container {
   display: grid;
