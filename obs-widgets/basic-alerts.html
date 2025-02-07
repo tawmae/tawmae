@@ -6,13 +6,11 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
 
 <div class="extension-title">
-  <div class="black-text-box">
+  <div class="extension-title-text-box">
     <h1>BASIC ALERTS</h1>
     <p>„GOD DAMMIT, STREAMER.BOT, I JUST WANT SOME ALERTS WITHOUT PUTTING HOURS OF WORK INTO THIS!“ <br><br> Fear no more, child. Here's an OBS widget for Twitch that shows all common Twitch events as well as Kofi donations. <br><span style="font-size: 2rem">widetime</span></p>
   </div>
-  <a href="{{ site.baseurl }}/assets/covers/basic-alerts.gif" target="_blank">
-    <div class="extension-image" style="background-image: url('{{ site.baseurl }}/assets/covers/basic-alerts.gif');"></div>
-  </a>
+  <img src="{{ site.baseurl }}/assets/covers/basic-alerts.gif" class="extension-image">
 </div>
 
 <div class="accordion">
@@ -48,7 +46,7 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
     <div class="accordion-content" id="setup">
       <!---------------------------------------------->
       <div class="description-container">
-        <div class="black-text-box-2">
+        <div class="extension-title-text-box-2">
           <p><span style="font-weight: bold; color: #fff;">1.</span> In <span style="font-weight: bold; color: #ffd95e;">Streamer.bot</span>, go into the <span style="font-weight: bold; color: #ffd95e;">Servers/Clients -> WebSocket Server</span> tab. Check <span style="font-weight: bold; color: #ffd95e;">Auto Start WebSocket Server</span>, leave <span style="font-weight: bold; color: #ffd95e;">Address</span> at <span style="font-weight: bold; color: #ffd95e;">127.0.0.1</span> and the <span style="font-weight: bold; color: #ffd95e;">Port</span> at <span style="font-weight: bold; color: #ffd95e;">8080</span>. You can set a password if you want, just make sure to leave <span style="font-weight: bold; color: #ffd95e;">Enforce All Requests</span> unchecked. Start the server.</p>
         </div>
         <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
@@ -60,10 +58,8 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
       <div class="section-divider"></div>
 <!--------------------------------------------->
       <div class="description-container">
-        <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
-          <div class="extension-image-2" style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
-        </a>
-        <div class="black-text-box-2">
+        <img src="{{ site.baseurl }}/assets/setup/copy-string.png" class="extension-image">
+        <div class="extension-title-text-box-2">
           <p><span style="font-weight: bold; color: #fff;">2.</span> Copy the <span style="font-weight: bold; color: #ffd95e;">Browser Source URL</span> from above into your clipboard.</p>
         </div>
       </div>
@@ -72,12 +68,10 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
       <div class="section-divider"></div>
 <!--------------------------------------------->
       <div class="description-container">
-        <div class="black-text-box-2">
+        <div class="extension-title-text-box-2">
           <p><span style="font-weight: bold; color: #fff;">3.</span> In <span style="font-weight: bold; color: #ffd95e;">OBS</span>, create a new <span style="font-weight: bold; color: #ffd95e;">Browser Source</span>, name it whatever you want. Then paste the copied URL into <span style="font-weight: bold; color: #ffd95e;">URL</span> and preferably set the <span style="font-weight: bold; color: #ffd95e;">Width</span> and <span style="font-weight: bold; color: #ffd95e;">Height</span> to your OBS canvas size. <br><br> <span style="font-weight: bold; color: #fff;">And then you're done</span> <span style="font-size: 1.8rem">Pog Clap</span> <br> <span style="font-size: 0.9rem;"> If you want to test it, you can create any Twitch event trigger like a <span style="font-weight: bold; color: #ffd95e;">Subscription</span> trigger in an empty action in Streamer.bot, rightclick that trigger and hit <span style="font-weight: bold; color: #ffd95e;">Simulate Event</span></span></p>
         </div>
-        <a href="{{ site.baseurl }}/assets/setup/obs-browser-source.png" target="_blank">
-          <div class="extension-image-2" style="background-image: url('{{ site.baseurl }}/assets/setup/obs-browser-source.png');"></div>
-        </a>
+        <img src="{{ site.baseurl }}/assets/setup/obs-browser-source.png" class="extension-image">
       </div>
     </div>
     <!---------------------------------------------->
@@ -91,7 +85,7 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
       <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
     <div class="accordion-content" id="customization">
-       <div class="black-text-box-5">
+       <div class="extension-title-text-box-5">
       <p>You can add <span style="font-weight: bold; color: #ffd95e;">URL Parameters</span> at the end of the URL to customize certain things. The first parameter is getting added with a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">?</span>, every additional one with a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">&</span>.</p>
       <p><br></p>
       <p>Example: <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">https://tawmae.xyz/overlays/basic-alerts.html?eventcolor=gold&color=linear-gradient(135deg,%230055FF,%2300FFAA)&usernamecolor=cyan&anonymousfollows=true</span></p>
@@ -101,11 +95,11 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
 
       <!---------------------------------------------->
       <div class="customization-text-container">
-        <div class="black-text-box-3">
+        <div class="extension-title-text-box-3">
           <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Background Color</span></p>
           <p>Changes the background color of the background box. Supports hex codes and gradients.</p>
         </div>
-        <div class="black-text-box-4">
+        <div class="extension-title-text-box-4">
           <p><span style="font-weight: bold; color: #ffd95e;">color=pink</span></p>
           <p><br></p>
           <p><span style="font-weight: bold; color: #ffd95e;">color=b81a56</span></p>
@@ -115,11 +109,11 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
       </div>
       <!---------------------------------------------->
       <div class="customization-text-container">
-        <div class="black-text-box-3">
+        <div class="extension-title-text-box-3">
           <p><span class="iconify title-icon" data-icon="mdi:format-font"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font</span></p>
           <p>Changes the font used for the text. Supports standard fonts. Use a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">+</span> character to replace spaces.</p>
         </div>
-        <div class="black-text-box-4">
+        <div class="extension-title-text-box-4">
           <p><span style="font-weight: bold; color: #ffd95e;">font=Arial</span></p>
           <p><br></p>
           <p><span style="font-weight: bold; color: #ffd95e;">font=Comic+Sans+MS</span></p>
@@ -127,11 +121,11 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
       </div>
       <!---------------------------------------------->
       <div class="customization-text-container">
-        <div class="black-text-box-3">
+        <div class="extension-title-text-box-3">
           <p><span class="iconify title-icon" data-icon="mdi:account"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Username Color</span></p>
           <p>Changes the color of the username displayed in the event. The event icon right of the box will also have this color.</p>
         </div>
-        <div class="black-text-box-4">
+        <div class="extension-title-text-box-4">
           <p><span style="font-weight: bold; color: #ffd95e;">usernamecolor=pink</span></p>
           <p><br></p>
           <p><span style="font-weight: bold; color: #ffd95e;">usernamecolor=b81a56</span></p>
@@ -139,11 +133,11 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
       </div>
       <!---------------------------------------------->
       <div class="customization-text-container">
-        <div class="black-text-box-3">
+        <div class="extension-title-text-box-3">
           <p><span class="iconify title-icon" data-icon="mdi:format-color-text"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Event Color</span></p>
           <p>Changes the color of the event description text.</p>
         </div>
-        <div class="black-text-box-4">
+        <div class="extension-title-text-box-4">
           <p><span style="font-weight: bold; color: #ffd95e;">eventcolor=pink</span></p>
           <p><br></p>
           <p><span style="font-weight: bold; color: #ffd95e;">eventcolor=b81a56</span></p>
@@ -151,31 +145,31 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
       </div>
       <!---------------------------------------------->
       <div class="customization-text-container">
-        <div class="black-text-box-3">
+        <div class="extension-title-text-box-3">
           <p><span class="iconify title-icon" data-icon="material-symbols:alarm"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Duration</span></p>
           <p>Changes the duration until the alert disappears. Number in milliseconds. The default is <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">7000</span>.</p>
         </div>
-        <div class="black-text-box-4">
+        <div class="extension-title-text-box-4">
           <p><span style="font-weight: bold; color: #ffd95e;">duration=10000</span></p>
         </div>
       </div>
       <!---------------------------------------------->
       <div class="customization-text-container">
-        <div class="black-text-box-3">
+        <div class="extension-title-text-box-3">
           <p><span class="iconify title-icon" data-icon="mdi:account-circle-outline"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Anonymous Follows</span></p>
           <p>Replaces the username and avatar with placeholders for follow events so the follower can remain anonymous.</p>
         </div>
-        <div class="black-text-box-4">
+        <div class="extension-title-text-box-4">
           <p><span style="font-weight: bold; color: #ffd95e;">anonymousfollows=true</span></p>
         </div>
       </div>
       <!---------------------------------------------->
       <div class="customization-text-container">
-        <div class="black-text-box-3">
+        <div class="extension-title-text-box-3">
           <p><span class="iconify title-icon" data-icon="material-symbols:volume-up-rounded"></span><span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Sound</span></p>
           <p>Toggles whether a tiny sound effect is played when the overlay displays.</p>
         </div>
-        <div class="black-text-box-4">
+        <div class="extension-title-text-box-4">
           <p><span style="font-weight: bold; color: #ffd95e;">sound=true</span></p>
         </div>
       </div>
