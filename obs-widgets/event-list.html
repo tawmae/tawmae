@@ -6,17 +6,14 @@ description: "An OBS widget to display your four most recent Twitch events."
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
 <!----    TITLE    ------------------------------------------------------------------------------------------------------------------------------>
 <div class="extension-title">
-    <div class="black-text-box">
+    <div class="extension-title-text-box">
         <h1>EVENT LIST</h1>
         <p>The year is 2025, people are rebelling against 3rd party services that require you to beg for their servers
             being up while you are livestreaming... and this is where the EVENT LIST comes in! Your most recent Twitch
             and Kofi events, all within Streamer.bot – and locally if you want. <br><span
                 style="font-size: 2rem">SNIFFA</span></p>
     </div>
-    <a href="{{ site.baseurl }}/assets/covers/event-list.gif" target="_blank">
-        <div class="extension-image" style="background-image: url('{{ site.baseurl }}/assets/covers/event-list.gif');">
-        </div>
-    </a>
+    <img src="{{ site.baseurl }}/assets/covers/event-list.gif" class="extension-image">
 </div>
 
 <div class="accordion">
@@ -49,7 +46,7 @@ description: "An OBS widget to display your four most recent Twitch events."
         <div class="accordion-content" id="setup">
             <!---------------------------------------------->
             <div class="description-container">
-                <div class="black-text-box-2">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">1.</span> In <span
                             style="font-weight: bold; color: #ffd95e;">Streamer.bot</span>, go into the <span
                             style="font-weight: bold; color: #ffd95e;">Servers/Clients -> WebSocket Server</span> tab.
@@ -62,22 +59,15 @@ description: "An OBS widget to display your four most recent Twitch events."
                             Requests</span> unchecked. Start the server.
                     </p>
                 </div>
-                <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png');">
-                    </div>
-                </a>
+                <img src="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" class="extension-image">
             </div>
 
             <!---------------------------------------------->
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
-                </a>
-                <div class="black-text-box-2">
+                <img src="{{ site.baseurl }}/assets/setup/copy-string.png" class="extension-image">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">2.</span> Copy the <span
                             style="font-weight: bold; color: #ffd95e;">Browser Source URL</span> from above into your
                         clipboard.</p>
@@ -88,7 +78,7 @@ description: "An OBS widget to display your four most recent Twitch events."
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <div class="black-text-box-2">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">3.</span> In <span
                             style="font-weight: bold; color: #ffd95e;">OBS</span>, create a new <span
                             style="font-weight: bold; color: #ffd95e;">Browser Source</span>, name it whatever you want.
@@ -99,10 +89,7 @@ description: "An OBS widget to display your four most recent Twitch events."
                             style="font-size: 1.8rem">Pog Clap</span>
                     </p>
                 </div>
-                <a href="{{ site.baseurl }}/assets/setup/obs-browser-source.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/obs-browser-source.png');"></div>
-                </a>
+                <img src="{{ site.baseurl }}/assets/setup/obs-browser-source.png" class="extension-image">
             </div>
             <!---------------------------------------------->
         </div>
@@ -117,7 +104,7 @@ description: "An OBS widget to display your four most recent Twitch events."
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
         <div class="accordion-content" id="customization">
-            <div class="black-text-box-5">
+            <div class="extension-title-text-box-long">
             <p>You can add <span style="font-weight: bold; color: #ffd95e;">URL Parameters</span> at the end of the URL
                 to customize certain things. The first parameter is getting added with a <span
                     style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">?</span>, every
@@ -132,12 +119,12 @@ description: "An OBS widget to display your four most recent Twitch events."
 <div class="accordion-divider"></div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Background Color</span></p>
                     <p>Changes the background color of the individual event bars. Supports hex codes and gradients.</p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">color=white</span></p>
                     <p><br></p>
                     <p><span style="font-weight: bold; color: #ffd95e;">color=#fff</span></p>
@@ -145,12 +132,12 @@ description: "An OBS widget to display your four most recent Twitch events."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Username Color</span></p>
                     <p>Changes the background color of the username. Supports hex codes and gradients.</p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">usernameColor=white</span></p>
                     <p><br></p>
                     <p><span style="font-weight: bold; color: #ffd95e;">usernameColor=#fff</span></p>
@@ -158,12 +145,12 @@ description: "An OBS widget to display your four most recent Twitch events."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="ion:color-palette"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Event Text Color</span></p>
                     <p>Changes the background color of the event text. Supports hex codes and gradients.</p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">eventColor=white</span></p>
                     <p><br></p>
                     <p><span style="font-weight: bold; color: #ffd95e;">eventColor=#fff</span></p>
@@ -171,14 +158,14 @@ description: "An OBS widget to display your four most recent Twitch events."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="mdi:format-font"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font</span></p>
                     <p>Changes the font used for the text. Supports standard fonts. Use a <span
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">+</span>
                         character to replace spaces.</p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">font=Arial</span></p>
                     <p><br></p>
                     <p><span style="font-weight: bold; color: #ffd95e;">font=Comic+Sans+MS</span></p>
@@ -186,33 +173,33 @@ description: "An OBS widget to display your four most recent Twitch events."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="material-symbols:format-size"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Username Font Size</span></p>
                     <p>Changes the font size of the username. The default size is set
                         to <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">32</span>
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">usernameSize=20</span></p>
                 </div>
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="material-symbols:format-size"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Event Text Font Size</span></p>
                     <p>Changes the font size of the event text. The default size is set
                         to <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">26</span>
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">eventSize=20</span></p>
                 </div>
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="mdi:view-column"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Width</span></p>
                     <p>Changes the width of the event container. The default width is set
@@ -220,30 +207,30 @@ description: "An OBS widget to display your four most recent Twitch events."
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">700px</span>
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">width=1000px</span></p>
                 </div>
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="mdi:account-circle-outline"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Anonymous Follows</span></p>
                     <p>Replaces the username and avatar with placeholders for follow events to allow followers to remain
                         anonymous.</p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">anonymousFollows=true</span></p>
                 </div>
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p><span class="iconify title-icon" data-icon="mdi:fire"></span><span
                             style="font-size: 1.1rem; color: #fff; font-weight: bold;">Watchstreaks</span></p>
                     <p>Disables watchstreaks from showing in the event list.</p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #ffd95e;">watchstreaks=false</span></p>
                 </div>
             </div>
