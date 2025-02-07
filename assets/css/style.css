@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
-  background: url("/assets/page-design/background-3.png") no-repeat center center fixed;
+  background: url("/assets/page-design/background-3.webp") no-repeat center center fixed;
   background-size: cover;
   color: white;
   text-align: center;
