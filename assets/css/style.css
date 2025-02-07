@@ -548,6 +548,10 @@ background: rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 768px) {
+  body {
+  margin-top: 0px;
+  }
+  
   .header-center,
   .header-right {
     display: none;
@@ -668,6 +672,11 @@ background: rgba(255, 255, 255, 0.05);
     gap: 0;
     margin: 0;
   }
+
+   main {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -711,4 +720,6 @@ background: rgba(255, 255, 255, 0.05);
   .elfsight-widget {
     max-width: 100%;
   }
+
+  
 }
