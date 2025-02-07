@@ -17,7 +17,6 @@ body {
 }
 
 body {
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
@@ -31,7 +30,7 @@ body {
 
 main {
   flex: 1;
-  padding-top: 100px;
+  padding-top: 80px;
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
