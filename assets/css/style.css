@@ -165,6 +165,7 @@ header {
   font-size: 1.2rem;
   vertical-align: middle;
   white-space: nowrap;
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -390,7 +391,7 @@ header {
 
 .nav-icon {
   vertical-align: middle;
-  filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.8));
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
 }
 
 .nav-icon-child {
