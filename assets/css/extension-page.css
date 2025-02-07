@@ -30,7 +30,7 @@ body {
   margin-bottom: 50px;
 }
 
-.black-text-box {
+.extension-title-text-box {
   min-width: 300px;
   background: var(--bg-glass);
   border-radius: 12px;
