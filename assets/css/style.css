@@ -654,6 +654,10 @@ background: rgba(255, 255, 255, 0.05);
     width: 100%;
     max-width: 600px;
   }
+  .rotator-container {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
