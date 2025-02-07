@@ -260,8 +260,7 @@ p {
   flex-wrap: wrap;
 }
 
-.black-text-box-3,
-.black-text-box-4 {
+.extension-title-text-box-long {
   flex: 1;
   background: var(--bg-glass);
   color: #fff;
@@ -436,7 +435,7 @@ background: rgba(255, 255, 255, 0.05);
     gap: 20px;
   }
   .black-text-box-2 {
-    width: 90%;
+    width: 100%;
     margin: 0 auto 20px;
     max-width: 100%;
   }
@@ -454,11 +453,10 @@ background: rgba(255, 255, 255, 0.05);
     gap: 20px;
     margin-bottom: 40px;
   }
-  .black-text-box-3,
-  .black-text-box-4,
+  .extension-title-text-box-long,
   .black-text-box-5,
   .black-text-box-6 {
-    width: 90%;
+    width: 100%;
     max-width: 100%;
   }
   .settings-ui-image {
