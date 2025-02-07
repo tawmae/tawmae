@@ -382,20 +382,18 @@ header {
 
 .product-card-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 Spalten */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
 }
 
+/* Karten gleich hoch halten */
 .product-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-align: center;
-    width: 100%;
-    max-width: 300px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
@@ -403,13 +401,16 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
 }
 
+/* Hover-Effekt */
 .product-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+/* Bildgröße fixieren */
 .product-card img {
     width: 100%;
     height: auto;
@@ -418,27 +419,34 @@ header {
     object-fit: cover;
 }
 
+/* Textbereich soll sich gleichmäßig strecken */
 .product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Gleiche Höhe durch Ausdehnen */
+    flex-grow: 1;
     padding: 15px;
-    width: 100%;
     background: var(--glass-bg);
     border-top: 1px solid var(--glass-border);
     border-radius: 0 0 12px 12px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
+/* Kein Unterstrich auf Links */
+.product-card-link {
+    text-decoration: none;
+}
+
+/* Überschriften & Texte */
 .product-info h3 {
     font-size: 1.2rem;
     color: white;
+    margin-bottom: 8px;
 }
 
 .product-info p {
     font-size: 1rem;
     color: #ccc;
-    margin-top: 5px;
+    margin: 0; /* Entfernt Extra-Abstände */
 }
 
 @media (max-width: 1024px) {
