@@ -57,6 +57,7 @@ body {
   overflow-wrap: break-word;
   align-self: center;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .extension-image {
