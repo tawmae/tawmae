@@ -208,7 +208,7 @@ header {
   transition: transform 0.3s ease;
 }
 .carousel-1:hover .slick-list {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 .carousel-slide {
   display: flex !important;
@@ -547,6 +547,7 @@ header {
     color: black;
     padding: 10px;
     display: block;
+    font-weight: bold;
   }
 
   .mobile-menu .dropdown .dropdown-menu {
