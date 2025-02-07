@@ -6,16 +6,13 @@ description: "A vertical Twitch chat overlay for OBS."
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/extension-page.css">
 <!----    TITLE    ------------------------------------------------------------------------------------------------------------------------------>
 <div class="extension-title">
-    <div class="black-text-box">
+    <div class="extension-title-text-box">
         <h1>VERTICAL CHAT</h1>
         <p>BRING Clap BACK Clap VERTICAL Clap CHATS! <br><br> This is a very simple but also customizable vertical chat
             overlay you can throw into your OBS. And you can run it all locally (if you wanted to)... <br><span
                 style="font-size: 2rem">griffinTyping</span></p>
     </div>
-    <a href="{{ site.baseurl }}/assets/covers/vertical-chat.gif" target="_blank">
-        <div class="extension-image"
-            style="background-image: url('{{ site.baseurl }}/assets/covers/vertical-chat.gif');"></div>
-    </a>
+    <img src="{{ site.baseurl }}/assets/covers/vertical-chat.gif" class="extension-image">
 </div>
 
 <div class="accordion">
@@ -49,7 +46,7 @@ description: "A vertical Twitch chat overlay for OBS."
         <div class="accordion-content" id="setup">
             <!---------------------------------------------->
             <div class="description-container">
-                <div class="black-text-box-2">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">1.</span> In <span
                             style="font-weight: bold; color: #ffd95e;">Streamer.bot</span>, go into the <span
                             style="font-weight: bold; color: #ffd95e;">Servers/Clients -> WebSocket Server</span> tab.
@@ -62,22 +59,15 @@ description: "A vertical Twitch chat overlay for OBS."
                             Requests</span> unchecked. Start the server.
                     </p>
                 </div>
-                <a href="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png');">
-                    </div>
-                </a>
+                <img src="{{ site.baseurl }}/assets/setup/streamerbot-websocket-server.png" class="extension-image">
             </div>
 
             <!---------------------------------------------->
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <a href="{{ site.baseurl }}/assets/setup/copy-string.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/copy-string.png');"></div>
-                </a>
-                <div class="black-text-box-2">
+                <img src="{{ site.baseurl }}/assets/setup/copy-string.png" class="extension-image">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">2.</span> Copy the <span
                             style="font-weight: bold; color: #ffd95e;">Browser Source URL</span> from above into your
                         clipboard.</p>
@@ -88,7 +78,7 @@ description: "A vertical Twitch chat overlay for OBS."
             <div class="section-divider"></div>
 <!--------------------------------------------->
             <div class="description-container">
-                <div class="black-text-box-2">
+                <div class="extension-title-text-box">
                     <p><span style="font-weight: bold; color: #fff;">3.</span> In <span
                             style="font-weight: bold; color: #ffd95e;">OBS</span>, create a new <span
                             style="font-weight: bold; color: #ffd95e;">Browser Source</span>, name it whatever you want.
@@ -99,10 +89,7 @@ description: "A vertical Twitch chat overlay for OBS."
                             style="font-size: 1.8rem">Pog Clap</span>
                     </p>
                 </div>
-                <a href="{{ site.baseurl }}/assets/setup/obs-browser-source.png" target="_blank">
-                    <div class="extension-image-2"
-                        style="background-image: url('{{ site.baseurl }}/assets/setup/obs-browser-source.png');"></div>
-                </a>
+                <img src="{{ site.baseurl }}/assets/setup/obs-browser-source.png" class="extension-image">
             </div>
             <!---------------------------------------------->
         </div>
@@ -118,7 +105,7 @@ description: "A vertical Twitch chat overlay for OBS."
         </div>
         <div class="accordion-content" id="customization">
             <!---------------------------------------------->
-           <div class="black-text-box-5">
+           <div class="extension-title-text-box-long">
                  <p>If you want to customize the chat widget, you can use the URL builder below.</p>
                 
                     <br><br>
@@ -143,7 +130,7 @@ description: "A vertical Twitch chat overlay for OBS."
             <div class="accordion-divider"></div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="bx:hide"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Hide Messages After X
@@ -155,7 +142,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         seconds.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">hideAfter=60</span>
                     </p>
@@ -163,7 +150,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="material-symbols:alarm-off"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Timestamp</span>
@@ -173,7 +160,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">false</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">showTimestamp=true</span>
                     </p>
@@ -181,7 +168,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="ic:twotone-transgender"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Pronouns</span>
@@ -191,7 +178,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">true</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">showPronouns=false</span>
                     </p>
@@ -199,7 +186,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="tdesign:user-avatar-filled"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Avatars</span>
@@ -209,7 +196,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">true</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">showAvatars=false</span>
                     </p>
@@ -217,7 +204,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="ri:vip-fill"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Badges</span>
@@ -227,7 +214,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">true</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">hideBadges=false</span>
                     </p>
@@ -235,7 +222,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="hugeicons:advertisement"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Icons</span>
@@ -245,7 +232,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">true</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">hideIcons=false</span>
                     </p>
@@ -253,7 +240,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="material-symbols:notifications-off-sharp"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Exclude Events</span>
@@ -264,7 +251,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">+</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">excludeEvents=sub</span>
                     </p>
@@ -276,7 +263,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="material-symbols:person-cancel"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Exclude Accounts</span>
@@ -287,7 +274,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">+</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">excludeAccounts=tawmaebot</span>
                     </p>
@@ -299,7 +286,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="tabler:exclamation-mark-off"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Exclude Commands</span>
@@ -310,7 +297,7 @@ description: "A vertical Twitch chat overlay for OBS."
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">!command</span>).
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">excludeCommands=true</span>
                     </p>
@@ -318,7 +305,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon"
                             data-icon="material-symbols:background-grid-small-sharp"></span>
@@ -328,7 +315,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         Toggles the background.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">background=true</span>
                     </p>
@@ -336,7 +323,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="mdi:circle-opacity"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Background Opacity</span>
@@ -345,7 +332,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         Changes the opacity of the background.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">backgroundOpacity=69</span>
                     </p>
@@ -353,7 +340,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="ion:color-palette"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Background Color</span>
@@ -366,7 +353,7 @@ description: "A vertical Twitch chat overlay for OBS."
                             style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">%23</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">backgroundColor=pink</span>
                     </p>
@@ -377,7 +364,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="material-symbols:style-sharp"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Background Style</span>
@@ -390,7 +377,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         and colors apply to them.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">backgroundStyle=cards</span>
                     </p>
@@ -401,7 +388,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="mdi:format-font"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font</span>
@@ -412,7 +399,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">+</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">font=Arial</span>
                     </p>
@@ -423,7 +410,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="material-symbols:format-size"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Font Size</span>
@@ -432,7 +419,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         Changes the font size and also scales all other elements according to it.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">fontsize=10px</span>
                     </p>
@@ -443,7 +430,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="tabler:inner-shadow-right"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Dropshadow</span>
@@ -453,7 +440,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">true</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">dropshadow=false</span>
                     </p>
@@ -461,7 +448,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon"
                             data-icon="material-symbols-light:ev-shadow-add-rounded"></span>
@@ -471,7 +458,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         If the dropshadow has not been disabled, you can make it even bigger to give more contrast.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">bigDropshadow=true</span>
                     </p>
@@ -479,7 +466,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="material-symbols:send-money"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Minimum Reward Cost</span>
@@ -489,7 +476,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         high-frequency rewards.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">minRewardCost=250</span>
                     </p>
@@ -497,7 +484,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="ri:expand-left-right-line"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Entry Direction</span>
@@ -507,7 +494,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">right</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">enter=left</span>
                     </p>
@@ -515,7 +502,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="hugeicons:text-vertical-alignment"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Text alignment</span>
@@ -525,7 +512,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.4;">right</span>.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">justify=left</span>
                     </p>
@@ -533,7 +520,7 @@ description: "A vertical Twitch chat overlay for OBS."
             </div>
             <!---------------------------------------------->
             <div class="customization-text-container">
-                <div class="black-text-box-3">
+                <div class="extension-title-text-box">
                     <p>
                         <span class="iconify title-icon" data-icon="mdi:format-letter-case"></span>
                         <span style="font-size: 1.1rem; color: #fff; font-weight: bold;">Force Casing</span>
@@ -542,7 +529,7 @@ description: "A vertical Twitch chat overlay for OBS."
                         force upper- or lower-casing.
                     </p>
                 </div>
-                <div class="black-text-box-4">
+                <div class="extension-title-text-box">
                     <p>
                         <span style="font-weight: bold; color: #ffd95e;">forceUppercase=true</span>
                     </p>
