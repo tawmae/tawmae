@@ -34,21 +34,18 @@ body {
 }
 
 .black-text-box {
-  flex: 1 1 auto;
   min-width: 300px;
   background: var(--bg-glass);
   border-radius: 12px;
-  padding: 30px 40px;
+  padding: 30px;
   text-align: left;
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
-  box-sizing: border-box;
 }
 
 .extension-image {
-  flex: 1 1 auto;
   width: 800px;
   height: auto;
   border: 1px solid var(--border-glass);
