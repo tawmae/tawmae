@@ -348,15 +348,16 @@ p {
   transform: scale(1.03);
 }
 
-.natural-text-box{
-background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 24px;
-  color: white;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box; margin-bottom: 10px
+
+
+.ws-iframe {
+    width: 100%;
+    max-width: 400px; 
+    height: 200px;
+    border: none;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto; 
 }
 
 @media (max-width: 768px) {
@@ -415,6 +416,11 @@ background: rgba(255, 255, 255, 0.05);
     height: auto;
     order: 2;
   }
+
+  .ws-iframe {
+        max-width: 100%; 
+        margin-left: 0; 
+    }
 }
 
 @media (max-width: 480px) {
