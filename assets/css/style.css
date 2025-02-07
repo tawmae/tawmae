@@ -250,14 +250,17 @@ header {
 /* Zentrierte und gestylte Dots */
 .slick-dots {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px; /* Abstand nach unten */
   left: 50%;
   transform: translateX(-50%);
   display: flex !important;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%; /* Sorgt dafür, dass sie sich exakt am Carousel ausrichten */
   z-index: 10;
 }
 
@@ -269,6 +272,9 @@ header {
   border-radius: 50%;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Aktiver Dot */
@@ -280,6 +286,7 @@ header {
 .slick-dots li button {
   display: none; /* Standard-Slick-Button verstecken */
 }
+
 
 
 
