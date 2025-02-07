@@ -357,12 +357,14 @@ background: rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 768px) {
-  .extension-title {
+  .extension-title,
+  .settings-ui-container {
     flex-direction: column;
     gap: 20px;
     text-align: center;
   }
-  .extension-title .extension-title-text-box {
+  .extension-title .extension-title-text-box,
+  .settings-ui-container .extension-title-text-box{
     order: 1;
     max-width: 100%;
   }
@@ -374,8 +376,7 @@ background: rgba(255, 255, 255, 0.05);
   .accordion,
   .copy-box,
   .description-container,
-  .customization-text-container,
-  .settings-ui-container {
+  .customization-text-container {
     width: 100%;
     margin: 0 auto;
     padding: 0 10px;
@@ -408,6 +409,7 @@ background: rgba(255, 255, 255, 0.05);
     width: 100%;
     max-width: 100%;
     height: auto;
+    order: 2;
   }
 }
 
