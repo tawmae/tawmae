@@ -202,8 +202,8 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 1200px; /* Maximale Breite des Carousels auf die Bildgröße anpassen */
-  margin: 0 auto; /* Zentrieren */
+  max-width: 1200px; 
+  margin: 0 auto; 
   padding: 30px 0;
 }
 
@@ -214,9 +214,9 @@ header {
 }
 
 .carousel-1 img {
-  width: 100%; /* Skaliert das Bild dynamisch */
+  width: 100%; 
   height: auto;
-  max-width: 1200px; /* Beschränkt die maximale Breite auf die Originalgröße */
+  max-width: 1200px; 
 }
 
 .slick-prev,
@@ -227,14 +227,14 @@ header {
 }
 
 .slick-prev {
-  left: -50px; /* Abstand der Pfeile zum Carousel */
+  left: -50px; 
 }
 
 .slick-next {
   right: -50px;
 }
 
-/* Pfeile anpassen */
+
 .slick-prev::before,
 .slick-next::before {
   font-size: 24px;
@@ -247,10 +247,10 @@ header {
   opacity: 1;
 }
 
-/* Zentrierte und gestylte Dots */
+
 .slick-dots {
   position: absolute;
-  bottom: 15px; /* Abstand nach unten */
+  bottom: 10px; 
   left: 50%;
   transform: translateX(-50%);
   display: flex !important;
@@ -260,11 +260,10 @@ header {
   list-style: none;
   padding: 0;
   margin: 0;
-  width: 100%; /* Sorgt dafür, dass sie sich exakt am Carousel ausrichten */
+  width: 100%; 
   z-index: 10;
 }
 
-/* Einzelne Dots */
 .slick-dots li {
   width: 8px;
   height: 8px;
@@ -277,14 +276,12 @@ header {
   align-items: center;
 }
 
-/* Aktiver Dot */
 .slick-dots li.slick-active {
   background: white;
 }
 
-/* Entfernt die Standard-Slick-Styles */
 .slick-dots li button {
-  display: none; /* Standard-Slick-Button verstecken */
+  display: none; 
 }
 
 
@@ -450,19 +447,6 @@ header {
   border-top: 1px solid var(--glass-border);
   margin: 50px auto;
   width: 80%;
-}
-
-.status-tooltip {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 12px;
-  white-space: nowrap;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  display: none;
-  z-index: 1000;
 }
 
 .link-preview {
