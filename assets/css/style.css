@@ -213,9 +213,8 @@ header {
 
 .rotator-container {
   position: relative;
-  flex: 1 1 500px;
-  min-width: 500px;
-  height: 250px;
+  width: 100%;         /* Container füllt die Breite */
+  aspect-ratio: 6 / 1;  /* Behält das Verhältnis 6:1 bei */
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
