@@ -264,22 +264,6 @@ p {
   flex-wrap: wrap;
 }
 
-
-
-
-.black-text-box-bsky {
-  flex: 1;
-  background: var(--bg-glass);
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid var(--border-glass);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  min-width: 300px;
-  height: 300px;
-}
-
 .extension-table {
   width: 100%;
   border-collapse: collapse;
@@ -419,7 +403,8 @@ p {
 
   .ws-iframe {
         max-width: 100%; 
-        margin-left: 0; 
+        margin-left: 0;
+        overflow: visible;
     }
 }
 
