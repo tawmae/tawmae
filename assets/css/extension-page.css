@@ -22,7 +22,7 @@ body {
 .extension-title {
   margin-top: 30px;
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: center;
   gap: 30px;
   max-width: var(--container-width);
@@ -39,7 +39,8 @@ body {
   border: 1px solid var(--border-glass);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  flex-grow: 1;
+  flex: 1;
+  max-width: 40%;
 }
 
 .extension-image {
@@ -47,7 +48,8 @@ body {
   height: auto;
   border: 1px solid var(--border-glass);
   transition: transform var(--transition-time) ease-in-out;
-  flex-grow: 3;
+  flex: 1;
+  max-width: 60%;
 }
 
 .extension-image:hover {
