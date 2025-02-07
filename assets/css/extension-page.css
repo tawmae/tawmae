@@ -449,6 +449,7 @@ background: rgba(255, 255, 255, 0.05);
   .extension-image {
     flex: 0 1 auto;
     width: 100%;
+    max-width: 100%;
     height: auto;
     aspect-ratio: auto;
     margin: 0 auto;
@@ -479,9 +480,10 @@ background: rgba(255, 255, 255, 0.05);
   }
   .extension-image-2 {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     padding: 10px;
     margin: 0 auto;
-    height: auto;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -501,6 +503,8 @@ background: rgba(255, 255, 255, 0.05);
   }
   .settings-ui-image {
     width: 100%;
+    max-width: 100%;
+    height: auto;
     padding: 20px;
   }
 }
