@@ -356,13 +356,12 @@ p {
 }
 
 .settings-ui-image {
-  max-width: 600px;
+  width: 600px;
   height: auto;
   border: 1px solid var(--border-glass);
-  flex-shrink: 0;
   transition: transform var(--transition-time) ease-in-out;
-  transform-origin: center center;
-  margin: 0 auto;
+  flex: 1;
+  max-width: 60%;
 }
 
 .settings-ui-image:hover {
@@ -466,7 +465,6 @@ background: rgba(255, 255, 255, 0.05);
     width: 100%;
     max-width: 100%;
     height: auto;
-    padding: 20px;
   }
 }
 
