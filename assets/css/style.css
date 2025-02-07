@@ -201,10 +201,52 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: var(--container-width);
-  padding: 30px;
   width: 100%;
+  max-width: 1200px; /* Maximale Breite des Carousels auf die Bildgröße anpassen */
+  margin: 0 auto; /* Zentrieren */
+  padding: 30px 0;
 }
+
+.carousel-1 .slick-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-1 img {
+  width: 100%; /* Skaliert das Bild dynamisch */
+  height: auto;
+  max-width: 1200px; /* Beschränkt die maximale Breite auf die Originalgröße */
+}
+
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+}
+
+.slick-prev {
+  left: -50px; /* Abstand der Pfeile zum Carousel */
+}
+
+.slick-next {
+  right: -50px;
+}
+
+/* Pfeile anpassen */
+.slick-prev::before,
+.slick-next::before {
+  font-size: 24px;
+  color: white;
+  opacity: 0.75;
+}
+
+.slick-prev:hover::before,
+.slick-next:hover::before {
+  opacity: 1;
+}
+
 
 .rotator-wrapper {
   margin-top: 40px;
