@@ -385,7 +385,7 @@ header {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     width: 100%;
-    max-width: 1400px;
+    max-width: var(--container-width);
     margin: 0 auto;
 }
 
@@ -443,7 +443,7 @@ header {
 
 @media (max-width: 1024px) {
     .product-card-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 Spalten */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
@@ -562,7 +562,7 @@ header {
   filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0));
 }
   .product-card-container {
-        grid-template-columns: 1fr; /* 1 Spalte */
+        grid-template-columns: 1fr;
     }
 
 }
