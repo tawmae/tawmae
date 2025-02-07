@@ -110,12 +110,12 @@ document.addEventListener("DOMContentLoaded", function () {
 $(document).ready(function(){
   $('.carousel-1').slick({
     autoplay: true,
-    autoplaySpeed: 3000,
-    fade: false,
-    speed: 1000,
+    autoplaySpeed: 8000,
+    fade: true,
+    speed: 1500,
     arrows: true,
     dots: true,
-    infinite: false,
+    infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     cssEase: 'linear',
