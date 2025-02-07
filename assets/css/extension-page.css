@@ -434,6 +434,7 @@ background: rgba(255, 255, 255, 0.05);
     max-width: 100%;
   }
   .extension-image {
+    max-width: 100%;
     width: 100%;
     order: 2;
   }
