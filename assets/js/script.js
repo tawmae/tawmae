@@ -127,7 +127,7 @@ $(document).ready(function(){
 
 document.addEventListener("DOMContentLoaded", function() {
     tippy('.discord-link', {
-        content: 'Join my Discord server',
+        content: 'Need help with something?',
         placement: 'bottom',
         animation: 'scale-subtle',
         theme: 'light-border',
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     tippy('.bluesky-link', {
-        content: 'Follow me on Bluesky',
+        content: 'Follow me on Bluesky (or not)',
         placement: 'bottom',
         animation: 'scale-subtle',
         theme: 'light-border',
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
         delay: [100, 50], 
     });
 
-    tippy('.kofi-link', {
+    tippy('.kofi-button', {
         content: 'Buy me an Iced Pumpkin Spice Latte',
         placement: 'bottom',
         animation: 'scale-subtle',
