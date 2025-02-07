@@ -202,6 +202,11 @@ header {
   margin: 0 auto;
   padding: 30px 15px;
   margin-top: 20px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-1:hover {
+  transform: scale(1.03);
 }
 .carousel-slide {
   display: flex !important;
