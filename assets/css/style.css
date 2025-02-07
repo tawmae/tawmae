@@ -547,7 +547,16 @@ header {
   align-items: center;
 }
 
-
+.natural-text-box{
+background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box; margin-bottom: 10px
+}
 
 
 @media (max-width: 950px) {
