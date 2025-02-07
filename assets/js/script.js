@@ -23,7 +23,7 @@ const wordToEmojiMap = {
     "happie": "/assets/emotes/happie.webp",
     "CLASSIC": "/assets/emotes/classic.webp",
     "helloThere": "/assets/emotes/hellothere.webp",
-    "streamer_BOT": "/assets/emotes/streamerbot.png",
+    "streamer_BOT": "/assets/emotes/streamerbot.webp",
     "LUL": "/assets/emotes/lul.webp",
     "catBirthday": "/assets/emotes/cat-birthday.webp",
     "rightThere": "/assets/emotes/right-there.webp",
@@ -111,7 +111,7 @@ function handleImageHover(event, isRotator = false) {
     const originalSrc = image.src;
 
     image.dataset.originalSrc = originalSrc;
-    image.src = originalSrc.replace('.png', '_2.png');
+    image.src = originalSrc.replace('.webp', '_2.webp');
 
     image.classList.add('fade-in');
 
