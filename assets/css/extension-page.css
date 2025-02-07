@@ -429,25 +429,16 @@ background: rgba(255, 255, 255, 0.05);
     gap: 20px;
     text-align: center;
   }
-  .extension-title .black-text-box {
+  .extension-title .extension-title-text-box {
     order: 1;
-    width: 90%;
-    max-width: 100%;
+    max-width: 90%;
   }
   .extension-title a {
     order: 2;
   }
   .extension-image {
-    flex: 0 1 auto;
     width: 100%;
-    max-width: 100%;
     height: auto;
-    aspect-ratio: auto;
-    margin: 0 auto;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: none;
   }
   .accordion,
   .copy-box,
