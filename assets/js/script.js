@@ -252,14 +252,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 $(document).ready(function(){
   $('.carousel-1').slick({
-    autoplay: true,        // Automatisches Wechseln der Bilder
-    autoplaySpeed: 8000,   // 3 Sekunden pro Bild
-    fade: true,            // Sanfter Überblendeffekt
-    speed: 1000,           // Geschwindigkeit des Übergangs
-    arrows: false,         // Keine Pfeile
-    dots: true,            // Navigationspunkte unten anzeigen
-    infinite: true,        // Endlos-Schleife aktivieren
-    cssEase: 'linear'      // Verhindert ruckelnde Animationen
+    autoplay: true,        
+    autoplaySpeed: 8000,   
+    fade: true,            
+    speed: 1000,           
+    arrows: false,         
+    dots: true,            
+    infinite: true,        
+    cssEase: 'linear',
+    arrows: true,
+    dots: false,
+    focusOnSelect: true
   });
 });
 
