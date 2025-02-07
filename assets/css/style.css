@@ -653,6 +653,35 @@ header {
   .home-title-image img {
     max-width: 100%;
   }
+  .commissions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .commissions-text-box {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .elfsight-widget {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -684,6 +713,21 @@ header {
   .black-text-box,
   .white-text-box {
     min-width: 100%;
+    max-width: 100%;
+  }
+  .commissions-container {
+    padding: 10px;
+  }
+
+  .commissions-text-box {
+    padding: 15px;
+  }
+
+  .commission-image img {
+    max-width: 100%;
+  }
+
+  .elfsight-widget {
     max-width: 100%;
   }
 }
