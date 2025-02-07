@@ -231,6 +231,8 @@ header {
   flex: 1;
   padding: 20px;
   background: var(--glass-bg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
   border-left: 1px solid var(--glass-border);
   color: white;
   display: flex;
