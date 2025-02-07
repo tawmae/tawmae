@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // ====================================================================================================================
 
 $(document).ready(function(){
-  $('.your-class').slick({
+  $('.carousel-1').slick({
     setting-name: setting-value
   });
 });
