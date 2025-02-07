@@ -44,6 +44,20 @@ body {
   overflow-wrap: break-word;
 }
 
+.extension-title-text-box-long {
+  min-width: 300px;
+  background: var(--bg-glass);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: left;
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
 .extension-image {
   width: 800px;
   height: auto;
@@ -260,18 +274,6 @@ p {
   flex-wrap: wrap;
 }
 
-.extension-title-text-box-long {
-  flex: 1;
-  background: var(--bg-glass);
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid var(--border-glass);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  min-width: 280px;
-  margin: 0 auto;
-}
 
 .black-text-box-5,
 .black-text-box-6 {
