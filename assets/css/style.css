@@ -197,83 +197,79 @@ header {
 }
 
 .carousel-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 30px 15px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 30px 15px;
+  margin-top: 20px;
 }
 
 .carousel-slide {
-    display: flex !important;
-    align-items: stretch;
-    width: 100%;
-    max-width: var(--container-width);
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex !important;
+  align-items: stretch;
+  width: 100%;
+  max-width: var(--container-width);
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-image {
-    flex: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-image img {
-    width: 100%;
-    height: auto;
-    max-width: 1600px;
-    aspect-ratio: 6 / 1;
-    object-fit: cover;
+  width: 100%;
+  height: auto;
+  max-width: 1600px;
+  aspect-ratio: 6 / 1;
+  object-fit: cover;
+  display: block;
 }
 
 .carousel-text {
-    flex: 1;
-    padding: 20px;
-    background: var(--glass-bg);
-    border-left: 1px solid var(--glass-border);
-    color: white;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+  flex: 1;
+  padding: 20px;
+  background: var(--glass-bg);
+  border-left: 1px solid var(--glass-border);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .carousel-text h3,
 .carousel-text p {
-    margin: 0;
+  margin: 0;
 }
 
 .carousel-text h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: white;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .carousel-text p {
-    font-size: 1rem;
-    color: #ccc;
+  font-size: 1rem;
 }
 
 .slick-list {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 .slick-slide {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 .kofi-button {
