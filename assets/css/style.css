@@ -197,6 +197,15 @@ header {
   display: none;
 }
 
+carousel-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: var(--container-width);
+  padding: 30px;
+  width: 100%;
+}
+
 .rotator-wrapper {
   margin-top: 40px;
   margin-bottom: 20px;
