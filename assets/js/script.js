@@ -126,6 +126,8 @@ $(document).ready(function(){
     // =================================
 $(document).ready(function(){
   $('.carousel-2').slick({
+    autoplay: true,
+    autoplaySpeed: 12000,
     speed: 700,
     arrows: true,
     dots: true,
