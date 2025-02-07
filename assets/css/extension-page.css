@@ -170,7 +170,7 @@ p {
 .copy-box {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 80%;
   max-width: var(--container-width);
   border: 1px solid var(--border-glass);
   border-radius: 8px;
