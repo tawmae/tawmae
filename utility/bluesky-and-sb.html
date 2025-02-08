@@ -274,10 +274,12 @@ description: "A Bluesky integration for Streamer.bot. Create posts, update your 
                     <br><br>
                     <div class="copy-box">
                         <span class="copy-text" id="base64-string"data-copy-text="https://tawmae.xyz/overlays/basic-alerts.html">We are live: '%targetChannelTitle%' || || ... and we're playing %game% today! Hope to see you in chat <3 || || <https://twitch.tv/%targetUserName%> || || #Twitch || #Stream</span>
-                <button class="copy-btn"
+                <div id="browser-source-url-acc">
+                            <button class="copy-btn"
                     onclick="copyURLToClipboard('We are live: \'%targetChannelTitle%\' || || ... and we\'re playing %game% today! Hope to see you in chat <3 || || <https://twitch.tv/%targetUserName%> || || #Twitch || #Stream')">
                     <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
                 </button>
+                </div>
             </div>
                     <br><br>
                     <img src="{{ site.baseurl }}/assets/faq/bluesky-and-sb/bluesky-and-sb-2.webp" class="extension-image">
