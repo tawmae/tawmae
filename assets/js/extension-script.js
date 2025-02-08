@@ -1,4 +1,4 @@
-// ====================================================================================================================
+
 function toggleAccordion(id) {
     const content = document.getElementById(id);
     if (!content) return; // Falls die ID nicht existiert, nichts tun
@@ -34,6 +34,20 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 200); // Kleiner Delay, um sicherzustellen, dass das Element sichtbar ist
     }
 });
+// ====================================================================================================================
+document.addEventListener("DOMContentLoaded", function () {
+    // Check if URL has a hash
+    if (window.location.hash) {
+        let hash = window.location.hash.substring(1); // Entfernt das "#" aus der ID
+        let element = document.getElementById(hash);
+
+        if (element && element.classList.contains("accordion-content")) {
+            // Öffne das entsprechende Akkordeon
+            toggleAccordion(hash);
+        }
+    }
+});
+
 
 
 
