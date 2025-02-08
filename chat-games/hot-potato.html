@@ -42,11 +42,11 @@ description: "A interactive Twitch chat game to pass along a hot potato in chat.
     <div class="accordion-divider"></div>
     <!----    ACTION IMPORT    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('action-import')">
-            <span class="iconify title-icon" data-icon="line-md:download"></span> <span>Action Import</span>
+        <div class="accordion-header" id="action-import" onclick="toggleAccordion('action-import-acc')">
+            <span class="iconify title-icon" data-icon="line-md:download"></span> <span>ACTION IMPORT</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="action-import">
+        <div class="accordion-content" id="action-import-acc">
             <div class="copy-box">
                 <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
                 <button class="copy-btn" onclick="copyToClipboard('import-string')">
@@ -63,11 +63,11 @@ description: "A interactive Twitch chat game to pass along a hot potato in chat.
 
     <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('setup')">
-            <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>Setup</span>
+        <div class="accordion-header" id="setup" onclick="toggleAccordion('setup-acc')">
+            <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>SETUP</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="setup">
+        <div class="accordion-content" id="setup-acc">
             <!---------------------------------------------->
             <div class="description-container">
                 <img src="{{ site.baseurl }}/assets/setup/copy-string.webp" class="extension-image">
@@ -119,12 +119,12 @@ description: "A interactive Twitch chat game to pass along a hot potato in chat.
 
     <!----    COMMANDS    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('commands')">
+        <div class="accordion-header" id="commands" onclick="toggleAccordion('commands-acc')">
             <span class="iconify title-icon" data-icon="line-md:alert-circle"></span>
-            <span>Commands</span>
+            <span>COMMANDS</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="commands">
+        <div class="accordion-content" id="commands-acc">
             <!---------------------------------------------->
 
             <div class="customization-text-container">
@@ -179,12 +179,12 @@ description: "A interactive Twitch chat game to pass along a hot potato in chat.
 
     <!----    SETTINGS   ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('custom-settings')">
+        <div class="accordion-header" id="settings" onclick="toggleAccordion('settings-acc')">
             <span class="iconify title-icon" data-icon="line-md:bell-alert"></span>
-            <span>Settings</span>
+            <span>SETTINGS</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="custom-settings">
+        <div class="accordion-content" id="settings-acc">
             <div class="extension-title-text-box-long">
             <p>You can change the values of the <span style="font-weight: bold; color: #ffd95e;">Set Argument</span> subactions to change some parameters</p>
             </div>
@@ -257,12 +257,12 @@ description: "A interactive Twitch chat game to pass along a hot potato in chat.
     <div class="accordion-divider"></div>
     <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('changelog')">
+        <div class="accordion-header" id="changelog" onclick="toggleAccordion('changelog-acc')">
             <span class="iconify title-icon" data-icon="line-md:rotate-270"></span>
-            <span>Changelog</span>
+            <span>CHANGELOG</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="changelog">
+        <div class="accordion-content" id="changelog-acc">
             <table class="extension-table">
                 <thead>
                     <tr>
