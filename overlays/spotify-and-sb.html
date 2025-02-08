@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SPOTIFY & SB - v.1.0.0 - tawmae.xyz</title>
+    <title>SPOTIFY & SB - v.1.0.1 - tawmae.xyz</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script type="text/javascript" src="https://unpkg.com/@streamerbot/client/dist/streamerbot-client.js"></script>
@@ -99,10 +99,11 @@
         }
 
         #artists {
-            font-weight: 500;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
             white-space: nowrap;
-            text-overflow: ellipsis;
-            max-width: 100%;
+            font-weight: 500;
         }
 
         #trackName {
@@ -181,23 +182,9 @@
         </div>
     </div>
     <script type="text/javascript">
-
-        function measureTextWidth(text, fontSpec) {
-            const canvas = measureTextWidth.canvas || (measureTextWidth.canvas = document.createElement("canvas"));
-            const ctx = canvas.getContext("2d");
-            ctx.font = fontSpec;
-            return ctx.measureText(text).width;
-        }
-        function getFontSpec(el) {
-            const comp = window.getComputedStyle(el);
-            return comp.font || (comp.fontStyle + " " + comp.fontWeight + " " + comp.fontSize + " " + comp.fontFamily);
-        }
-        function getNaturalTextWidth(el) {
-            const fontSpec = getFontSpec(el);
-            return measureTextWidth(el.textContent, fontSpec);
-        }
-
-
+        function measureTextWidth(text, fontSpec) { const canvas = measureTextWidth.canvas || (measureTextWidth.canvas = document.createElement("canvas")); const ctx = canvas.getContext("2d"); ctx.font = fontSpec; return ctx.measureText(text).width; }
+        function getFontSpec(el) { const comp = window.getComputedStyle(el); return comp.font || (comp.fontStyle + " " + comp.fontWeight + " " + comp.fontSize + " " + comp.fontFamily); }
+        function getNaturalTextWidth(el) { const fontSpec = getFontSpec(el); return measureTextWidth(el.textContent, fontSpec); }
         const p = new URLSearchParams(window.location.search);
         const port = p.get('port') || '8080';
         const adress = p.get('adress') || '127.0.0.1';
@@ -217,15 +204,7 @@
         const strokeColorParam = p.get('strokecolor') || '#000000';
         const striptrackname = p.get('striptrackname') || 'true';
         const placeholderUrl = 'https://github.com/tawmae/tawmae.github.io/blob/main/assets/media/spotify_cover_placeholder.png?raw=true';
-
-        if (font !== 'Poppins') {
-            const link = document.createElement('link');
-            link.href = 'https://fonts.googleapis.com/css2?family=' + encodeURIComponent(font) + '&display=swap';
-            link.rel = 'stylesheet';
-            document.head.appendChild(link);
-            document.body.style.fontFamily = font + ', sans-serif';
-        }
-
+        if (font !== 'Poppins') { const link = document.createElement('link'); link.href = 'https://fonts.googleapis.com/css2?family=' + encodeURIComponent(font) + '&display=swap'; link.rel = 'stylesheet'; document.head.appendChild(link); document.body.style.fontFamily = font + ', sans-serif'; }
         const client = new StreamerbotClient({ host: adress, port: parseInt(port), endpoint: '/', password, onConnect });
         const songOverlay = document.getElementById('songOverlay');
         const bg = document.getElementById('songOverlayBackground');
@@ -240,23 +219,13 @@
         const userProfileImage = document.getElementById('userProfileImage');
         const progressBar = document.getElementById('progressBar');
         const progressBarContainer = document.getElementById('progressBarContainer');
-
-
         songOverlay.style.width = widthParam + 'px';
         bg.style.background = backgroundcolor;
         bg.style.opacity = (opacityParam / 100).toString();
-        if (opacityParam === 100) {
-            songOverlay.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.3)';
-        } else {
-            songOverlay.style.boxShadow = 'none';
-        }
-        if (progressbarParam === 'false') {
-            progressBarContainer.style.display = 'none';
-        }
-
+        if (opacityParam === 100) { songOverlay.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.3)'; } else { songOverlay.style.boxShadow = 'none'; }
+        if (progressbarParam === 'false') { progressBarContainer.style.display = 'none'; }
         function setFontSizes(baseSize) {
             const r = baseSize / 56;
-
             trackNameEl.style.fontSize = baseSize + 'px';
             artistsEl.style.fontSize = Math.round(baseSize * 40 / 56) + 'px';
             requestedByText.style.setProperty('font-size', Math.round(baseSize * 22 / 56) + 'px', 'important');
@@ -279,7 +248,6 @@
         setFontSizes(fontsizeParam);
         songContent.style.color = fontcolor;
         progressBar.style.background = progressbarcolor;
-
         function applyDropShadow() {
             const val = '2px 1px 1.5px rgba(1,1,1,1)';
             artistsEl.style.textShadow = val;
@@ -287,7 +255,6 @@
             requestedByText.style.textShadow = val;
         }
         if (dropshadowParam) applyDropShadow();
-
         function applyOuterStroke(el, sw, sc) {
             if (sw <= 0) return;
             let shadows = [];
@@ -304,39 +271,18 @@
             applyOuterStroke(trackNameEl, strokeWidthParam, strokeColorParam);
             applyOuterStroke(requestedByText, Math.floor(strokeWidthParam * 0.5), strokeColorParam);
         }
-
         let currentCoverUrl = '';
         let lastTrackId = null;
         let lastIsRequested = null;
         let hideTimeout = null;
-
         function onConnect() { }
-
         function fadeInOverlay() { songOverlay.classList.add('visible'); }
         function fadeOutOverlay() { return new Promise(resolve => { songOverlay.classList.remove('visible'); setTimeout(resolve, 1000); }); }
         function fadeOutSongContent() { return new Promise(resolve => { songContent.style.opacity = '0'; setTimeout(resolve, 1000); }); }
         function fadeInSongContent() { songContent.style.opacity = '1'; }
-        function showOverlayTemporarily() {
-            fadeInOverlay();
-            if (!alwayson) {
-                if (hideTimeout) clearTimeout(hideTimeout);
-                hideTimeout = setTimeout(() => { fadeOutOverlay(); }, 10000);
-            }
-        }
-
-        function stripTrackName(t) {
-            return t.replace(/\s-\s.*$/, '').replace(/\(.*?\)/g, '').trim();
-        }
-
-        function loadCoverImage(url) {
-            return new Promise(resolve => {
-                const img = new Image();
-                img.onload = () => resolve(img);
-                img.onerror = () => resolve(null);
-                img.src = url;
-            });
-        }
-
+        function showOverlayTemporarily() { fadeInOverlay(); if (!alwayson) { if (hideTimeout) clearTimeout(hideTimeout); hideTimeout = setTimeout(() => { fadeOutOverlay(); }, 10000); } }
+        function stripTrackName(t) { return t.replace(/\s-\s.*$/, '').replace(/\(.*?\)/g, '').trim(); }
+        function loadCoverImage(url) { return new Promise(resolve => { const img = new Image(); img.onload = () => resolve(img); img.onerror = () => resolve(null); img.src = url; }); }
         function updateSongInfo(d) {
             if (d.songInfo && d.songInfo.isPlaying) {
                 const s = d.songInfo;
@@ -349,8 +295,7 @@
                         const coverUrl = s.coverImageUrl ? s.coverImageUrl : placeholderUrl;
                         if (coverUrl !== currentCoverUrl) {
                             loadCoverImage(coverUrl).then(loaded => {
-                                if (loaded) { coverImage.src = loaded.src; currentCoverUrl = loaded.src; }
-                                else { coverImage.src = placeholderUrl; currentCoverUrl = placeholderUrl; }
+                                if (loaded) { coverImage.src = loaded.src; currentCoverUrl = loaded.src; } else { coverImage.src = placeholderUrl; currentCoverUrl = placeholderUrl; }
                                 updateContent(s);
                                 fadeInSongContent();
                                 showOverlayTemporarily();
@@ -361,44 +306,106 @@
                             showOverlayTemporarily();
                         }
                     });
-                } else {
-                    updateDynamicContent(s);
-                }
-            } else {
-                lastTrackId = null;
-                lastIsRequested = null;
-                if (hideTimeout) clearTimeout(hideTimeout);
-                fadeOutOverlay();
-            }
+                } else { updateDynamicContent(s); }
+            } else { lastTrackId = null; lastIsRequested = null; if (hideTimeout) clearTimeout(hideTimeout); fadeOutOverlay(); }
         }
-
-        function truncateText(t, m) {
-            return t.length > m ? t.substring(0, m) + '...' : t;
+        function updateDynamicContent(s) {
+            const remMs = s.durationMs - s.progressMs;
+            const sec = Math.floor((remMs / 1000) % 60);
+            const min = Math.floor((remMs / (1000 * 60)) % 60);
+            remainingTime.textContent = min + ':' + sec.toString().padStart(2, '0');
+            if (progressbarParam !== 'false') { const pct = (remMs / s.durationMs) * 100; progressBar.style.width = pct + '%'; }
         }
-
-
+        function startSyncedScrollingAnimation(spanEl, overflow, commonDuration) {
+            const t_hold = 3;
+            const t_anim = (commonDuration - 2 * t_hold) / 2;
+            const startPct = (t_hold / commonDuration) * 100;
+            const midPct = ((t_hold + t_anim) / commonDuration) * 100;
+            const pauseEndPct = ((t_hold + t_anim + t_hold) / commonDuration) * 100;
+            const keyframeName = "scrollAnimation_" + spanEl.id;
+            const keyframes = `
+          @keyframes ${keyframeName} {
+            0% { transform: translateX(0); }
+            ${startPct.toFixed(2)}% { transform: translateX(0); }
+            ${midPct.toFixed(2)}% { transform: translateX(-${overflow}px); }
+            ${pauseEndPct.toFixed(2)}% { transform: translateX(-${overflow}px); }
+            100% { transform: translateX(0); }
+          }
+        `;
+            let styleTag = document.getElementById("scrollAnimationStyle_" + spanEl.id);
+            if (!styleTag) { styleTag = document.createElement("style"); styleTag.id = "scrollAnimationStyle_" + spanEl.id; document.head.appendChild(styleTag); }
+            styleTag.innerHTML = keyframes;
+            spanEl.style.animation = `${keyframeName} ${commonDuration}s linear infinite`;
+        }
+        function startScrollingAnimation(spanEl, maxWidth) {
+            let availableWidth;
+            const naturalWidth = getNaturalTextWidth(spanEl);
+            if (maxWidth !== undefined) { availableWidth = maxWidth; } else { const overlayWidth = songOverlay.clientWidth; const coverWidth = coverImageContainer.clientWidth; const safetyMargin = 0.05 * overlayWidth; availableWidth = overlayWidth - coverWidth - safetyMargin; }
+            const overflow = naturalWidth - availableWidth;
+            if (overflow > 0) {
+                const scrollSpeed = 80;
+                const scrollTime = overflow / scrollSpeed;
+                const totalDuration = 4 + 2 * scrollTime;
+                const startPct = (2 / totalDuration) * 100;
+                const midPct = ((2 + scrollTime) / totalDuration) * 100;
+                const pauseEndPct = ((2 + scrollTime + 2) / totalDuration) * 100;
+                const keyframeName = "scrollAnimation_" + spanEl.id;
+                const keyframes = `
+          @keyframes ${keyframeName} {
+            0% { transform: translateX(0); }
+            ${startPct.toFixed(2)}% { transform: translateX(0); }
+            ${midPct.toFixed(2)}% { transform: translateX(-${overflow}px); }
+            ${pauseEndPct.toFixed(2)}% { transform: translateX(-${overflow}px); }
+            100% { transform: translateX(0); }
+          }
+        `;
+                let styleTag = document.getElementById("scrollAnimationStyle_" + spanEl.id);
+                if (!styleTag) { styleTag = document.createElement("style"); styleTag.id = "scrollAnimationStyle_" + spanEl.id; document.head.appendChild(styleTag); }
+                styleTag.innerHTML = keyframes;
+                spanEl.style.animation = `${keyframeName} ${totalDuration}s linear infinite`;
+            } else { spanEl.style.animation = ''; }
+        }
         function updateContent(s) {
-            artistsEl.textContent = truncateText(s.artists || 'Unknown', 35);
+            artistsEl.textContent = '';
+            const aSpan = document.createElement('span');
+            aSpan.id = 'artistsText';
+            aSpan.textContent = s.artists || 'Unknown';
+            aSpan.style.fontSize = "inherit";
+            aSpan.style.display = "inline-block";
+            artistsEl.appendChild(aSpan);
             let displayedTrackName = s.trackName || 'Unknown';
-            if (striptrackname === 'true') {
-                displayedTrackName = stripTrackName(displayedTrackName);
-            }
-
+            if (striptrackname === 'true') { displayedTrackName = stripTrackName(displayedTrackName); }
             trackNameEl.textContent = '';
-            const span = document.createElement('span');
-            span.id = 'trackNameText';
-            span.textContent = displayedTrackName;
-
-            span.style.fontSize = "inherit";
-            trackNameEl.appendChild(span);
-
+            const tSpan = document.createElement('span');
+            tSpan.id = 'trackNameText';
+            tSpan.textContent = displayedTrackName;
+            tSpan.style.fontSize = "inherit";
+            tSpan.style.display = "inline-block";
+            trackNameEl.appendChild(tSpan);
             setTimeout(() => {
-                const naturalWidth = getNaturalTextWidth(span);
-
-                if (naturalWidth >= 650) {
-                    startScrollingAnimation(span);
+                const overlayWidth = songOverlay.clientWidth;
+                const coverWidth = coverImageContainer.clientWidth;
+                const safetyMargin = 0.05 * overlayWidth;
+                const availableTrack = overlayWidth - coverWidth - safetyMargin;
+                const naturalTrackWidth = getNaturalTextWidth(tSpan);
+                const trackOverflow = naturalTrackWidth - availableTrack;
+                const trackScrollNeeded = trackOverflow > 0;
+                const availableArtist = overlayWidth - coverWidth - safetyMargin;
+                const naturalArtistWidth = getNaturalTextWidth(aSpan);
+                const artistOverflow = naturalArtistWidth - availableArtist;
+                const artistScrollNeeded = artistOverflow > 0;
+                if (trackScrollNeeded && artistScrollNeeded) {
+                    const scrollSpeed = 80;
+                    const trackScrollTime = trackOverflow / scrollSpeed;
+                    const artistScrollTime = artistOverflow / scrollSpeed;
+                    const T1 = 4 + 2 * trackScrollTime;
+                    const T2 = 4 + 2 * artistScrollTime;
+                    const commonT = Math.max(T1, T2);
+                    startSyncedScrollingAnimation(tSpan, trackOverflow, commonT);
+                    startSyncedScrollingAnimation(aSpan, artistOverflow, commonT);
                 } else {
-                    span.style.animation = '';
+                    if (trackScrollNeeded) { startScrollingAnimation(tSpan); } else { tSpan.style.animation = ''; }
+                    if (artistScrollNeeded) { startScrollingAnimation(aSpan, availableArtist); } else { aSpan.style.animation = ''; }
                 }
             }, 100);
             if (s.isRequested && s.user) {
@@ -412,76 +419,30 @@
             }
             updateDynamicContent(s);
         }
-
-        function updateDynamicContent(s) {
-            const remMs = s.durationMs - s.progressMs;
-            const sec = Math.floor((remMs / 1000) % 60);
-            const min = Math.floor((remMs / (1000 * 60)) % 60);
-            remainingTime.textContent = min + ':' + sec.toString().padStart(2, '0');
-            if (progressbarParam !== 'false') {
-                const pct = (remMs / s.durationMs) * 100;
-                progressBar.style.width = pct + '%';
-            }
-        }
-
-
-        function startScrollingAnimation(spanEl) {
-
-            const overlayWidth = songOverlay.clientWidth;
-
-            const coverWidth = coverImageContainer.clientWidth;
-            const safetyMargin = 0.05 * overlayWidth;
-
-            const availableWidth = overlayWidth - coverWidth - safetyMargin;
-            const naturalWidth = getNaturalTextWidth(spanEl);
-            const overflow = naturalWidth - availableWidth;
-
-            if (overflow > 0) {
-                const scrollSpeed = 80;
-                const scrollTime = overflow / scrollSpeed;
-                const totalDuration = 2 + scrollTime + 2 + scrollTime;
-                const startPct = (2 / totalDuration) * 100;
-                const midPct = ((2 + scrollTime) / totalDuration) * 100;
-                const pauseEndPct = ((2 + scrollTime + 2) / totalDuration) * 100;
-                const keyframes = `
-          @keyframes scrollAnimation {
-            0% { transform: translateX(0); }
-            ${startPct.toFixed(2)}% { transform: translateX(0); }
-            ${midPct.toFixed(2)}% { transform: translateX(-${overflow}px); }
-            ${pauseEndPct.toFixed(2)}% { transform: translateX(-${overflow}px); }
-            100% { transform: translateX(0); }
-          }
-        `;
-                let styleTag = document.getElementById('scrollAnimationStyle');
-                if (!styleTag) {
-                    styleTag = document.createElement('style');
-                    styleTag.id = 'scrollAnimationStyle';
-                    document.head.appendChild(styleTag);
-                }
-                styleTag.innerHTML = keyframes;
-                spanEl.style.animation = `scrollAnimation ${totalDuration}s linear infinite`;
-
-            } else {
-                spanEl.style.animation = '';
-
-            }
-        }
-
         window.addEventListener('resize', () => {
             setTimeout(() => {
-                const spanEl = document.getElementById('trackNameText');
-                if (spanEl) {
-                    const naturalWidth = getNaturalTextWidth(spanEl);
-
-                    if (naturalWidth >= 650) {
-                        startScrollingAnimation(spanEl);
-                    } else {
-                        spanEl.style.animation = '';
-                    }
+                const tSpan = document.getElementById('trackNameText');
+                const aSpan = document.getElementById('artistsText');
+                if (tSpan) {
+                    const overlayWidth = songOverlay.clientWidth;
+                    const coverWidth = coverImageContainer.clientWidth;
+                    const safetyMargin = 0.05 * overlayWidth;
+                    const availableTrack = overlayWidth - coverWidth - safetyMargin;
+                    const naturalTrackWidth = getNaturalTextWidth(tSpan);
+                    const trackOverflow = naturalTrackWidth - availableTrack;
+                    if (trackOverflow > 0) { startScrollingAnimation(tSpan); } else { tSpan.style.animation = ''; }
+                }
+                if (aSpan) {
+                    const overlayWidth = songOverlay.clientWidth;
+                    const coverWidth = coverImageContainer.clientWidth;
+                    const safetyMargin = 0.05 * overlayWidth;
+                    const availableArtist = overlayWidth - coverWidth - safetyMargin;
+                    const naturalArtistWidth = getNaturalTextWidth(aSpan);
+                    const artistOverflow = naturalArtistWidth - availableArtist;
+                    if (artistOverflow > 0) { startScrollingAnimation(aSpan, availableArtist); } else { aSpan.style.animation = ''; }
                 }
             }, 100);
         });
-
         client.on('Misc.GlobalVariableUpdated', ({ data }) => {
             if (data.name === 'tawmae_SPOTIFY_AND_SB_INFO') {
                 try {
