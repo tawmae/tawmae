@@ -545,6 +545,55 @@ description: "An OBS widget to display as many timers as you want. Fully control
     </div>
 
     <div class="accordion-divider"></div>
+
+     <!----    FAQ    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion('faq')">
+            <span class="iconify title-icon" data-icon="line-md:question-square"></span>
+            <span>FAQ & EXAMPLES</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="faq">
+            <!--------------------------------->
+            <div class="extension-title-text-box-long">
+                <h3> <span style="font-weight: bold; color: #fff">How can I create a timer with a Channel Reward?</span></h3>
+                <p>
+                For any trigger other than a command, you will have to use the variables seen in the <span style="color: #ffd95e; font-weight: bold;">1 - Create Timer</span> action: <span style="color: #ffd95e; font-weight: bold;">timerName</span>, <span style="color: #ffd95e; font-weight: bold;">timerDescription</span> and <span style="color: #ffd95e; font-weight: bold;">timerValue</span>. For best practice the variable subactions in the <span style="color: #ffd95e; font-weight: bold;">1 - Create Timer</span> action are <span style="color: #e18acb; font-weight: bold;">disabled</span>, so they don't overwrite our previous values.
+                    <br><br>
+                    <img src="{{ site.baseurl }}/assets/faq/dynamic-timers/dynamic-timers-1.webp" class="extension-image">
+                    <br><br>
+                    What you do is create a new action, then add your channel reward trigger and the <span style="color: #ffd95e; font-weight: bold;">Core -> SetArgument</span> subactions. You can then specify the title, description and the duration of the timer. And they accept variables too, and since we use a channel reward trigger, we can use stuff like <span style="color: #ffd95e; font-weight: bold;">%rewardName%</span> or <span style="color: #ffd95e; font-weight: bold;">%rewardCost%</span>.
+                    <br><br>
+                    We then use a <span style="color: #ffd95e; font-weight: bold;">Core -> Actions -> Run Action</span> subaction to run the <span style="color: #ffd95e; font-weight: bold;">1 - Create Timer</span> action. And we pass the variables over to it, so it'll create a timer with our set values. You can now create as many actions as you like, with any triggers you like and apply the same logic to all of them :)
+                    <br><br>
+                    <img src="{{ site.baseurl }}/assets/faq/dynamic-timers/dynamic-timers-2.webp" class="extension-image">
+                </p>
+            </div>
+            <!--------------------------------->
+            <div class="extension-title-text-box-long">
+                <h3> <span style="font-weight: bold; color: #fff">How do I trigger something when a timer ends?</span></h3>
+                <p>
+                    You can check the <span style="color: #ffd95e; font-weight: bold;">Custom Triggers</span> section above to see what custom triggers are available and what variables they offer. In our case, we want the <span style="color: #ffd95e; font-weight: bold;">Timer Finished</span> trigger. But since that trigger fires for <span style="color: #ffd95e; font-weight: bold;">ALL</span> finished timers and not just specific ones, we have to do the filtering ourselves.
+                    <br><br>
+                    For that we create a <span style="color: #ffd95e; font-weight: bold;">Core -> Logic -> If/Else</span> subaction and check if the variable <span style="color: #ffd95e; font-weight: bold;">timerName</span> matches the title of our timer we want this to trigger on. So let's say our timer is called <span style="color: #ffd95e; font-weight: bold;">"AFK"</span>, then we check if <span style="color: #ffd95e; font-weight: bold;">timerName</span> equals <span style="color: #ffd95e; font-weight: bold;">AFK</span> and if so, continue. But if it doesn't we break the action. So then below the if/else check you can add the subactions that fire when our AFK timer finishes, like playing a sound and sending a message to chat.
+                    <br><br>
+                    <img src="{{ site.baseurl }}/assets/faq/dynamic-timers/dynamic-timers-3.webp" class="extension-image">
+                </p>
+            </div>
+            <!--------------------------------->
+            <div class="extension-title-text-box-long">
+                <h3> <span style="font-weight: bold; color: #fff">My triggers fire multiple times even though they should just fire once, why?</span></h3>
+                <p>
+                    That's probably because you have multiple instances of the script running, e.g. having two Browser Sources with the dynamic timer in them. You are only supposed to run a single browser source. If you want to have the timers in multiple scenes, use <span style="color: #ffd95e; font-weight: bold;">nested scenes</span> or Source Clones instead.
+                </p>
+            </div>
+            <!--------------------------------->
+
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="accordion-divider"></div>
     <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion('changelog')">
