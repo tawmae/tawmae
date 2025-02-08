@@ -21,7 +21,7 @@ function toggleAccordion(id) {
         history.pushState(null, null, `#${baseId}`);
 
         setTimeout(() => {
-            const offset = 150;
+            const offset = 250;
             const elementPosition = header.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
         }, 100);
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             const header = document.getElementById(accId)?.previousElementSibling;
             if (header) {
-                const offset = 300;
+                const offset = 250;
                 const elementPosition = header.getBoundingClientRect().top + window.scrollY;
                 window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
             }
