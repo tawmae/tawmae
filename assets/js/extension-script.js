@@ -1,23 +1,24 @@
 function toggleAccordion(id) {
     const content = document.getElementById(id);
-    if (!content) return; 
+    if (!content) return;
 
-    const header = content.previousElementSibling; 
-    if (!header || !header.classList.contains('accordion-header')) return; 
+    const header = content.previousElementSibling;
+    if (!header || !header.classList.contains('accordion-header')) return;
 
     const icon = header.querySelector('.accordion-icon');
-    if (!icon) return; 
+    if (!icon) return;
 
     const isOpen = content.style.display === 'block';
 
-  
     document.querySelectorAll('.accordion-content').forEach(acc => acc.style.display = 'none');
     document.querySelectorAll('.accordion-icon').forEach(ic => ic.setAttribute("data-icon", "ic:baseline-keyboard-arrow-right"));
 
-   
     if (!isOpen) {
         content.style.display = 'block';
         icon.setAttribute("data-icon", "ic:baseline-keyboard-arrow-down");
+        history.pushState(null, null, `#${id}`);
+    } else {
+        history.pushState(null, null, window.location.pathname);
     }
 }
 
