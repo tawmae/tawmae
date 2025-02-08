@@ -253,8 +253,40 @@ description: "A Bluesky integration for Streamer.bot. Create posts, update your 
         </div>
     </div>
     <!---------------------------------------------------------------------------------------------------------------------------------->
-
-
+    <div class="accordion-divider"></div>
+     <!----    FAQ    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" id="faq" onclick="toggleAccordion('faq-acc')">
+            <span class="iconify title-icon" data-icon="line-md:question-square"></span>
+            <span>FAQ & EXAMPLES</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="faq-acc">
+            <!--------------------------------->
+            <div class="extension-title-text-box-long">
+                <h3> <span style="font-weight: bold; color: #fff">How do I create an automatic post when I go live?</span></h3>
+                <p>
+                    For that, navigate into the <span style="color: #ffd95e; font-weight: bold;">1 - Create Post</span> action and create a new trigger: <span style="color: #ffd95e; font-weight: bold;">Twitch -> Channel -> Stream Online</span>. That one will fire once your stream goes live on Twitch. The trigger itself has the <span style="color: #ffd95e; font-weight: bold;">%game%</span> variable with your current category, but if you wanted to integrate the title into your post too, we'd have to create a subaction <span style="color: #ffd95e; font-weight: bold;">Twitch -> User -> Get User Info For Target</span> and choose <span style="color: #ffd95e; font-weight: bold;">Broadcaster</span> in the dropdown menu. We then place that subaction on top of the action. Then we can use <span style="color: #ffd95e; font-weight: bold;">%game%</span> and <span style="color: #ffd95e; font-weight: bold;">%title%</span> in our post. 
+                    <br><br>
+                    <img src="{{ site.baseurl }}/assets/faq/dynamic-timers/bluesky-and-sb-1.webp" class="extension-image">
+                    <br><br>
+                    And here's an example of a text you can put in your bskyText argument, which will then result in the post below :) 
+                    <br><br>
+                    <div class="copy-box">
+                        <span class="copy-text" id="base64-string"data-copy-text="https://tawmae.xyz/overlays/basic-alerts.html">We are live: '%targetChannelTitle%' || || ... and we're playing %game% today! Hope to see you in chat <3 || || <https://twitch.tv/%targetUserName%> || || #Twitch || #Stream</span>
+                <button class="copy-btn"
+                    onclick="copyURLToClipboard('We are live: \'%targetChannelTitle%\' || || ... and we\'re playing %game% today! Hope to see you in chat <3 || || <https://twitch.tv/%targetUserName%> || || #Twitch || #Stream')">
+                    <span class="iconify" data-icon="material-symbols:content-copy-outline-sharp"></span> Copy
+                </button>
+            </div>
+                    <br><br>
+                    <img src="{{ site.baseurl }}/assets/faq/dynamic-timers/dynamic-timers-2.webp" class="extension-image">
+                </p>
+            </div>
+            <!--------------------------------->
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
     <div class="accordion-divider"></div>
     <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
