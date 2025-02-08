@@ -33,11 +33,11 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
   <div class="accordion-divider"></div>
     <!----    BROWSER SOURCE URL    ------------------------------------------------------------------------------------------------------------------------------>
   <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('import')">
-            <span class="iconify title-icon" data-icon="line-md:link"></span> <span>Browser Source URL</span>
+        <div class="accordion-header" id="browser-source-url" onclick="toggleAccordion('browser-source-url-acc')">
+            <span class="iconify title-icon" data-icon="line-md:link"></span> <span>BROWSER SOURCE URL</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="import">
+        <div class="accordion-content" id="browser-source-url-acc">
             <div class="copy-box">
                 <span class="copy-text" id="base64-string"
                     data-copy-text="https://tawmae.xyz/overlays/basic-alerts.html">
@@ -55,11 +55,11 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
 
   <div class="accordion-item">
     <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
-    <div class="accordion-header" onclick="toggleAccordion('setup')">
-      <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>Setup</span>
+    <div class="accordion-header" id="setup" onclick="toggleAccordion('setup-acc')">
+      <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>SETUP</span>
       <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
-    <div class="accordion-content" id="setup">
+    <div class="accordion-content" id="setup-acc">
       <!---------------------------------------------->
       <div class="description-container">
         <div class="extension-title-text-box-long">
@@ -96,11 +96,11 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
   <!--------  CUSTOMIZATION  -------------------------------------------------------------------------------------------------------------------------->
   <div class="accordion-divider"></div>
   <div class="accordion-item">
-    <div class="accordion-header" onclick="toggleAccordion('customization')">
-      <span class="iconify title-icon" data-icon="line-md:image"></span> <span>Customization</span>
+    <div class="accordion-header" id="customization" onclick="toggleAccordion('customization-acc')">
+      <span class="iconify title-icon" data-icon="line-md:image"></span> <span>CUSTOMIZATION</span>
       <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
-    <div class="accordion-content" id="customization">
+    <div class="accordion-content" id="customization-acc">
        <div class="extension-title-text-box-long">
       <p>You can add <span style="font-weight: bold; color: #ffd95e;">URL Parameters</span> at the end of the URL to customize certain things. The first parameter is getting added with a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">?</span>, every additional one with a <span style="background-color: #fff; color: black; padding: 0 5px; opacity: 0.45;">&</span>.</p>
       <p><br></p>
@@ -195,11 +195,11 @@ description: "An OBS widget to display all common Twitch events (and Kofi donati
   <div class="accordion-divider"></div>
   <!----    CHANGELOG    ------------------------------------------------------------------------------------------------------------------------------>
   <div class="accordion-item">
-    <div class="accordion-header" onclick="toggleAccordion('changelog')">
-      <span class="iconify title-icon" data-icon="line-md:rotate-270"></span> <span>Changelog</span>
+    <div class="accordion-header" id="changelog" onclick="toggleAccordion('changelog-acc')">
+      <span class="iconify title-icon" data-icon="line-md:rotate-270"></span> <span>CHANGELOG</span>
       <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
     </div>
-    <div class="accordion-content" id="changelog">
+    <div class="accordion-content" id="changelog-acc">
       <table class="extension-table">
         <thead>
           <tr>
