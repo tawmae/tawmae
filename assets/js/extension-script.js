@@ -1,16 +1,34 @@
 // ====================================================================================================================
 function toggleAccordion(id) {
     const content = document.getElementById(id);
+    if (!content) return; 
+
     const icon = content.previousElementSibling.querySelector('.accordion-icon');
 
-    if (content.style.display === 'block') {
-        content.style.display = 'none';
-        icon.setAttribute("data-icon", "ic:baseline-keyboard-arrow-right");
-    } else {
+    const isOpen = content.style.display === 'block';
+
+
+    document.querySelectorAll('.accordion-content').forEach(acc => acc.style.display = 'none');
+    document.querySelectorAll('.accordion-icon').forEach(ic => ic.setAttribute("data-icon", "ic:baseline-keyboard-arrow-right"));
+
+
+    if (!isOpen) {
         content.style.display = 'block';
         icon.setAttribute("data-icon", "ic:baseline-keyboard-arrow-down");
     }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const hash = window.location.hash.substring(1); 
+    
+    if (hash) {
+        toggleAccordion(hash);
+        setTimeout(() => {
+            document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+        }, 200);
+    }
+});
+
 
 // ====================================================================================================================
 function copyToClipboard(id) {
