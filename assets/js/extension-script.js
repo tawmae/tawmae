@@ -16,38 +16,37 @@ function toggleAccordion(id) {
     if (!isOpen) {
         content.style.display = 'block';
         icon.setAttribute("data-icon", "ic:baseline-keyboard-arrow-down");
-        history.pushState(null, null, `#${id}`);
+
+        const baseId = id.replace('-acc', '');
+        history.pushState(null, null, `#${baseId}`);
+
+        setTimeout(() => {
+            const offset = 150;
+            const elementPosition = header.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+        }, 100);
     } else {
         history.pushState(null, null, window.location.pathname);
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const hash = window.location.hash.substring(1);
-    
-    if (hash) {
-        toggleAccordion(hash);
-        setTimeout(() => {
-            document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-        }, 200); 
-    }
-});
-// ====================================================================================================================
 document.addEventListener("DOMContentLoaded", function () {
     const hash = window.location.hash.substring(1);
-    
     if (hash) {
-        let contentId = `${hash}-acc`;
+        const accId = `${hash}-acc`;
+        toggleAccordion(accId);
 
-        let content = document.getElementById(contentId);
-        if (content) {
-            toggleAccordion(contentId);
-            setTimeout(() => {
-                content.scrollIntoView({ behavior: "smooth" });
-            }, 200);
-        }
+        setTimeout(() => {
+            const header = document.getElementById(accId)?.previousElementSibling;
+            if (header) {
+                const offset = 150;
+                const elementPosition = header.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+            }
+        }, 200);
     }
 });
+
 
 // ====================================================================================================================
 function copyToClipboard(id) {
