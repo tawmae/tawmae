@@ -36,11 +36,11 @@ description: "An OBS widget to display as many timers as you want. Fully control
     <div class="accordion-divider"></div>
     <!----    ACTION IMPORT    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('action-import')">
-            <span class="iconify title-icon" data-icon="line-md:download"></span> <span>Action Import</span>
+        <div class="accordion-header" id="action-import" onclick="toggleAccordion('action-import-acc')">
+            <span class="iconify title-icon" data-icon="line-md:download"></span> <span>ACTION IMPORT</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="action-import">
+        <div class="accordion-content" id="action-import-acc">
             <div class="copy-box">
     <span class="copy-text" id="import-string" data-copy-text="">Loading...</span>
     <button class="copy-btn" onclick="copyToClipboard('import-string')">
@@ -55,11 +55,11 @@ description: "An OBS widget to display as many timers as you want. Fully control
 
     <!----    BROWSER SOURCE URL    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('import')">
-            <span class="iconify title-icon" data-icon="line-md:link"></span> <span>Browser Source URL</span>
+        <div class="accordion-header" id="browser-source-url" onclick="toggleAccordion('browser-source-url-acc')">
+            <span class="iconify title-icon" data-icon="line-md:link"></span> <span>BROWSER SOURCE URL</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="import">
+        <div class="accordion-content" id="browser-source-url-acc">
             <div class="copy-box">
                 <span class="copy-text" id="base64-string"
                     data-copy-text="https://tawmae.xyz/overlays/dynamic-timers.html">
@@ -79,11 +79,11 @@ description: "An OBS widget to display as many timers as you want. Fully control
 
     <!----    SETUP    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('setup')">
-            <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>Setup</span>
+        <div class="accordion-header" id="setup" onclick="toggleAccordion('setup-acc')">
+            <span class="iconify title-icon" data-icon="line-md:cog-filled"></span> <span>SETUP</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="setup">
+        <div class="accordion-content" id="setup-acc">
             <!---------------------------------------------->
             <div class="description-container">
                 <img src="{{ site.baseurl }}/assets/setup/copy-string.webp" class="extension-image">
@@ -179,12 +179,12 @@ description: "An OBS widget to display as many timers as you want. Fully control
 
     <!----    COMMANDS    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('commands')">
+        <div class="accordion-header" id="commands" onclick="toggleAccordion('commands-acc')">
             <span class="iconify title-icon" data-icon="line-md:alert-circle"></span>
-            <span>Commands</span>
+            <span>COMMANDS</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="commands">
+        <div class="accordion-content" id="commands-acc">
             <div class="extension-title-text-box-long">
             <p>If you want to use any other trigger than a <span
                     style="font-weight: bold; color: #ffd95e;">Command</span> or <span
@@ -362,7 +362,7 @@ description: "An OBS widget to display as many timers as you want. Fully control
     <!----    CUSTOM TRIGGERS    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
         <div class="accordion-header" id="custom-triggers" onclick="toggleAccordion('custom-triggers-acc')">
-            <span class="iconify title-icon" data-icon="line-md:bell-alert"></span><span>Custom Triggers</span>
+            <span class="iconify title-icon" data-icon="line-md:bell-alert"></span><span>CUSTOM TRIGGERS</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
         <div class="accordion-content" id="custom-triggers-acc">
@@ -411,11 +411,11 @@ description: "An OBS widget to display as many timers as you want. Fully control
 
     <!----    CUSTOMIZATION    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('customization')">
-            <span class="iconify title-icon" data-icon="line-md:image"></span> <span>Customization</span>
+        <div class="accordion-header" id="customization" onclick="toggleAccordion('customization-acc')">
+            <span class="iconify title-icon" data-icon="line-md:image"></span> <span>CUSTOMIZATION</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="customization">
+        <div class="accordion-content" id="customization-acc">
             <div class="extension-title-text-box-long">
             <p>You can add <span style="font-weight: bold; color: #ffd95e;">URL Parameters</span> at the end of the URL
                 to customize certain things. The first parameter is getting added with a <span
@@ -548,12 +548,12 @@ description: "An OBS widget to display as many timers as you want. Fully control
 
      <!----    FAQ    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
-        <div class="accordion-header" onclick="toggleAccordion('faq')">
+        <div class="accordion-header" id="faq" onclick="toggleAccordion('faq-acc')">
             <span class="iconify title-icon" data-icon="line-md:question-square"></span>
             <span>FAQ & EXAMPLES</span>
             <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
         </div>
-        <div class="accordion-content" id="faq">
+        <div class="accordion-content" id="faq-acc">
             <!--------------------------------->
             <div class="extension-title-text-box-long">
                 <h3> <span style="font-weight: bold; color: #fff">How can I create a timer with a Channel Reward?</span></h3>
