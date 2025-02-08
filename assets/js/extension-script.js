@@ -1,45 +1,42 @@
-
 function toggleAccordion(id) {
     const content = document.getElementById(id);
-    if (!content) return; // Falls die ID nicht existiert, nichts tun
+    if (!content) return; 
 
-    const header = content.previousElementSibling; // Sucht den Header
-    if (!header || !header.classList.contains('accordion-header')) return; // Falls kein Header gefunden wird, nichts tun
+    const header = content.previousElementSibling; 
+    if (!header || !header.classList.contains('accordion-header')) return; 
 
     const icon = header.querySelector('.accordion-icon');
-    if (!icon) return; // Falls das Icon nicht gefunden wird, nichts tun
+    if (!icon) return; 
 
-    // Prüfen, ob das Akkordeon bereits offen ist
     const isOpen = content.style.display === 'block';
 
-    // Alle Akkordeons schließen
+  
     document.querySelectorAll('.accordion-content').forEach(acc => acc.style.display = 'none');
     document.querySelectorAll('.accordion-icon').forEach(ic => ic.setAttribute("data-icon", "ic:baseline-keyboard-arrow-right"));
 
-    // Falls das aktuelle Akkordeon nicht offen war, öffne es jetzt
+   
     if (!isOpen) {
         content.style.display = 'block';
         icon.setAttribute("data-icon", "ic:baseline-keyboard-arrow-down");
     }
 }
 
-// Automatisch das Akkordeon öffnen, wenn ein Hash in der URL vorhanden ist
 document.addEventListener("DOMContentLoaded", function() {
-    const hash = window.location.hash.substring(1); // Entfernt das "#"
+    const hash = window.location.hash.substring(1);
     
     if (hash) {
         toggleAccordion(hash);
         setTimeout(() => {
             document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-        }, 200); // Kleiner Delay, um sicherzustellen, dass das Element sichtbar ist
+        }, 200); 
     }
 });
 // ====================================================================================================================
 document.addEventListener("DOMContentLoaded", function () {
-    const hash = window.location.hash.substring(1); // Entfernt das "#"
+    const hash = window.location.hash.substring(1);
     
     if (hash) {
-        let contentId = `${hash}-acc`; // Fügt das "-acc" Suffix hinzu
+        let contentId = `${hash}-acc`;
 
         let content = document.getElementById(contentId);
         if (content) {
@@ -50,9 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
-
-
-
 
 // ====================================================================================================================
 function copyToClipboard(id) {
