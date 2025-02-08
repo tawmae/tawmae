@@ -36,14 +36,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 // ====================================================================================================================
 document.addEventListener("DOMContentLoaded", function () {
-    // Check if URL has a hash
-    if (window.location.hash) {
-        let hash = window.location.hash.substring(1); // Entfernt das "#" aus der ID
-        let element = document.getElementById(hash);
+    const hash = window.location.hash.substring(1); // Entfernt das "#"
+    
+    if (hash) {
+        let contentId = `${hash}-acc`; // Fügt das "-acc" Suffix hinzu
 
-        if (element && element.classList.contains("accordion-content")) {
-            // Öffne das entsprechende Akkordeon
-            toggleAccordion(hash);
+        let content = document.getElementById(contentId);
+        if (content) {
+            toggleAccordion(contentId);
+            setTimeout(() => {
+                content.scrollIntoView({ behavior: "smooth" });
+            }, 200);
         }
     }
 });
