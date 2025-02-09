@@ -1,1 +1,2 @@
-• Added catch in case settings are deleted mid process
+• Added 'Default Device' to the settings UI
+• Default Devices can now get out of sleep when using a request
