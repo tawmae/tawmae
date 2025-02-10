@@ -228,10 +228,10 @@ p {
   flex-wrap: wrap;
 }
 
-.description-container a {
+/*.description-container a {
   display: block;
   margin: 0 auto;
-}
+}*/
 
 .extension-image-2 {
   width: 800px;
