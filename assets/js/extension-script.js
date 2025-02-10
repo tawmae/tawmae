@@ -8,10 +8,8 @@ function toggleAccordion(id) {
     const icon = header.querySelector('.accordion-icon');
     if (!icon) return;
 
-    const isOpen = content.style.display === 'block';
-
-    //document.querySelectorAll('.accordion-content').forEach(acc => acc.style.display = 'none');
-    //document.querySelectorAll('.accordion-icon').forEach(ic => ic.setAttribute("data-icon", "ic:baseline-keyboard-arrow-right"));
+    // Nutze getComputedStyle, um den aktuellen Display-Wert zu ermitteln
+    const isOpen = window.getComputedStyle(content).display === 'block';
 
     if (!isOpen) {
         content.style.display = 'block';
@@ -26,26 +24,12 @@ function toggleAccordion(id) {
             window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
         }, 100);
     } else {
+        content.style.display = 'none';
+        icon.setAttribute("data-icon", "ic:baseline-keyboard-arrow-right");
         history.pushState(null, null, window.location.pathname);
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-        const accId = `${hash}-acc`;
-        toggleAccordion(accId);
-
-        setTimeout(() => {
-            const header = document.getElementById(accId)?.previousElementSibling;
-            if (header) {
-                const offset = 250;
-                const elementPosition = header.getBoundingClientRect().top + window.scrollY;
-                window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
-            }
-        }, 200);
-    }
-});
 
 
 // ====================================================================================================================
