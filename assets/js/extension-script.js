@@ -8,7 +8,6 @@ function toggleAccordion(id) {
     const icon = header.querySelector('.accordion-icon');
     if (!icon) return;
 
-    // Nutze getComputedStyle, um den aktuellen Display-Wert zu ermitteln
     const isOpen = window.getComputedStyle(content).display === 'block';
 
     if (!isOpen) {
