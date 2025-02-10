@@ -67,6 +67,14 @@ body {
   max-width: 60%;
 }
 
+.extension-image-smol {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-glass);
+  transition: transform var(--transition-time) ease-in-out;
+  flex: 1;
+}
+
 .extension-image:hover {
   transform: scale(1.03);
 }
@@ -370,7 +378,8 @@ p {
     order: 1;
     max-width: 100%;
   }
-  .extension-image {
+  .extension-image,
+  .extension-image-smol{
     max-width: 100%;
     width: 100%;
     order: 2;
