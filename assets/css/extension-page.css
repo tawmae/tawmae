@@ -181,6 +181,21 @@ p {
   margin: 0 auto;
 }
 
+.copy-box-smol {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  padding: 10px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  justify-content: start;
+  align-self: start;
+  margin: 0 auto;
+}
+
 .copy-text {
   flex: 1;
   white-space: nowrap;
@@ -362,6 +377,7 @@ p {
   }
   .accordion,
   .copy-box,
+  .copy-box-smol,
   .description-container,
   .customization-text-container {
     width: 100%;
