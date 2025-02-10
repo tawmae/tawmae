@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SPOTIFY & SB - v.1.0.1 - tawmae.xyz</title>
+    <title>SPOTIFY & SB - v.1.0.2 - tawmae.xyz</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script type="text/javascript" src="https://unpkg.com/@streamerbot/client/dist/streamerbot-client.js"></script>
@@ -317,7 +317,7 @@
             if (progressbarParam !== 'false') { const pct = (remMs / s.durationMs) * 100; progressBar.style.width = pct + '%'; }
         }
         function startSyncedScrollingAnimation(spanEl, overflow, commonDuration) {
-            const t_hold = 3;
+            const t_hold = 4;
             const t_anim = (commonDuration - 2 * t_hold) / 2;
             const startPct = (t_hold / commonDuration) * 100;
             const midPct = ((t_hold + t_anim) / commonDuration) * 100;
@@ -343,12 +343,12 @@
             if (maxWidth !== undefined) { availableWidth = maxWidth; } else { const overlayWidth = songOverlay.clientWidth; const coverWidth = coverImageContainer.clientWidth; const safetyMargin = 0.05 * overlayWidth; availableWidth = overlayWidth - coverWidth - safetyMargin; }
             const overflow = naturalWidth - availableWidth;
             if (overflow > 0) {
-                const scrollSpeed = 80;
+                const scrollSpeed = 70;
                 const scrollTime = overflow / scrollSpeed;
-                const totalDuration = 4 + 2 * scrollTime;
-                const startPct = (2 / totalDuration) * 100;
-                const midPct = ((2 + scrollTime) / totalDuration) * 100;
-                const pauseEndPct = ((2 + scrollTime + 2) / totalDuration) * 100;
+                const totalDuration = 8 + 2 * scrollTime;
+                const startPct = (4 / totalDuration) * 100;
+                const midPct = ((4 + scrollTime) / totalDuration) * 100;
+                const pauseEndPct = ((4 + scrollTime + 4) / totalDuration) * 100;
                 const keyframeName = "scrollAnimation_" + spanEl.id;
                 const keyframes = `
           @keyframes ${keyframeName} {
