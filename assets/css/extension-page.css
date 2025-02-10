@@ -68,7 +68,8 @@ body {
 }
 
 .extension-image-smol {
-  width: 100%;
+  max-width: 100%;
+  width: auto;
   height: auto;
   border: 1px solid var(--border-glass);
   transition: transform var(--transition-time) ease-in-out;
