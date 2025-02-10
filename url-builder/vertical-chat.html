@@ -572,8 +572,8 @@
       }
       let fontVal = document.getElementById("font").value.trim()
       if(fontVal) {
-        let replacedFont = fontVal.replaceAll(" ","+")
-        params.push("font="+encodeURIComponent(replacedFont))
+        let encodedFont = encodeURIComponent(fontVal).replace(/%20/g, "+");
+        params.push("font=" + encodedFont);
       }
       let fsVal = document.getElementById("fontSizeInput").value.trim()
       if(fsVal) params.push("fontsize="+encodeURIComponent(fsVal+"px"))
