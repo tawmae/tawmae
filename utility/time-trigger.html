@@ -157,10 +157,10 @@ og_image: "/assets/page-design/page-cards/time-trigger.webp"
                         If it was just a time, so an every-day trigger, then it will just have the timestamp in a <span style="font-weight: bold; color: #ffd95e;">hh:mm:ss</span> format, for example <span style="font-weight: bold; color: #ffd95e;">18:30:00</span>.
                         <img src="{{ site.baseurl }}/assets/custom-triggers/time-trigger-1.webp" class="extension-image style="align-self: start">
                       <br><br>
-                      If it was a time and a specific date, it will be in a <span style="font-weight: bold; color: #ffd95e;">MM/dd/yyyy hh:mm:ss</span> or <span style="font-weight: bold; color: #ffd95e;">MM.dd.yyyy hh:mm:ss</span> format, depending on your Windows local settings. Check the action history to make sure you have the correct one.
+                      If it was a time and a specific date, it will be in a <span style="font-weight: bold; color: #ffd95e;">MM/dd/yyyy hh:mm:ss</span>.
                       <img src="{{ site.baseurl }}/assets/custom-triggers/time-trigger-2.webp" class="extension-image style="align-self: start">
                       <br><br>
-                      If it was a time and a day of the week, it will have the format <span style="font-weight: bold; color: #ffd95e;">Weekday hh:mm:ss</span>, for example <span style="font-weight: bold; color: #ffd95e;">Wednesday 00:00:00</span>. The day of the week will also depend on your Windows local settings, so it will be in your Windows language. Check the action history to make sure you have the correct one.<br>
+                      If it was a time and a day of the week, it will have the format <span style="font-weight: bold; color: #ffd95e;">Weekday hh:mm:ss</span>, for example <span style="font-weight: bold; color: #ffd95e;">Wednesday 00:00:00</span>. The day of the week will always be in english.<br>
                       <img src="{{ site.baseurl }}/assets/custom-triggers/time-trigger-3.webp" class="extension-image style="align-self: start">
                       <br><br>
                       <h2>Example:</h2>
@@ -235,6 +235,12 @@ og_image: "/assets/page-design/page-cards/time-trigger.webp"
                     </tr>
                 </thead>
                 <tbody>
+                    <!---------------------------------------------->
+                    <tr>
+                        <td>February 10, 2025</td>
+                        <td>timeTrigger now always has the MM/dd/yyyy format regardless of the OS langague, and the weekday in timeTrigger is always in english</td>
+                        <td>1.0.1</td>
+                    </tr>
                     <!---------------------------------------------->
                     <tr>
                         <td>February 02, 2025</td>
