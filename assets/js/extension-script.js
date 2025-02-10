@@ -10,8 +10,8 @@ function toggleAccordion(id) {
 
     const isOpen = content.style.display === 'block';
 
-    document.querySelectorAll('.accordion-content').forEach(acc => acc.style.display = 'none');
-    document.querySelectorAll('.accordion-icon').forEach(ic => ic.setAttribute("data-icon", "ic:baseline-keyboard-arrow-right"));
+    //document.querySelectorAll('.accordion-content').forEach(acc => acc.style.display = 'none');
+    //document.querySelectorAll('.accordion-icon').forEach(ic => ic.setAttribute("data-icon", "ic:baseline-keyboard-arrow-right"));
 
     if (!isOpen) {
         content.style.display = 'block';
