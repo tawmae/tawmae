@@ -668,7 +668,42 @@ og_image: "/assets/page-design/page-cards/spotify-and-sb.webp"
     </div>
     <!---------------------------------------------->
     <div class="accordion-divider"></div>
-
+    <!----    SETTINGS UI    ------------------------------------------------------------------------------------------------------------------------------>
+    <div class="accordion-item">
+        <div class="accordion-header" id="settings" onclick="toggleAccordion('settings-acc')">
+            <span class="iconify title-icon" data-icon="line-md:check-list-3"></span> <span>SETTINGS UI</span>
+            <span class="iconify accordion-icon" data-icon="ic:baseline-keyboard-arrow-right"></span>
+        </div>
+        <div class="accordion-content" id="settings-acc">
+            <div class="extension-title-text-box">
+            <p>The <span  style="font-weight: bold; color: #ffd95e;">Settings UI</span> allows for some customization.
+            </p>
+            </div>
+            <p><br><br></p>
+            <!---------------------------------------------->
+            <div class="settings-ui-container">
+                <div class="extension-title-text-box">
+                    <p><span style="font-weight: bold; color: #fff;">General</span>
+                    <br>
+                    You can not only connect your Spotify client here, but you can also set up some general restrictive rules regarding song requests. Their max. duration, followers-only etc.
+                    </p>
+                </div>
+                <img src="{{ site.baseurl }}/assets/settings/spotify-and-sb/spotify-and-sb-1.webp" class="settings-ui-image">
+            </div>
+            <!---------------------------------------------->
+            <div class="settings-ui-container">
+                <div class="extension-title-text-box">
+                    <p><span style="font-weight: bold; color: #fff;">Chat Messages</span> <br>This tab allows you to
+                        customize the chat responses. You can make use of the variables listed below each message.
+                    </p>
+                </div>
+                <img src="{{ site.baseurl }}/assets/settings/spotify-and-sb/spotify-and-sb-2.webp" class="settings-ui-image">
+            </div>
+            <!---------------------------------------------->
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------------------------------------------->
+    <div class="accordion-divider"></div>
     <!----    CUSTOM TRIGGERS    ------------------------------------------------------------------------------------------------------------------------------>
     <div class="accordion-item">
         <div class="accordion-header" id="custom-triggers" onclick="toggleAccordion('custom-triggers-acc')">
