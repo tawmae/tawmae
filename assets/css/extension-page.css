@@ -195,7 +195,7 @@ p {
   background-color: var(--accent-color);
   color: #fff;
   padding: 5px 15px;
-  border: none;
+  border: 1px solid var(--border-glass);
   cursor: pointer;
   display: flex;
   align-items: center;
