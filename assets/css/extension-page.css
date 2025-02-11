@@ -358,7 +358,6 @@ p {
 }
 
 
-
 .ws-iframe {
     width: 100%;
     max-width: 400px; 
@@ -368,6 +367,32 @@ p {
     display: block;
     margin: 0 auto; 
 }
+
+.share-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;          
+  height: 80px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s;
+}
+
+.share-element:hover {
+  transform: scale(1.05);
+}
+
+.share-element .share-text {
+  margin-top: 4px;
+  font-size: 0.7rem;     
+  color: white;
+}
+
 
 @media (max-width: 768px) {
   .extension-title,
