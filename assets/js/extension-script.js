@@ -128,3 +128,35 @@ document.addEventListener("DOMContentLoaded", function () {
         loadImportString("/action-imports/stardew-valley.txt");
     }
 });
+
+// ====================================================================================================================
+
+document.addEventListener("DOMContentLoaded", function() {
+  const shareElements = document.querySelectorAll('.share-element');
+  
+  shareElements.forEach(shareEl => {
+    shareEl.addEventListener('click', async function() {
+      const textToCopy = shareEl.getAttribute('data-clipboard-text');
+      
+      try {
+        await navigator.clipboard.writeText(textToCopy);
+        
+        const icon = shareEl.querySelector('.share-icon');
+        const textEl = shareEl.querySelector('.share-text');
+        const originalIcon = icon.getAttribute('data-icon');
+        const originalText = textEl.textContent;
+        
+        icon.setAttribute('data-icon', 'material-symbols:check-rounded');
+        textEl.textContent = 'Copied';
+        
+        setTimeout(function() {
+          icon.setAttribute('data-icon', originalIcon);
+          textEl.textContent = originalText;
+        }, 2500);
+      } catch (err) {
+        console.error('Fehler beim Kopieren: ', err);
+      }
+    });
+  });
+});
+
