@@ -21,19 +21,11 @@ body {
 
 .extension-title {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start; /* Damit beide Spalten oben ausgerichtet sind */
+  align-items: center;
+  justify-content: center;
   gap: 30px;
   max-width: var(--container-width);
   margin-bottom: 50px;
-}
-
-/* Neuer Wrapper für die linke Spalte */
-.extension-title-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px; /* Abstand zwischen Textbox und Share-Button */
 }
 
 .extension-title-text-box {
