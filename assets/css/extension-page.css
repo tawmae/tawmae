@@ -393,6 +393,10 @@ p {
   color: white;
 }
 
+.carousel-image {
+border: 1px solid var(--glass-border);
+}
+
 
 @media (max-width: 768px) {
   .extension-title,
