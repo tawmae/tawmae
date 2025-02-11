@@ -188,6 +188,14 @@ document.addEventListener("DOMContentLoaded", function() {
         theme: 'light-border',
         delay: [100, 50], 
     });
+    tippy('.coming-soon-icon', {
+        content: 'Redirects to the old website. Coming soon on here.',
+        placement: 'bottom',
+        animation: 'scale-subtle',
+        theme: 'light-border',
+        delay: [100, 50], 
+    });
+    
 });
 
 
