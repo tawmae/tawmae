@@ -117,8 +117,8 @@
       const excludeAccounts = new Set(
           excludeAccountsParam.split(/\s+/).map(account => account.trim())
       );
-      const wsHost = urlParams.get("ws_host") || "localhost"; 
-      const wsPort = urlParams.get("ws_port") || "8080";
+      const wsHost = urlParams.get("adress") || "localhost"; 
+      const wsPort = urlParams.get("port") || "8080";
 
   
       function connectws() {
