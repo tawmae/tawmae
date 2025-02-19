@@ -64,12 +64,6 @@ header {
   flex: 1;
 }
 
-.header-center {
-  display: flex; 
-  flex-direction: column; 
-  align-items: center;
-}
-
 .header-center>ul>li>a {
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.9);
 }
@@ -354,6 +348,7 @@ header {
 
 .nav-icon {
   vertical-align: middle;
+  margin-bottom: 5px;
   filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
 }
 
