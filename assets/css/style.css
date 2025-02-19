@@ -310,8 +310,8 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 800px; /* Maximale Breite des Carousels auf die Bildgröße anpassen */
-  margin: 0 auto; /* Zentrieren */
+  max-width: 800px;
+  margin: 0 auto; 
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -348,8 +348,11 @@ header {
 
 .nav-icon {
   vertical-align: middle;
-  bottom-margin: 3px;
   filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
+}
+
+.iconify iconify--bi nav-icon {
+  vertical-align: middle;
 }
 
 .nav-icon-child {
