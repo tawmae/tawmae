@@ -323,19 +323,10 @@ header {
 }
 
 .carousel-2 img {
-  width: 100%; /* Skaliert das Bild dynamisch */
+  width: 100%; 
   height: auto;
-  max-width: 800px; /* Beschränkt die maximale Breite auf die Originalgröße */
+  max-width: 800px; 
 }
-
-
-
-
-
-
-
-
-
 
 
 .kofi-button {
@@ -357,6 +348,7 @@ header {
 
 .nav-icon {
   vertical-align: middle;
+  bottom-margin: 3px;
   filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
 }
 
