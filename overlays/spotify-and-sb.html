@@ -187,7 +187,7 @@
         function getNaturalTextWidth(el) { const fontSpec = getFontSpec(el); return measureTextWidth(el.textContent, fontSpec); }
         const p = new URLSearchParams(window.location.search);
         const port = p.get('port') || '8080';
-        const adress = p.get('adress') || '127.0.0.1';
+        const adress = p.get('address') || '127.0.0.1';
         const password = p.get('password') || '';
         const backgroundcolor = p.get('backgroundcolor') || 'linear-gradient(135deg, #2a2a2a 0%, #3b3b3b 100%)';
         const fontcolor = p.get('fontcolor') || '#fff';
