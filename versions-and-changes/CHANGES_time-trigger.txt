@@ -1,1 +1,1 @@
-• Updated the required dll version. Please run the settings UI again after updating.
+• Bumped DLL version to 1.6.2
